@@ -81,11 +81,15 @@ cd ~
 cd minecraftbe
 sudo rm -rf panel
 sudo rm -rf Minecraft-BE-Server-Panel-Admin-Web
+sudo rm -rf index.php
+sudo rm -rf location
+sudo rm -rf misitio.conf
+sudo rm -rf web.sh
 sudo git clone https://github.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web.git
 cd Minecraft-BE-Server-Panel-Admin-Web
 
 echo "======================================================================================="
-Print_Style "Creando directorio panel..." "$CYAN"
+Print_Style "Creando directorios y archivos del panel..." "$CYAN"
 sudo mv panel /home/usr/minecraftbe/
 sudo mv index.php /home/usr/minecraftbe/
 sudo mv location /home/usr/minecraftbe/
@@ -131,7 +135,7 @@ echo "==========================================================================
 sleep 4s
 
 echo "======================================================================================="
-Print_Style "recargando la configuración del servidor web..." "$YELLOW"
+Print_Style "cargando la configuración del servidor web..." "$YELLOW"
 sudo systemctl reload nginx
 sleep 3s
 echo "======================================================================================="
@@ -142,15 +146,14 @@ sleep 3s
 sudo php -v
 echo "======================================================================================="
 
-
 echo "======================================================================================="
-Print_Style "Dirigiendo Pagina Web a Servidor Minecraft..." "$GREEN"
+Print_Style "Sincronizando Pagina Web con el Servidor de Minecraft..." "$GREEN"
 sleep 2s
-
 
 echo "======================================================================================="
 Print_Style "Creando archivo misitio.conf..." "$CYAN"
 sudo rm -rf /etc/nginx/sites-available/misitio.conf
+sleep 2s
 sudo mv minecraftbe/misitio.conf /etc/nginx/sites-available
 
 # Ver la ip del equipo
@@ -164,7 +167,7 @@ Print_Style "Introduzca la IP - IPV4 del servidor: " "$MAGENTA"
 read_with_prompt IPV4 "Puerto IPV4 del servidor"
 echo "========================================================================="
 
-Print_Style "Configurando la pagina web $IPV4/index.html..." "$YELLOW"
+Print_Style "Configurando la pagina web $IPV4/index.php..." "$YELLOW"
 sudo sed -i "s/MiIPV4/$IPV4/g" /etc/nginx/sites-available/misitio.conf
 echo "========================================================================="
 sleep 2s
@@ -209,8 +212,38 @@ Print_Style "Ingresed desde el navegador web con:" "$CYAN"
 Print_Style "http://$IPV4/" "$RED"
 echo "========================================================================="
 echo ""
+echo ""
+echo ""
 echo "()_()"
 echo "(o.o)"
 echo "(   )"
 echo " o o"
+echo ""
+echo ""
+echo ""
+echo ""
+echo ""
+echo ""
+echo ""
+sleep 4s
+
+
+
+
+
+echo "         _ _ _ _ _ _"
+echo "      ._|=|=|=|=|=|=|_._._"
+echo "      |=|_|_|_|_|_|_|=|X|x|"
+echo "        |=|=|=|=|=|_|_|x|X|"
+echo "                  |X|_|_|=|_"
+echo "              ._|X|x|X|_|_|=|"
+echo "            ._|X|x|X| |=|_|=|"
+echo "          ._|X|x|X|   |=|_|=|"
+echo "        ._|X|x|X|     |=|_|=|"
+echo "      ._|X|x|X|       |=|_|=|"
+echo "    ._|X|x|X|           |=|"
+echo "  ._|X|x|X|"
+echo "._|X|x|X|"
+echo "|X|x|X|"
+echo "|X|X|"
 sleep 6s
