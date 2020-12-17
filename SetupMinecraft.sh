@@ -139,11 +139,11 @@ echo "========================================================================="
  echo "========================================================================="
   echo "Tomando panel.sh del repositorio..."
   wget -O panel.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/panel.sh
-  chmod +x panel.sh
+  sudo chmod +x panel.sh
   #sudo sed -i "s:dirname:$DirName:g" panel.sh
   #sudo sed -i "s:servername:$ServerName:g" panel.sh
 
- /bin/bash $dirName/minecraftbe/$ServerName/panel.sh
+ /bin/bash $DirName/minecraftbe/$ServerName/panel.sh
 
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/includes/js/logs.js
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/permisos/permisos.php
@@ -324,11 +324,11 @@ sudo systemctl daemon-reload
  echo "========================================================================="
   echo "Tomando panel.sh del repositorio..."
   wget -O panel.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/panel.sh
-  chmod +x panel.sh
+  sudo chmod +x panel.sh
   #sudo sed -i "s:dirname:$DirName:g" panel.sh
   #sudo sed -i "s:servername:$ServerName:g" panel.sh
 
- /bin/bash $dirName/minecraftbe/$ServerName/panel.sh
+ /bin/bash $DirName/minecraftbe/$ServerName/panel.sh
 
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/includes/js/logs.js
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/permisos/permisos.php

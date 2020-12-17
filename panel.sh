@@ -74,6 +74,28 @@ sudo apt-get install ssh -y
 sudo apt install git -y
 
 
+Print_Style "Configurando el Panel de Administración..." "$GREEN"
+sleep 3s
+
+cd ~
+cd minecraftbe
+sudo rm -rf panel
+sudo rm -rf Minecraft-BE-Server-Panel-Admin-Web
+sudo git clone https://github.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web.git
+cd Minecraft-BE-Server-Panel-Admin-Web
+
+echo "======================================================================================="
+Print_Style "Creando directorio panel..." "$CYAN"
+sudo mv panel /home/usr/minecraftbe/
+sudo mv index.php /home/usr/minecraftbe/
+sudo mv location /home/usr/minecraftbe/
+sudo mv misitio.conf /home/usr/minecraftbe/
+sudo mv web.sh /home/usr/minecraftbe/
+cd ~
+cd minecraftbe
+sleep 4s
+sudo rm -rf Minecraft-BE-Server-Panel-Admin-Web
+
 # Modificar archivo default para integrar el servidio de php
 #cd /
 sudo chmod +x /etc/nginx/sites-available/default
@@ -125,8 +147,10 @@ echo "==========================================================================
 Print_Style "Dirigiendo Pagina Web a Servidor Minecraft..." "$GREEN"
 sleep 2s
 
+
 echo "======================================================================================="
 Print_Style "Creando archivo misitio.conf..." "$CYAN"
+sudo rm -rf /etc/nginx/sites-available/misitio.conf
 sudo mv minecraftbe/misitio.conf /etc/nginx/sites-available
 
 # Ver la ip del equipo
@@ -145,7 +169,6 @@ sudo sed -i "s/MiIPV4/$IPV4/g" /etc/nginx/sites-available/misitio.conf
 echo "========================================================================="
 sleep 2s
 #sudo sh -c "echo '$IPV4' >> minecraftbe/server.ip"
-
 
 echo "========================================================================="
 Print_Style "Habilitando sitio añadido..." "$CYAN"
@@ -175,24 +198,19 @@ Print_Style "Reiniciando Servidor Web... " "$MAGENTA"
 sudo systemctl restart nginx
 echo "========================================================================="
 
+echo "."
+echo "."
 
-Print_Style "Configurando el Panel de Administración..." "$GREEN"
-
-cd ~
-cd minecraftbe
-sudo rm -rf panel
-sudo rm -rf Minecraft-BE-Server-Panel-Admin-Web
-sudo git clone https://github.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web.git
-cd Minecraft-BE-Server-Panel-Admin-Web
-
-echo "======================================================================================="
-Print_Style "Creando directorio panel..." "$CYAN"
-sudo mv panel /home/usr/minecraftbe/
-sudo mv index.php /home/usr/minecraftbe/
-sudo mv location /home/usr/minecraftbe/
-sudo mv misitio.conf /home/usr/minecraftbe/
-sudo mv web.sh /home/usr/minecraftbe/
-cd ~
-cd minecraftbe
-sleep 4s
-sudo rm -rf Minecraft-BE-Server-Panel-Admin-Web
+echo "========================================================================="
+Print_Style "PANEL DE ADMINISTRACIÓN WEB CREADO" "$GREEN"
+echo "========================================================================="
+echo "========================================================================="
+Print_Style "Ingresed desde el navegador web con:" "$CYAN"
+Print_Style "http://$IPV4/" "$RED"
+echo "========================================================================="
+echo ""
+echo "()_()"
+echo "(o.o)"
+echo "(   )"
+echo " o o"
+sleep 6s
