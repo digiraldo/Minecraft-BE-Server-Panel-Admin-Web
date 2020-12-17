@@ -22,7 +22,7 @@ function crearUsuario($data){
     
     $data['ignoresPlayerLimit'] = false;
     $usuarios = obtenerUsuarios();
-    $data['xuid'] = uuid['name'];
+    //$data['xuid'] = $permiso['xuid'];
     $usuarios[] = $data;
     ponerJson ($usuarios);
 }

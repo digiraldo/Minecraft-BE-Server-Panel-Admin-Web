@@ -15,7 +15,8 @@
                         <label for="my-input">Id xuid</label>
                         <input id="my-input" value="<?php echo $usuarioN['xuid'] ?>" class="form-control" type="text" name="xuid">
                     </div>
-                <button type="submit" class="btn btn-primary">Actualizar</button>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+                <a href="index.php" type="submit" class="btn btn-danger">Cerrar</a>
             </form>
             </div>
     </div>
