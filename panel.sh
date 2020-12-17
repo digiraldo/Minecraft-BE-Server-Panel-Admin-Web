@@ -153,6 +153,7 @@ sleep 2s
 echo "======================================================================================="
 Print_Style "Creando archivo misitio.conf..." "$CYAN"
 sudo rm -rf /etc/nginx/sites-available/misitio.conf
+sudo rm -rf /etc/nginx/sites-enabled/misitio.conf
 sleep 2s
 sudo mv minecraftbe/misitio.conf /etc/nginx/sites-available
 
@@ -230,9 +231,9 @@ echo "  ._|X|x|X|"
 echo "._|X|x|X|"
 echo "|X|x|X|"
 echo "|X|X|"
+echo ""
+echo ""
+echo ""
+echo ""
 sleep 6s
-echo ""
-echo ""
-echo ""
-echo ""
 echo ""

@@ -73,7 +73,7 @@ echo "==========================SERVIDORES MONTADOS============================"
 ls -l
 echo "========================================================================="
 echo "Ingrese un nombre corto para el servidor nuevo o existente..."
-echo "Se utilizará como nombre de la carpeta y el nombre del servicio..."
+echo "Se utilizará como nombre de la carpeta y el nombre del servidor..."
 echo "========================================================================="
 read_with_prompt ServerName "Nombre de Servidor"
 
