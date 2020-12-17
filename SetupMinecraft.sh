@@ -100,7 +100,10 @@ echo "========================================================================="
   sudo rm -rf location
   sudo rm -rf misitio.conf
   sudo rm -rf web.sh
-
+  echo "==========================VERIFICAR DIRECTORIOS=========================="
+  ls -l
+  echo "========================================================================="
+  sleep 6S
   cd ~
   cd minecraftbe
   cd $ServerName
