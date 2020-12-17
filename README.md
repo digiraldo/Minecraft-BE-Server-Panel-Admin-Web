@@ -37,8 +37,8 @@ chmod +x SetupMinecraft.sh
 INSTALACION DE MINECRAFT BEDROCK EDITION SERVER CON PANEL DE ADMINISTRACIÓN (Beta)
 
 ```
-sudo wget https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/SetupMinecraft.sh
-sudo chmod +x SetupMinecraft.sh
+wget https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/SetupMinecraft.sh
+chmod +x SetupMinecraft.sh
 ./SetupMinecraft.sh
 ```
 
