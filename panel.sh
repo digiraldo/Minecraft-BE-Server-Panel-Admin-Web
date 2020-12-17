@@ -214,23 +214,7 @@ echo "========================================================================="
 echo ""
 echo ""
 echo ""
-echo "()_()"
-echo "(o.o)"
-echo "(   )"
-echo " o o"
 echo ""
-echo ""
-echo ""
-echo ""
-echo ""
-echo ""
-echo ""
-sleep 4s
-
-
-
-
-
 echo "         _ _ _ _ _ _"
 echo "      ._|=|=|=|=|=|=|_._._"
 echo "      |=|_|_|_|_|_|_|=|X|x|"
@@ -247,3 +231,8 @@ echo "._|X|x|X|"
 echo "|X|x|X|"
 echo "|X|X|"
 sleep 6s
+echo ""
+echo ""
+echo ""
+echo ""
+echo ""
