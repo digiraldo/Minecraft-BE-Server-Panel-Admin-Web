@@ -81,7 +81,7 @@ echo "========================================================================="
 if [ -d "$ServerName" ]; then
   echo "¡El directorio minecraftbe/$ServerName ya existe!  Actualizando scripts y configurando el servicio..."
 echo "========================================================================="
-speed 4s
+sleep 4s
   # Obtener la ruta del directorio de inicio y el nombre de usuario
   DirName=$(readlink -e ~)
   UserName=$(whoami)
@@ -106,7 +106,7 @@ echo "========================================================================="
   sleep 2s
   ls -l
   echo "========================================================================="
-  sleep 6S
+  sleep 6s
   cd ~
   cd minecraftbe
   cd $ServerName
