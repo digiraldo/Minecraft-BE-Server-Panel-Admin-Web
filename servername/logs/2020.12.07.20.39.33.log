@@ -1,0 +1,13 @@
+NO LOG FILE! - setting up server logging...
+[2020-12-07 20:39:40 INFO] Starting Server
+[2020-12-07 20:39:40 INFO] Version 1.16.101.1
+[2020-12-07 20:39:40 INFO] Session ID 51879067-dbb8-4eb9-b1b1-969778b3a966
+[2020-12-07 20:39:40 INFO] Level Name: Parceros
+[2020-12-07 20:39:40 INFO] Game mode: 0 Survival
+[2020-12-07 20:39:40 INFO] Difficulty: 1 EASY
+[INFO] opening worlds/Parceros/db
+[INFO] IPv4 supported, port: 19132
+[INFO] IPv6 supported, port: 19133
+[INFO] IPv4 supported, port: 59439
+[INFO] IPv6 supported, port: 33712
+[INFO] Server started.

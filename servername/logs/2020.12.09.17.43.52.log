@@ -1,0 +1,26 @@
+NO LOG FILE! - setting up server logging...
+[2020-12-09 17:43:52 INFO] Starting Server
+[2020-12-09 17:43:52 INFO] Version 1.16.200.2
+[2020-12-09 17:43:52 INFO] Session ID 4b98062b-c7bd-4b65-ba2d-9c9fa28404a6
+[2020-12-09 17:43:52 INFO] Level Name: Parceros
+[2020-12-09 17:43:53 INFO] Game mode: 0 Survival
+[2020-12-09 17:43:53 INFO] Difficulty: 1 EASY
+[INFO] opening worlds/Parceros/db
+[INFO] IPv4 supported, port: 19132
+[INFO] IPv6 supported, port: 19133
+[INFO] IPv4 supported, port: 35518
+[INFO] IPv6 supported, port: 35912
+[INFO] Server started.
+say El Servidor se reinicia en 30 Segundos, GUARDA TU PARTIDA! 
+say Reiniciando en 7 Segundos! 
+say Reiniciando en 6 Segundos! 
+say Reiniciando en 5 Segundos! 
+say Reiniciando en 4 Segundos! 
+say Reiniciando en 3 Segundos! 
+say Reiniciando en 2 Segundos! 
+say Reiniciando en 1 Segundos! 
+say Reiniciando servidor...
+stop
+[INFO] Server stop requested.
+[INFO] Stopping server...
+Quit correctly

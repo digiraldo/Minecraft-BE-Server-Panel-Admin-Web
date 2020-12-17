@@ -1,0 +1,19 @@
+NO LOG FILE! - setting up server logging...
+[2020-12-09 17:37:20 INFO] Starting Server
+[2020-12-09 17:37:20 INFO] Version 1.16.200.2
+[2020-12-09 17:37:20 INFO] Session ID 3a18703d-8a69-4997-a82c-26d54b398cee
+[2020-12-09 17:37:20 INFO] Level Name: Parceros
+[2020-12-09 17:37:20 INFO] Game mode: 0 Survival
+[2020-12-09 17:37:20 INFO] Difficulty: 1 EASY
+[INFO] opening worlds/Parceros/db
+[INFO] IPv4 supported, port: 19132
+[INFO] IPv6 supported, port: 19133
+[INFO] IPv4 supported, port: 47112
+[INFO] IPv6 supported, port: 52591
+[INFO] Server started.
+[INFO] Running AutoCompaction...
+say Servidor detenido o cerrado (stop.sh called)...
+stop
+[INFO] Server stop requested.
+[INFO] Stopping server...
+Quit correctly

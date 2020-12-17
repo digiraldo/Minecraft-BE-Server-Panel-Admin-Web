@@ -1,0 +1,34 @@
+NO LOG FILE! - setting up server logging...
+[2020-12-07 19:44:48 INFO] Starting Server
+[2020-12-07 19:44:48 INFO] Version 1.16.101.1
+[2020-12-07 19:44:48 INFO] Session ID 1c8c1a08-d2b6-4b39-bcf9-28275dfb8a33
+[2020-12-07 19:44:48 INFO] Level Name: Parceros
+[2020-12-07 19:44:48 INFO] Game mode: 0 Survival
+[2020-12-07 19:44:48 INFO] Difficulty: 1 EASY
+[INFO] opening worlds/Parceros/db
+[INFO] IPv4 supported, port: 19132
+[INFO] IPv6 supported, port: 19133
+[INFO] IPv4 supported, port: 37914
+[INFO] IPv6 supported, port: 59321
+[INFO] Server started.
+whitelist add disaned       gorobeta
+Player added to whitelist
+whitelist add disaned
+Player added to whitelist
+whitelist add masdesandra
+Player added to whitelist
+^P  [INFO] Player connected: disaned, xuid: 2533274867672998
+[INFO] Player disconnected: disaned, xuid: 2533274867672998
+say El Servidor se reinicia en 30 Segundos, GUARDA TU PARTIDA! 
+say Reiniciando en 7 Segundos! 
+say Reiniciando en 6 Segundos! 
+say Reiniciando en 5 Segundos! 
+say Reiniciando en 4 Segundos! 
+say Reiniciando en 3 Segundos! 
+say Reiniciando en 2 Segundos! 
+say Reiniciando en 1 Segundos! 
+say Reiniciando servidor...
+stop
+[INFO] Server stop requested.
+[INFO] Stopping server...
+Quit correctly
