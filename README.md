@@ -29,17 +29,17 @@ Una vez tenga su Computador o Servidor Virtual VPS, Inicie sesión en su servido
 INSTALACION DE MINECRAFT BEDROCK EDITION SERVER SIN PANEL DE ADMINISTRACIÓN
 
 ```
-wget https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server/main/SetupMinecraft.sh  
-chmod +x SetupMinecraft.sh  
+wget https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server/main/SetupMinecraft.sh
+chmod +x SetupMinecraft.sh
 ./SetupMinecraft.sh
 ```
 
 INSTALACION DE MINECRAFT BEDROCK EDITION SERVER CON PANEL DE ADMINISTRACIÓN (Beta)
 
 ```
-sudo wget https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/SetupMinecraft.sh  
-sudo chmod +x SetupMinecraft.sh  
-./SetupMinecraft.sh*
+sudo wget https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/SetupMinecraft.sh
+sudo chmod +x SetupMinecraft.sh
+./SetupMinecraft.sh
 ```
 
 El script configurará el servidor de Minecraft y le hará algunas preguntas sobre cómo configurarlo. Explicaré aquí lo que significan.
