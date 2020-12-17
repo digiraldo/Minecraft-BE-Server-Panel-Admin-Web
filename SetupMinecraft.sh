@@ -91,7 +91,7 @@ speed 4s
   echo "El directorio del servidor es: $DirName/minecraftbe/$ServerName"
 echo "========================================================================="
   # Eliminar scripts existentes
-  sudo rm -rf start.sh stop.sh restart.sh cloud.sh back.sh panel.sh
+  sudo rm -rf start.sh stop.sh restart.sh cloud.sh back.sh panel.sh config.sh
   cd ~
   cd minecraftbe
   sudo rm -rf panel
