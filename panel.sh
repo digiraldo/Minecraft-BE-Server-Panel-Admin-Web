@@ -79,12 +79,12 @@ sleep 3s
 
 cd ~
 cd minecraftbe
-sudo rm -rf panel
-sudo rm -rf Minecraft-BE-Server-Panel-Admin-Web
-sudo rm -rf index.php
-sudo rm -rf location
-sudo rm -rf misitio.conf
-sudo rm -rf web.sh
+#sudo rm -rf panel
+#sudo rm -rf Minecraft-BE-Server-Panel-Admin-Web
+#sudo rm -rf index.php
+#sudo rm -rf location
+#sudo rm -rf misitio.conf
+#sudo rm -rf web.sh
 sudo git clone https://github.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web.git
 cd Minecraft-BE-Server-Panel-Admin-Web
 

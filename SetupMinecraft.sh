@@ -92,7 +92,18 @@ speed 4s
 echo "========================================================================="
   # Eliminar scripts existentes
   sudo rm -rf start.sh stop.sh restart.sh cloud.sh back.sh panel.sh
+  cd ~
+  cd minecraftbe
+  sudo rm -rf panel
+  sudo rm -rf Minecraft-BE-Server-Panel-Admin-Web
+  sudo rm -rf index.php
+  sudo rm -rf location
+  sudo rm -rf misitio.conf
+  sudo rm -rf web.sh
 
+  cd ~
+  cd minecraftbe
+  cd $ServerName
   # Descarga start.sh desde el repositorio
   echo "Tomando start.sh del repositorio..."
   wget -O start.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server/main/start.sh
