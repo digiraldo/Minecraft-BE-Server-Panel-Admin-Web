@@ -17,28 +17,6 @@ $usuarioN = obtenerUsuarioPorName($usuarioName);
     }
 ?>
 
-<div class="container-fluid">
-<div class="card">
-    <div class="card-body">
-        <h5 class="card-title"><i class="fas fa-user-edit"></i> Editar Usuario: <b><?php echo $usuarioN['name'] ?></b></h5>
-        <div class="section">
-        <table id="tablaUsuarios" class="table table-striped table-bordered" style="width:100%">
-        <tbody>
-            <tr>
-                <th scope="col">Nombre:</th>
-                <td><?php echo $usuarioN['name'] ?></td>
-            </tr>
-            <tr>
-                <th scope="col">Id xuid:</th>
-                <td><?php echo $usuarioN['xuid'] ?></td>
-            </tr>
-        </tbody>
-        </table>
-        </div>
-    </div>
-</div>
-</div>
-
 
 
 <!doctype html>
@@ -53,7 +31,32 @@ $usuarioN = obtenerUsuarioPorName($usuarioName);
   <body>
 
 
-
+  <div class="container-fluid">
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title"><i class="fas fa-user-edit"></i> Editar Usuario: <b><?php echo $usuarioN['name'] ?></b></h5>
+        <div class="section">
+        <table id="tablaUsuarios" class="table table-striped table-bordered" style="width:100%">
+        <tbody>
+            <tr>
+                <th scope="col">Nombre:</th>
+                <td><?php echo $usuarioN['name'] ?></td>
+            </tr>
+            <tr>
+                <th scope="col">Nivel de Permiso:</th>
+                <td><?php echo $usuarioN['permission'] ?></td>
+            </tr>
+            <tr>
+                <th scope="col">Id xuid:</th>
+                <td><?php echo $usuarioN['xuid'] ?></td>
+            </tr>
+        </tbody>
+        </table>
+        </div>
+    </div>
+    <a href="index.php" type="submit" class="btn btn-danger">Cerrar</a>
+</div>
+</div>
 
 
 

@@ -4,6 +4,7 @@ require __DIR__.'/usuarios.php';
 
 $usuarioN = [
     'name' => '',
+    'permission' => '',
     'xuid' => '',
 ];
 

@@ -92,24 +92,31 @@
             <thead>
               <tr>
                 <th scope="col">Gamertag</th>
-              <!--  <th scope="col">Id usuario (XUID)</th> -->
+                <th scope="col">Nivel de permiso</th>
                 <th scope="col">Acciones</th>
               </tr>
             </thead>
 		      <tbody>
               <?php foreach ($usuarios as $usuario): ?>
                 <tr>
-                  <td><a href="# " data-toggle="tooltip" data-placement="left" title="<i class='fas fa-id-card'></i> Usuario XUID<br><?php echo $usuario['xuid']; ?>"><?php echo $usuario['name']; ?></a></td>
-              <!--     <td><?php echo $usuario['xuid'] ?></td> -->
+                  <td>
+                  <a href="# " data-toggle="tooltip" data-placement="right" 
+                  title="<i class='fas fa-user-tag'></i> Permiso<br><?php echo $usuario['permission']; ?>">
+                  <?php echo $usuario['name']; ?></a>
+                  </td>
+
+                  <td>
+                  <a href="# " data-toggle="tooltip" data-placement="left"
+                  title="<i class='fas fa-id-card'></i> Usuario XUID<br><?php echo $usuario['xuid']; ?>">
+                  <?php echo $usuario['permission'] ?></td>
+                  <!--<td><?php echo $usuario['permission'] ?></td> -->
 
                   <!-- Botones en Acciones -->
                   <td>
-
                   
                   <a href="editar.php?name=<?php echo $usuario['name'] ?>" value="Seleccionar" data-toggle="tooltip" data-placement="top" title="Ver" type="submit" class="btn btn-warning btn-sm" name="accion"><i class="fas fa-eye"></i></a>
                   <a href="actualizar.php?name=<?php echo $usuario['name'] ?>" value="Seleccionar" data-toggle="tooltip" data-placement="top" title="Editar" type="submit" class="btn btn-info btn-sm" name="accion"><i class="fas fa-pencil-alt"></i></a>
                   <a href="eliminar.php?name=<?php echo $usuario['name'] ?>" value="btnEliminar" data-toggle="tooltip" data-placement="top" title="Eliminar" onclick="return Confirmar('Realmente desea eliminar a este Jugador del Servidor servername? :(');" type="submit" class="btn btn-danger btn-sm" name="accion"><i class="fas fa-trash-alt"></i></a>
-
                     
 
                   </td>
