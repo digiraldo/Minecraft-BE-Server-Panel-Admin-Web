@@ -1,4 +1,6 @@
-# Minecraft Bedrock Edition Server
+# Minecraft Bedrock Edition Server con Panel de Administración Web v1.0
+
+## El Panel de Administración esta en Desarrollo, funcional con la administracion de usuarios
 
 ## Instalar Servidor Dedicado de Minecraft Bedrock Edition
 
@@ -24,16 +26,18 @@ Se recomienda usar Ubuntu Server para ejecutar el servidor dedicado de Minecraft
 
 Una vez tenga su Computador o Servidor Virtual VPS, Inicie sesión en su servidor Linux usando SSH con un mouse y teclado copie y pegue el siguiente comando:
 
+INSTALACION DE MINECRAFT BEDROCK EDITION SERVER SIN PANEL DE ADMINISTRACIÓN
+
 ```
 wget https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server/main/SetupMinecraft.sh  
 chmod +x SetupMinecraft.sh  
 ./SetupMinecraft.sh
 ```
 
-Si no instala intente proporcionando acceso administrativo con `sudo` así:
+INSTALACION DE MINECRAFT BEDROCK EDITION SERVER CON PANEL DE ADMINISTRACIÓN (Beta)
 
 ```
-sudo wget https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server/main/SetupMinecraft.sh  
+sudo wget https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/SetupMinecraft.sh  
 sudo chmod +x SetupMinecraft.sh  
 ./SetupMinecraft.sh*
 ```
