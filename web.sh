@@ -172,20 +172,9 @@ Print_Style "Reiniciando Servidor Web... " "$MAGENTA"
 sudo systemctl restart nginx
 echo "========================================================================="
 
-cd ~
-cd minecraftbe
-sudo git clone https://github.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web.git
-cd Minecraft-BE-Server-Panel-Admin-Web
-
-echo "======================================================================================="
-Print_Style "Creando directorio panel..." "$CYAN"
-sudo mv panel /home/usr/minecraftbe
-cd ..
-sleep 4s
-sudo rm -rf Minecraft-BE-Server-Panel-Admin-Web
 
 
 
 
 
-wget -O restart.sh  
+
