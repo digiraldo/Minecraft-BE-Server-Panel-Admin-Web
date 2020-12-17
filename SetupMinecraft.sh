@@ -92,6 +92,7 @@ speed 4s
 echo "========================================================================="
   # Eliminar scripts existentes
   sudo rm -rf start.sh stop.sh restart.sh cloud.sh back.sh panel.sh config.sh
+  sleep 2s
   cd ~
   cd minecraftbe
   sudo rm -rf panel
@@ -100,7 +101,9 @@ echo "========================================================================="
   sudo rm -rf location
   sudo rm -rf misitio.conf
   sudo rm -rf web.sh
+  
   echo "==========================VERIFICAR DIRECTORIOS=========================="
+  sleep 2s
   ls -l
   echo "========================================================================="
   sleep 6S
