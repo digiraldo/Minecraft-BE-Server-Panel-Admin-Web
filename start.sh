@@ -32,6 +32,10 @@ if [ -d "worlds" ]; then
     sudo tar -pzvcf backups/$(date +%d.%m.%Y_%H.%M.%S_servername).tar.gz worlds
 fi
 
+# Rotar copias de seguridad - mantener las 10 más recientes
+ls -1tr | head -n -10 | xargs -d '\n' rm -f --
+
+
 # Iniciar o comprobar inicio de Fuse en RClone
 echo "========================================================================="
 if [ -d dirname/cloudname/foldername/ ];
@@ -85,10 +89,16 @@ else
     else
         echo "Nueva versión $DownloadFile está disponible.  Actualizando Servidor de Minecraft Bedrock ..."
         wget -O "downloads/$DownloadFile" "$DownloadURL"
-        unzip -o "downloads/$DownloadFile" -x "*server.properties*" "*permissions.json*" "*whitelist.json*"
+        unzip -o "downloads/$DownloadFile" -x "*server.properties*" "*permissions.json*" "*whitelist.json*" "*valid_known_packs.json*"
     fi
 fi
 
 echo "Iniciando el servidor de Minecraft. Para ver el inicio, escriba en el terminal: screen -r servername"
 echo "Para minimizar la ventana y dejar que el servidor se ejecute en segundo plano, presione Ctrl+A luego Ctrl+D"
-screen -L -Logfile logs/$(date +%Y.%m.%d.%H.%M.%S).log -dmS servername /bin/bash -c "LD_LIBRARY_PATH=dirname/minecraftbe/servername dirname/minecraftbe/servername/bedrock_server"
+#screen -L -Logfile logs/$(date +%Y.%m.%d.%H.%M.%S).log -dmS servername /bin/bash -c "LD_LIBRARY_PATH=dirname/minecraftbe/servername dirname/minecraftbe/servername/bedrock_server"
+# screen command to spawn log files in logs/ directory never checked to see if a directory named logs/ exists. Now we check and create one if it doesn't
+if [ ! -d "logs/" ]
+then
+	mkdir logs
+fi
+screen -L -Logfile logs/servername.$(date +%Y.%m.%d.%H.%M.%S).log -dmS servername /bin/bash -c "LD_LIBRARY_PATH=dirname/minecraftbe/servername dirname/minecraftbe/servername/bedrock_server"

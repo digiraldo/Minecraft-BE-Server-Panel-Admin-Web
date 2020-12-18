@@ -53,6 +53,7 @@ function read_with_prompt {
     echo -n "$prompt : ${!variable_name} -- aceptar? (y/n)"
     read answer < /dev/tty
     if [ "$answer" == "${answer#[Yy]}" ]; then
+    if [ "$answer" != "${answer#[Yy]}" ]; then
       unset $variable_name
     else
       echo "$prompt: ${!variable_name}"
@@ -281,7 +282,7 @@ if [[ "$CPUArch" == *"aarch"* || "$CPUArch" == *"arm"* ]]; then
   unzip depends.zip
   sudo mkdir /lib64
   # Cree un enlace flexible ld-linux-x86-64.so.2 mapeado a ld-2.28.so
-  sudo ln -s ~/minecraftbe/$ServerName/ld-2.28.so /lib64/ld-linux-x86-64.so.2
+  sudo ln -s ~/minecraftbe/$ServerName/ld-2.31.so /lib64/ld-linux-x86-64.so.2
 fi
 
 # Recupere la última versión del servidor dedicado Minecraft Bedrock
