@@ -201,7 +201,7 @@ echo "========================================================================="
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/index.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/index.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/usuarios.php
-  sudo sed -i "s:dirname:$dirName:g" /etc/nginx/sites-available/misitio.conf
+  sudo sed -i "s:dirname:$DirName:g" /etc/nginx/sites-available/misitio.conf
 
   echo -n "¿Iniciar el servidor de Minecraft automáticamente? (y/n)?"
   read answer < /dev/tty
@@ -376,7 +376,7 @@ sudo systemctl daemon-reload
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/index.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/index.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/usuarios.php
-  sudo sed -i "s:dirname:$dirName:g" /etc/nginx/sites-available/misitio.conf
+  sudo sed -i "s:dirname:$DirName:g" /etc/nginx/sites-available/misitio.conf
 
 echo "========================================================================="
 echo -n "¿Iniciar el servidor de Minecraft automáticamente? (y/n)?"
