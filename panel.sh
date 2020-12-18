@@ -158,7 +158,7 @@ Print_Style "Creando archivo misitio.conf..." "$CYAN"
 sudo rm -rf /etc/nginx/sites-available/misitio.conf
 sudo rm -rf /etc/nginx/sites-enabled/misitio.conf
 sleep 2s
-sudo mv minecraftbe/misitio.conf /etc/nginx/sites-available
+sudo mv dirname/minecraftbe/misitio.conf /etc/nginx/sites-available
 
 # Ver la ip del equipo
 Print_Style "Direccion IP del Servidor..." "$RED"

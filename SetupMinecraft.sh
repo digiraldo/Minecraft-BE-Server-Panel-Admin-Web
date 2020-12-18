@@ -90,7 +90,7 @@ else
 fi
 
 # Configuración del nombre del servidor
-Print_Style "==========================SERVIDORES MONTADOS============================" "$BLUE"
+Print_Style "==================DIRECTORIOS Y ARCHIVOS MONTADOS========================" "$BLUE"
 ls -l
 Print_Style "=========================================================================" "$BLUE"
 echo "Ingrese un nombre corto para el servidor nuevo o existente..."
@@ -138,8 +138,8 @@ echo "========================================================================="
   echo "Tomando panel.sh del repositorio..."
   wget -O panel.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/panel.sh
   sudo chmod +x panel.sh
-  #sudo sed -i "s:dirname:$DirName:g" panel.sh
-  #sudo sed -i "s:servername:$ServerName:g" panel.sh
+  sudo sed -i "s:dirname:$DirName:g" panel.sh
+  sudo sed -i "s:servername:$ServerName:g" panel.sh
 
  /bin/bash $DirName/minecraftbe/$ServerName/panel.sh
 
