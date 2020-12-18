@@ -67,9 +67,11 @@ fi
 sudo apt update
 sudo apt install nginx -y
 sudo apt install -y software-properties-common
+sudo add-apt-repository universe -ya
 #sudo add-apt-repository ppa:ondrej/php
-#sudo apt -y install libapache2-mod-php
-sudo apt-get install php7.4 -y
+sudo apt -y install libapache2-mod-php
+sudo apt update && sudo apt install php-fpm -y
+#sudo apt-get install php7.4 -y
 sudo apt-get install ssh -y
 sudo apt install git -y
 
