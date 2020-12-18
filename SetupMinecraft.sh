@@ -141,20 +141,6 @@ echo "========================================================================="
   sudo sed -i "s:dirname:$DirName:g" panel.sh
   sudo sed -i "s:servername:$ServerName:g" panel.sh
 
- /bin/bash $DirName/minecraftbe/$ServerName/panel.sh
-
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/includes/js/logs.js
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/permisos/permisos.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/propiedades/propiedades.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/index.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/index.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/usuarios.php
-  sudo sed -i "s:dirname:$dirName:g" /etc/nginx/sites-available/misitio.conf
-
-  cd ~
-  cd minecraftbe
-  cd $ServerName
-
   # Descarga start.sh desde el repositorio
   echo "Tomando start.sh del repositorio..."
   wget -O start.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server/main/start.sh
@@ -210,6 +196,16 @@ echo "========================================================================="
   read answer < /dev/tty
   if [ "$answer" != "${answer#[Yy]}" ]; then
     sudo systemctl enable $ServerName.service
+
+  /bin/bash $DirName/minecraftbe/$ServerName/panel.sh
+
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/includes/js/logs.js
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/permisos/permisos.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/propiedades/propiedades.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/index.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/index.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/usuarios.php
+  sudo sed -i "s:dirname:$dirName:g" /etc/nginx/sites-available/misitio.conf
 
     # Reinicio automático configurado a las 4 am
     echo "========================================================================="
@@ -308,18 +304,8 @@ unzip -o "downloads/$DownloadFile"
   echo "Tomando panel.sh del repositorio..."
   wget -O panel.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/panel.sh
   sudo chmod +x panel.sh
-  #sudo sed -i "s:dirname:$DirName:g" panel.sh
-  #sudo sed -i "s:servername:$ServerName:g" panel.sh
-
- /bin/bash $DirName/minecraftbe/$ServerName/panel.sh
-
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/includes/js/logs.js
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/permisos/permisos.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/propiedades/propiedades.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/index.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/index.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/usuarios.php
-  sudo sed -i "s:dirname:$dirName:g" /etc/nginx/sites-available/misitio.conf
+  sudo sed -i "s:dirname:$DirName:g" panel.sh
+  sudo sed -i "s:servername:$ServerName:g" panel.sh
 
 # Descarga start.sh desde el repositorio
 echo "========================================================================="
@@ -381,6 +367,16 @@ sudo sed -i "s:servername:$ServerName:g" /etc/systemd/system/$ServerName.service
 sudo sed -i "/server-name=/c\server-name=$ServerName" server.properties
 sudo systemctl daemon-reload
 
+ /bin/bash $DirName/minecraftbe/$ServerName/panel.sh
+
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/includes/js/logs.js
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/permisos/permisos.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/propiedades/propiedades.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/index.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/index.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/usuarios.php
+  sudo sed -i "s:dirname:$dirName:g" /etc/nginx/sites-available/misitio.conf
+
 echo "========================================================================="
 echo -n "¿Iniciar el servidor de Minecraft automáticamente? (y/n)?"
 read answer < /dev/tty
@@ -432,6 +428,10 @@ if ! screen -list | grep -q "$ServerName"; then
 else
   echo "El servidor de Minecraft se ha iniciado.  Escribe (screen -r $ServerName) para ver el servidor en ejecución!"
 fi
+
+cd ~
+cd minecraftbe
+cd $ServerName
 echo "========================================================================="
 echo "========================================================================="
 echo "================CONFIGURACION PREDETERMINADA DEL SERVIDOR================"
