@@ -3,12 +3,30 @@
         "name": "disaned",
         "xuid": "12854695235478",
         "ignoresPlayerLimit": false,
-        "permission": "member"
+        "permission": "operator"
     },
     {
         "name": "zedyer",
         "permission": "member",
         "xuid": "321456",
+        "ignoresPlayerLimit": false
+    },
+    {
+        "name": "pepito",
+        "xuid": "12854695235478",
+        "ignoresPlayerLimit": false,
+        "permission": "visitor"
+    },
+    {
+        "name": "juanitoabichuchu",
+        "permission": "member",
+        "xuid": "123456789",
+        "ignoresPlayerLimit": false
+    },
+    {
+        "name": "ed y edy",
+        "permission": "visitor",
+        "xuid": "258852",
         "ignoresPlayerLimit": false
     }
 ]
