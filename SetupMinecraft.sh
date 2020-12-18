@@ -192,10 +192,6 @@ echo "========================================================================="
   sudo sed -i "s:servername:$ServerName:g" /etc/systemd/system/$ServerName.service
   sudo sed -i "/server-name=/c\server-name=$ServerName" server.properties
   sudo systemctl daemon-reload
-  echo -n "¿Iniciar el servidor de Minecraft automáticamente? (y/n)?"
-  read answer < /dev/tty
-  if [ "$answer" != "${answer#[Yy]}" ]; then
-    sudo systemctl enable $ServerName.service
 
   /bin/bash $DirName/minecraftbe/$ServerName/panel.sh
 
@@ -206,6 +202,11 @@ echo "========================================================================="
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/index.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/usuarios.php
   sudo sed -i "s:dirname:$dirName:g" /etc/nginx/sites-available/misitio.conf
+
+  echo -n "¿Iniciar el servidor de Minecraft automáticamente? (y/n)?"
+  read answer < /dev/tty
+  if [ "$answer" != "${answer#[Yy]}" ]; then
+    sudo systemctl enable $ServerName.service
 
     # Reinicio automático configurado a las 4 am
     echo "========================================================================="

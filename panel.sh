@@ -127,6 +127,8 @@ r location
 d}' /etc/nginx/sites-available/default
 sleep 4s
 
+sudo rm -rf  /home/usr/minecraftbe/location
+
 echo "======================================================================================="
 Print_Style "Obteniendo Resultados..." "$MAGENTA"
 sleep 2s
