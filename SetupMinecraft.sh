@@ -53,7 +53,6 @@ function read_with_prompt {
     echo -n "$prompt : ${!variable_name} -- aceptar? (y/n)"
     read answer < /dev/tty
     if [ "$answer" == "${answer#[Yy]}" ]; then
-    if [ "$answer" != "${answer#[Yy]}" ]; then
       unset $variable_name
     else
       echo "$prompt: ${!variable_name}"
