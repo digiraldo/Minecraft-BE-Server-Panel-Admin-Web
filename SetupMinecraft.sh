@@ -151,6 +151,10 @@ echo "========================================================================="
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/usuarios.php
   sudo sed -i "s:dirname:$dirName:g" /etc/nginx/sites-available/misitio.conf
 
+  cd ~
+  cd minecraftbe
+  cd $ServerName
+
   # Descarga start.sh desde el repositorio
   echo "Tomando start.sh del repositorio..."
   wget -O start.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server/main/start.sh
