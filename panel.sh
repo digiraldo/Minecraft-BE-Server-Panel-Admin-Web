@@ -103,41 +103,7 @@ cd minecraftbe
 sleep 4s
 sudo rm -rf Minecraft-BE-Server-Panel-Admin-Web
 
-# Modificar archivo default para integrar el servidio de php
-#cd /
-sudo chmod +x /etc/nginx/sites-available/default
-echo "======================================================================================="
-echo "======================================================================================="
-Print_Style "Agreando index.php a Ngnix..." "$GREEN"
-sleep 1s
-echo "======================================================================================="
-#sudo sed -i "s/# Allow non-root users to specify the allow_other or allow_root mount options./ Allow non-root users to specify the allow_other or allow_root mount options./g" >
-sudo sed -i "s/index index.html index.htm index.nginx-debian.html;/index index.html index.php index.htm index.nginx-debian.html;/g" /etc/nginx/sites-available/default
-sudo sed -n "/# Add index.php to/p" /etc/nginx/sites-available/default
-sudo sed -n "/index index.html index.php index.htm index.nginx-debian.html;/p" /etc/nginx/sites-available/default
-echo "======================================================================================="
-sleep 2s
-echo "======================================================================================="
 
-Print_Style "Configurando location de PHP en Ngnix..." "$GREEN"
-sleep 1s
-
-sudo sed -i '/# pass PHP scripts to FastCGI server/ {
-r location
-d}' /etc/nginx/sites-available/default
-sleep 4s
-
-sudo rm -rf  /home/usr/minecraftbe/location
-
-echo "======================================================================================="
-Print_Style "Obteniendo Resultados..." "$MAGENTA"
-sleep 2s
-sudo sed -n "/# pass PHP scripts/p" /etc/nginx/sites-available/default
-sudo sed -n "/location ~ /p" /etc/nginx/sites-available/default
-sudo sed -n "/include snippets\/fastcgi-php.conf;/p" /etc/nginx/sites-available/default
-sudo sed -n "/fastcgi_pass unix:\/var\/run\/php\/php7.4-fpm.sock;/p" /etc/nginx/sites-available/default
-echo "======================================================================================="
-sleep 4s
 
 echo "======================================================================================="
 Print_Style "cargando la configuración del servidor web..." "$YELLOW"
@@ -159,6 +125,8 @@ echo "==========================================================================
 Print_Style "Creando archivo misitio.conf..." "$CYAN"
 sudo rm -rf /etc/nginx/sites-available/misitio.conf
 sudo rm -rf /etc/nginx/sites-enabled/misitio.conf
+sudo rm -rf /etc/nginx/sites-available/default
+sudo rm -rf /etc/nginx/sites-enabled/default
 sleep 2s
 sudo mv dirname/minecraftbe/misitio.conf /etc/nginx/sites-available
 
