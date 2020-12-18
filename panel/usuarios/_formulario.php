@@ -7,13 +7,13 @@
             <div class="card-body">
             <form action="" method="POST" role="form">
                 <legend></legend>
-                        <div class="form-group">
+                <div class="form-group">
                         <label for="my-input">Nombre</label>
                         <input id="my-input" value="<?php echo $usuarioN['name'] ?>" class="form-control" type="text" name="name">
-                        </div>
+                </div>
 
                         <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Nivel de Permiso</label>
-                        <div class="input-group mb-3">
+                    <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <label class="input-group-text" for="inputGroupSelect01"><b> <?php echo $usuarioN['permission'] ?></b></label>
                         </div>
@@ -23,14 +23,8 @@
                             <option value="member">Miembro</option>
                             <option value="operator">Operador</option>
                         </select>
-                        </div>
-
-
-                      <div class="custom-control custom-checkbox my-1 mr-sm-2">
-                        <input type="checkbox" class="custom-control-input" id="customControlInline">
-                        <label class="custom-control-label" for="customControlInline">Recordar Selección</label>
-                      </div>    
-                    </form>
+                    </div>  
+            </form>
 
                     <div class="form-group">
                         <label for="my-input">Id xuid</label>

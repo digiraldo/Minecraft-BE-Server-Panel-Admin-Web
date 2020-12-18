@@ -95,6 +95,9 @@ sudo mv index.php /home/usr/minecraftbe/
 sudo mv location /home/usr/minecraftbe/
 sudo mv misitio.conf /home/usr/minecraftbe/
 sudo mv web.sh /home/usr/minecraftbe/
+sudo chmod -R 0766 /home/usr/minecraftbe
+
+
 cd ~
 cd minecraftbe
 sleep 4s

@@ -34,7 +34,7 @@ $usuarioN = obtenerUsuarioPorName($usuarioName);
   <div class="container-fluid">
 <div class="card">
     <div class="card-body">
-        <h5 class="card-title"><i class="fas fa-user-edit"></i> Editar Usuario: <b><?php echo $usuarioN['name'] ?></b></h5>
+        <h5 class="card-title"><i class="fas fa-user-edit"></i> Usuario: <b><?php echo $usuarioN['name'] ?></b></h5>
         <div class="section">
         <table id="tablaUsuarios" class="table table-striped table-bordered" style="width:100%">
         <tbody>
