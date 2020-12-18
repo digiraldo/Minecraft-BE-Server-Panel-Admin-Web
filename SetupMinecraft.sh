@@ -14,6 +14,27 @@ echo "Script de instalación de Minecraft Bedrock Server por James Chambers - 24
 echo "La última versión siempre en https://github.com/TheRemote/MinecraftBedrockServer"
 echo "¡No olvide configurar el reenvío de puertos en su enrutador! El puerto predeterminado es 19132"
 
+# Colores del terminal
+BLACK=$(tput setaf 0)
+RED=$(tput setaf 1)
+GREEN=$(tput setaf 2)
+YELLOW=$(tput setaf 3)
+LIME_YELLOW=$(tput setaf 190)
+BLUE=$(tput setaf 4)
+MAGENTA=$(tput setaf 5)
+CYAN=$(tput setaf 6)
+WHITE=$(tput setaf 7)
+BRIGHT=$(tput bold)
+NORMAL=$(tput sgr0)
+BLINK=$(tput blink)
+REVERSE=$(tput smso)
+UNDERLINE=$(tput smul)
+
+# Imprime una línea con color usando códigos de terminal
+Print_Style() {
+  printf "%s\n" "${2}$1${NORMAL}"
+}
+
 # Función para leer la entrada del usuario con un mensaje
 function read_with_prompt {
   variable_name="$1"
@@ -69,9 +90,9 @@ else
 fi
 
 # Configuración del nombre del servidor
-echo "==========================SERVIDORES MONTADOS============================"
+Print_Style "==========================SERVIDORES MONTADOS============================" "$BLUE"
 ls -l
-echo "========================================================================="
+Print_Style "=========================================================================" "$BLUE"
 echo "Ingrese un nombre corto para el servidor nuevo o existente..."
 echo "Se utilizará como nombre de la carpeta y el nombre del servidor..."
 echo "========================================================================="
@@ -95,6 +116,7 @@ echo "========================================================================="
   sleep 2s
   cd ~
   cd minecraftbe
+  sudo chmod -R 777 /home/usr/minecraftbe
   sudo rm -rf panel
   sudo rm -rf Minecraft-BE-Server-Panel-Admin-Web
   sudo rm -rf index.php
@@ -102,10 +124,10 @@ echo "========================================================================="
   sudo rm -rf misitio.conf
   sudo rm -rf web.sh
   
-  echo "==========================VERIFICAR DIRECTORIOS=========================="
+  Print_Style "==========================SERVIDORES MONTADOS============================" "$CYAN"
   sleep 2s
   ls -l
-  echo "========================================================================="
+  Print_Style "=========================================================================" "$CYAN"
   sleep 6s
   cd ~
   cd minecraftbe
