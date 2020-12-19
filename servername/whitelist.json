@@ -3,30 +3,60 @@
         "name": "disaned",
         "xuid": "12854695235478",
         "ignoresPlayerLimit": false,
-        "permission": "operator"
+        "permission": "member"
+    },
+    {
+        "name": "pepito",
+        "permission": "member",
+        "xuid": "12457856",
+        "ignoresPlayerLimit": false
+    },
+    {
+        "name": "Didier Giraldo",
+        "permission": "member",
+        "xuid": "",
+        "ignoresPlayerLimit": false
+    },
+    {
+        "name": "masdesandra",
+        "permission": "member",
+        "xuid": "",
+        "ignoresPlayerLimit": false,
+        "permiso": null
+    },
+    {
+        "name": "pepito",
+        "permission": "member",
+        "xuid": "",
+        "ignoresPlayerLimit": false,
+        "permiso": null
     },
     {
         "name": "zedyer",
         "permission": "member",
-        "xuid": "321456",
-        "ignoresPlayerLimit": false
-    },
-    {
-        "name": "pepito",
-        "xuid": "12854695235478",
+        "xuid": "",
         "ignoresPlayerLimit": false,
-        "permission": "visitor"
+        "permiso": null
     },
     {
-        "name": "juanitoabichuchu",
+        "name": "zedyer1245678",
         "permission": "member",
-        "xuid": "123456789",
-        "ignoresPlayerLimit": false
+        "xuid": "",
+        "ignoresPlayerLimit": false,
+        "permiso": null
     },
     {
-        "name": "ed y edy",
-        "permission": "visitor",
-        "xuid": "258852",
-        "ignoresPlayerLimit": false
+        "name": "prueba de nombre largo a ver como sale",
+        "permission": "operator",
+        "xuid": "12365478965452336",
+        "ignoresPlayerLimit": false,
+        "permiso": null
+    },
+    {
+        "name": "juanitoabichuchu 45",
+        "permission": "operator",
+        "xuid": "",
+        "ignoresPlayerLimit": false,
+        "permiso": null
     }
 ]

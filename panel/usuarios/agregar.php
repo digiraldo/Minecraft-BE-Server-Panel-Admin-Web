@@ -8,9 +8,28 @@ $usuarioN = [
     'xuid' => '',
 ];
 
+$errores = [
+    'name' => "El Gamertag es obligatorio",
+    'permission' => "Permiso Miembro por defecto",
+];
+
+$esValido = false;
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-crearUsuario($_POST);
-header("Location: index.php");
+    $nombre = $_POST['name'];
+    $xuid = $_POST['xuid'];
+    $permiso = $_POST['permission'];
+    if (!$nombre){
+        $errores['name'] = 'El Gamertag es obligatorio'; //================================== 1:19:00 video
+    }
+
+    if (!$esValido) {
+        # code...
+
+
+    $usuarioN = crearUsuario($_POST);
+    header("Location: index.php");
+    }
 }
 
 ?>

@@ -17,6 +17,11 @@ function obtenerUsuarioPorName($name){
     return null;
 }
 
+//$permi = [
+//    $usuarioN['visitor'] => "Visitante",
+//    $usuarioN['member'] => "Miembro",
+//    $usuarioN['operator'] => "Operador",
+//];
 
 function crearUsuario($data){
     
@@ -24,10 +29,16 @@ function crearUsuario($data){
     $usuarios = obtenerUsuarios();
     //$data['xuid'] = $permiso['xuid'];
     //$data['xuid'] = $permiso['xuid'];
+
+    $data['permiso'] = $permi;
+    //$usuarioN['visitor'] = $permi['Visitante'];
+    //$usuarioN['member'] = $permi['Miembro'];
+    //$usuarioN['operator'] = $permi['Operador'];
+
     $usuarios[] = $data;
     ponerJson ($usuarios);
 }
-
+// "visitor", "member", "operator" 
 
 function actualizarUsuario($data, $name){
     $actualizarUsuario = [];
@@ -48,7 +59,14 @@ function actualizarUsuario($data, $name){
 
 
 function eliminarUsuario($name){
-
+    $usuarios = obtenerUsuarios();
+    foreach ($usuarios as $i => $usuarioN) {
+        if ($usuarioN['name'] == $name) {
+            array_splice($usuarios, $i, 1);
+        }
+    }
+    ponerJson ($usuarios);
+    //return null;
 }
 
 function ponerJson($usuarios){
