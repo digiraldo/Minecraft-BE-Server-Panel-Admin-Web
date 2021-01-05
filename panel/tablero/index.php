@@ -60,9 +60,9 @@ if ($_POST[reiniciar]) {
   <div class="card-body">
     <h5 class="card-title">Control del Servidor</h5>
     <p class="card-text">Aqui puede detener, iniciar y/o reiniciar el servidor, se recomienda reiniciar cada vez que realicen cambios en Whitelist, Permisos y/o Propiedades.</p>
-    <a href="#" class="btn btn-danger" name="detener"><i class="fas fa-stop-circle"></i> Detener</a>
-    <a href="#" class="btn btn-success" name="iniciar"><i class="fas fa-play-circle"></i> Iniciar</a>
-    <a href="#" class="btn btn-warning" name="reiniciar"><i class="fas fa-redo-alt"></i> Reiniciar</a>
+    <button class="btn btn-danger" name="detener"><i class="fas fa-stop-circle"></i> Detener</button>
+    <button class="btn btn-success" name="iniciar"><i class="fas fa-play-circle"></i> Iniciar</button>
+    <button class="btn btn-warning" name="reiniciar"><i class="fas fa-redo-alt"></i> Reiniciar</button>
     <!-- <button value="btnDetener" colacarsimbolo?php echo system('sudo docker container stop mcpe');die;?-> class="btn btn-primary" type="submit" name="accion"><i class="fas fa-stop-circle"></i> Detener</button> -->
 
     
