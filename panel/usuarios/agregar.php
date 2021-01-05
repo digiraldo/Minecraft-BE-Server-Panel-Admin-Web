@@ -23,12 +23,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $errores['name'] = 'El Gamertag es obligatorio'; //================================== 1:19:00 video
     }
 
+    if $xuid 
+
     if (!$esValido) {
-        # code...
-
-
-    $usuarioN = crearUsuario($_POST);
-    header("Location: index.php");
+        $usuarioN = crearUsuario($_POST);
+        header("Location: index.php");
     }
 }
 

@@ -48,16 +48,20 @@
             <thead>
               <tr>
               <th scope="col">Gamertag</th>
-                <th scope="col">Rol</th>
+              <th scope="col">Id Usuario XUID</th>
+                <th scope="col">Acciones</th>
             <!--  <th scope="col">Id usuario (XUID)</th> -->
               </tr>
             </thead>
 		      <tbody>
               <?php foreach ($permisos as $permiso): ?>
                 <tr>
+                  <td><?php echo $usuario['name'] ?></td>
+                  <td><a href="# " data-toggle="tooltip" data-placement="left" title="<i class='fas fa-id-card'></i> Usuario XUID<br><?php echo $permiso['xuid']; ?>"><?php echo $permiso['permission']; ?></a></td>
+                </tr>
+                <tr>
                   <td><?php echo $permiso['xuid'] ?></td>
                   <td><a href="# " data-toggle="tooltip" data-placement="left" title="<i class='fas fa-id-card'></i> Usuario XUID<br><?php echo $permiso['xuid']; ?>"><?php echo $permiso['permission']; ?></a></td>
-
                 </tr>
               <?php endforeach; ?>
           </tbody>
