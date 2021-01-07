@@ -148,18 +148,6 @@ sleep 3s
 echo "======================================================================================="
 
 echo "======================================================================================="
-Print_Style "Mostrando la versión php instalada..." "$CYAN"
-sleep 2s
-sudo php -v
-echo "======================================================================================="
-sleep 3s
-echo "========================================================================="
-echo "Configurar versión de php instalada:"
-Print_Style "Ejemplo Valores permitidos: "7.2" o "7.4" " "$CYAN"
-read_with_prompt VePHP "Versión PHP" 7.4
-echo "========================================================================="
-
-echo "======================================================================================="
 Print_Style "Sincronizando Pagina Web con el Servidor de Minecraft..." "$GREEN"
 sleep 2s
 
@@ -171,11 +159,23 @@ sudo rm -rf /etc/nginx/sites-enabled/misitio.conf
 #sudo rm -rf /etc/nginx/sites-enabled/default
 echo ""
 sleep 1s
-echo ""
-sleep 1s
-echo ""
+echo "======================================================================================="
 sleep 1s
 sudo mv dirname/minecraftbe/misitio.conf /etc/nginx/sites-available
+
+echo "======================================================================================="
+Print_Style "Mostrando la versión php instalada..." "$CYAN"
+sleep 2s
+sudo php -v
+echo "======================================================================================="
+sleep 3s
+
+# Digitar la version php
+echo "========================================================================="
+echo "Configurar versión de php instalada:"
+Print_Style "Ejemplo Valores permitidos: "7.2" o "7.4" " "$CYAN"
+read_with_prompt VePHP "Versión PHP" 7.4
+echo "========================================================================="
 
 # Ver la ip del equipo
 Print_Style "Direccion IP del Servidor..." "$RED"
