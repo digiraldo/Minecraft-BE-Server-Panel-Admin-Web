@@ -90,9 +90,9 @@ else
 fi
 
 # Configuración del nombre del servidor
-echo "==========================SERVIDORES MONTADOS============================"
+Print_Style "==================DIRECTORIOS Y ARCHIVOS MONTADOS========================" "$BLUE"
 ls -l
-echo "========================================================================="
+Print_Style "=========================================================================" "$BLUE"
 echo "Ingrese un nombre corto para el servidor nuevo o existente..."
 echo "Se utilizará como nombre de la carpeta y el nombre del servicio..."
 echo "========================================================================="

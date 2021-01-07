@@ -112,7 +112,7 @@ sleep 4s
   echo "El directorio del servidor es: $DirName/minecraftbe/$ServerName"
 echo "========================================================================="
   # Eliminar scripts existentes
-  sudo rm -rf start.sh stop.sh restart.sh cloud.sh back.sh panel.sh config.sh
+  sudo rm -rf start.sh stop.sh restart.sh cloud.sh back.sh panel.sh config.sh prop.sh
   sleep 2s
   cd ~
   cd minecraftbe
@@ -123,7 +123,6 @@ echo "========================================================================="
   sudo rm -rf location
   sudo rm -rf misitio.conf
   sudo rm -rf web.sh
-  sudo rm -rf prop.sh
   
   Print_Style "==========================SERVIDORES MONTADOS============================" "$CYAN"
   sleep 2s
@@ -291,7 +290,7 @@ if [[ "$CPUArch" == *"aarch"* || "$CPUArch" == *"arm"* ]]; then
   unzip depends.zip
   sudo mkdir /lib64
   # Cree un enlace flexible ld-linux-x86-64.so.2 mapeado a ld-2.28.so
-  sudo ln -s ~/minecraftbe/$ServerName/ld-2.31.so /lib64/ld-linux-x86-64.so.2
+  sudo ln -s ~/minecraftbe/$ServerName/ld-2.28.so /lib64/ld-linux-x86-64.so.2
 fi
 
 # Recupere la última versión del servidor dedicado Minecraft Bedrock
@@ -430,7 +429,6 @@ echo "La configuración está completa. Iniciando el servidor de Minecraft..."
 sudo systemctl start $ServerName.service
 echo "========================================================================="
 sleep 5s
-sudo systemctl restart nginx
 
 # Espere hasta 20 segundos para que se inicie el servidor
 StartChecks=0
@@ -469,6 +467,7 @@ sudo sed -n "/server-port=/p" server.properties | sed 's/server-port=/Puerto IPV
 sudo sed -n "/server-portv6=/p" server.properties | sed 's/server-portv6=/Puerto IPV6: ............ /'
 echo "========================================================================="
 sleep 3s
+sudo systemctl restart nginx
 
 echo "========================================================================="
     echo -n "¿Iniciar Configuracion del Servidor: $ServerName? (y/n)"
@@ -483,4 +482,4 @@ echo "========================================================================="
     fi
 
 # Adjuntar a la pantalla
-#screen -r $ServerName
+Print_Style "screen -r $ServerName" "$REVERSE"

@@ -16,10 +16,10 @@
 
     
 
-   // require 'propiedades.php';
+    require 'propiedades.php';
       //obtenerPermisos();
       //$propiedades = obtenerPropiedades();
-   // $propiedades = propiedadesSrv();
+    $propiedades = propiedadesSrv();
 
 ?>
 
