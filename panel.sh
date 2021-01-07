@@ -97,7 +97,7 @@ sudo mv index.php /home/usr/minecraftbe/
 sudo mv location /home/usr/minecraftbe/
 sudo mv misitio.conf /home/usr/minecraftbe/
 sudo mv web.sh /home/usr/minecraftbe/
-sudo chmod -R 766 /home/usr/minecraftbe
+sudo chmod -R +x /home/usr/minecraftbe
 
 
 cd ~
@@ -180,7 +180,7 @@ sudo mv dirname/minecraftbe/misitio.conf /etc/nginx/sites-available
 # Ver la ip del equipo
 Print_Style "Direccion IP del Servidor..." "$RED"
 hostname -I
-sleep 3s
+sleep 1s
 
 # Digitar la ip del equipo
 echo "========================================================================="
