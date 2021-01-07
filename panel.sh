@@ -119,7 +119,7 @@ sudo sed -n "/# Add index.php to/p" /etc/nginx/sites-available/default
 sudo sed -n "/index index.html index.php index.htm index.nginx-debian.html;/p" /etc/nginx/sites-available/default
 echo "======================================================================================="
 sleep 2s
-echo "======================================================================================="
+echo "======================================================================================"
 
 Print_Style "Configurando location de PHP en Ngnix..." "$GREEN"
 sleep 1s
@@ -149,9 +149,15 @@ echo "==========================================================================
 
 echo "======================================================================================="
 Print_Style "Mostrando la versión php instalada..." "$CYAN"
-sleep 3s
+sleep 2s
 sudo php -v
 echo "======================================================================================="
+sleep 3s
+echo "========================================================================="
+echo "Configurar versión de php instalada:"
+Print_Style "Ejemplo Valores permitidos: "9.2" o "9.4" " "$CYAN"
+read_with_prompt VePHP "Versión PHP" 9.4
+echo "========================================================================="
 
 echo "======================================================================================="
 Print_Style "Sincronizando Pagina Web con el Servidor de Minecraft..." "$GREEN"
@@ -179,6 +185,7 @@ echo "========================================================================="
 
 Print_Style "Configurando la pagina web $IPV4/index.php..." "$YELLOW"
 sudo sed -i "s/MiIPV4/$IPV4/g" /etc/nginx/sites-available/misitio.conf
+sudo sed -i "s/versionphp/$VePHP/g" /etc/nginx/sites-available/misitio.conf
 echo "========================================================================="
 sleep 2s
 #sudo sh -c "echo '$IPV4' >> minecraftbe/server.ip"
