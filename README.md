@@ -1,6 +1,6 @@
 # Minecraft Bedrock Edition Server con Panel de Administración Web v1.0
 
-## El Panel de Administración esta en Desarrollo, funcional con la administracion de usuarios
+## El Panel de Administración esta en Desarrollo.
 
 ## Instalar Servidor Dedicado de Minecraft Bedrock Edition
 
@@ -12,13 +12,19 @@ Antes de iniciar hay que aclarar que el Servidor dedicado de Minecraft Bedrock E
 * Configura Minecraft como un servicio del sistema con la opción de iniciarse automáticamente al arrancar
 * Copias de seguridad automáticas cuando se reinicia el servidor
 * Se actualiza automáticamente a la última versión cuando se inicia el servidor
-* Fácil control del servidor con los scripts start.sh, stop.sh y restart.sh
 * Reinicio diario programado opcional del servidor usando cron
+* Fácil control del servidor con los scripts `start.sh`, `stop.sh` y `restart.sh`
+* Configurar **server.properties** del servidor minecraft con el script `config.sh`
+* Realizar copia de Seguridad del mundo en la nube (Google Drive, Microsoft OneDrive) con el script `cloud.sh`
+* Restaurar o recuperar copia de un mundo con el script `back.sh`
 
 ## Requisitos Mínimos:
 * Una computadora con un procesador x86_64 bit.
 * 1 GB de RAM o más
 * Ubuntu Server 18.04.2
+
+## Funciones habilitadas del Panel de Administración Web:
+* Administración de usuarios agregando, editando y eliminando jugadores dando permisos whitelist con el Gamertag.
 
 ## Instalación:
 
