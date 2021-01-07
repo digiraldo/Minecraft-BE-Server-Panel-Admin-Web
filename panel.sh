@@ -169,7 +169,12 @@ sudo rm -rf /etc/nginx/sites-available/misitio.conf
 sudo rm -rf /etc/nginx/sites-enabled/misitio.conf
 #sudo rm -rf /etc/nginx/sites-available/default
 #sudo rm -rf /etc/nginx/sites-enabled/default
-sleep 2s
+echo "."
+sleep 1s
+echo "."
+sleep 1s
+echo "."
+sleep 1s
 sudo mv dirname/minecraftbe/misitio.conf /etc/nginx/sites-available
 
 # Ver la ip del equipo

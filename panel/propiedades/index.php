@@ -10,7 +10,7 @@
     $title="Minecraft SRV | Simple Invoice"; 
 
     //if ($_POST) {
-      $prop = shell_exec('sudo sh dirname/minecraftbe/servername/stop.sh');
+      $prop = shell_exec('sudo sh dirname/minecraftbe/servername/prop.sh');
       //echo $prop;
    // }
 
