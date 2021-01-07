@@ -4,35 +4,29 @@
   $active_whitelist="";
   $active_permisos="";
   $active_admin="";
-	$active_mundo="";
-	$active_backups="";
+  $active_mundo="";
+  $active_backups="";
   $active_propiedades="";
-  $active_logs="";	
-  $title="Minecraft SRV | Simple Invoice"; 
+  $active_logs="";
+  $title="Minecraft SRV | Simple Invoice";
 
   if ($_GET['run']) {
     # This code will run if ?run=true is set.
     exec("sudo sh /home/usr/minecraftbe/parceros/stop.sh");
 }
 
-  if ($_POST[detener]) {
-    $detener = shell_exec('sudo sh /home/usr/minecraftbe/parceros/stop.sh');
-    echo $detener;
-  }
-  
-
 if ($_POST[detener]) {
-  $detener = shell_exec("sudo systemctl stop servername");
+  $detener = shell_exec("sudo sh /home/usr/minecraftbe/parceros/stop.sh");
   echo $detener;
 }
 
 if ($_POST[iniciar]) {
-  $iniciar = shell_exec("sudo systemctl start servername");
+  $iniciar = shell_exec("sudo sh /home/usr/minecraftbe/parceros/start.sh");
   echo $iniciar;
 }
 
 if ($_POST[reiniciar]) {
-  $reiniciar = shell_exec("sudo systemctl restart servername");
+  $reiniciar = shell_exec("sudo sh /home/usr/minecraftbe/parceros/restart.sh");
   echo $reiniciar;
 }
 
@@ -73,6 +67,12 @@ if ($_POST[reiniciar]) {
     <a class="btn btn-danger" name="detener" href="?run=true"><i class="fas fa-stop-circle"></i> Detener</a>
     <a class="btn btn-success" name="iniciar"><i class="fas fa-play-circle"></i> Iniciar</a>
     <a class="btn btn-warning" name="reiniciar"><i class="fas fa-redo-alt"></i> Reiniciar</a>
+    
+    <p><br>
+    <input class="btn btn-danger" type="submit" name="detener" value="Detener">
+    <input class="btn btn-success" type="submit" name="iniciar" value="Iniciar">
+    <input class="btn btn-warning" type="submit" name="reiniciar" value="Reiniciar">
+    </p>
     <!-- <button value="btnDetener" colacarsimbolo?php echo system('sudo docker container stop mcpe');die;?-> class="btn btn-primary" type="submit" name="accion"><i class="fas fa-stop-circle"></i> Detener</button> -->
 
 <!-- This link will add ?run=true to your URL, myfilename.php?run=true 
