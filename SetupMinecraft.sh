@@ -234,9 +234,9 @@ echo "========================================================================="
   echo "========================================================================="
   echo "La configuración está completa. Iniciando el servidor Minecraft $ServerName ..."
   sudo systemctl start $ServerName.service
-
-  # Duerme durante 4 segundos para que el servidor tenga tiempo de comenzar
-  sleep 4s
+  # Duerme durante 5 segundos para que el servidor tenga tiempo de comenzar
+  sleep 5s
+  sudo systemctl restart nginx
 
   screen -r $ServerName
 
@@ -429,7 +429,8 @@ echo "========================================================================="
 echo "La configuración está completa. Iniciando el servidor de Minecraft..."
 sudo systemctl start $ServerName.service
 echo "========================================================================="
-sleep 3s
+sleep 5s
+sudo systemctl restart nginx
 
 # Espere hasta 20 segundos para que se inicie el servidor
 StartChecks=0

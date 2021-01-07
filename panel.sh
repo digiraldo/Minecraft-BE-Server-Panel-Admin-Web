@@ -253,4 +253,3 @@ echo ""
 echo ""
 sleep 6s
 echo ""
-sudo systemctl restart nginx

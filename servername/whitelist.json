@@ -58,5 +58,12 @@
         "xuid": "",
         "ignoresPlayerLimit": false,
         "permiso": null
+    },
+    {
+        "name": "aaalexxxx",
+        "permission": "member",
+        "xuid": "456789123",
+        "ignoresPlayerLimit": false,
+        "permiso": null
     }
 ]
