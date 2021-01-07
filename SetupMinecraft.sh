@@ -483,8 +483,12 @@ echo "========================================================================="
 
 # Adjuntar a la pantalla
 echo ""
+sleep 1s
 echo ""
+sleep 1s
 echo ""
+sleep 1s
 Print_Style "screen -r $ServerName" "$REVERSE"
 echo ""
 echo ""
+sleep 1s

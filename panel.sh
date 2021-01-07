@@ -169,11 +169,11 @@ sudo rm -rf /etc/nginx/sites-available/misitio.conf
 sudo rm -rf /etc/nginx/sites-enabled/misitio.conf
 #sudo rm -rf /etc/nginx/sites-available/default
 #sudo rm -rf /etc/nginx/sites-enabled/default
-echo "."
+echo ""
 sleep 1s
-echo "."
+echo ""
 sleep 1s
-echo "."
+echo ""
 sleep 1s
 sudo mv dirname/minecraftbe/misitio.conf /etc/nginx/sites-available
 
@@ -209,7 +209,7 @@ sleep 2s
 echo "========================================================================="
 Print_Style "Configurando Permisos..." "$YELLOW"
 cd ~
-sudo chown -hR www-data:www-data minecraftbe
+sudo chown -hR www-data:www-data minecraftbe/panel
 sudo sed -i '/www-data ALL=(ALL) NOPASSWD: ALL/d' /etc/sudoers
 sudo sed -i '$a www-data ALL=(ALL) NOPASSWD: ALL' /etc/sudoers
 sudo sed -n "/www-data ALL=(ALL) NOPASSWD: ALL/p" /etc/sudoers
