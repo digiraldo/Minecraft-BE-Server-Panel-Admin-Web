@@ -214,6 +214,7 @@ echo "========================================================================="
 
 echo "========================================================================="
 Print_Style "Reiniciando Servidor Web... " "$MAGENTA"
+sleep 4s
 sudo systemctl restart nginx
 echo "========================================================================="
 
@@ -252,3 +253,4 @@ echo ""
 echo ""
 sleep 6s
 echo ""
+sudo systemctl restart nginx

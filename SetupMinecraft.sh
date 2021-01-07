@@ -186,7 +186,7 @@ echo "========================================================================="
 
   # Descargar prop.sh desde el repositorio
   echo "Tomando prop.sh del repositorio..."
-  wget -O prop.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server/main/prop.sh
+  wget -O prop.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/prop.sh
   chmod +x prop.sh
   sudo sed -i "s:dirname:$DirName:g" prop.sh
   sudo sed -i "s:servername:$ServerName:g" prop.sh
@@ -369,7 +369,7 @@ echo "========================================================================="
 
   # Descargar prop.sh desde el repositorio
   echo "Tomando prop.sh del repositorio..."
-  wget -O prop.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server/main/prop.sh
+  wget -O prop.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/prop.sh
   chmod +x prop.sh
   sudo sed -i "s:dirname:$DirName:g" prop.sh
   sudo sed -i "s:servername:$ServerName:g" prop.sh
