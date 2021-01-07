@@ -65,5 +65,12 @@
         "xuid": "456789123",
         "ignoresPlayerLimit": false,
         "permiso": null
+    },
+    {
+        "name": "baca",
+        "permission": "visitor",
+        "xuid": "123456789",
+        "ignoresPlayerLimit": false,
+        "permiso": null
     }
 ]

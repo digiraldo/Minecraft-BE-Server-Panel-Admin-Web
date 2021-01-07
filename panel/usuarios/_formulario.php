@@ -30,7 +30,7 @@
                         </div>
 
                         <div class="form-group">
-                        <label for="validationServer04">Nivel de Permsio</label>
+                        <label for="validationServer04">Nivel de Permiso</label>
                         <div class="input-group mb-3">
                         <div class="input-group-prepend">
                                 <label class="input-group-text" for="validationServer04"><i class="fas fa-address-book"> <?php echo $usuarioN['permission'] ?></b></i></label>
