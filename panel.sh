@@ -155,8 +155,8 @@ echo "==========================================================================
 sleep 3s
 echo "========================================================================="
 echo "Configurar versión de php instalada:"
-Print_Style "Ejemplo Valores permitidos: "9.2" o "9.4" " "$CYAN"
-read_with_prompt VePHP "Versión PHP" 9.4
+Print_Style "Ejemplo Valores permitidos: "7.2" o "7.4" " "$CYAN"
+read_with_prompt VePHP "Versión PHP" 7.4
 echo "========================================================================="
 
 echo "======================================================================================="
