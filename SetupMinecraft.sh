@@ -453,7 +453,7 @@ cd minecraftbe
 cd $ServerName
 echo "========================================================================="
 echo "========================================================================="
-echo "================CONFIGURACION PREDETERMINADA DEL SERVIDOR================"
+echo "================CONFIGURACIÓN PREDETERMINADA DEL SERVIDOR================"
 echo "========================================================================="
 sudo sed -n "/server-name=/p" server.properties | sed 's/server-name=/Nombre del Servidor: .... /'
 sudo sed -n "/level-name=/p" server.properties | sed 's/level-name=/Nombre del Nivel: ....... /'
@@ -470,12 +470,12 @@ sleep 3s
 sudo systemctl restart nginx
 
 echo "========================================================================="
-    echo -n "¿Iniciar Configuracion del Servidor: $ServerName? (y/n)"
+    echo -n "¿Iniciar Configuración del Servidor: $ServerName? (y/n)"
     read answer < /dev/tty
     if [ "$answer" != "${answer#[Yy]}" ]; then
       # Crear copia de seguridad en la nube cloudname
         echo "========================================================================="
-        echo "Iniciando Configuracion con config.sh"
+        echo "Iniciando Configuración con config.sh"
         echo "========================================================================="
         sleep 3s
         /bin/bash $DirName/minecraftbe/$ServerName/config.sh

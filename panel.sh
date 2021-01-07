@@ -97,7 +97,7 @@ sudo mv index.php /home/usr/minecraftbe/
 sudo mv location /home/usr/minecraftbe/
 sudo mv misitio.conf /home/usr/minecraftbe/
 sudo mv web.sh /home/usr/minecraftbe/
-sudo chmod -R +x /home/usr/minecraftbe
+sudo chmod -R 755 /home/usr/minecraftbe
 
 
 cd ~
@@ -209,6 +209,7 @@ sleep 2s
 echo "========================================================================="
 Print_Style "Configurando Permisos..." "$YELLOW"
 cd ~
+sudo chown -h www-data:www-data minecraftbe
 sudo chown -hR www-data:www-data minecraftbe/panel
 sudo chown -hR www-data:www-data minecraftbe/index.php
 sudo sed -i '/www-data ALL=(ALL) NOPASSWD: ALL/d' /etc/sudoers
