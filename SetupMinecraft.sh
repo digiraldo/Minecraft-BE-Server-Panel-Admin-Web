@@ -206,7 +206,7 @@ echo "========================================================================="
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/includes/js/logs.js
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/permisos/permisos.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/propiedades/propiedades.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/propiedades/index.php.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/propiedades/index.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/index.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/index.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/usuarios.php
@@ -390,7 +390,7 @@ sudo systemctl daemon-reload
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/includes/js/logs.js
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/permisos/permisos.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/propiedades/propiedades.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/propiedades/index.php.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/propiedades/index.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/index.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/index.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/usuarios.php
