@@ -123,6 +123,7 @@ echo "========================================================================="
   sudo rm -rf location
   sudo rm -rf misitio.conf
   sudo rm -rf web.sh
+  sudo rm -rf prop.sh
   
   Print_Style "==========================SERVIDORES MONTADOS============================" "$CYAN"
   sleep 2s
@@ -182,6 +183,13 @@ echo "========================================================================="
   chmod +x config.sh
   sudo sed -i "s:dirname:$DirName:g" config.sh
   sudo sed -i "s:servername:$ServerName:g" config.sh
+
+  # Descargar prop.sh desde el repositorio
+  echo "Tomando prop.sh del repositorio..."
+  wget -O prop.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server/main/prop.sh
+  chmod +x prop.sh
+  sudo sed -i "s:dirname:$DirName:g" prop.sh
+  sudo sed -i "s:servername:$ServerName:g" prop.sh
   
   # Actualizar el servicio del servidor de Minecraft
   echo "Configurando el servicio $ServerName ..."
@@ -198,9 +206,11 @@ echo "========================================================================="
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/includes/js/logs.js
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/permisos/permisos.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/propiedades/propiedades.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/propiedades/index.php.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/index.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/index.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/usuarios.php
+  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/propiedades/index.php
   sudo sed -i "s:dirname:$DirName:g" /etc/nginx/sites-available/misitio.conf
 
   echo -n "¿Iniciar el servidor de Minecraft automáticamente? (y/n)?"
@@ -357,6 +367,13 @@ echo "========================================================================="
   sudo sed -i "s:dirname:$DirName:g" config.sh
   sudo sed -i "s:servername:$ServerName:g" config.sh
 
+  # Descargar prop.sh desde el repositorio
+  echo "Tomando prop.sh del repositorio..."
+  wget -O prop.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server/main/prop.sh
+  chmod +x prop.sh
+  sudo sed -i "s:dirname:$DirName:g" prop.sh
+  sudo sed -i "s:servername:$ServerName:g" prop.sh
+
 # Configuración del servicio
 echo "========================================================================="
 echo "Configurando el servicio Minecraft $ServerName ..."
@@ -373,9 +390,11 @@ sudo systemctl daemon-reload
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/includes/js/logs.js
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/permisos/permisos.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/propiedades/propiedades.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/propiedades/index.php.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/index.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/index.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/usuarios.php
+  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/propiedades/index.php
   sudo sed -i "s:dirname:$DirName:g" /etc/nginx/sites-available/misitio.conf
 
 echo "========================================================================="

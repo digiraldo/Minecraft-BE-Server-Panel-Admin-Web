@@ -148,7 +148,7 @@ sleep 3s
 echo "======================================================================================="
 
 echo "======================================================================================="
-Print_Style "Mostrando la versión php isntalada..." "$CYAN"
+Print_Style "Mostrando la versión php instalada..." "$CYAN"
 sleep 3s
 sudo php -v
 echo "======================================================================================="
@@ -197,8 +197,12 @@ echo "========================================================================="
 Print_Style "Configurando Permisos..." "$YELLOW"
 cd ~
 sudo chown -hR www-data:www-data minecraftbe
-####################################################################################
-#################################################################################### 
+sudo sed -i '/www-data ALL=(ALL) NOPASSWD: ALL/d' /etc/sudoers
+sudo sed -i '$a www-data ALL=(ALL) NOPASSWD: ALL' /etc/sudoers
+sudo sed -n "/www-data ALL=(ALL) NOPASSWD: ALL/p" /etc/sudoers
+sleep 3s
+#/etc/sudoers#www-data ALL=(ALL) NOPASSWD: ALL###############################
+#/etc/sudoers#www-data ALL=(ALL) NOPASSWD: ALL############################### 
 sleep 2s
 
 

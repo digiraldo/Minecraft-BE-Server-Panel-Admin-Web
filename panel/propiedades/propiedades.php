@@ -36,6 +36,7 @@ return file( '../../servername/server.properties' );
 } // Lo convierte en un array
 
  
+
 //echo $pru[0];
 //echo $pru[4];
 //echo $pru[8];

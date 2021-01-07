@@ -9,10 +9,17 @@
     $active_logs="";	
     $title="Minecraft SRV | Simple Invoice"; 
 
-    require 'propiedades.php';
-    //obtenerPermisos();
-    //$propiedades = obtenerPropiedades();
-    $propiedades = propiedadesSrv();
+    //if ($_POST) {
+      $prop = shell_exec('sudo sh dirname/minecraftbe/servername/stop.sh');
+      //echo $prop;
+   // }
+
+    
+
+   // require 'propiedades.php';
+      //obtenerPermisos();
+      //$propiedades = obtenerPropiedades();
+   // $propiedades = propiedadesSrv();
 
 ?>
 
@@ -40,26 +47,24 @@
 
 
   <div class="container">
-  <button type="button" class="btn btn-primary" id="boton"><i class="fas fa-user-plus"></i> Agregar Jugador</button>
+ <!--   <button type="button" class="btn btn-primary" id="boton"><i class="fas fa-user-plus"></i> Mostrar Propiedades</button>  -->
   <br>
       <div class="section">
       
-        <table id="tablaPropiedades" class="table table-striped table-bordered" style="width:100%">
+        <table id="tablaPropiedades" class="table table-striped table-bordered" style="width:100%" action="" method="post" enctype="multipart/form-data">
             <thead>
               <tr>
-                <th scope="col">#</th>
-               <!-- <th scope="col">Descripción</th> -->
+                <!-- <th scope="col">Descripción</th> -->
                 <th scope="col">Configuración</th>
               </tr>
             </thead>
 		      <tbody>
-            <?php foreach ($propiedades as $propiedad): ?> 
+           <!--  <?php foreach ($propiedades as $propiedad): ?>  -->
           
                 <tr>
-                  <th scope="row"></th>
-                  <td><?php echo $propiedad ?></td>
-
-              <?php endforeach;; ?>
+                  <td><?php echo $prop ?></td>
+                </tr>
+           <!--    <?php endforeach;; ?> -->
           </tbody>
         </table>
 

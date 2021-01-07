@@ -10,6 +10,16 @@
   $active_logs="";	
   $title="Minecraft SRV | Simple Invoice"; 
 
+  if ($_GET['run']) {
+    # This code will run if ?run=true is set.
+    exec("sudo sh /home/usr/minecraftbe/parceros/stop.sh");
+}
+
+  if ($_POST[detener]) {
+    $detener = shell_exec('sudo sh /home/usr/minecraftbe/parceros/stop.sh');
+    echo $detener;
+  }
+  
 
 if ($_POST[detener]) {
   $detener = shell_exec("sudo systemctl stop servername");
@@ -50,7 +60,7 @@ if ($_POST[reiniciar]) {
 </nav>
 
 <div class="container">
-    <form action="" method="post" enctype="multipart/form-data" >
+    <form action="" method="post" enctype="multipart/form-data">
 
 
     <div class="card text-center">
@@ -60,11 +70,13 @@ if ($_POST[reiniciar]) {
   <div class="card-body">
     <h5 class="card-title">Control del Servidor</h5>
     <p class="card-text">Aqui puede detener, iniciar y/o reiniciar el servidor, se recomienda reiniciar cada vez que realicen cambios en Whitelist, Permisos y/o Propiedades.</p>
-    <button class="btn btn-danger" name="detener"><i class="fas fa-stop-circle"></i> Detener</button>
-    <button class="btn btn-success" name="iniciar"><i class="fas fa-play-circle"></i> Iniciar</button>
-    <button class="btn btn-warning" name="reiniciar"><i class="fas fa-redo-alt"></i> Reiniciar</button>
+    <a class="btn btn-danger" name="detener" href="?run=true"><i class="fas fa-stop-circle"></i> Detener</a>
+    <a class="btn btn-success" name="iniciar"><i class="fas fa-play-circle"></i> Iniciar</a>
+    <a class="btn btn-warning" name="reiniciar"><i class="fas fa-redo-alt"></i> Reiniciar</a>
     <!-- <button value="btnDetener" colacarsimbolo?php echo system('sudo docker container stop mcpe');die;?-> class="btn btn-primary" type="submit" name="accion"><i class="fas fa-stop-circle"></i> Detener</button> -->
 
+<!-- This link will add ?run=true to your URL, myfilename.php?run=true 
+<a href="?run=true">Click Me!</a> -->
     
   </div>
   <div class="card-footer text-muted">
