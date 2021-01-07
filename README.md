@@ -22,9 +22,9 @@ Antes de iniciar hay que aclarar que el Servidor dedicado de Minecraft Bedrock E
 
 ## Instalación:
 
-Se recomienda usar Ubuntu Server para ejecutar el servidor dedicado de Minecraft. Está disponible aquí: https://ubuntu.com/download/server
+Se recomienda usar Ubuntu Server para ejecutar el servidor dedicado de Minecraft. Está disponible aquí: https://ubuntu.com/download/server ó http://cdimage.ubuntu.com/releases/18.04/release/
 
-Una vez tenga su Computador o Servidor Virtual VPS, Inicie sesión en su servidor Linux usando SSH con un mouse y teclado copie y pegue el siguiente comando:
+Una vez tenga su Computador o Servidor Virtual VPS, Inicie sesión en su servidor Linux usando SSH con un mouse y/o teclado copie y pegue el siguiente comando:
 
 INSTALACION DE MINECRAFT BEDROCK EDITION SERVER SIN PANEL DE ADMINISTRACIÓN
 
@@ -42,7 +42,7 @@ chmod +x SetupMinecraft.sh
 ./SetupMinecraft.sh
 ```
 
-El script configurará el servidor de Minecraft y le hará algunas preguntas sobre cómo configurarlo. Explicaré aquí lo que significan.
+Al final del script, configurará el servidor de Minecraft y le hará algunas preguntas. Explicaré aquí lo que significan.
 
 **`Start Minecraft server at startup automatically (y/n)?` ¿Iniciar el servidor de Minecraft automáticamente (y/n)?** - Esto configurará el servicio o mundo de Minecraft para que se inicie automáticamente cuando se inicie el servidor Dedicado. Esta es una excelente opción para configurar un servidor de Minecraft que siempre esté disponible las 24 horas.
 
@@ -81,6 +81,15 @@ sudo systemctl stop minecraftbe
 sudo systemctl restart minecraftbe
 ```
 
+## Iniciar, detener y reiniciar el Servidor Web
+El servidor web se puede iniciar, detener, reiniciar y recargar usando systemctl. Aquí están los comandos:
+
+```
+sudo systemctl start nginx 
+sudo systemctl stop nginx 
+sudo systemctl restart nginx
+sudo systemctl reload nginx
+```
 
 ## Backups automáticos
 El servidor realiza una copia de seguridad cada vez que se inicia. Esto le ayuda a recuperarse fácilmente si algo sale mal. Este sistema funciona mejor si configuró el servidor para que se reinicie diariamente, ya que significa que tendrá una copia de seguridad todos los días.
@@ -93,13 +102,13 @@ ls -lt
 ```
 
 
-Cuando se realiza una copia de seguridad, el nombre del archivo será la fecha y la hora en que se realizó la copia de seguridad. Si necesita restaurar una copia de seguridad de su mundo, es muy fácil. Sustituya la marca de tiempo en mi ejemplo por la copia de seguridad a la que desea retroceder. Tipo:
+Cuando se realiza una copia de seguridad, el nombre del archivo será la fecha y la hora en que se realizó la copia de seguridad. Si necesita restaurar una copia de seguridad de su mundo, es muy fácil. Sustituya la marca de tiempo en mi ejemplo (13.11.2020_22.06.30_Mundo.tar.gz) por la copia de seguridad a la que desea retroceder. Tipo:
 
 ```
 cd ~/minecraftbe/nombredelservidor  
 ./stop.sh  
 rm -rf worlds  
-tar -xf backups/13.11.2020_22.06.30_Mundo.tar.gz  
+tar -xf backups/13.11.2020_22.06.30_Mundo.tar.gz
 ./start.sh
 ```
 
@@ -116,6 +125,6 @@ tar -xf backups/13.11.2020_22.06.30_Mundo.tar.gz
 ==============================
 
 *Aviso de Derechos `(copyright notice)`:*  
-Este software y los archivos de documentación asociados fueron realizados por:  
+Los archivos y/o documentación de instalacion del servidor minecraft **SetupMinecraft** asociados fueron realizados por:  
 Derechos de autor (c) 2019 James A. Chambers  
-Este tutorial fue realizado para ayudar a la comunidad en Español ya que hay poca información de instalación y configuracion en este idioma. Para más información y soporte, el repositorio en su idioma original inglés: https://github.com/TheRemote/MinecraftBedrockServer
+Este tutorial fue realizado para ayudar a la comunidad en Español ya que hay poca información de instalación y configuracion en este idioma. Para más información y soporte, el repositorio de solo instalacion del servidor Minecraft sin panel web en su idioma original inglés: https://github.com/TheRemote/MinecraftBedrockServer
