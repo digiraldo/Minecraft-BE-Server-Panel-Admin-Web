@@ -26,17 +26,17 @@ if ($_GET['res']) {
 }
 
 if ($_POST[detener]) {
-  $detener = shell_exec("sudo sh /home/usr/minecraftbe/parceros/stop.sh");
+  $detener = shell_exec("sudo systemctl stop servername");
   echo $detener;
 }
 
 if ($_POST[iniciar]) {
-  $iniciar = shell_exec("sudo sh /home/usr/minecraftbe/parceros/start.sh");
+  $iniciar = shell_exec("sudo systemctl start servername");
   echo $iniciar;
 }
 
 if ($_POST[reiniciar]) {
-  $reiniciar = shell_exec("sudo sh /home/usr/minecraftbe/parceros/restart.sh");
+  $reiniciar = shell_exec("sudo systemctl restart servername");
   echo $reiniciar;
 }
 

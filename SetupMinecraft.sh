@@ -469,26 +469,23 @@ echo "========================================================================="
 sleep 3s
 sudo systemctl restart nginx
 
-echo "========================================================================="
-    echo -n "¿Iniciar Configuración del Servidor: $ServerName? (y/n)"
-    read answer < /dev/tty
-    if [ "$answer" != "${answer#[Yy]}" ]; then
-      # Crear copia de seguridad en la nube cloudname
-        echo "========================================================================="
-        echo "Iniciando Configuración con config.sh"
-        echo "========================================================================="
-        sleep 3s
-        /bin/bash $DirName/minecraftbe/$ServerName/config.sh
-    fi
+#echo "========================================================================="
+ #   echo -n "¿Iniciar Configuración del Servidor: $ServerName? (y/n)"
+  #  read answer < /dev/tty
+   # if [ "$answer" != "${answer#[Yy]}" ]; then
+    #  # Crear copia de seguridad en la nube cloudname
+     #   echo "========================================================================="
+      #  echo "Iniciando Configuración con config.sh"
+       # echo "========================================================================="
+        #sleep 3s
+        #/bin/bash $DirName/minecraftbe/$ServerName/config.sh
+    #fi
 
 # Adjuntar a la pantalla
 echo ""
 sleep 1s
 echo ""
 sleep 1s
-echo ""
-sleep 1s
 Print_Style "screen -r $ServerName" "$REVERSE"
-echo ""
 echo ""
 sleep 1s
