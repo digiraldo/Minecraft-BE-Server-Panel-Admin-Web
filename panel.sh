@@ -186,6 +186,7 @@ echo "========================================================================="
 Print_Style "Configurando la pagina web $IPV4/index.php..." "$YELLOW"
 sudo sed -i "s/MiIPV4/$IPV4/g" /etc/nginx/sites-available/misitio.conf
 sudo sed -i "s/versionphp/$VePHP/g" /etc/nginx/sites-available/misitio.conf
+sudo sed -i "s/versionphp/$VePHP/g" /etc/nginx/sites-available/default
 echo "========================================================================="
 sleep 2s
 #sudo sh -c "echo '$IPV4' >> minecraftbe/server.ip"
