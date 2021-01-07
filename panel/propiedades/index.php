@@ -10,7 +10,7 @@
     $title="Minecraft SRV | Simple Invoice"; 
 
     //if ($_POST) {
-      $prop = shell_exec('sudo sh dirname/minecraftbe/servername/prop.sh');
+     // $prop = shell_exec('sudo sh dirname/minecraftbe/servername/prop.sh');
       //echo $prop;
    // }
 
@@ -62,7 +62,7 @@
            <!--  <?php foreach ($propiedades as $propiedad): ?>  -->
           
                 <tr>
-                  <td><?php echo $prop ?></td>
+                  <td><?php echo shell_exec("sudo sh dirname/minecraftbe/servername/prop.sh"); ?></td>
                 </tr>
            <!--    <?php endforeach;; ?> -->
           </tbody>
