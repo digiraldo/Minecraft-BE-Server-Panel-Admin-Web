@@ -21,6 +21,23 @@
       //$propiedades = obtenerPropiedades();
   //  $propiedades = propiedadesSrv();
 
+
+    $doc = '../../../servername/server.properties'; // Archivo que tiene que leer.
+ 
+// Lee por que linea va el archivo Log.
+    $v = file($doc);
+    $lv = count($v);
+    $ulv = $v[$lv - 1];
+    ECHO $ulv . "<br><br>";
+ 
+// Guarda las líneas del documento.
+    $fp = fopen($doc, "r");
+    for ($i = 0; $i <= $ulv; $i++) {
+        $EstWebs[$i] = fgets($fp);
+    }
+    fclose($fp);
+#echo $EstWebs[linea que deseas leer];
+
 ?>
 
 <!doctype html>
@@ -62,7 +79,13 @@
            <!--  <?php foreach ($propiedades as $propiedad): ?>  -->
           
                 <tr>
-                  <td><?php echo shell_exec("sudo sh dirname/minecraftbe/servername/prop.sh"); ?></td>
+                  <td><?php echo $EstWebs[1]; ?></td>
+                </tr>
+                <tr>
+                  <td><?php echo $EstWebs[5]; ?></td>
+                </tr>
+                <tr>
+                  <td><?php echo $EstWebs[9]; ?></td>
                 </tr>
            <!--    <?php endforeach;; ?> -->
           </tbody>
