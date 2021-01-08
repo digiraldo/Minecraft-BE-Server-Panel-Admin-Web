@@ -98,6 +98,7 @@ sudo mv location /home/usr/minecraftbe/
 sudo mv misitio.conf /home/usr/minecraftbe/
 sudo mv web.sh /home/usr/minecraftbe/
 sudo chmod -R 755 /home/usr/minecraftbe
+sudo chmod -R 775 /home/usr/minecraftbe/servername
 
 
 cd ~
@@ -217,7 +218,7 @@ sudo chown -hR :www-data minecraftbe
 sudo sed -i '/www-data ALL=(ALL) NOPASSWD: ALL/d' /etc/sudoers
 sudo sed -i '$a www-data ALL=(ALL) NOPASSWD: ALL' /etc/sudoers
 sudo sed -n "/www-data ALL=(ALL) NOPASSWD: ALL/p" /etc/sudoers
-sudo sed -i '/usr ALL=(ALL) NOPASSWD: ALL/d' /etc/sudoers
+#sudo sed -i '/usr ALL=(ALL) NOPASSWD: ALL/d' /etc/sudoers
 #sudo sed -i '$a usr ALL=(ALL) NOPASSWD: ALL' /etc/sudoers
 #sudo sed -n "/usr ALL=(ALL) NOPASSWD: ALL/p" /etc/sudoers
 sleep 3s
