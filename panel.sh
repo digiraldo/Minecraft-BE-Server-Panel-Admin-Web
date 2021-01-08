@@ -209,13 +209,16 @@ sleep 2s
 echo "========================================================================="
 Print_Style "Configurando Permisos..." "$YELLOW"
 cd ~
-sudo chown -hR www-data:www-data minecraftbe
+sudo chown -hR usr:www-data minecraftbe
 #sudo chown -hR :www-data minecraftbe/servername
 #sudo chown -hR www-data:www-data minecraftbe/panel
 #sudo chown -hR www-data:www-data minecraftbe/index.php
 sudo sed -i '/www-data ALL=(ALL) NOPASSWD: ALL/d' /etc/sudoers
 sudo sed -i '$a www-data ALL=(ALL) NOPASSWD: ALL' /etc/sudoers
 sudo sed -n "/www-data ALL=(ALL) NOPASSWD: ALL/p" /etc/sudoers
+sudo sed -i '/usr ALL=(ALL) NOPASSWD: ALL/d' /etc/sudoers
+sudo sed -i '$a usr ALL=(ALL) NOPASSWD: ALL' /etc/sudoers
+sudo sed -n "/usr ALL=(ALL) NOPASSWD: ALL/p" /etc/sudoers
 sleep 3s
 #/etc/sudoers#www-data ALL=(ALL) NOPASSWD: ALL###############################
 #/etc/sudoers#www-data ALL=(ALL) NOPASSWD: ALL############################### 
