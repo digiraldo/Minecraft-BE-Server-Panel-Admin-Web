@@ -61,7 +61,7 @@
     
   </div>
   <div class="card-footer text-muted">
-  Ingreso al Servidor. Url o IP: <?php echo $lines1[1]; ?> Puerto:<?php echo $lines1[4]; ?>
+  Ingreso al Servidor: <?php echo $lines1[1]; ?> Puerto:<?php echo $lines1[4]; ?>
   </div>
 </div>
 
