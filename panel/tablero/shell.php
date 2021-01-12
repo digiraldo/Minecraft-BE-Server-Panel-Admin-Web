@@ -1,5 +1,9 @@
 <?php
 
+// Obtener el contenido del archivo de texto como una matriz de líneas
+$myFile1 = '../../servername/srvdatos.txt';
+$lines1 = file($myFile1);
+
 $txtDetener=(isset($_POST['detener']))?$_POST['detener']:"";
 $txtIniciar=(isset($_POST['iniciar']))?$_POST['iniciar']:"";
 $txtReiniciar=(isset($_POST['reiniciar']))?$_POST['reiniciar']:"";
