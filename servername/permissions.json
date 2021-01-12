@@ -1,22 +1,20 @@
 [
     {
-       "permission" : "operator",
-       "xuid" : "2533274952880704"
+        "name": "usuario001",
+        "permission": "visitor",
+        "xuid": "001",
+        "ignoresPlayerLimit": false
     },
     {
-       "permission" : "operator",
-       "xuid" : "2533274867672998"
+        "name": "usuario002",
+        "permission": "operator",
+        "xuid": "002",
+        "ignoresPlayerLimit": false
     },
     {
-       "permission" : "operator",
-       "xuid" : "2533275000382200"
-    },
-    {
-       "permission" : "operator",
-       "xuid" : "2535467989102265"
-    },
-    {
-       "permission" : "operator",
-       "xuid" : "2535449003195272"
+        "name": "usuario003",
+        "permission": "operator",
+        "xuid": "003",
+        "ignoresPlayerLimit": false
     }
- ]
+]

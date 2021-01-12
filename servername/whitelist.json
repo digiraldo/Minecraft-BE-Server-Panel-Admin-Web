@@ -1,76 +1,20 @@
 [
     {
-        "name": "disaned",
-        "xuid": "12854695235478",
-        "ignoresPlayerLimit": false,
-        "permission": "member"
-    },
-    {
-        "name": "pepito",
-        "permission": "member",
-        "xuid": "12457856",
-        "ignoresPlayerLimit": false
-    },
-    {
-        "name": "Didier Giraldo",
-        "permission": "member",
-        "xuid": "",
-        "ignoresPlayerLimit": false
-    },
-    {
-        "name": "masdesandra",
-        "permission": "member",
-        "xuid": "",
-        "ignoresPlayerLimit": false,
-        "permiso": null
-    },
-    {
-        "name": "pepito",
-        "permission": "member",
-        "xuid": "",
-        "ignoresPlayerLimit": false,
-        "permiso": null
-    },
-    {
-        "name": "zedyer",
-        "permission": "member",
-        "xuid": "",
-        "ignoresPlayerLimit": false,
-        "permiso": null
-    },
-    {
-        "name": "zedyer1245678",
-        "permission": "member",
-        "xuid": "",
-        "ignoresPlayerLimit": false,
-        "permiso": null
-    },
-    {
-        "name": "prueba de nombre largo a ver como sale",
-        "permission": "operator",
-        "xuid": "12365478965452336",
-        "ignoresPlayerLimit": false,
-        "permiso": null
-    },
-    {
-        "name": "juanitoabichuchu 45",
-        "permission": "operator",
-        "xuid": "",
-        "ignoresPlayerLimit": false,
-        "permiso": null
-    },
-    {
-        "name": "aaalexxxx",
-        "permission": "member",
-        "xuid": "456789123",
-        "ignoresPlayerLimit": false,
-        "permiso": null
-    },
-    {
-        "name": "baca",
+        "name": "usuario001",
         "permission": "visitor",
-        "xuid": "123456789",
-        "ignoresPlayerLimit": false,
-        "permiso": null
+        "xuid": "001",
+        "ignoresPlayerLimit": false
+    },
+    {
+        "name": "usuario002",
+        "permission": "operator",
+        "xuid": "002",
+        "ignoresPlayerLimit": false
+    },
+    {
+        "name": "usuario003",
+        "permission": "visitor",
+        "xuid": "003",
+        "ignoresPlayerLimit": false
     }
 ]

@@ -92,13 +92,15 @@ cd Minecraft-BE-Server-Panel-Admin-Web
 
 echo "======================================================================================="
 Print_Style "Creando directorios y archivos del panel..." "$CYAN"
-sudo mv panel /home/usr/minecraftbe/
-sudo mv index.php /home/usr/minecraftbe/
-sudo mv location /home/usr/minecraftbe/
-sudo mv misitio.conf /home/usr/minecraftbe/
-sudo mv web.sh /home/usr/minecraftbe/
-sudo chmod -R 755 /home/usr/minecraftbe
-sudo chmod -R 775 /home/usr/minecraftbe/servername
+sudo mv panel dirname/minecraftbe/
+sudo mv index.php dirname/minecraftbe/
+sudo mv srvdatos.txt dirname/minecraftbe/servername
+sudo mv srvdatos.json dirname/minecraftbe/servername
+sudo mv location dirname/minecraftbe/
+sudo mv misitio.conf dirname/minecraftbe/
+sudo mv web.sh dirname/minecraftbe/
+sudo chmod -R 755 dirname/minecraftbe
+sudo chmod -R 775 dirname/minecraftbe/servername
 
 
 cd ~
@@ -130,7 +132,7 @@ r location
 d}' /etc/nginx/sites-available/default
 sleep 4s
 
-sudo rm -rf  /home/usr/minecraftbe/location
+sudo rm -rf  dirname/minecraftbe/location
 
 echo "======================================================================================="
 Print_Style "Obteniendo Resultados..." "$MAGENTA"
@@ -179,14 +181,14 @@ read_with_prompt VePHP "Versión PHP" 7.4
 echo "========================================================================="
 
 # Ver la ip del equipo
-Print_Style "Direccion IP del Servidor..." "$RED"
+Print_Style "Dirección IP del Servidor..." "$RED"
 hostname -I
 sleep 1s
 
 # Digitar la ip del equipo
 echo "========================================================================="
 Print_Style "Introduzca la IP - IPV4 del servidor: " "$MAGENTA"
-read_with_prompt IPV4 "Puerto IPV4 del servidor"
+read_with_prompt IPV4 "Url o dirección IP del servidor"
 echo "========================================================================="
 
 Print_Style "Configurando la pagina web $IPV4/index.php..." "$YELLOW"

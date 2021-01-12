@@ -1,0 +1,62 @@
+[
+    {
+        "id": "01",
+        "name": "Nombre del Servidor",
+        "data": "servername"
+    },
+    {
+        "id": "02",
+        "name": "Nombre del Nivel",
+        "data": "Bedrock level"
+    },
+    {
+        "id": "03",
+        "name": "Usar Trucos",
+        "data": "Falso"
+    },
+    {
+        "id": "04",
+        "name": "Modo del Juego",
+        "data": "Supervivencia"
+    },
+    {
+        "id": "05",
+        "name": "Dificultad del Servidor",
+        "data": "Fácil"
+    },
+    {
+        "id": "06",
+        "name": "Permiso a Jugadores",
+        "data": "Falso"
+    },
+    {
+        "id": "07",
+        "name": "Jugadores Máximos",
+        "data": "10"
+    },
+    {
+        "id": "08",
+        "name": "Número de Semilla",
+        "data": ""
+    },
+    {
+        "id": "09",
+        "name": "Puerto IpV4",
+        "data": "19132"
+    },
+    {
+        "id": "10",
+        "name": "Puerto IpV6",
+        "data": "19133"
+    },
+    {
+        "id": "11",
+        "name": "Solicitar Acceso al Servidor",
+        "data": "Discord"
+    },
+    {
+        "id": "12",
+        "name": "IP o URL del Servidor",
+        "data": "MiIPV4"
+    }
+]

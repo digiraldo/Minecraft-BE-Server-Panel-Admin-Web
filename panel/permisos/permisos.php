@@ -7,6 +7,9 @@ function obtenerPermisos(){
     //echo '<pre>'; var_dump($permisos); echo '</pre>'; exit;
 }
 
+function obtenerPermisoPorPer($id){
+
+}
 
 function obtenerPermisoPorId($id){
 

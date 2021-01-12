@@ -5,8 +5,12 @@
     ---------------------------*/
     require '../usuarios/usuarios.php';
     $usuarios = obtenerUsuarios();
+    $usuarioP = obtenerUsuarios();
     require '../permisos/permisos.php';
     $permisos = obtenerPermisos();
+
+        
+    //echo count($usuarioP);
 
 
 ?>

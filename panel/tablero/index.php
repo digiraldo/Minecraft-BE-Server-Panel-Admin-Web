@@ -10,20 +10,7 @@
   $active_logs="";
   $title="Minecraft SRV | Simple Invoice";
 
-if ($_POST[detener]) {
-  $detener = shell_exec("sudo systemctl stop servername");
-  echo $detener;
-}
-
-if ($_POST[iniciar]) {
-  $iniciar = shell_exec("sudo systemctl start servername");
-  echo $iniciar;
-}
-
-if ($_POST[reiniciar]) {
-  $reiniciar = shell_exec("sudo systemctl restart servername");
-  echo $reiniciar;
-}
+  require 'shell.php';
 
 ?>
 
@@ -60,6 +47,7 @@ if ($_POST[reiniciar]) {
     <h5 class="card-title">Control del Servidor</h5>
     <p class="card-text">Aqui puede detener, iniciar y/o reiniciar el servidor, se recomienda reiniciar cada vez que realicen cambios en Whitelist, Permisos y/o Propiedades.</p>
 
+    <button value="btnDetener" class="btn btn-primary" type="submit" name="accion"><i class="fas fa-stop-circle"></i> Detener</button>
     <input class="btn btn-danger" type="submit" name="detener" value="Detener">
     <input class="btn btn-success" type="submit" name="iniciar" value="Iniciar">
     <input class="btn btn-warning" type="submit" name="reiniciar" value="Reiniciar">

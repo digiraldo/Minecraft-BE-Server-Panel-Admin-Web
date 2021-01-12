@@ -13,11 +13,11 @@ cd Minecraft-BE-Server-Panel-Admin-Web
 
 echo "======================================================================================="
 Print_Style "Creando directorio panel..." "$CYAN"
-sudo mv panel /home/usr/minecraftbe/
-sudo mv index.php /home/usr/minecraftbe/
-sudo mv location /home/usr/minecraftbe/
-sudo mv misitio.conf /home/usr/minecraftbe/
-sudo mv web.sh /home/usr/minecraftbe/
+sudo mv panel dirname/minecraftbe/
+sudo mv index.php dirname/minecraftbe/
+sudo mv location dirname/minecraftbe/
+sudo mv misitio.conf dirname/minecraftbe/
+sudo mv web.sh dirname/minecraftbe/
 cd ~
 cd minecraftbe
 sleep 4s

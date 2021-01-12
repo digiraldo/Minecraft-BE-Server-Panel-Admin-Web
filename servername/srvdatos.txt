@@ -1,0 +1,35 @@
+#Ip del Servidor
+MiIPV4
+
+#Puerto del Servidor
+19132
+
+#Nombre del Servidor
+servername
+
+#Nombre del Nivel
+Bedrock level
+
+#Usar Trucos
+desactivado
+
+#Modo de Juego
+Supervivencia
+
+#Difucultad
+easy
+
+#Permiso Jugadores
+desactivado
+
+#Jugadores Máximos
+10
+
+#Número de Semilla
+Aleatorio
+
+#Puerto IpV6
+19133
+
+#Solicitar Acceso al Servidor
+Discord

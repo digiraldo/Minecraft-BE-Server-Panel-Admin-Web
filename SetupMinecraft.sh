@@ -116,7 +116,7 @@ echo "========================================================================="
   sleep 2s
   cd ~
   cd minecraftbe
-  sudo chmod -R 777 /home/usr/minecraftbe
+  sudo chmod -R 777 dirname/minecraftbe
   sudo rm -rf panel
   sudo rm -rf Minecraft-BE-Server-Panel-Admin-Web
   sudo rm -rf index.php

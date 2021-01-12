@@ -1,65 +1,39 @@
 <?php
 
+// Obtener el contenido del archivo de json como una matriz de líneas
+function obtenerSrvDatos(){
+    return json_decode(file_get_contents(__DIR__ . '../../../servername/srvdatos.json'), true);
+}
 
-function obtenerPropiedades(){
-     return json_decode(file_get_contents(__DIR__ . '../../../servername/server.properties'), true);
-    //$permisos = json_decode(file_get_contents(__DIR__ . '../../../servername/permissions.json'), true);
-    //echo '<pre>'; var_dump($permisos); echo '</pre>'; exit;
+function obtenerSrvDatosPorId($id){
+    $Datos = obtenerSrvDatos();
+    foreach ($Datos as $Dato) {
+        if ($Dato['id'] == $id) {
+            return $Dato;
+        }
+    }
+    return null;
 }
 
 
-function obtenerPropiedadPorId($id){
+function actualizarSrvDatos($data, $id){
+    $actualizarSrvDatos = [];
+    $Datos = obtenerSrvDatos();
+    foreach ($Datos as $i => $Dato) {
+        if ($Dato['id'] == $id) {
+            $Datos[$i] = $actualizarSrvDatos = array_merge($Dato, $data);
+        }
+    }
+    //echo '<pre>'; var_dump($Datos); echo '</pre>';
 
+    file_put_contents(__DIR__ . '../../../servername/srvdatos.json', json_encode($Datos, JSON_PRETTY_PRINT));
+
+    ponerJson ($Datos);
+    return $actualizarSrvDatos;
 }
 
-
-function crearPropiedad($data){
-
+function ponerJson($Datos){
+    file_put_contents(__DIR__ . '../../../servername/srvdatos.json', json_encode($Datos, JSON_PRETTY_PRINT));
 }
 
-
-function actualizarPropiedad($data, $id){
-
-}
-
-
-function eliminarPropiedad($id){
-
-}
-
-
-
-
-function propiedadesSrv(){
-return file( '../../servername/server.properties' );
-//echo '<pre>'; var_dump($permiso); echo '</pre>'; exit;
-} // Lo convierte en un array
-
- 
-
-//echo $pru[0];
-//echo $pru[4];
-//echo $pru[8];
-//echo $pru[12];
-//echo $pru[16];
-//echo $pru[20]; // Tercera linea
-
-
-
-//Ejemplo aprenderaprogramar.com
-//$file = fopen("../../servername/server.properties", "r");
-//while(!feof($file)) {
-//echo fgets($file). "<br />";
-//}
-//fclose($file);
-
-
-//<?php echo $pru[0] ?>
-<?php //echo $pru[4] ?>
-<?php //echo $pru[8] ?>
-<?php //echo $pru[12] ?>
-<?php //echo $pru[16] ?>
-<?php //echo $pru[20] ?>
-<?php //echo $pru[26 ?>
-<?php //echo $pru[30] ?>
-<?php //echo $pru[34] ?>
+?>
