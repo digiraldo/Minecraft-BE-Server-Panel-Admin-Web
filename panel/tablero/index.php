@@ -47,10 +47,12 @@
     <h5 class="card-title">Control del Servidor</h5>
     <p class="card-text">Aqui puede detener, iniciar y/o reiniciar el servidor, se recomienda reiniciar cada vez que realicen cambios en Whitelist, Permisos y/o Propiedades.</p>
 
-    <button value="btnDetener" class="btn btn-primary" type="submit" name="accion"><i class="fas fa-stop-circle"></i> Detener</button>
-    <input class="btn btn-danger" type="submit" name="detener" value="Detener">
+    <button value="btnDetener" class="btn btn-danger" type="submit" name="accion"><i class="fas fa-stop"></i> Detener</button>
+    <button value="btnIniciar" class="btn btn-success" type="submit" name="accion"><i class="fas fa-play"></i> Iniciar</button>
+    <button value="btnReiniciar" class="btn btn-primary" type="submit" name="accion"><i class="fas fa-redo-alt"></i> Reiniciar</button>
+    <!-- <input class="btn btn-danger" type="submit" name="detener" value="Detener">
     <input class="btn btn-success" type="submit" name="iniciar" value="Iniciar">
-    <input class="btn btn-warning" type="submit" name="reiniciar" value="Reiniciar">
+    <input class="btn btn-warning" type="submit" name="reiniciar" value="Reiniciar"> -->
 
     <!-- <button value="btnDetener" colacarsimbolo?php echo system('sudo docker container stop mcpe');die;?-> class="btn btn-primary" type="submit" name="accion"><i class="fas fa-stop-circle"></i> Detener</button> -->
 

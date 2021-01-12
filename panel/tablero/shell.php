@@ -7,23 +7,21 @@ $txtReiniciar=(isset($_POST['reiniciar']))?$_POST['reiniciar']:"";
 $accion=(isset($_POST['accion']))?$_POST['accion']:"";
 
 // marcar datos obligatorios en el Modal
-
 $error=array();
-
 
 switch ($accion) {
 
   // Agregar Nombre sel Servidor
   case 'btnDetener':
-    shell_exec("sudo systemctl stop servername");
+   $txtDetener = shell_exec("sudo systemctl stop servername");
   break;
 
   case 'btnIniciar':
-    shell_exec("sudo systemctl start servername");
+   $txtIniciar = shell_exec("sudo systemctl start servername");
   break;
 
   case 'btnReiniciar':
-    shell_exec("sudo systemctl restart servername");
+   $txtReiniciar = shell_exec("sudo systemctl restart servername");
   break;
 
 }
