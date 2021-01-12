@@ -44,7 +44,7 @@
     Panel Principal
   </div>
   <div class="card-body">
-    <h5 class="card-title">Control del Servidor</h5>
+    <h5 class="card-title">Control del Servidor: servername</h5>
     <p class="card-text">Aqui puede detener, iniciar y/o reiniciar el servidor, se recomienda reiniciar cada vez que realicen cambios en Whitelist, Permisos y/o Propiedades.</p>
 
     <button value="btnDetener" class="btn btn-danger" type="submit" name="accion"><i class="fas fa-stop"></i> Detener</button>
@@ -61,7 +61,7 @@
     
   </div>
   <div class="card-footer text-muted">
-  Servidor configurado: servername
+  Ingreso al Servidor. Url o IP: <?php echo $lines1[1]; ?> Puerto:<?php echo $lines1[4]; ?>
   </div>
 </div>
 
