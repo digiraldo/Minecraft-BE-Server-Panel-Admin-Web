@@ -17,10 +17,15 @@ $lines1 = file($myFile1);
 $content1 = file_get_contents($myFile1);
 
 // Obtener el contenido del archivo de texto como una matriz de líneas
-$myFile2 = '../../servername/server.properties';
+$myFile2 = '../../servername/resource_packs\vanilla\texts\es_ES.lang';
 $lines2 = file($myFile2);
 // Obtener el contenido del archivo como cadena
 $content2 = file_get_contents($myFile2);
+// Obtener el contenido del archivo de texto como una matriz de líneas
+$myFile3 = '../../servername/resource_packs\vanilla\texts\es_MX.lang';
+$lines3 = file($myFile3);
+// Obtener el contenido del archivo como cadena
+$content3 = file_get_contents($myFile3);
 
 
 
@@ -75,7 +80,7 @@ switch ($accion) {
         $outputb = "$linetextb$inputb";
         $newcontentb = str_replace($lineb, $outputb, $content);
         file_put_contents($myFile, $newcontentb);
-        $newcontent1 = str_replace($lines1[10], $input, $content1);
+        $newcontent1 = str_replace($lines1[10], $inputb, $content1);
         file_put_contents($myFile1, $newcontent1);
 
         header('Location: index.php');
@@ -109,7 +114,7 @@ switch ($accion) {
         $outputd = "$linetextd$inputd";
         $newcontentd = str_replace($lined, $outputd, $content);
         file_put_contents($myFile, $newcontentd);
-        $newcontent1 = str_replace($lines1[16], $input, $content1);
+        $newcontent1 = str_replace($lines1[16], $inputd, $content1);
         file_put_contents($myFile1, $newcontent1);
     
         header('Location: index.php');
@@ -224,25 +229,45 @@ switch ($accion) {
     break;
 
     // Mensaje Información al iniciar juego en el Servidor sel Servidor
-    case 'btnIpv6':
+    //disconnectionScreen.notAllowed=No estás invitado a jugar en este servidor.	#
+    //disconnectionScreen.notAllowed=Solicita permiso en  para jugar en este servidor.	#
+    case 'btnDiscord':
 
-        $line = $lines2[34];
-        $input = $txtDiscord . "\n";
+        //$line = $lines2[2312];
+        //$line1 = $lines3[2312];
+        // $line2 = $lines1[34];
+        
+        $input = $txtDiscord;
+        $in = $txtDiscord . "\n";
+        //$input2 = "$txtDiscord $linetex3" . "\n";
+        //$input3 = "$txtDiscord $linetex4" . "\n";
         // Reemplazar la cadena inicial (de la matriz $lines) con $update en $content
-        $linetext = "server-port6=";
-        $output = "$linetext$input";
-        $newcontent = str_replace($line, $output, $content2);
+        $linetext = "disconnectionScreen.notAllowed=Solicita permiso en";
+        $linetext1 = "Solicita permiso en";
+        $linetex3 = "para jugar en este servidor.	#";
+        $linetex4 = "para jugar en este servidor.";
+        $output = "$linetext $input $linetex3" . "\n";
+        $output2 = "$linetext1 $input $linetex4";
+
+        $newcontent = str_replace($lines2[2312], $output, $content2);
         file_put_contents($myFile2, $newcontent);
-        $newcontent1 = str_replace($lines1[34], $input, $content1);
+        
+        $newcontent3 = str_replace($lines3[2312], $output, $content3);
+        file_put_contents($myFile3, $newcontent3);
+
+        $newcontent1 = str_replace($lines1[34], $in, $content1);
         file_put_contents($myFile1, $newcontent1);
+
+        $newcontent2 = str_replace($lines1[37], $output2, $content1);
+        file_put_contents($myFile1, $newcontent2);
 
         header('Location: index.php');
         //print_r($line);
-        //echo $line;
+        //echo $output;
+        //echo $output2;
+
     break;
 
 }
-
-
 
 ?>

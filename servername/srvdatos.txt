@@ -5,16 +5,16 @@ MiIPV4
 19132
 
 #Nombre del Servidor
-servername
+Hogar
 
 #Nombre del Nivel
-Bedrock level
+Parce
 
 #Usar Trucos
 desactivado
 
 #Modo de Juego
-Supervivencia
+
 
 #Difucultad
 easy
@@ -23,13 +23,16 @@ easy
 desactivado
 
 #Jugadores Máximos
-10
+15
 
 #Número de Semilla
-Aleatorio
+
 
 #Puerto IpV6
 19133
 
 #Solicitar Acceso al Servidor
-Discord
+Telegram
+
+#Solicitar Permiso al Servidor
+Solicita permiso en Discord para jugar en este servidor.

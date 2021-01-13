@@ -33,3 +33,6 @@ Aleatorio
 
 #Solicitar Acceso al Servidor
 Discord
+
+#Solicitar Permiso al Servidor
+Permsio en Discord

@@ -277,7 +277,7 @@
 
 <div class="card-deck">
   <div class="card text-white bg-secondary mb-3">
-  <div class="card-header"><?php echo $lines1[34]; ?></div>
+  <div class="card-header"><?php echo $lines1[37]; ?><br>Es: <?php echo $lines2[2312]; ?><br>Mx: <?php echo $lines3[2312]; ?></div>
     <div class="card-body">
       <h5 class="card-title">Solicitud Acceso al Servidor: <?php echo $lines1[34]; ?></h5>
       <p class="card-text">Introduce url, grupo de Telegram o permiso de Discord para que el usuario lo vea al intentar acceder al Servidor y no tiene los permisos.</p>
@@ -286,10 +286,10 @@
           <form action="index.php" method="POST" role="form" enctype="multipart/form-data">
             <div class="form-row">
               <div class="col">
-                <input type="text" name="GamerMax" class="form-control form-control-sm" id="GamerMax" placeholder="<?php echo $lines1[34]; ?>">
+                <input type="text" name="Discord" class="form-control form-control-sm" id="Discord" placeholder="<?php echo $lines1[34]; ?>">
               </div>
               <div class="col">
-                <button name="accion" value="btnGamerMax" type="submit" class="btn btn-outline-light btn-sm"><i class="fas fa-save"></i></button>
+                <button name="accion" value="btnDiscord" type="submit" class="btn btn-outline-light btn-sm"><i class="fas fa-save"></i></button>
               </div>
             </div>
           </form>

@@ -74,9 +74,9 @@
   <div class="card-body">
   <!-- <h3 class="card-title font-italic">EN LÍNEA</h3> -->
   <span class="fas fa-server fa-4x"></span>
-  <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark"><?php  echo ('-/10') ?></span></h4>
+  <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark">0/<?php echo $lines1[25]; ?></span></h4>
   </div>
-  <a href="../usuarios" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="<?php  echo ('-/10') ?> Jugando Ahora">Ver Jugaodres</a>
+  <a href="../usuarios" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="0/<?php echo $lines1[25]; ?> Jugando Ahora">Ver Jugaodres</a>
 </div>
 
 <div class="bg-primary col-sm-3 card text-white">
