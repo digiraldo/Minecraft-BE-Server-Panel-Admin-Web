@@ -17,12 +17,12 @@ $lines1 = file($myFile1);
 $content1 = file_get_contents($myFile1);
 
 // Obtener el contenido del archivo de texto como una matriz de líneas
-$myFile2 = '../../servername/resource_packs\vanilla\texts\es_ES.lang';
+$myFile2 = '../../servername/resource_packs/vanilla/texts/es_ES.lang';
 $lines2 = file($myFile2);
 // Obtener el contenido del archivo como cadena
 $content2 = file_get_contents($myFile2);
 // Obtener el contenido del archivo de texto como una matriz de líneas
-$myFile3 = '../../servername/resource_packs\vanilla\texts\es_MX.lang';
+$myFile3 = '../../servername/resource_packs/vanilla/texts/es_MX.lang';
 $lines3 = file($myFile3);
 // Obtener el contenido del archivo como cadena
 $content3 = file_get_contents($myFile3);
