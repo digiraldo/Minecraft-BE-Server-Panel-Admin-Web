@@ -24,9 +24,9 @@ Antes de iniciar hay que aclarar que el Servidor dedicado de Minecraft Bedrock E
 * Ubuntu Server 18.04.2
 
 ## Funciones habilitadas del Panel de Administración Web:
-* Administración de usuarios agregando, editando y eliminando jugadores dando permisos whitelist con el Gamertag.
-* Funcion con botones de `Detener`, `Iniciar` y `Reiniciar` el Servidor en el Panel o Tablero de adminsitración.
-* Administracion de los Paámetros del Servidor en `Propiedades`.
+* Administración y/o `permisos de usuarios` agregando, editando y eliminando con el Gamertag.
+* Funcion de botones `Detener`, `Iniciar` y `Reiniciar` el Servidor en el Panel o Tablero de adminsitración.
+* Administracion de los Parámetros del Servidor en `Propiedades`.
 
 ## Instalación:
 
