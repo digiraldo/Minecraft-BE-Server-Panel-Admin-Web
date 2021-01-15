@@ -15,6 +15,11 @@ $myFile1 = '../../servername/srvdatos.txt';
 $lines1 = file($myFile1);
 // Obtener el contenido del archivo como cadena
 $content1 = file_get_contents($myFile1);
+// Obtener el contenido del archivo de texto como una matriz de líneas
+$myFile1b = '../../servername/srvdatos.txt';
+$lines1b = file($myFile1b);
+// Obtener el contenido del archivo como cadena
+$content1b = file_get_contents($myFile1b);
 
 // Obtener el contenido del archivo de texto como una matriz de líneas
 $myFile2 = '../../servername/resource_packs/vanilla/texts/es_ES.lang';
@@ -48,7 +53,8 @@ $content3 = file_get_contents($myFile3);
   // marcar datos obligatorios en el Modal
   
   $error=array();
-  
+
+
  
 switch ($accion) {
   
@@ -89,19 +95,44 @@ switch ($accion) {
 
     // Habilitar Usar Trucos en el Servidor
     case 'btnUsarTruco':
-
-        $line = $lines[12];
-        $input = $txtUsarTruco . "\n";
+        $lineb = $lines[12];
+        $che =  'checked';
+        $inputb = $txtUsarTruco . "\n";
+        $aparteb = $she . "\n";
         // Reemplazar la cadena inicial (de la matriz $lines) con $update en $content
-        $linetext = "allow-cheats=";
-        $output = "$linetext$input";
-        $newcontent = str_replace($line, $output, $content);
-        file_put_contents($myFile, $newcontent);
-        $newcontent1 = str_replace($lines1[13], $input, $content1);
-        file_put_contents($myFile1, $newcontent1);
+        $linetextb = "allow-cheats=";
+        $trueb = $linetextb."true" . "\n";
+        $falseb = $linetextb."false" . "\n";
+        $noche = 'role';
+        
+       // $output = "$linetext$input";
+       if ($txtUsarTruco == 'on') {
+            $newcontent = str_replace($lineb, $trueb, $content);
+            file_put_contents($myFile, $newcontent); 
+       }else {
+            $newcontent0 = str_replace($lineb, $falseb, $content);
+            file_put_contents($myFile, $newcontent0);
+       }
+
+        if ($txtUsarTruco == 'on') {
+            $newcontent4 = str_replace($lines1[13], 'Activado' . "\n", $content1);
+            file_put_contents($myFile1, $newcontent4);
+        }else {
+            $newcontent2 = str_replace($lines1[13], 'Desactivado' . "\n", $content1);
+            file_put_contents($myFile1, $newcontent2);
+        }
+
+        if ($txtUsarTruco == 'on') {
+            $newcontent1 = str_replace($lines1b[43], $aparteb, $content1b);
+            file_put_contents($myFile1b, $newcontent1);
+        }else {
+            $newcontent3 = str_replace($lines1b[43], $inputb, $content1b);
+            file_put_contents($myFile1b, $newcontent3);
+        }
 
         header('Location: index.php');
         //print_r($line);
+        //echo $line;
     break;
 
     // Seleccionar Modp de Juego en el Servidor
@@ -114,8 +145,21 @@ switch ($accion) {
         $outputd = "$linetextd$inputd";
         $newcontentd = str_replace($lined, $outputd, $content);
         file_put_contents($myFile, $newcontentd);
-        $newcontent1 = str_replace($lines1[16], $inputd, $content1);
+
+        if ($txtGamemode == 'survival') {
+            $newcontent1 = str_replace($lines1[16], "Supervivencia" . "\n", $content1);
         file_put_contents($myFile1, $newcontent1);
+        }
+
+        if ($txtGamemode == 'creative') {
+            $newcontent1 = str_replace($lines1[16], "Creativo" . "\n", $content1);
+        file_put_contents($myFile1, $newcontent1);
+        }
+
+        if ($txtGamemode == 'adventure') {
+            $newcontent1 = str_replace($lines1[16], "Aventura" . "\n", $content1);
+        file_put_contents($myFile1, $newcontent1);
+        }
     
         header('Location: index.php');
         //print_r($line);
@@ -123,34 +167,79 @@ switch ($accion) {
 
     // Seleccionar Dificultad en el Servidor
     case 'btnDificultad':
-
-        $lined = $lines[8];
-        $inputd = $txtDificultad . "\n";
+        if ($txtDificultad) {
+            echo htmlentities($_POST['Dificultad'], ENT_QUOTES, "UTF-8");
+         } else {
+           echo "Dificultad requerido";
+           exit; 
+         }
+        $line = $lines[8];
+        $input = $txtDificultad . "\n";
         // Reemplazar la cadena inicial (de la matriz $lines) con $update en $content
-        $linetextd = "difficulty=";
-        $outputd = "$linetextd$inputd";
-        $newcontentd = str_replace($lined, $outputd, $content);
-        file_put_contents($myFile, $newcontentd);
-        $newcontent1 = str_replace($lines1[19], $input, $content1);
+        $linetext = "difficulty=";
+        $output = "$linetext$input";
+        $newcontent = str_replace($line, $output, $content);
+        file_put_contents($myFile, $newcontent);
+
+        if ($txtDificultad == 'peaceful') {
+            $newcontent1 = str_replace($lines1[19], "Pacífico" . "\n", $content1);
         file_put_contents($myFile1, $newcontent1);
-    
+        }
+
+        if ($txtDificultad == 'easy') {
+            $newcontent1 = str_replace($lines1[19], "Fácil" . "\n", $content1);
+        file_put_contents($myFile1, $newcontent1);
+        }
+
+        if ($txtDificultad == 'normal') {
+            $newcontent1 = str_replace($lines1[19], "Normal" . "\n", $content1);
+        file_put_contents($myFile1, $newcontent1);
+        }
+
+        if ($txtDificultad == 'hard') {
+            $newcontent1 = str_replace($lines1[19], "Difícil" . "\n", $content1);
+        file_put_contents($myFile1, $newcontent1);
+        }
         header('Location: index.php');
         //print_r($line);
     break;
 
     // Habilitar permiso a jugadores en el Servidor sel Servidor
     case 'btnWhitelist':
-
         $line = $lines[26];
+        $she =  'checked';
         $input = $txtWhitelist . "\n";
+        $aparte = $she . "\n";
         // Reemplazar la cadena inicial (de la matriz $lines) con $update en $content
-        $linetext = "white-list=";
-        $output = "$linetext$input";
-        $newcontent = str_replace($line, $output, $content);
-        file_put_contents($myFile, $newcontent);
-        $newcontent1 = str_replace($lines1[22], $input, $content1);
-        file_put_contents($myFile1, $newcontent1);
+        $ltext = "white-list=";
+        $true = $ltext.'true' . "\n";
+        $false = $ltext.'false' . "\n";
+        
+       // $output = "$linetext$input";
 
+        if ($txtWhitelist == 'on') {
+            $newcontent = str_replace($line, $true, $content);
+            file_put_contents($myFile, $newcontent); 
+        }else {
+            $newcontent1 = str_replace($lines1[22], 'Desactivado' . "\n", $content1);
+            file_put_contents($myFile1, $newcontent1);
+        }
+
+        if ($txtWhitelist == '') {
+            $newcontent = str_replace($line, $false, $content);
+        file_put_contents($myFile, $newcontent);       
+        }else {
+            $newcontent1 = str_replace($lines1[22], 'Activado' . "\n", $content1);
+            file_put_contents($myFile1, $newcontent1);
+        }
+
+        if ($txtWhitelist == 'on') {
+            $newcontent1 = str_replace($lines1b[40], $aparte, $content1b);
+            file_put_contents($myFile1b, $newcontent1);
+        }else {
+            $newcontent3 = str_replace($lines1b[40], $input, $content1b);
+            file_put_contents($myFile1b, $newcontent3);
+        }
         header('Location: index.php');
         //print_r($line);
         //echo $line;
@@ -184,8 +273,13 @@ switch ($accion) {
         $output = "$linetext$input";
         $newcontent = str_replace($line, $output, $content);
         file_put_contents($myFile, $newcontent);
-        $newcontent1 = str_replace($lines1[28], $input, $content1);
-        file_put_contents($myFile1, $newcontent1);
+
+            if ($txtSemilla == array()) {
+                $newcontent1 = str_replace($lines1[28], "Aleatorio" . "\n", $content1);
+                file_put_contents($myFile1, $newcontent1);
+            }
+                $newcontent1 = str_replace($lines1[28], $input, $content1);
+                file_put_contents($myFile1, $newcontent1);
 
         header('Location: index.php');
         //print_r($line);
@@ -238,7 +332,7 @@ switch ($accion) {
         // $line2 = $lines1[34];
         
         $input = $txtDiscord;
-        $in = $txtDiscord . "\n";
+        //$in = $txtDiscord . "\n";
         //$input2 = "$txtDiscord $linetex3" . "\n";
         //$input3 = "$txtDiscord $linetex4" . "\n";
         // Reemplazar la cadena inicial (de la matriz $lines) con $update en $content
@@ -255,11 +349,11 @@ switch ($accion) {
         $newcontent3 = str_replace($lines3[2312], $output, $content3);
         file_put_contents($myFile3, $newcontent3);
 
-        $newcontent1 = str_replace($lines1[34], $in, $content1);
+        $newcontent1 = str_replace($lines1[34], $txtDiscord . "\n", $content1);
         file_put_contents($myFile1, $newcontent1);
 
-        $newcontent2 = str_replace($lines1[37], $output2, $content1);
-        file_put_contents($myFile1, $newcontent2);
+        $newcontent2 = str_replace($lines1b[37], $output2 . "\n", $content1b);
+        file_put_contents($myFile1b, $newcontent2);
 
         header('Location: index.php');
         //print_r($line);

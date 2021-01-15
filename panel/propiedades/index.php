@@ -22,6 +22,8 @@
   //  $propiedades = propiedadesSrv();
 
   require 'editar.php';
+       
+  //echo $lines1[43];
 
 ?>
 
@@ -106,7 +108,7 @@
   </div>
 
 <div class="card text-white bg-success mb-3">
-    <div class="card-header"><?php echo $lines[12]; ?></div>
+  <div class="card-header"><?php echo $lines[12]; ?></div>
     <div class="card-body">
       <h5 class="card-title">Usar Trucos: <?php echo $lines1[13]; ?></h5>
       <p class="card-text">Si es verdadero, entonces se pueden usar trucos como comandos.</p>
@@ -115,18 +117,17 @@
           <form action="index.php" method="POST" role="form" enctype="multipart/form-data">
             <div class="form-row">
                   <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" id="customSwitch1" checked="">
-                    <label class="custom-control-label" for="customSwitch1"><?php echo $lines1[13]; ?></label>
+                    <input type="checkbox" class="custom-control-input" name="UsarTruco" id="UsarTruco" <?php echo $lines1b[43]; ?>>
+                    <label class="custom-control-label" for="UsarTruco"><?php echo $lines1[13]; ?></label>
                   </div>
               <div class="col">
-              <!--  <button type="submit" class="btn btn-outline-light btn-sm"><i class="fas fa-save"></i></button>  -->
+              <button name="accion" type="submit" value="btnUsarTruco" class="btn btn-outline-light btn-sm"><i class="fas fa-save"></i></button>
               </div>
             </div>
           </form>
     </div>
   </div>
 </div>
-
 
 
 <div class="card-deck">
@@ -140,7 +141,7 @@
           <form action="index.php" method="POST" role="form" enctype="multipart/form-data">
             <div class="form-row">
               <div class="col">
-                  <select type="text" class="custom-select custom-select-sm" name="InGamemode" id="InGamemode" value="<?php echo $txtGamemode;?>" placeholder="" required="">
+                  <select type="text" class="custom-select custom-select-sm" name="Gamemode" id="Gamemode" value="<?php echo $txtGamemode;?>" placeholder="" required="">
                     <option selected><?php echo $lines1[16]; ?></option>
                     <option value="survival">Supervivencia</option>
                     <option value="creative">Creativo</option>
@@ -165,16 +166,16 @@
           <form action="index.php" method="POST" role="form" enctype="multipart/form-data">
             <div class="form-row">
               <div class="col">
-                  <select class="custom-select custom-select-sm">
+                  <select class="custom-select custom-select-sm" name="Dificultad" id="Dificultad">
                     <option selected><?php echo $lines1[19]; ?></option>
-                    <option value="difficulty=peaceful">Pacífico</option>
-                    <option value="difficulty=easy">Fácil</option>
-                    <option value="difficulty=normal">Normal</option>
-                    <option value="difficulty=hard">Difícil</option>
+                    <option value="peaceful">Pacífico</option>
+                    <option value="easy">Fácil</option>
+                    <option value="normal">Normal</option>
+                    <option value="hard">Difícil</option>
                   </select>
               </div>
               <div class="col">
-                <button name="accion" value="" type="submit" class="btn btn-outline-light btn-sm"><i class="fas fa-save"></i></button>
+                <button name="accion" value="btnDificultad" type="submit" class="btn btn-outline-light btn-sm"><i class="fas fa-save"></i></button>
               </div>
             </div>
           </form>
@@ -191,11 +192,12 @@
           <form action="index.php" method="POST" role="form" enctype="multipart/form-data">
             <div class="form-row">
                   <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" id="customSwitch2">
-                    <label class="custom-control-label" for="customSwitch2"><?php echo $lines1[22]; ?></label>
+                    <input type="checkbox" class="custom-control-input" name="Whitelist" id="Whitelist" <?php echo $lines1b[40]; ?>
+                    >
+                    <label class="custom-control-label" for="Whitelist"><?php echo $lines1[22]; ?></label>
                   </div>
               <div class="col">
-              <!--  <button type="submit" class="btn btn-outline-light btn-sm"><i class="fas fa-save"></i></button>  -->
+              <button name="accion" type="submit" value="btnWhitelist" class="btn btn-outline-light btn-sm"><i class="fas fa-save"></i></button>
               </div>
             </div>
           </form>
@@ -249,7 +251,7 @@
   <div class="card text-white bg-primary mb-3">
   <div class="card-header"><?php echo $lines[30]; ?> - <?php echo $lines[34]; ?></div>
     <div class="card-body">
-      <h5 class="card-title">Pueros del Servidor: IpV4: <?php echo $lines1[4]; ?> - IpV6: <?php echo $lines1[31]; ?></h5>
+      <h5 class="card-title">Pueros: IpV4: <?php echo $lines1[4]; ?> - IpV6: <?php echo $lines1[31]; ?></h5>
       <p class="card-text">Configurar los puertos IpV4 e IpV6. Pedeterminado(IpV4=19132 - IpV6=19133)</p>
     </div>
     <div class="card-footer">

@@ -1,20 +1,26 @@
 [
     {
         "name": "usuario001",
-        "permission": "visitor",
+        "permission": "member",
         "xuid": "001",
         "ignoresPlayerLimit": false
     },
     {
         "name": "usuario002",
-        "permission": "operator",
+        "permission": "member",
         "xuid": "002",
         "ignoresPlayerLimit": false
     },
     {
         "name": "usuario003",
-        "permission": "visitor",
+        "permission": "operator",
         "xuid": "003",
+        "ignoresPlayerLimit": false
+    },
+    {
+        "name": "usuario004",
+        "permission": "operator",
+        "xuid": "004",
         "ignoresPlayerLimit": false
     }
 ]

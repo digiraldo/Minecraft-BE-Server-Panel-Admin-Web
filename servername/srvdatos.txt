@@ -1,38 +1,45 @@
 #Ip del Servidor
 MiIPV4
-
+#
 #Puerto del Servidor
 19132
-
+#
 #Nombre del Servidor
-Hogar
-
+servername
+#
 #Nombre del Nivel
-Parce
-
+Bedrock level
+#
 #Usar Trucos
-desactivado
-
+Desactivado
+#
 #Modo de Juego
-
-
+Supervivencia
+#
 #Difucultad
-easy
-
+Fácil
+#
 #Permiso Jugadores
-desactivado
-
+Desactivado
+#
 #Jugadores Máximos
-15
-
+10
+#
 #Número de Semilla
-
-
+Aleatorio
+#
 #Puerto IpV6
 19133
-
+#
 #Solicitar Acceso al Servidor
-Telegram
-
+Discord
+#
 #Solicitar Permiso al Servidor
-Solicita permiso en Discord para jugar en este servidor.
+Permsio en Discord
+#
+#Permisos Witelist checbox
+
+#
+#Usar Trucos checbox
+
+#
