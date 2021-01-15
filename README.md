@@ -25,6 +25,8 @@ Antes de iniciar hay que aclarar que el Servidor dedicado de Minecraft Bedrock E
 
 ## Funciones habilitadas del Panel de Administración Web:
 * Administración de usuarios agregando, editando y eliminando jugadores dando permisos whitelist con el Gamertag.
+* Funcion con botones de `Detener`, `Iniciar` y `Reiniciar` el Servidor en el Panel o Tablero de adminsitración.
+* Administracion de los Paámetros del Servidor en `Propiedades`.
 
 ## Instalación:
 
