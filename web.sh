@@ -56,9 +56,14 @@ function read_with_prompt {
   done
 }
 
+cd ~
+
 Print_Style "Instalando nginx, php, git..." "$MAGENTA"
 sleep 4s
 
+sudo apt-get purge --auto-remove libapache2-mod-php -y
+sudo apt-get purge --auto-remove nginx -y
+sudo apt-get purge --auto-remove php-fpm -y 
 # Instale las dependencias necesarias para ejecutar el servidor de Minecraft en segundo plano
 Print_Style "Instalando screen, unzip, sudo, net-tools, wget y otras dependencias..." "$CYAN"
 if [ ! -n "`which sudo`" ]; then
