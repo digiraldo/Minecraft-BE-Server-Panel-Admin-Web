@@ -12,10 +12,10 @@ $lines = file($myFile);
 $content = file_get_contents($myFile);
 
 // Obtener el contenido del archivo de datos txt como una matriz de líneas ## No Usado
-$myFile1 = '../../servername/srvdatos.txt';
-$lines1 = file($myFile1);
+#$myFile1 = '../../servername/srvdatos.txt';
+#$lines1 = file($myFile1);
 // Obtener el contenido del archivo como cadena
-$content1 = file_get_contents($myFile1);
+#$content1 = file_get_contents($myFile1);
 
 // Obtener el contenido del archivo de Españo España como una matriz de líneas
 $myFile2 = '../../servername/resource_packs/vanilla/texts/es_ES.lang';
