@@ -214,6 +214,8 @@ echo "========================================================================="
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/_formulario.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/$ServerName/srvdatos.txt
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/$ServerName/srvdatos.json
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/$ServerName/web.sh
+  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/$ServerName/web.sh
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/propiedades/index.php
   sudo sed -i "s:dirname:$DirName:g" /etc/nginx/sites-available/misitio.conf
 
@@ -403,6 +405,8 @@ sudo systemctl daemon-reload
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/_formulario.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/$ServerName/srvdatos.txt
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/$ServerName/srvdatos.json
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/$ServerName/web.sh
+  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/$ServerName/web.sh
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/propiedades/index.php
   sudo sed -i "s:dirname:$DirName:g" /etc/nginx/sites-available/misitio.conf
 

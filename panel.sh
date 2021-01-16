@@ -56,6 +56,8 @@ function read_with_prompt {
   done
 }
 
+cd ~
+
 Print_Style "Instalando nginx, php, git..." "$MAGENTA"
 sleep 4s
 
@@ -75,6 +77,15 @@ sudo apt update && sudo apt install php-fpm -y
 sudo apt-get install ssh -y
 sudo apt install git -y
 
+
+cd ~
+cd minecraftbe
+cd servername
+
+  # Descarga web.sh desde el repositorio
+  echo "Tomando web.sh del repositorio..."
+  wget -O web.sh https://github.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/raw/master/web.sh
+  chmod +x web.sh
 
 Print_Style "Configurando el Panel de Administración..." "$GREEN"
 sleep 3s
