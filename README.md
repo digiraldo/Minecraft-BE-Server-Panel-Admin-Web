@@ -17,6 +17,7 @@ Antes de iniciar hay que aclarar que el Servidor dedicado de Minecraft Bedrock E
 * Configurar **server.properties** del servidor minecraft con el script `config.sh`
 * Realizar copia de Seguridad del mundo en la nube (Google Drive, Microsoft OneDrive) con el script `cloud.sh`
 * Restaurar o recuperar copia de un mundo con el script `back.sh`
+* Instalacion del Panel de Administración Web.
 
 ## Requisitos Mínimos:
 * Una computadora con un procesador x86_64 bit.

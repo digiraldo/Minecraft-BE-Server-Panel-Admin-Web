@@ -98,7 +98,7 @@ sudo mv srvdatos.txt dirname/minecraftbe/servername
 sudo mv srvdatos.json dirname/minecraftbe/servername
 sudo mv location dirname/minecraftbe/
 sudo mv misitio.conf dirname/minecraftbe/
-sudo mv web.sh dirname/minecraftbe/
+#sudo mv web.sh dirname/minecraftbe/
 sudo chmod -R 755 dirname/minecraftbe
 sudo chmod -R 775 dirname/minecraftbe/servername
 

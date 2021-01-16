@@ -4,6 +4,9 @@
 $myFile1 = '../../servername/srvdatos.txt';
 $lines1 = file($myFile1);
 
+$jsonString = file_get_contents(__DIR__ . '../../../servername/srvdatos.json');
+$data = json_decode($jsonString, true);
+
 $txtDetener=(isset($_POST['detener']))?$_POST['detener']:"";
 $txtIniciar=(isset($_POST['iniciar']))?$_POST['iniciar']:"";
 $txtReiniciar=(isset($_POST['reiniciar']))?$_POST['reiniciar']:"";

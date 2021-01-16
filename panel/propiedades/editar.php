@@ -1,32 +1,28 @@
 <?php
 
 
+$jsonString = file_get_contents(__DIR__ . '../../../servername/srvdatos.json');
+$data = json_decode($jsonString, true);
 
 
-
-// Obtener el contenido del archivo de texto como una matriz de líneas
+// Obtener el contenido del archivo de propiedades como una matriz de líneas
 $myFile = '../../servername/server.properties';
 $lines = file($myFile);
 // Obtener el contenido del archivo como cadena
 $content = file_get_contents($myFile);
 
-// Obtener el contenido del archivo de texto como una matriz de líneas
+// Obtener el contenido del archivo de datos txt como una matriz de líneas ## No Usado
 $myFile1 = '../../servername/srvdatos.txt';
 $lines1 = file($myFile1);
 // Obtener el contenido del archivo como cadena
 $content1 = file_get_contents($myFile1);
-// Obtener el contenido del archivo de texto como una matriz de líneas
-$myFile1b = '../../servername/srvdatos.txt';
-$lines1b = file($myFile1b);
-// Obtener el contenido del archivo como cadena
-$content1b = file_get_contents($myFile1b);
 
-// Obtener el contenido del archivo de texto como una matriz de líneas
+// Obtener el contenido del archivo de Españo España como una matriz de líneas
 $myFile2 = '../../servername/resource_packs/vanilla/texts/es_ES.lang';
 $lines2 = file($myFile2);
 // Obtener el contenido del archivo como cadena
 $content2 = file_get_contents($myFile2);
-// Obtener el contenido del archivo de texto como una matriz de líneas
+// Obtener el contenido del archivo de Español Mexico como una matriz de líneas
 $myFile3 = '../../servername/resource_packs/vanilla/texts/es_MX.lang';
 $lines3 = file($myFile3);
 // Obtener el contenido del archivo como cadena
@@ -68,10 +64,23 @@ switch ($accion) {
         $output = "$linetext$input";
         $newcontent = str_replace($line, $output, $content);
         file_put_contents($myFile, $newcontent);
-        $newcontent1 = str_replace($lines1[7], $input, $content1);
-        file_put_contents($myFile1, $newcontent1);
+        //$newcontent1 = str_replace($lines1[7], $input, $content1);
+        //file_put_contents($myFile1, $newcontent1);
 
-        header('Location: index.php');
+        foreach ($data as $key) {
+            if ($data[0]['id'] == '1') {
+                  $data[0]['data'] = $txtinputName;
+                  $data[0]['spain'] = $txtinputName;
+                  $data[0]['btn'] = '';
+                }
+            }
+
+            $newJsonString = json_encode($data, JSON_UNESCAPED_UNICODE);
+            file_put_contents(__DIR__ . '../../../servername/srvdatos.json', $newJsonString);
+
+            unset($_POST);
+            unset($_REQUEST);
+            header("Location: ".$_SERVER['PHP_SELF']);
         //print_r($line);
         //echo $line;
     break;
@@ -86,26 +95,32 @@ switch ($accion) {
         $outputb = "$linetextb$inputb";
         $newcontentb = str_replace($lineb, $outputb, $content);
         file_put_contents($myFile, $newcontentb);
-        $newcontent1 = str_replace($lines1[10], $inputb, $content1);
-        file_put_contents($myFile1, $newcontent1);
 
-        header('Location: index.php');
+        foreach ($data as $key) {
+            if ($data[1]['id'] == '2') {
+                  $data[1]['data'] = $txtLevelName;
+                  $data[1]['spain'] = $txtLevelName;
+                  $data[1]['btn'] = '';
+                }
+            }
+
+            $newJsonString = json_encode($data, JSON_UNESCAPED_UNICODE);
+            file_put_contents(__DIR__ . '../../../servername/srvdatos.json', $newJsonString);
+
+            unset($_POST);
+            unset($_REQUEST);
+            header("Location: ".$_SERVER['PHP_SELF']);
         //print_r($line);
     break;
 
     // Habilitar Usar Trucos en el Servidor
     case 'btnUsarTruco':
         $lineb = $lines[12];
-        $che =  'checked';
-        $inputb = $txtUsarTruco . "\n";
-        $aparteb = $she . "\n";
         // Reemplazar la cadena inicial (de la matriz $lines) con $update en $content
         $linetextb = "allow-cheats=";
         $trueb = $linetextb."true" . "\n";
         $falseb = $linetextb."false" . "\n";
-        $noche = 'role';
-        
-       // $output = "$linetext$input";
+
        if ($txtUsarTruco == 'on') {
             $newcontent = str_replace($lineb, $trueb, $content);
             file_put_contents($myFile, $newcontent); 
@@ -114,24 +129,33 @@ switch ($accion) {
             file_put_contents($myFile, $newcontent0);
        }
 
-        if ($txtUsarTruco == 'on') {
-            $newcontent4 = str_replace($lines1[13], 'Activado' . "\n", $content1);
-            file_put_contents($myFile1, $newcontent4);
-        }else {
-            $newcontent2 = str_replace($lines1[13], 'Desactivado' . "\n", $content1);
-            file_put_contents($myFile1, $newcontent2);
-        }
+       foreach ($data as $key) {
+              if ($data[2]['id'] == '3' && $txtUsarTruco == 'on') {
+                    $data[2]['data'] = 'true';
+                    $data[2]['spain'] = 'Activado';
+                    $data[2]['btn'] = 'checked';
+                    $data[2]['icon'] = '<i class="fas fa-check"></i>';
+                  }
+              else  {
+                    $data[2]['data'] = 'false';
+                    $data[2]['spain'] = 'Desactivado';
+                    $data[2]['btn'] = '';
+                    $data[2]['icon'] = '<i class="fas fa-times"></i>';
+                  }
+            
+       }
 
-        if ($txtUsarTruco == 'on') {
-            $newcontent1 = str_replace($lines1b[43], $aparteb, $content1b);
-            file_put_contents($myFile1b, $newcontent1);
-        }else {
-            $newcontent3 = str_replace($lines1b[43], $inputb, $content1b);
-            file_put_contents($myFile1b, $newcontent3);
-        }
+            $newJsonString = json_encode($data, JSON_UNESCAPED_UNICODE);
+            file_put_contents(__DIR__ . '../../../servername/srvdatos.json', $newJsonString);
 
-        header('Location: index.php');
-        //print_r($line);
+            unset($_POST);
+            unset($_REQUEST);
+            header("Location: ".$_SERVER['PHP_SELF']);
+            //exit;
+
+
+      //  header('Location: index.php');
+        // JSON_PRETTY_PRINT
         //echo $line;
     break;
 
@@ -146,22 +170,31 @@ switch ($accion) {
         $newcontentd = str_replace($lined, $outputd, $content);
         file_put_contents($myFile, $newcontentd);
 
-        if ($txtGamemode == 'survival') {
-            $newcontent1 = str_replace($lines1[16], "Supervivencia" . "\n", $content1);
-        file_put_contents($myFile1, $newcontent1);
+        foreach ($data as $key) {
+        if ($txtGamemode == 'survival' && $data[3]['id'] == '4') {
+                $data[3]['data'] = 'survival';
+                $data[3]['spain'] = 'Supervivencia';
+                $data[3]['btn'] = '';
+        }
+        if ($txtGamemode == 'creative' && $data[3]['id'] == '4') {
+            $data[3]['data'] = 'creative';
+            $data[3]['spain'] = 'Creativo';
+            $data[3]['btn'] = '';
+        }
+        if ($txtGamemode == 'adventure' && $data[3]['id'] == '4') {
+            $data[3]['data'] = 'adventure';
+            $data[3]['spain'] = 'Aventura';
+            $data[3]['btn'] = '';
         }
 
-        if ($txtGamemode == 'creative') {
-            $newcontent1 = str_replace($lines1[16], "Creativo" . "\n", $content1);
-        file_put_contents($myFile1, $newcontent1);
         }
 
-        if ($txtGamemode == 'adventure') {
-            $newcontent1 = str_replace($lines1[16], "Aventura" . "\n", $content1);
-        file_put_contents($myFile1, $newcontent1);
-        }
-    
-        header('Location: index.php');
+            $newJsonString = json_encode($data, JSON_UNESCAPED_UNICODE);
+            file_put_contents(__DIR__ . '../../../servername/srvdatos.json', $newJsonString);
+
+            unset($_POST);
+            unset($_REQUEST);
+            header("Location: ".$_SERVER['PHP_SELF']);
         //print_r($line);
     break;
 
@@ -181,68 +214,79 @@ switch ($accion) {
         $newcontent = str_replace($line, $output, $content);
         file_put_contents($myFile, $newcontent);
 
-        if ($txtDificultad == 'peaceful') {
-            $newcontent1 = str_replace($lines1[19], "Pacífico" . "\n", $content1);
-        file_put_contents($myFile1, $newcontent1);
-        }
+        foreach ($data as $key) {
+            if ($txtDificultad == 'peaceful' && $data[4]['id'] == '5') {
+                    $data[4]['data'] = 'peaceful';
+                    $data[4]['spain'] = 'Pacífico';
+                    $data[4]['btn'] = '';
+            }
+            if ($txtDificultad == 'easy' && $data[4]['id'] == '5') {
+                $data[4]['data'] = 'easy';
+                $data[4]['spain'] = 'Fácil';
+                $data[4]['btn'] = '';
+            }
+            if ($txtDificultad == 'normal' && $data[4]['id'] == '5') {
+                $data[4]['data'] = 'normal';
+                $data[4]['spain'] = 'Normal';
+                $data[4]['btn'] = '';
+            }
+            if ($txtDificultad == 'hard' && $data[4]['id'] == '5') {
+                $data[4]['data'] = 'hard';
+                $data[4]['spain'] = 'Difícil';
+                $data[4]['btn'] = '';
+            }
 
-        if ($txtDificultad == 'easy') {
-            $newcontent1 = str_replace($lines1[19], "Fácil" . "\n", $content1);
-        file_put_contents($myFile1, $newcontent1);
         }
+        $newJsonString = json_encode($data, JSON_UNESCAPED_UNICODE);
+        file_put_contents(__DIR__ . '../../../servername/srvdatos.json', $newJsonString);
 
-        if ($txtDificultad == 'normal') {
-            $newcontent1 = str_replace($lines1[19], "Normal" . "\n", $content1);
-        file_put_contents($myFile1, $newcontent1);
-        }
-
-        if ($txtDificultad == 'hard') {
-            $newcontent1 = str_replace($lines1[19], "Difícil" . "\n", $content1);
-        file_put_contents($myFile1, $newcontent1);
-        }
-        header('Location: index.php');
+        unset($_POST);
+        unset($_REQUEST);
+        header("Location: ".$_SERVER['PHP_SELF']);
         //print_r($line);
     break;
 
     // Habilitar permiso a jugadores en el Servidor sel Servidor
     case 'btnWhitelist':
         $line = $lines[26];
-        $she =  'checked';
-        $input = $txtWhitelist . "\n";
-        $aparte = $she . "\n";
-        // Reemplazar la cadena inicial (de la matriz $lines) con $update en $content
         $ltext = "white-list=";
         $true = $ltext.'true' . "\n";
         $false = $ltext.'false' . "\n";
         
-       // $output = "$linetext$input";
 
         if ($txtWhitelist == 'on') {
             $newcontent = str_replace($line, $true, $content);
             file_put_contents($myFile, $newcontent); 
         }else {
-            $newcontent1 = str_replace($lines1[22], 'Desactivado' . "\n", $content1);
-            file_put_contents($myFile1, $newcontent1);
-        }
-
-        if ($txtWhitelist == '') {
             $newcontent = str_replace($line, $false, $content);
-        file_put_contents($myFile, $newcontent);       
-        }else {
-            $newcontent1 = str_replace($lines1[22], 'Activado' . "\n", $content1);
-            file_put_contents($myFile1, $newcontent1);
+            file_put_contents($myFile, $newcontent); 
         }
 
-        if ($txtWhitelist == 'on') {
-            $newcontent1 = str_replace($lines1b[40], $aparte, $content1b);
-            file_put_contents($myFile1b, $newcontent1);
-        }else {
-            $newcontent3 = str_replace($lines1b[40], $input, $content1b);
-            file_put_contents($myFile1b, $newcontent3);
+       foreach ($data as $key) {
+    if ($data[5]['id'] == '6' && $txtWhitelist == 'on') {
+          $data[5]['data'] = 'true';
+          $data[5]['spain'] = 'Activado';
+          $data[5]['btn'] = 'checked';
+          $data[5]['icon'] = '<i class="fas fa-check"></i>';
         }
-        header('Location: index.php');
-        //print_r($line);
-        //echo $line;
+    else  {
+          $data[5]['data'] = 'false';
+          $data[5]['spain'] = 'Desactivado';
+          $data[5]['btn'] = '';
+          $data[5]['icon'] = '<i class="fas fa-times"></i>';
+        }
+    
+        }
+
+            $newJsonStr = json_encode($data, JSON_UNESCAPED_UNICODE);
+            file_put_contents(__DIR__ . '../../../servername/srvdatos.json', $newJsonStr);
+
+            unset($_POST);
+            unset($_REQUEST);
+            header("Location: ".$_SERVER['PHP_SELF']);
+            //exit;
+
+        //header('Location: index.php');
     break;
 
     // Maximo de Jugadores en el Servidor sel Servidor
@@ -255,10 +299,27 @@ switch ($accion) {
         $output = "$linetext$input";
         $newcontent = str_replace($line, $output, $content);
         file_put_contents($myFile, $newcontent);
-        $newcontent1 = str_replace($lines1[25], $input, $content1);
-        file_put_contents($myFile1, $newcontent1);
 
-        header('Location: index.php');
+        foreach ($data as $key) {
+            if ($data[6]['id'] == '7' && $txtGamerMax < '1') {
+                  $data[6]['data'] = $txtGamerMax;
+                  $data[6]['spain'] = 'Err: Mínimo 1 Jugador';
+                  $data[6]['btn'] = '<i class="fas fa-user-slash"></i>';
+                  $data[6]['icon'] = '<i class="fas fa-user-slash"></i>';
+                }else {
+                  $data[6]['data'] = $txtGamerMax;
+                  $data[6]['spain'] = $txtGamerMax;
+                  $data[6]['btn'] = $txtGamerMax;
+                  $data[6]['icon'] = '<i class="fas fa-user-check"></i>';
+                }
+            }
+
+            $newJsonString = json_encode($data, JSON_UNESCAPED_UNICODE);
+            file_put_contents(__DIR__ . '../../../servername/srvdatos.json', $newJsonString);
+
+            unset($_POST);
+            unset($_REQUEST);
+            header("Location: ".$_SERVER['PHP_SELF']);
         //print_r($line);
         //echo $line;
     break;
@@ -274,16 +335,34 @@ switch ($accion) {
         $newcontent = str_replace($line, $output, $content);
         file_put_contents($myFile, $newcontent);
 
-            if ($txtSemilla == array()) {
-                $newcontent1 = str_replace($lines1[28], "Aleatorio" . "\n", $content1);
-                file_put_contents($myFile1, $newcontent1);
+        foreach ($data as $key) {
+            if ($data[7]['id'] == '8' && $txtSemilla == '') {
+                  $data[7]['data'] = $txtSemilla;
+                  $data[7]['spain'] = 'Aleatorio';
+                  $data[7]['btn'] = '';
+                }else {
+                  $data[7]['data'] = $txtSemilla;
+                  $data[7]['spain'] = $txtSemilla;
+                  $data[7]['btn'] = '';
+                }
             }
-                $newcontent1 = str_replace($lines1[28], $input, $content1);
-                file_put_contents($myFile1, $newcontent1);
 
-        header('Location: index.php');
-        //print_r($line);
-        //echo $line;
+            $newJsonString = json_encode($data, JSON_UNESCAPED_UNICODE);
+            file_put_contents(__DIR__ . '../../../servername/srvdatos.json', $newJsonString);
+
+            unset($_POST);
+            unset($_REQUEST);
+            header("Location: ".$_SERVER['PHP_SELF']);
+
+
+
+  //          if ($txtSemilla == array()) {
+  //              $newcontent1 = str_replace($lines1[28], "Aleatorio" . "\n", $content1);
+  //              file_put_contents($myFile1, $newcontent1);
+  //          }
+  //              $newcontent1 = str_replace($lines1[28], $input, $content1);
+  //              file_put_contents($myFile1, $newcontent1);
+
     break;
 
     // Puerto Ipv4 del Servidor sel Servidor
@@ -296,10 +375,21 @@ switch ($accion) {
         $output = "$linetext$input";
         $newcontent = str_replace($line, $output, $content);
         file_put_contents($myFile, $newcontent);
-        $newcontent1 = str_replace($lines1[4], $input, $content1);
-        file_put_contents($myFile1, $newcontent1);
 
-        header('Location: index.php');
+        foreach ($data as $key) {
+            if ($data[8]['id'] == '9') {
+                  $data[8]['data'] = $txtIpv4;
+                  $data[8]['spain'] = $txtIpv4;
+                  $data[8]['btn'] = '';
+                }
+            }
+
+            $newJsonString = json_encode($data, JSON_UNESCAPED_UNICODE);
+            file_put_contents(__DIR__ . '../../../servername/srvdatos.json', $newJsonString);
+
+            unset($_POST);
+            unset($_REQUEST);
+            header("Location: ".$_SERVER['PHP_SELF']);
         //print_r($line);
         //echo $line;
     break;
@@ -314,10 +404,21 @@ switch ($accion) {
         $output = "$linetext$input";
         $newcontent = str_replace($line, $output, $content);
         file_put_contents($myFile, $newcontent);
-        $newcontent1 = str_replace($lines1[31], $input, $content1);
-        file_put_contents($myFile1, $newcontent1);
 
-        header('Location: index.php');
+        foreach ($data as $key) {
+            if ($data[9]['id'] == '10') {
+                  $data[9]['data'] = $txtIpv6;
+                  $data[9]['spain'] = $txtIpv6;
+                  $data[9]['btn'] = '';
+                }
+            }
+
+            $newJsonString = json_encode($data, JSON_UNESCAPED_UNICODE);
+            file_put_contents(__DIR__ . '../../../servername/srvdatos.json', $newJsonString);
+
+            unset($_POST);
+            unset($_REQUEST);
+            header("Location: ".$_SERVER['PHP_SELF']);
         //print_r($line);
         //echo $line;
     break;
@@ -349,18 +450,29 @@ switch ($accion) {
         $newcontent3 = str_replace($lines3[2312], $output, $content3);
         file_put_contents($myFile3, $newcontent3);
 
-        $newcontent1 = str_replace($lines1[34], $txtDiscord . "\n", $content1);
-        file_put_contents($myFile1, $newcontent1);
+        foreach ($data as $key) {
+            if ($data[10]['id'] == '11') {
+                  $data[10]['data'] = $txtDiscord;
+                  $data[10]['spain'] = $txtDiscord;
+                  $data[10]['btn'] = '';
+                }
+            
+            if ($data[11]['id'] == '12') {
+                $data[11]['data'] = $output2;
+                $data[11]['spain'] = $output2;
+                $data[11]['btn'] = '';
+              }
+        }
 
-        $newcontent2 = str_replace($lines1b[37], $output2 . "\n", $content1b);
-        file_put_contents($myFile1b, $newcontent2);
+            $newJsonString = json_encode($data, JSON_UNESCAPED_UNICODE);
+            file_put_contents(__DIR__ . '../../../servername/srvdatos.json', $newJsonString);
 
-        header('Location: index.php');
-        //print_r($line);
-        //echo $output;
-        //echo $output2;
+            unset($_POST);
+            unset($_REQUEST);
+            header("Location: ".$_SERVER['PHP_SELF']);
 
     break;
+    
 
 }
 

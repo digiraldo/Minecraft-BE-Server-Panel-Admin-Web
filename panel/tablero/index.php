@@ -74,9 +74,9 @@
   <div class="card-body">
   <!-- <h3 class="card-title font-italic">EN LÍNEA</h3> -->
   <span class="fas fa-server fa-4x"></span>
-  <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark">0/<?php echo $lines1[25]; ?></span></h4>
+  <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark">0/<?php echo $data[6]['btn']; ?></span></h4>
   </div>
-  <a href="../usuarios" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="0/<?php echo $lines1[25]; ?> Jugando Ahora">Ver Jugaodres</a>
+  <a href="../propiedades" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="0/<?php echo $data[6]['spain']; ?> Jugando Ahora">Ver Propiedades</a>
 </div>
 
 <div class="bg-primary col-sm-3 card text-white">
@@ -86,7 +86,7 @@
   <i class="fas fa-user fa-4x"></i>
   <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark"><?php echo count($usuarios); ?></span></h4>
   </div>
-  <a href="../usuarios" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="<?php echo count($usuarios); ?> Jugdores Agregados">Ver Whitelist</a>
+  <a href="../usuarios" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="<?php echo count($usuarios); ?> Jugadores Agregados">Ver Whitelist</a>
 </div>
 
 <br/>
@@ -108,7 +108,7 @@
     <i class="fas fa-user-cog fa-4x"></i>
     <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark"><?php  echo ('0') ?></span></h4>
     </div>
-  <a href="../propiedades" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="<?php  echo ('0') ?> Administradores">Ver Usuarios</a>
+  <a href="../administradores" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="<?php  echo ('0') ?> Administradores">Ver Administradores</a>
 </div>
 
 </div>

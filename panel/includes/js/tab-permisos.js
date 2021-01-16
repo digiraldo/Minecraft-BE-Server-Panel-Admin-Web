@@ -14,6 +14,13 @@ $(document).ready(function() {
                 delay: 300,
                 template: '<div class="popover" role="tooltip"><div class="arrow"></div><h3 class="popover-header bg-info text-white"></h3><div class="popover-body"></div></div>'
             });
+            $('[data-toggle="toolt"]').popover({
+                html: true,
+                container: 'body',
+                trigger: 'hover focus',
+                delay: 300,
+                template: '<div class="popover" role="tooltip"><div class="arrow"></div><h3 class="popover-header bg-info text-white"></h3><div class="popover-body"></div></div>'
+            });
 
         },
 
