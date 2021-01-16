@@ -54,7 +54,7 @@
 
 <div class="card-deck">
 <div class="card text-center border-info mb-3">
-  <div class="card-header">Ingreso al Servidor: <?php echo $lines1[1]; ?> Puerto:<?php echo $lines1[4]; ?></div>
+  <div class="card-header">Ingreso al Servidor: <?php echo $data[12]['spain']; ?> Puerto:<?php echo $data[8]['spain']; ?></div>
   <div class="card-body text-info">
     <h5 class="card-title">Propiedades del Servidor</h5>
     <p class="card-text text-success">Aqui puede editar las configuraciones del servidor, recuerde reiniciar el servidor para que surta efecto.</p>

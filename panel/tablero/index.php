@@ -61,7 +61,7 @@
     
   </div>
   <div class="card-footer text-muted">
-  Ingreso al Servidor: <?php echo $lines1[1]; ?> Puerto:<?php echo $lines1[4]; ?>
+  Ingreso al Servidor: <?php echo $data[12]['spain']; ?> Puerto:<?php echo $data[8]['spain']; ?>
   </div>
 </div>
 

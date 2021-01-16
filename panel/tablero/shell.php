@@ -1,8 +1,8 @@
 <?php
 
 // Obtener el contenido del archivo de texto como una matriz de líneas
-$myFile1 = '../../servername/srvdatos.txt';
-$lines1 = file($myFile1);
+//$myFile1 = '../../servername/srvdatos.txt';
+//$lines1 = file($myFile1);
 
 $jsonString = file_get_contents(__DIR__ . '../../../servername/srvdatos.json');
 $data = json_decode($jsonString, true);
