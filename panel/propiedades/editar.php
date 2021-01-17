@@ -1,7 +1,7 @@
 <?php
 
 
-$jsonString = file_get_contents(__DIR__ . '../../../servername/srvdatos.json');
+$jsonString = file_get_contents(__DIR__ . '../../../servername/panelpro/srvdatos.json');
 $data = json_decode($jsonString, true);
 
 
@@ -76,7 +76,7 @@ switch ($accion) {
             }
 
             $newJsonString = json_encode($data, JSON_UNESCAPED_UNICODE);
-            file_put_contents(__DIR__ . '../../../servername/srvdatos.json', $newJsonString);
+            file_put_contents(__DIR__ . '../../../servername/panelpro/srvdatos.json', $newJsonString);
 
             unset($_POST);
             unset($_REQUEST);
@@ -105,7 +105,7 @@ switch ($accion) {
             }
 
             $newJsonString = json_encode($data, JSON_UNESCAPED_UNICODE);
-            file_put_contents(__DIR__ . '../../../servername/srvdatos.json', $newJsonString);
+            file_put_contents(__DIR__ . '../../../servername/panelpro/srvdatos.json', $newJsonString);
 
             unset($_POST);
             unset($_REQUEST);
@@ -146,7 +146,7 @@ switch ($accion) {
        }
 
             $newJsonString = json_encode($data, JSON_UNESCAPED_UNICODE);
-            file_put_contents(__DIR__ . '../../../servername/srvdatos.json', $newJsonString);
+            file_put_contents(__DIR__ . '../../../servername/panelpro/srvdatos.json', $newJsonString);
 
             unset($_POST);
             unset($_REQUEST);
@@ -190,7 +190,7 @@ switch ($accion) {
         }
 
             $newJsonString = json_encode($data, JSON_UNESCAPED_UNICODE);
-            file_put_contents(__DIR__ . '../../../servername/srvdatos.json', $newJsonString);
+            file_put_contents(__DIR__ . '../../../servername/panelpro/srvdatos.json', $newJsonString);
 
             unset($_POST);
             unset($_REQUEST);
@@ -238,7 +238,7 @@ switch ($accion) {
 
         }
         $newJsonString = json_encode($data, JSON_UNESCAPED_UNICODE);
-        file_put_contents(__DIR__ . '../../../servername/srvdatos.json', $newJsonString);
+        file_put_contents(__DIR__ . '../../../servername/panelpro/srvdatos.json', $newJsonString);
 
         unset($_POST);
         unset($_REQUEST);
@@ -279,7 +279,7 @@ switch ($accion) {
         }
 
             $newJsonStr = json_encode($data, JSON_UNESCAPED_UNICODE);
-            file_put_contents(__DIR__ . '../../../servername/srvdatos.json', $newJsonStr);
+            file_put_contents(__DIR__ . '../../../servername/panelpro/srvdatos.json', $newJsonStr);
 
             unset($_POST);
             unset($_REQUEST);
@@ -315,7 +315,7 @@ switch ($accion) {
             }
 
             $newJsonString = json_encode($data, JSON_UNESCAPED_UNICODE);
-            file_put_contents(__DIR__ . '../../../servername/srvdatos.json', $newJsonString);
+            file_put_contents(__DIR__ . '../../../servername/panelpro/srvdatos.json', $newJsonString);
 
             unset($_POST);
             unset($_REQUEST);
@@ -348,7 +348,7 @@ switch ($accion) {
             }
 
             $newJsonString = json_encode($data, JSON_UNESCAPED_UNICODE);
-            file_put_contents(__DIR__ . '../../../servername/srvdatos.json', $newJsonString);
+            file_put_contents(__DIR__ . '../../../servername/panelpro/srvdatos.json', $newJsonString);
 
             unset($_POST);
             unset($_REQUEST);
@@ -385,7 +385,7 @@ switch ($accion) {
             }
 
             $newJsonString = json_encode($data, JSON_UNESCAPED_UNICODE);
-            file_put_contents(__DIR__ . '../../../servername/srvdatos.json', $newJsonString);
+            file_put_contents(__DIR__ . '../../../servername/panelpro/srvdatos.json', $newJsonString);
 
             unset($_POST);
             unset($_REQUEST);
@@ -414,7 +414,7 @@ switch ($accion) {
             }
 
             $newJsonString = json_encode($data, JSON_UNESCAPED_UNICODE);
-            file_put_contents(__DIR__ . '../../../servername/srvdatos.json', $newJsonString);
+            file_put_contents(__DIR__ . '../../../servername/panelpro/srvdatos.json', $newJsonString);
 
             unset($_POST);
             unset($_REQUEST);
@@ -465,7 +465,7 @@ switch ($accion) {
         }
 
             $newJsonString = json_encode($data, JSON_UNESCAPED_UNICODE);
-            file_put_contents(__DIR__ . '../../../servername/srvdatos.json', $newJsonString);
+            file_put_contents(__DIR__ . '../../../servername/panelpro/srvdatos.json', $newJsonString);
 
             unset($_POST);
             unset($_REQUEST);

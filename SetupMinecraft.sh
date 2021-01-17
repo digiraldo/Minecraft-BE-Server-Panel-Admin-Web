@@ -213,7 +213,7 @@ echo "========================================================================="
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/usuarios.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/_formulario.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/$ServerName/srvdatos.txt
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/$ServerName/srvdatos.json
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/$servername/panelpro/srvdatos.json
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/$ServerName/web.sh
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/$ServerName/web.sh
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/propiedades/index.php
@@ -404,7 +404,7 @@ sudo systemctl daemon-reload
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/usuarios.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/_formulario.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/$ServerName/srvdatos.txt
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/$ServerName/srvdatos.json
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/$servername/panelpro/srvdatos.json
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/$ServerName/web.sh
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/$ServerName/web.sh
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/propiedades/index.php

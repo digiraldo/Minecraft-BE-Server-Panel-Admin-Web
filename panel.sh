@@ -109,6 +109,33 @@ sudo mv srvdatos.txt dirname/minecraftbe/servername
 sudo mv srvdatos.json dirname/minecraftbe/servername
 sudo mv location dirname/minecraftbe/
 sudo mv misitio.conf dirname/minecraftbe/
+
+cd ~
+cd minecraftbe
+cd servername
+if [ ! -d "panelpro" ]; then
+sudo mkdir panelpro
+
+# Descargar srvdatos.json desde el repositorio
+  echo "Tomando srvdatos.json del repositorio..."
+  wget -O srvdatos.json https://github.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/raw/master/misitio.conf
+  chmod 775 srvdatos.json
+  sudo sed -i "s:dirname:$DirName:g" srvdatos.json
+  sudo sed -i "s:servername:$ServerName:g" srvdatos.json
+
+  # Descargar usradmin.json desde el repositorio
+  echo "Tomando usradmin.json del repositorio..."
+  wget -O usradmin.json https://github.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/raw/master/misitio.conf
+  chmod 775 usradmin.json
+  sudo sed -i "s:dirname:$DirName:g" usradmin.json
+  sudo sed -i "s:servername:$ServerName:g" usradmin.json
+
+
+else
+cd ~
+cd minecraftbe
+fi
+
 #sudo mv web.sh dirname/minecraftbe/
 sudo chmod -R 755 dirname/minecraftbe
 sudo chmod -R 775 dirname/minecraftbe/servername
@@ -203,7 +230,7 @@ echo "========================================================================="
 
 Print_Style "Configurando la pagina web $IPV4/index.php..." "$YELLOW"
 sudo sed -i "s/MiIPV4/$IPV4/g" dirname/minecraftbe/servername/srvdatos.txt
-sudo sed -i "s/MiIPV4/$IPV4/g" dirname/minecraftbe/servername/srvdatos.json
+sudo sed -i "s/MiIPV4/$IPV4/g" dirname/minecraftbe/servername/panelpro/srvdatos.json
 sudo sed -i "s/MiIPV4/$IPV4/g" /etc/nginx/sites-available/misitio.conf
 sudo sed -i "s/versionphp/$VePHP/g" /etc/nginx/sites-available/misitio.conf
 sudo sed -i "s/versionphp/$VePHP/g" /etc/nginx/sites-available/default

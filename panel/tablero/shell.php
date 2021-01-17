@@ -4,7 +4,7 @@
 //$myFile1 = '../../servername/srvdatos.txt';
 //$lines1 = file($myFile1);
 
-$jsonString = file_get_contents(__DIR__ . '../../../servername/srvdatos.json');
+$jsonString = file_get_contents(__DIR__ . '../../../servername/panelpro/srvdatos.json');
 $data = json_decode($jsonString, true);
 
 $txtDetener=(isset($_POST['detener']))?$_POST['detener']:"";
@@ -28,7 +28,8 @@ switch ($accion) {
   break;
 
   case 'btnReiniciar':
-   $txtReiniciar = shell_exec("sudo systemctl restart servername");
+   $txtReiniciar = shell_exec("sudo sh res.sh");
+  // $txtReiniciar = shell_exec("sudo systemctl restart servername");
   break;
 
 }
