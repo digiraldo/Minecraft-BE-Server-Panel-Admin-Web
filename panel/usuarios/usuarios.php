@@ -1,6 +1,5 @@
 <?php
 
-
 function obtenerUsuarios(){
     return json_decode(file_get_contents(__DIR__ . '../../../servername/whitelist.json'), true);
 }
@@ -33,49 +32,32 @@ function obtenerPorPermission($name){
     return null;
 }
 
-//echo $usuarioP
-
-//$permi = [
-//    $usuarioN['visitor'] => "Visitante",
-//    $usuarioN['member'] => "Miembro",
-//    $usuarioN['operator'] => "Operador",
-//];
-
 function crearUsuario($data){
-
-    $data['ignoresPlayerLimit'] = false;
-    $usuarios = obtenerUsuarios();
-    //$permisos = obtenerPermisosU();
-    //$data['xuid'] = $permiso['xuid'];
-    //$data['xuid'] = $permiso['xuid'];
-
-    //$data['permiso'] = $permi;
-    //$usuarioN['visitor'] = $permi['Visitante'];
-    //$usuarioN['member'] = $permi['Miembro'];
-    //$usuarioN['operator'] = $permi['Operador'];
-
-    $usuarios[] = $data;
-    ponerJson ($usuarios);
-    //ponerJsonP ($usuarios);
-  
-
-   //if ($usuarioN['permission'] = 'operator') {
-    //    $permisos[] = $data;
-    //    ponerJsonP ($usuarios);
-    //}
-
+    $data['spain'] = '';
+    $data['ignoresPlayerLimit'] = 'false';
     $usuarios = obtenerUsuarios();
     $usuarios[] = $data;
+
+
+    foreach ($usuarios as $i => $o) {
         foreach ($usuarios as $i => $o) {
-        if ($o['permission'] == 'operator') {
-            $encode = json_encode($o);
-            //echo $encode;
-            
-            ponerJsonP($encode);
+        if ($usuarios[$i]['permission'] == 'visitor') {
+            $usuarios[$i]['spain'] = 'Visitante';
+            ponerJson($usuarios);
         }
-    }
-    
-
+        }
+        foreach ($usuarios as $i => $o) {
+        if ($usuarios[$i]['permission'] == 'member') {
+            $usuarios[$i]['spain'] = 'Miembro';
+            ponerJson($usuarios);
+        }
+        }
+        if ($usuarios[$i]['permission'] == 'operator') {
+            $usuarios[$i]['spain'] = 'Operador';
+            ponerJson($usuarios);
+            ponerJsonP($usuarios);
+        }
+        }
 
 }
 // "visitor", "member", "operator" 
@@ -91,10 +73,35 @@ function actualizarUsuario($data, $name){
     //echo '<pre>'; var_dump($usuarios); echo '</pre>';
 
     file_put_contents(__DIR__ . '../../../servername/whitelist.json', json_encode($usuarios, JSON_PRETTY_PRINT));
- //   file_put_contents(__DIR__ . '../../../servername/permissions.json', json_encode($permisos, JSON_PRETTY_PRINT));
+    file_put_contents(__DIR__ . '../../../servername/permissions.json', json_encode($permisos, JSON_PRETTY_PRINT));
     //file_put_contents(__DIR__ . '/servername/whitelist.json', json_encode($users, JSON_PRETTY_PRINT));
 
-    ponerJson ($usuarios);
+    foreach ($usuarios as $i => $o) {
+        foreach ($usuarios as $i => $o) {
+        if ($usuarios[$i]['permission'] == 'visitor') {
+            $usuarios[$i]['spain'] = 'Visitante';
+            ponerJson($usuarios);
+            ponerJsonP($usuarios);
+        }
+        }
+        foreach ($usuarios as $i => $o) {
+        if ($usuarios[$i]['permission'] == 'member') {
+            $usuarios[$i]['spain'] = 'Miembro';
+            ponerJson($usuarios);
+            ponerJsonP($usuarios);
+        }
+        }
+        foreach ($usuarios as $i => $o) {
+        if ($usuarios[$i]['permission'] == 'operator') {
+            $usuarios[$i]['spain'] = 'Operador';
+            ponerJson($usuarios);
+            ponerJsonP($usuarios);
+        }
+        }
+    }
+
+    //ponerJson ($usuarios);
+    //ponerJsonP($usuarios);
     return $actualizarUsuario;
 }
 
@@ -109,6 +116,7 @@ function eliminarUsuario($name){
         }
     }
     ponerJson ($usuarios);
+    ponerJsonP($usuarios);
   //  ponerJson ($permisos);
     //return null;
 }
@@ -117,11 +125,10 @@ function ponerJson($usuarios){
     file_put_contents(__DIR__ . '../../../servername/whitelist.json', json_encode($usuarios, JSON_PRETTY_PRINT));
 }
 
-function ponerJsonP($encode){
-    file_put_contents(__DIR__ . '../../../servername/permissions.json', json_encode($encode, JSON_PRETTY_PRINT));
+function ponerJsonP($usuarios){
+    file_put_contents(__DIR__ . '../../../servername/permissions.json', json_encode($usuarios, JSON_PRETTY_PRINT));
 }
 //$conteoUsuarios = json_decode(file_get_contents(__DIR__ . '../../../servername/whitelist.json'), true);
-
 
 
 

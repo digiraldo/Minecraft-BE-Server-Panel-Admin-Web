@@ -48,16 +48,44 @@
             <thead>
               <tr>
               <th scope="col">Gamertag</th>
-              <th scope="col">Id Usuario XUID</th>
+              <!--<th scope="col">Id Usuario XUID</th> -->
               <th scope="col">Nivel de Permso</th>
             <!--  <th scope="col">Id usuario (XUID)</th> -->
               </tr>
             </thead>
 		      <tbody>
               <?php foreach ($permisos as $permiso): ?>
-                  <td><?php echo $permiso['name'] ?></td>
-                  <td><?php echo $permiso['xuid'] ?></td>
-                  <td><a href="# " data-toggle="tooltip" data-placement="left" title="<i class='fas fa-id-card'></i> Usuario XUID<br><?php echo $permiso['xuid']; ?>"><?php echo $permiso['permission']; ?></a></td>
+                  <td>
+                  <?php if ($permiso['permission'] == 'operator') { ?>
+                  <a href="# " data-toggle="tooltip" data-placement="left" 
+                  title="<i class='fas fa-id-card'></i> xuid: <?php echo $permiso['xuid']; ?>">
+                  <?php echo $permiso['name']; ?></a>
+                  <?php }else {
+                    array();
+                  }
+                  ?>
+                  </td>
+                  <!--
+                  <td>
+                  <?php if ($permiso['permission'] == 'operator') { 
+                    echo $permiso['xuid'];
+                  } else {
+                    array();
+                  } 
+                  ?> 
+                  </td>
+                  -->
+                  <td>
+                  <?php if ($permiso['permission'] == 'operator') { ?>
+                  <a href="# " data-toggle="tooltip" data-placement="left" 
+                  title="<i class='fas fa-id-card'></i> xuid: <?php echo $permiso['xuid']; ?>">
+                  <?php echo $permiso['spain']; ?></a>
+                  <?php }else {
+                    array();
+                  }
+                  ?>
+                  
+                  </td>
                 </tr>
               <?php endforeach; ?>
           </tbody>

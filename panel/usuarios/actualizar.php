@@ -19,10 +19,40 @@ $usuarioN = obtenerUsuarioPorName($usuarioName);
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
        // echo '<pre>'; var_dump($_POST); echo '</pre>';
+
+       $usuarios = obtenerUsuarios();
+        foreach ($usuarios as $key) {
+        if ($permiso = 'visitor') {
+            $data[$key]['spain'] = 'Visitante';
+        }
+        if ($permiso = 'member') {
+            $data[$key]['spain'] = 'Miembro';
+        }
+        if ($permiso = 'operator') {
+            $data[$key]['spain'] = 'Operador';
+        }   
+        }
+
         $usuarioN = actualizarUsuario($_POST, $usuarioName);
         header("Location: index.php");
     }
+
     
+
+    $usuarios = obtenerUsuarios();
+    foreach ($usuarios as $key) {
+        if ($usuarios[$key]['permission'] == 'visitor') {
+            $data[$key]['spain'] = 'Visitante';
+        }
+        if ($usuarios[$key]['permission'] == 'member') {
+            $data[$key]['spain'] = 'Miembro';
+        }
+        if ($usuarios[$key]['permission'] == 'operator') {
+            $data[$key]['spain'] = 'Operador';
+        }   
+        }
+
+
 ?>
 
     <?php include '_formulario.php' ?>

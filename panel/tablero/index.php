@@ -12,6 +12,8 @@
 
   require 'shell.php';
 
+  
+
 ?>
 
 <!DOCTYPE html>
@@ -76,7 +78,7 @@
   <span class="fas fa-server fa-4x"></span>
   <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark">0/<?php echo $data[6]['btn']; ?></span></h4>
   </div>
-  <a href="../propiedades" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="0/<?php echo $data[6]['spain']; ?> Jugando Ahora">Ver Propiedades</a>
+  <a href="ver_pro.php" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="0/<?php echo $data[6]['spain']; ?> Jugando Ahora">Ver Propiedades</a>
 </div>
 
 <div class="bg-primary col-sm-3 card text-white">
@@ -96,9 +98,9 @@
   <div class="card-body">
   <!-- <h3 class="card-title font-italic">OPERADORES</h3> -->
   <i class="fas fa-user-edit fa-4x"></i>
-  <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark badge-10x"><?php echo count($permisos); ?></span></h4>
+  <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark badge-10x"><?php echo $percount; ?></span></h4>
   </div>
-  <a href="../permisos" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="<?php echo count($permisos); ?> Operadores">Ver Permisos</a>
+  <a href="../permisos" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="<?php echo $percount; ?> Operadores">Ver Permisos</a>
 </div>
 
   <div class="bg-success col-sm-3 card text-white">

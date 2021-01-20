@@ -8,13 +8,19 @@
     $usuarioP = obtenerUsuarios();
     require '../permisos/permisos.php';
     $permisos = obtenerPermisos();
+    //print_r(array_column($permisos, 'permission'));
 
-        
-    //echo count($usuarioP);
+    $percount = array_count_values(array_column($permisos, 'permission'))['operator'];  
 
 
-?>
+
       
+  //count($permisos) >= 0  
+
+
+    //echo $percount;
+?>
+<link rel="icon" href="../../favicon.ico" type="image/x-icon" />     
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
   <div class="container-fluid">
       <a class="navbar-brand" href="#"><a class="navbar-brand" href="../tablero"><img src="https://www.minecraft.net/etc.clientlibs/minecraft/clientlibs/main/resources/img/menu/menu-buy.gif" alt="" width="30" height="24" class="d-inline-block align-top">
@@ -38,7 +44,7 @@
         </li>
 
         <li class="<?php echo $active_permisos;?>">
-          <a class="nav-link" aria-current="page" href="../permisos" data-toggle="tooltip" data-placement="bottom" title="<?php echo count($permisos); ?> Permisos"><i class="fas fa-user-edit"></i> Permisos<span class="badge badge-pill badge-warning"><?php echo count($permisos); ?></span></a>
+          <a class="nav-link" aria-current="page" href="../permisos" data-toggle="tooltip" data-placement="bottom" title="<?php echo $percount; ?> Permisos"><i class="fas fa-user-edit"></i> Permisos<span class="badge badge-pill badge-warning"><?php echo $percount; ?></span></a>
         </li>
 
         <li class="<?php echo $active_admin;?>">

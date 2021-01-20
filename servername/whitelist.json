@@ -1,26 +1,37 @@
 [
     {
         "name": "usuario001",
-        "permission": "member",
+        "permission": "visitor",
         "xuid": "001",
-        "ignoresPlayerLimit": false
+        "spain": "Visitante",
+        "ignoresPlayerLimit": "false"
     },
     {
         "name": "usuario002",
-        "permission": "member",
+        "permission": "operator",
         "xuid": "002",
-        "ignoresPlayerLimit": false
+        "spain": "Operador",
+        "ignoresPlayerLimit": "false"
     },
     {
         "name": "usuario003",
-        "permission": "operator",
+        "permission": "member",
         "xuid": "003",
-        "ignoresPlayerLimit": false
+        "spain": "Miembro",
+        "ignoresPlayerLimit": "false"
     },
     {
         "name": "usuario004",
-        "permission": "operator",
-        "xuid": "004",
-        "ignoresPlayerLimit": false
+        "permission": "member",
+        "xuid": "0000004",
+        "spain": "Miembro",
+        "ignoresPlayerLimit": "false"
+    },
+    {
+        "name": "usuario005",
+        "permission": "visitor",
+        "xuid": "00010001",
+        "spain": "Visitante",
+        "ignoresPlayerLimit": "false"
     }
 ]

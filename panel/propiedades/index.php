@@ -54,13 +54,13 @@
 
 <div class="card-deck">
 <div class="card text-center border-info mb-3">
-  <div class="card-header">Ingreso al Servidor: <?php echo $data[12]['spain']; ?> Puerto:<?php echo $data[8]['spain']; ?></div>
+  <div class="card-header"><b><?php echo $data[12]['name']; ?></b> <i><?php echo $data[13]['spain']; ?></i> <?php echo $data[12]['spain']; ?> Puerto:<?php echo $data[8]['spain']; ?></div>
   <div class="card-body text-info">
     <h5 class="card-title">Propiedades del Servidor</h5>
     <p class="card-text text-success">Aqui puede editar las configuraciones del servidor, recuerde reiniciar el servidor para que surta efecto.</p>
   </div>
   <div class="card-footer text-muted">
-  Servidor configurado: servername
+  <a href="../tablero/ver_pro.php" type="submit" class="btn btn-outline-dark btn-sm" data-toggle="tooltip" data-placement="top" title="<i class='fas fa-database'></i> <?php echo $data[13]['spain']; ?>">Ver Propiedades</a>
   </div>
 </div>
 </div>

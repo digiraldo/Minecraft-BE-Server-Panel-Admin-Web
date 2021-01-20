@@ -71,7 +71,7 @@ sudo apt install nginx -y
 sudo apt install -y software-properties-common
 sudo add-apt-repository universe -ya
 #sudo add-apt-repository ppa:ondrej/php
-sudo apt -y install libapache2-mod-php
+##sudo apt -y install libapache2-mod-php    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 sudo apt update && sudo apt install php-fpm -y
 #sudo apt-get install php7.4 -y
 sudo apt-get install ssh -y
@@ -105,8 +105,6 @@ echo "==========================================================================
 Print_Style "Creando directorios y archivos del panel..." "$CYAN"
 sudo mv panel dirname/minecraftbe/
 sudo mv index.php dirname/minecraftbe/
-sudo mv srvdatos.txt dirname/minecraftbe/servername
-sudo mv srvdatos.json dirname/minecraftbe/servername
 sudo mv location dirname/minecraftbe/
 sudo mv misitio.conf dirname/minecraftbe/
 
@@ -114,22 +112,17 @@ cd ~
 cd minecraftbe
 cd servername
 if [ ! -d "panelpro" ]; then
-sudo mkdir panelpro
+  sudo mkdir panelpro
 
 # Descargar srvdatos.json desde el repositorio
   echo "Tomando srvdatos.json del repositorio..."
-  wget -O srvdatos.json https://github.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/raw/master/misitio.conf
+  wget -O srvdatos.json https://github.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/raw/master/servername/panelpro/srvdatos.json
   chmod 775 srvdatos.json
-  sudo sed -i "s:dirname:$DirName:g" srvdatos.json
-  sudo sed -i "s:servername:$ServerName:g" srvdatos.json
 
   # Descargar usradmin.json desde el repositorio
   echo "Tomando usradmin.json del repositorio..."
-  wget -O usradmin.json https://github.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/raw/master/misitio.conf
+  wget -O usradmin.json https://github.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/raw/master/servername/panelpro/usradmin.json
   chmod 775 usradmin.json
-  sudo sed -i "s:dirname:$DirName:g" usradmin.json
-  sudo sed -i "s:servername:$ServerName:g" usradmin.json
-
 
 else
 cd ~
@@ -229,7 +222,6 @@ read_with_prompt IPV4 "Url o dirección IP del servidor"
 echo "========================================================================="
 
 Print_Style "Configurando la pagina web $IPV4/index.php..." "$YELLOW"
-sudo sed -i "s/MiIPV4/$IPV4/g" dirname/minecraftbe/servername/srvdatos.txt
 sudo sed -i "s/MiIPV4/$IPV4/g" dirname/minecraftbe/servername/panelpro/srvdatos.json
 sudo sed -i "s/MiIPV4/$IPV4/g" /etc/nginx/sites-available/misitio.conf
 sudo sed -i "s/versionphp/$VePHP/g" /etc/nginx/sites-available/misitio.conf

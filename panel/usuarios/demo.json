@@ -1,0 +1,87 @@
+array(7) {
+    [
+        0
+    ]=> array(4) {
+        [
+            "name"
+        ]=> string(10) "usuario001" [
+            "permission"
+        ]=> string(8) "operator" [
+            "xuid"
+        ]=> string(3) "001" [
+            "ignoresPlayerLimit"
+        ]=> bool(false)
+    } [
+        1
+    ]=> array(4) {
+        [
+            "name"
+        ]=> string(10) "usuario002" [
+            "permission"
+        ]=> string(6) "member" [
+            "xuid"
+        ]=> string(3) "002" [
+            "ignoresPlayerLimit"
+        ]=> bool(false)
+    } [
+        2
+    ]=> array(4) {
+        [
+            "name"
+        ]=> string(10) "usuario003" [
+            "permission"
+        ]=> string(7) "visitor" [
+            "xuid"
+        ]=> string(3) "003" [
+            "ignoresPlayerLimit"
+        ]=> bool(false)
+    } [
+        3
+    ]=> array(4) {
+        [
+            "name"
+        ]=> string(10) "usuario004" [
+            "permission"
+        ]=> string(8) "operator" [
+            "xuid"
+        ]=> string(7) "0000004" [
+            "ignoresPlayerLimit"
+        ]=> bool(false)
+    } [
+        "operator"
+    ]=> array(4) {
+        [
+            "name"
+        ]=> string(10) "usuario004" [
+            "permission"
+        ]=> string(8) "operator" [
+            "xuid"
+        ]=> string(7) "0000004" [
+            "ignoresPlayerLimit"
+        ]=> bool(false)
+    } [
+        "member"
+    ]=> array(4) {
+        [
+            "name"
+        ]=> string(10) "usuario002" [
+            "permission"
+        ]=> string(6) "member" [
+            "xuid"
+        ]=> string(3) "002" [
+            "ignoresPlayerLimit"
+        ]=> bool(false)
+    } [
+        "visitor"
+    ]=> array(4) {
+        [
+            "name"
+        ]=> string(10) "usuario003" [
+            "permission"
+        ]=> string(7) "visitor" [
+            "xuid"
+        ]=> string(3) "003" [
+            "ignoresPlayerLimit"
+        ]=> bool(false)
+    }
+}
