@@ -19,7 +19,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Usuarios</title>
+    <title>Permisos</title>
     <?php include "../includes/scripts.php" ?>
 
   </head>
@@ -37,57 +37,59 @@
 
 
   <div class="container">
- <!-- <p>
-    <button type="button" class="btn btn-primary" id="boton"><i class="fas fa-user-plus"></i> Agregar Jugador</button>
-  </p> -->
+  <p>
+        <a class="btn btn-primary" href="agregar.php"><i class="fas fa-user-plus"></i> Añadir Permiso</a>
+    </p>
   
- 
       <div class="section">
       
         <table id="tablaPermisos" class="table table-striped table-bordered" style="width:100%">
             <thead>
               <tr>
               <th scope="col">Gamertag</th>
-              <!--<th scope="col">Id Usuario XUID</th> -->
-              <th scope="col">Nivel de Permso</th>
-            <!--  <th scope="col">Id usuario (XUID)</th> -->
+              <th scope="col">Id Usuario XUID</th>
+              <!-- <th scope="col">Nivel de Permiso</th> -->
+              <th scope="col">Acciones</th>
               </tr>
             </thead>
-		      <tbody>
+		        <tbody>
               <?php foreach ($permisos as $permiso): ?>
+              <tr>
                   <td>
-                  <?php if ($permiso['permission'] == 'operator') { ?>
                   <a href="# " data-toggle="tooltip" data-placement="left" 
                   title="<i class='fas fa-id-card'></i> xuid: <?php echo $permiso['xuid']; ?>">
                   <?php echo $permiso['name']; ?></a>
-                  <?php }else {
-                    array();
-                  }
-                  ?>
                   </td>
-                  <!--
+                  <!-- 
                   <td>
-                  <?php if ($permiso['permission'] == 'operator') { 
-                    echo $permiso['xuid'];
-                  } else {
-                    array();
-                  } 
-                  ?> 
+                  <?php echo $permiso['xuid']; ?></a>
                   </td>
                   -->
                   <td>
-                  <?php if ($permiso['permission'] == 'operator') { ?>
                   <a href="# " data-toggle="tooltip" data-placement="left" 
                   title="<i class='fas fa-id-card'></i> xuid: <?php echo $permiso['xuid']; ?>">
                   <?php echo $permiso['spain']; ?></a>
-                  <?php }else {
-                    array();
-                  }
-                  ?>
                   
                   </td>
-                </tr>
+                  <td>
+                  
+                  <!--
+                  <a href="ver.php?name=<?php echo $permiso['name'] ?>" value="Seleccionar" data-toggle="tooltip" data-placement="top" title="Ver" type="submit" class="btn btn-warning btn-sm" name="accion"><i class="fas fa-eye"></i></a>
+                  -->
+                  <!--
+                  <a href="editar.php?xuid=<?php echo $permiso['xuid'] ?>" value="Seleccionar" data-toggle="tooltip" data-placement="top" title="Editar" type="submit" class="btn btn-info btn-sm" name="accion"><i class="fas fa-pencil-alt"></i></a>
+                  -->
+                  <!-- 
+                  <a href="eliminar.php?xuid=<?php echo $permiso['xuid'] ?>" value="Seleccionar" data-toggle="tooltip" data-placement="top" title="Quitar" type="submit" class="btn btn-warning btn-sm" name="accion"><i class="fas fa-trash-alt"></i></a>
+                  --> 
+                <form style="display: inline-block" method="POST" action="eliminar.php">
+                <input type="hidden" name="name" value="<?php echo $permiso['xuid'] ?>">
+                <button value="btnEliminar" data-toggle="tooltip" data-placement="top" title="Quitar" onclick="return Confirmar('Realmente desea quitar el permiso a este jugador en el Servidor: servername? :(');" type="submit" class="btn btn-danger btn-sm" name="accion"><i class="fas fa-trash-alt"></i></button>
+                </form>
+                  
+                  </td>
               <?php endforeach; ?>
+              </tr>  
           </tbody>
         </table>
       </div>

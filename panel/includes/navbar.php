@@ -10,7 +10,7 @@
     $permisos = obtenerPermisos();
     //print_r(array_column($permisos, 'permission'));
 
-    $percount = array_count_values(array_column($permisos, 'permission'))['operator'];  
+   // $percount = array_count_values(array_column($permisos, 'permission'))['operator'];  
 
 
 
@@ -44,7 +44,7 @@
         </li>
 
         <li class="<?php echo $active_permisos;?>">
-          <a class="nav-link" aria-current="page" href="../permisos" data-toggle="tooltip" data-placement="bottom" title="<?php echo $percount; ?> Permisos"><i class="fas fa-user-edit"></i> Permisos<span class="badge badge-pill badge-warning"><?php echo $percount; ?></span></a>
+          <a class="nav-link" aria-current="page" href="../permisos" data-toggle="tooltip" data-placement="bottom" title="<?php echo count($permisos); ?> Permisos"><i class="fas fa-user-edit"></i> Permisos<span class="badge badge-pill badge-warning"><?php echo count($permisos); ?></span></a>
         </li>
 
         <li class="<?php echo $active_admin;?>">

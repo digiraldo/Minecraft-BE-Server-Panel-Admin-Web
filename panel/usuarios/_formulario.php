@@ -29,6 +29,7 @@ include "../includes/footer.php";
                           </div>
                         </div>
 
+                        <?php if ($usuarioN['name']): ?>
                         <div class="form-group">
                         <label for="validationServer04">Nivel de Permiso</label>
                         <div class="input-group mb-3">
@@ -40,22 +41,34 @@ include "../includes/footer.php";
                           <option value="member" selected>Seleccionar...</option>
                           <option value="visitor">Visitante</option>
                           <option value="member">Miembro</option>
-                          <option value="operator">Operador</option>
+                         <!-- <option value="operator">Operador</option>-->                       
                         </select>
                         <div id="validationServer04Feedback" class="valid-feedback">
-                        <?php echo $errores['permission'] ?>.
+                        <?php echo $errores['permission'] ?>
                         </div>
                         </div>
-
+                        <?php else: ?>
+                            <div class="form-group">
+                        <label for="validationServer04">Nivel de Permiso</label>
+                        <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                        <label class="input-group-text" for="validationServer04"><i class="fas fa-address-book"> <?php echo $usuarioN['spain'] ?></b></i></label>
+                        </div>
+                        <select name="permission" class="custom-select <?php echo $errores['permission'] ? 'is-valid' : '' ?>" 
+                        id="validationServer04" aria-describedby="validationServer04Feedback" required>
+                        <option value="member" selected>Miembro</option>                          
+                        </select>
+                        <div id="validationServer04Feedback" class="valid-feedback">
+                        <?php echo $errores['permission'] ?>
+                        </div>
+                        </div>
+                        <?php endif ?>
 
                 <?php if ($usuarioN['name']): ?>
                     <div class="form-group">
                         <label for="my-input">Id xuid</label>
                         <input id="my-input" data-toggle="tooltip" data-placement="top" title="No Editable" value="<?php echo $usuarioN['xuid'] ?>" class="form-control" type="text" name="xuid" disabled>
                 <?php else: ?>
-                    <div class="form-group">
-                        <label for="my-input">Id xuid</label>
-                        <input id="my-input" value="<?php echo $usuarioN['xuid'] ?>" class="form-control" type="text" name="xuid">
                 <?php endif ?>
                         
                         </div>

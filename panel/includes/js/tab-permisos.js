@@ -28,7 +28,7 @@ $(document).ready(function() {
         "language": {
             "lengthMenu": "Mostrar _MENU_ Permisos",
             "zeroRecords": "No se encontraron resultados",
-            "info": "Registros del _START_ al _END_ de un total de _TOTAL_ Permisoss",
+            "info": "Registros del _START_ al _END_ de un total de _TOTAL_ Permisos",
             "infoEmpty": "Registros del 0 al 0 de un total de 0 Permisos",
             "infoFiltered": "(filtrado de un total de _MAX_ Permisos)",
             "sSearch": "Buscar:",

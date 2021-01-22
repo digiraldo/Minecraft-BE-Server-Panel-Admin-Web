@@ -98,9 +98,9 @@
   <div class="card-body">
   <!-- <h3 class="card-title font-italic">OPERADORES</h3> -->
   <i class="fas fa-user-edit fa-4x"></i>
-  <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark badge-10x"><?php echo $percount; ?></span></h4>
+  <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark badge-10x"><?php echo count($permisos); ?></span></h4>
   </div>
-  <a href="../permisos" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="<?php echo $percount; ?> Operadores">Ver Permisos</a>
+  <a href="../permisos" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="<?php echo count($permisos); ?> Operadores">Ver Permisos</a>
 </div>
 
   <div class="bg-success col-sm-3 card text-white">
