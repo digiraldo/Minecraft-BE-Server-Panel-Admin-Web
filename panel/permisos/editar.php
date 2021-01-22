@@ -25,7 +25,7 @@ $permisoP = obtenerPermisoPorPer($permiP);
     
 ?>
 
-    <?php include '_formulario.php' ?>
+<?php include '_formulario.php' ?>
 
 
 

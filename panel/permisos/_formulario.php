@@ -6,9 +6,11 @@ $usuarios = obtenerUsuarios();
 
 ?>
 
-<div class="container-fluid">
-    <div class="card">
-        <div class="card-header">
+<div class="container px-lg-5">
+<div class="row justify-content-md-center">
+<div class="card col-md-auto">
+
+    <div class="card-body">
             <h3>
                 <?php if ($permisoP['name']): ?>
                     <i class="fas fa-user-check"></i> Editar: <b><?php echo $permisoP['name'] ?></b>
@@ -33,7 +35,7 @@ $usuarios = obtenerUsuarios();
                         </div>
                         -->
                         
-                        <div class="form-group col-md-6">
+                        <div class="form-group">
                         <label for="validationServer02">Nombre</label>
                         <div class="input-group mb-3">
                         <div class="input-group-prepend">
@@ -57,7 +59,7 @@ $usuarios = obtenerUsuarios();
 
 
                 <?php if ($permisoP['name']): ?>
-                    <div class="form-group col-md-6">
+                    <div class="form-group">
                         <label for="my-input">Id xuid</label>
                         <input id="my-input" data-toggle="tooltip" data-placement="top" title="No Editable" value="<?php echo $permisoP['xuid'] ?>" class="form-control" type="text" name="xuid" disabled>
                 <?php else: ?>
@@ -67,34 +69,38 @@ $usuarios = obtenerUsuarios();
                         <small id="passwordHelpBlock" class="form-text text-muted">
                         Ingrese el código Decimal generado de Xbox XUID Grabber.
                         </small>                       
-                <?php endif ?>
-                      
-                        </div>
+                <?php endif ?>  
+                    </div>
                         <p>
-                        <iframe width="560" height="315" src="https://www.cxkes.me/xbox/xuid" 
-                        frameborder="0" allowfullscreen" 
-                        allowfullscreen></iframe>
+                        <iframe width="645" height="400" src="https://www.cxkes.me/xbox/xuid" frameborder="0" allowfullscreen></iframe>
+                        <small id="passwordHelpBlock" class="form-text text-muted">
+                        Seleccionar Decimal antes de Resolve.
+                        </small>
                         </p>
+
                     <?php if ($permisoP['name']): ?>
                         <button type="submit" class="btn btn-warning my-1"><i class="fas fa-user-edit"></i> Guardar</button>
                     <?php else: ?>
                         <button type="submit" class="btn btn-warning my-1"><i class="fas fa-user-plus"></i> Añadir</button>
                     <?php endif ?>
 
-                    
-                    <!--<a href="" type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Eliminar</a>-->
-                    <a href="index.php" type="submit" class="btn btn-primary"><i class="fas fa-times"></i> Cancelar</a>
+                   <!--<a href="" type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Eliminar</a>-->
+                   <a href="index.php" type="submit" class="btn btn-primary"><i class="fas fa-times"></i> Cancelar</a>
 
-                <!--    <form style="display: inline-block" method="POST" action="eliminar.php">
-                    <input type="hidden" name="name" value="<?php echo $permiso['name'] ?>">
-                    <button value="btnEliminar" data-toggle="tooltip" data-placement="top" title="Eliminar" onclick="return Confirmar('Realmente desea eliminar a este Jugador del Servidor servername? :(');" type="submit" class="btn btn-danger btn-sm" name="accion"><i class="fas fa-trash-alt"></i></button>
-                    </form>
-                 -->
+<!--    <form style="display: inline-block" method="POST" action="eliminar.php">
+    <input type="hidden" name="name" value="<?php echo $permiso['name'] ?>">
+    <button value="btnEliminar" data-toggle="tooltip" data-placement="top" title="Eliminar" onclick="return Confirmar('Realmente desea eliminar a este Jugador del Servidor servername? :(');" type="submit" class="btn btn-danger btn-sm" name="accion"><i class="fas fa-trash-alt"></i></button>
+    </form>
+ -->
+
+                    
 
 
                 </form>
             </div>
-        
+
+ 
+    </div>
     </div>
 
 </div>

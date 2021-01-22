@@ -12,4 +12,4 @@ if (!isset($_POST['xuid'])) {
 $permiP = $_POST['xuid'];
 eliminarPermiso($permiP);
 
- header("Location: index.php");
+header("Location: index.php");

@@ -31,7 +31,7 @@ $usuarioN = obtenerUsuarioPorName($usuarioName);
   <body>
 
 
-  <div class="container-fluid">
+  <div class="container">
 <div class="card">
     <div class="card-body">
         <h5 class="card-title"><i class="fas fa-user-edit"></i> Usuario: <b><?php echo $usuarioN['name'] ?></b></h5>

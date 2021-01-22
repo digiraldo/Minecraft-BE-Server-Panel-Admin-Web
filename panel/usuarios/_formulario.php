@@ -4,8 +4,9 @@ include "../includes/footer.php";
 
 ?>
 
-<div class="container-fluid">
-    <div class="card">
+<div class="container px-lg-5">
+<div class="row justify-content-center">
+<div class="card col-md-auto">
         <div class="card-header">
             <h3>
                 <?php if ($usuarioN['name']): ?>
@@ -91,7 +92,7 @@ include "../includes/footer.php";
                  -->
                 </form>
             </div>
-        
+            </div>
     </div>
 
 </div>
