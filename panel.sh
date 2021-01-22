@@ -111,9 +111,16 @@ cd ~
 cd minecraftbe
 cd servername
 if [ ! -d "panelpro" ]; then
+  mkdir panelpro
+  sleep 1s
+  sudo chmod -R 775 panelpro
+  sleep 1s
+  cd panelpro
   Print_Style "Instalando Repositorios de propiedades..." "$YELLOW"
   sleep 1s
-  sudo mv dirname/minecraftbe/panel/panelpro dirname/minecraftbe/servername/
+  sudo mv dirname/minecraftbe/panel/panelpro/srvdatos.json dirname/minecraftbe/servername/panelpro/
+  sudo mv dirname/minecraftbe/panel/panelpro/usradmin.json dirname/minecraftbe/servername/panelpro/
+  sudo rm -rf dirname/minecraftbe/panel/panelpro
 else  
 cd panelpro
   Print_Style "==========================DIRECTORIO PANELPRO============================" "$CYAN"
