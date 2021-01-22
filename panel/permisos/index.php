@@ -47,8 +47,8 @@
             <thead>
               <tr>
               <th scope="col">Gamertag</th>
-              <th scope="col">Id Usuario XUID</th>
-              <!-- <th scope="col">Nivel de Permiso</th> -->
+              <!-- <th scope="col">Id Usuario XUID</th> -->
+              <th scope="col">Nivel de Permiso</th>
               <th scope="col">Acciones</th>
               </tr>
             </thead>
