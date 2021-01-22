@@ -115,12 +115,12 @@ if [ ! -d "panelpro" ]; then
   cd panelpro
   # Descargar srvdatos.json desde el repositorio
   echo "Tomando srvdatos.json del repositorio..."
-  wget --no-check-certificate --content-disposition https://github.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/raw/master/servername/panelpro/srvdatos.json
+  wget --no-check-certificate --content-disposition https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/servername/panelpro/srvdatos.json
   sudo chmod 775 srvdatos.json
 echo "###################################################################################"
   # Descargar usradmin.json desde el repositorio
   echo "Tomando usradmin.json del repositorio..."
-  wget --no-check-certificate --content-disposition https://github.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/raw/master/servername/panelpro/usradmin.json
+  wget --no-check-certificate --content-disposition https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/servername/panelpro/usradmin.json
   sudo chmod 775 usradmin.json
 else  
 cd panelpro
