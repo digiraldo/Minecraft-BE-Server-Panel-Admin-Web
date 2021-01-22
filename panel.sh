@@ -77,7 +77,6 @@ sudo apt update && sudo apt install php-fpm -y
 sudo apt-get install ssh -y
 sudo apt install git -y
 
-
 cd ~
 cd minecraftbe
 cd servername
@@ -113,7 +112,9 @@ cd minecraftbe
 cd servername
 if [ ! -d "panelpro" ]; then
   sudo mkdir panelpro
-
+  cd panelpro
+else  
+cd panelpro
 # Descargar srvdatos.json desde el repositorio
   echo "Tomando srvdatos.json del repositorio..."
   wget -O srvdatos.json https://github.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/raw/master/servername/panelpro/srvdatos.json
@@ -123,11 +124,10 @@ if [ ! -d "panelpro" ]; then
   echo "Tomando usradmin.json del repositorio..."
   wget -O usradmin.json https://github.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/raw/master/servername/panelpro/usradmin.json
   chmod 775 usradmin.json
-
-else
+fi
 cd ~
 cd minecraftbe
-fi
+
 
 #sudo mv web.sh dirname/minecraftbe/
 sudo chmod -R 755 dirname/minecraftbe
