@@ -113,7 +113,7 @@ cd servername
 if [ ! -d "panelpro" ]; then
   Print_Style "Instalando Repositorios de propiedades..." "$YELLOW"
   sleep 1s
-  sudo mv panelpro dirname/minecraftbe/servername/
+  sudo mv dirname/minecraftbe/panel/panelpro dirname/minecraftbe/servername/
 else  
 cd panelpro
   Print_Style "==========================DIRECTORIO PANELPRO============================" "$CYAN"
