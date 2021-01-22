@@ -111,9 +111,10 @@ cd ~
 cd minecraftbe
 cd servername
 if [ ! -d "panelpro" ]; then
-  sudo mkdir panelpro
+  mkdir panelpro
   cd panelpro
-  sudo chmod -R 776 panelpro
+  Print_Style "Instalando Repositorios de propiedades..." "$YELLOW"
+  sleep 2s
   # Descargar srvdatos.json desde el repositorio
   echo "Tomando srvdatos.json del repositorio..."
   wget -O srvdatos.json https://github.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/raw/master/servername/panelpro/srvdatos.json
