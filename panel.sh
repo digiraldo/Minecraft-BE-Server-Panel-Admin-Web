@@ -113,11 +113,12 @@ cd servername
 if [ ! -d "panelpro" ]; then
   sudo mkdir panelpro
   cd panelpro
+  sudo chmod -R 776 panelpro
   # Descargar srvdatos.json desde el repositorio
   echo "Tomando srvdatos.json del repositorio..."
   wget -O srvdatos.json https://github.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/raw/master/servername/panelpro/srvdatos.json
   sudo chmod 775 srvdatos.json
-echo "###################################################################################"
+  echo "###################################################################################"
   # Descargar usradmin.json desde el repositorio
   echo "Tomando usradmin.json del repositorio..."
   wget -O usradmin.json https://github.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/raw/master/servername/panelpro/usradmin.json
