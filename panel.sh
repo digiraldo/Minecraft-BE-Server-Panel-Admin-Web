@@ -115,13 +115,13 @@ if [ ! -d "panelpro" ]; then
   cd panelpro
   # Descargar srvdatos.json desde el repositorio
   echo "Tomando srvdatos.json del repositorio..."
-  wget -O srvdatos.json https://github.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/raw/master/servername/panelpro/srvdatos.json
-  chmod 775 srvdatos.json
-
+  sudo wget -O srvdatos.json https://github.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/raw/master/servername/panelpro/srvdatos.json
+  sudo chmod 775 srvdatos.json
+echo "###################################################################################"
   # Descargar usradmin.json desde el repositorio
   echo "Tomando usradmin.json del repositorio..."
-  wget -O usradmin.json https://github.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/raw/master/servername/panelpro/usradmin.json
-  chmod 775 usradmin.json
+  sudo wget -O usradmin.json https://github.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/raw/master/servername/panelpro/usradmin.json
+  sudo chmod 775 usradmin.json
 else  
 cd panelpro
   Print_Style "==========================DIRECTORIO PANELPRO============================" "$CYAN"
