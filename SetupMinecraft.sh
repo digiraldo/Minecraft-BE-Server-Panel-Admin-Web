@@ -209,6 +209,7 @@ echo "========================================================================="
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/propiedades/editar.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/index.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/shell.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/res.sh
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/index.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/usuarios.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/_formulario.php
@@ -399,6 +400,7 @@ sudo systemctl daemon-reload
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/propiedades/editar.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/index.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/shell.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/res.sh
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/index.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/usuarios.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/_formulario.php

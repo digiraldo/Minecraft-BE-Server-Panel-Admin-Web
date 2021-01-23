@@ -43,7 +43,8 @@
 
     <div class="card text-center">
   <div class="card-header">
-    Panel Principal
+    <b>Panel Principal</b><br>
+    Ingreso al Servidor: <?php echo $data[12]['spain']; ?> Puerto:<?php echo $data[8]['spain']; ?>
   </div>
   <div class="card-body">
     <h5 class="card-title">Control del Servidor: servername</h5>
@@ -63,7 +64,10 @@
     
   </div>
   <div class="card-footer text-muted">
+  <?php echo $txtReiniciar; ?>
+  <!-- 
   Ingreso al Servidor: <?php echo $data[12]['spain']; ?> Puerto:<?php echo $data[8]['spain']; ?>
+  -->
   </div>
 </div>
 

@@ -28,6 +28,7 @@ switch ($accion) {
   break;
 
   case 'btnReiniciar':
+   //$txtReiniciar = shell_exec(‘sudo sh res.sh‘);
    $txtReiniciar = shell_exec("sudo sh res.sh");
   // $txtReiniciar = shell_exec("sudo systemctl restart servername");
   break;

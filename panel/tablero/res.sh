@@ -1,5 +1,6 @@
-#!/bin/bash
-# Autor: Di Giraldo
-screen -Rd servername -X stuff "say El Servidor se reinicia, GUARDA TU PARTIDA! $(printf '\r')"
-sleep 10s
-sudo systemctl restart amigos
+#!/bin/sh
+echo “Reiniciando Servidor servername<br>”;
+screen -Rd servername -X stuff "say Reiniciando el Servidor, GUARDA TU PARTIDA! $(printf '\r')"
+sleep 6s
+echo “Reiniciando:<br>”;
+sudo systemctl restart servername
