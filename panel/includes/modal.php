@@ -22,6 +22,12 @@
         </script>
     <?php }?>
 
+<?php if ($mostrarModal) {?> 
+    <script>
+        $('#modalRespaldos').modal('show');
+        </script>
+    <?php }?>
+
 
     
     <script>

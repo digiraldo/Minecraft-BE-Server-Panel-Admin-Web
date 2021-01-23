@@ -91,24 +91,27 @@
         <table id="tablaUsuarios" class="table table-striped table-bordered" style="width:100%">
             <thead>
               <tr>
+                <th scope="col">Id XuId</th>
                 <th scope="col">Gamertag</th>
-                <th scope="col">Nivel de permiso</th>
                 <th scope="col">Acciones</th>
               </tr>
             </thead>
 		      <tbody>
               <?php foreach ($usuarios as $usuario): ?>
                 <tr>
-                  <td>
-                  <a href="# " data-toggle="tooltip" data-placement="right" 
-                  title="<i class='fas fa-user-tag'></i> <?php echo $usuario['spain']; ?>">
-                  <?php echo $usuario['name']; ?></a>
-                  </td>
+                  
 
                   <td>
                   <a href="# " data-toggle="tooltip" data-placement="left"
-                  title="<i class='fas fa-id-card'></i> <?php echo $usuario['xuid']; ?>">
-                  <?php echo $usuario['spain'] ?></td>
+                  title="<i class='fas fa-user-tag'></i>  <?php echo $usuario['name']; ?>">
+                  <?php echo $usuario['xuid'] ?>
+                  </td>
+
+                  <td>
+                  <a href="# " data-toggle="tooltip" data-placement="right" 
+                  title="<i class='fas fa-id-card'></i>  <?php echo $usuario['xuid']; ?>">
+                  <?php echo $usuario['name']; ?></a>
+                  </td>
                   <!--<td><?php echo $usuario['permission'] ?></td> -->
 
                   <!-- Botones en Acciones -->

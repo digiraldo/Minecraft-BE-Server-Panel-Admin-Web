@@ -12,7 +12,7 @@
 
   require 'shell.php';
 
-  
+ // echo "<pre>$controlsrv</pre>";
 
 ?>
 
@@ -64,7 +64,11 @@
     
   </div>
   <div class="card-footer text-muted">
-  <?php echo $txtReiniciar; ?>
+  <?php 
+  
+  echo "<pre>$controlsrv</pre>"; 
+  
+  ?>
   <!-- 
   Ingreso al Servidor: <?php echo $data[12]['spain']; ?> Puerto:<?php echo $data[8]['spain']; ?>
   -->

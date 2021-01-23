@@ -76,9 +76,9 @@
                   <!--
                   <a href="ver.php?name=<?php echo $permiso['name'] ?>" value="Seleccionar" data-toggle="tooltip" data-placement="top" title="Ver" type="submit" class="btn btn-warning btn-sm" name="accion"><i class="fas fa-eye"></i></a>
                   -->
-                  <!--
+                  
                   <a href="editar.php?xuid=<?php echo $permiso['xuid'] ?>" value="Seleccionar" data-toggle="tooltip" data-placement="top" title="Editar" type="submit" class="btn btn-info btn-sm" name="accion"><i class="fas fa-pencil-alt"></i></a>
-                  -->
+                  
                   <!-- 
                   <a href="eliminar.php?xuid=<?php echo $permiso['xuid'] ?>" value="Seleccionar" data-toggle="tooltip" data-placement="top" title="Quitar" type="submit" class="btn btn-warning btn-sm" name="accion"><i class="fas fa-trash-alt"></i></a>
                   --> 

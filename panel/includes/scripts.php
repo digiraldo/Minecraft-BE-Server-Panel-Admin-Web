@@ -14,7 +14,8 @@
 
 
 
-
+<!-- Cargar Archivos -->
+<script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
 
 
 
@@ -22,6 +23,7 @@
 <script type="text/javascript" src="../includes/js/tab-propiedades.js"></script>
 <script type="text/javascript" src="../includes/js/tab-permisos.js"></script>
 <script type="text/javascript" src="../includes/js/tab-usuarios.js"></script>
+<script type="text/javascript" src="../includes/js/tab-respaldos.js"></script>
 
 
  

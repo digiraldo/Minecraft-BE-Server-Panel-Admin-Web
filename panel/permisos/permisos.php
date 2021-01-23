@@ -29,7 +29,7 @@ function obtenerPermisoPer($p){
     
 
 function crearPermiso($data){
-    $data['permission'] = 'operator';
+    //$data['permission'] = 'operator';
     $data['spain'] = 'Operador';
     $permisos = obtenerPermisos();
     $permisos[] = $data;

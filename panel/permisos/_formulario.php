@@ -34,7 +34,17 @@ $usuarios = obtenerUsuarios();
                           </div>
                         </div>
                         -->
-                        
+                        <?php if ($permisoP['name']): ?>
+                            <div class="form-group">
+                        <label for="validationServer02">Nombre</label>
+                        <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                        <label class="input-group-text" for="validationServer04"><i class="fas fa-address-book"> <?php echo $permisoP['name'] ?></b></i></label>
+                        </div>
+                        </div>
+
+                        <?php else: ?>
+
                         <div class="form-group">
                         <label for="validationServer02">Nombre</label>
                         <div class="input-group mb-3">
@@ -55,7 +65,43 @@ $usuarios = obtenerUsuarios();
                         <?php echo $errores['name'] ?>.
                         </div>
                         </div>
-                        
+                        <?php endif ?>
+
+                        <?php if ($permisoP['name']): ?>
+                        <div class="form-group">
+                        <label for="validationServer04">Nivel de Permiso</label>
+                        <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                        <label class="input-group-text" for="validationServer04"><i class="fas fa-id-card"> <?php echo $permisoP['spain'] ?></b></i></label>
+                        </div>
+                        <select name="permission" class="custom-select <?php echo $errores['permission'] ? 'is-valid' : '' ?>" 
+                        id="validationServer04" aria-describedby="validationServer04Feedback" required>
+                          <option value="operator" selected>Seleccionar...</option>
+                          <option value="visitor">Visitante</option>
+                          <option value="member">Miembro</option>
+                          <option value="operator">Operador</option>                       
+                        </select>
+                        <div id="validationServer04Feedback" class="valid-feedback">
+                        <?php echo $errores['permission'] ?>
+                        </div>
+                        </div>
+                        <?php else: ?>
+                            <div class="form-group">
+                        <label for="validationServer04">Nivel de Permiso</label>
+                        <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                        <label class="input-group-text" for="validationServer04"><i class="fas fa-address-book"> <?php echo $permisoP['spain'] ?></b></i></label>
+                        </div>
+                        <select name="permission" class="custom-select <?php echo $errores['permission'] ? 'is-valid' : '' ?>" 
+                        id="validationServer04" aria-describedby="validationServer04Feedback" required>
+                        <option value="operator" selected>Operador</option>                          
+                        </select>
+                        <div id="validationServer04Feedback" class="valid-feedback">
+                        <?php echo $errores['permission'] ?>
+                        </div>
+                        </div>
+                        <?php endif ?>
+
 
 
                 <?php if ($permisoP['name']): ?>
@@ -69,7 +115,7 @@ $usuarios = obtenerUsuarios();
                         <small id="passwordHelpBlock" class="form-text text-muted">
                         Ingrese el código Decimal generado de Xbox XUID Grabber.
                         </small>                       
-                <?php endif ?>  
+                 
                     </div>
                         <p>
                         <iframe width="645" height="400" src="https://www.cxkes.me/xbox/xuid" frameborder="0" allowfullscreen></iframe>
@@ -77,6 +123,7 @@ $usuarios = obtenerUsuarios();
                         Seleccionar Decimal antes de Resolve.
                         </small>
                         </p>
+                <?php endif ?> 
 
                     <?php if ($permisoP['name']): ?>
                         <button type="submit" class="btn btn-warning my-1"><i class="fas fa-user-edit"></i> Guardar</button>
