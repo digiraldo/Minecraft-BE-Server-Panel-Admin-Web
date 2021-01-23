@@ -66,7 +66,7 @@
   <div class="card-footer text-muted">
   <?php 
   
-  echo "<pre>$controlsrv</pre>"; 
+  echo "<pre>$btnReiniciar</pre>"; 
   
   ?>
   <!-- 
