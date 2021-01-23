@@ -104,7 +104,14 @@
                   <td>
                   <a href="# " data-toggle="tooltip" data-placement="left"
                   title="<i class='fas fa-user-tag'></i>  <?php echo $usuario['name']; ?>">
-                  <?php echo $usuario['xuid'] ?>
+                  <?php if ($usuario['xuid']): ?>
+                    <?php echo $usuario['xuid'] ?>
+                  <?php else: ?>
+                    <?php echo $usuario['name'] ?>
+                  <?php endif ?>
+
+
+                  
                   </td>
 
                   <td>

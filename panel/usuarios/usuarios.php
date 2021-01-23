@@ -33,28 +33,13 @@ function obtenerPorPermission($name){
 }
 
 function crearUsuario($data){
-    $data['spain'] = '';
-    $data['xuid'] = '';
+    //$data['spain'] = '';
+    //$data['xuid'] = '';
     $data['ignoresPlayerLimit'] = false;
     $usuarios = obtenerUsuarios();
     $usuarios[] = $data;
+    ponerJson($usuarios);
 
-
-    foreach ($usuarios as $i => $o) {
-        if ($usuarios[$i]['permission'] == 'visitor') {
-            $usuarios[$i]['spain'] = 'Visitante';
-            ponerJson($usuarios);
-        }        
-        if ($usuarios[$i]['permission'] == 'member') {
-            $usuarios[$i]['spain'] = 'Miembro';
-            ponerJson($usuarios);
-        }      
-        if ($usuarios[$i]['permission'] == 'operator') {
-            $usuarios[$i]['spain'] = 'Operador';
-            ponerJson($usuarios);
-            //ponerJsonP($usuarios);
-        }
-        }
 }
 // "visitor", "member", "operator" 
 
