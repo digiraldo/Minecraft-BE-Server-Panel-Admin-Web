@@ -28,6 +28,7 @@ Antes de iniciar hay que aclarar que el Servidor dedicado de Minecraft Bedrock E
 * Administración y/o `permisos de usuarios` agregar, editar y eliminar con el Gamertag.
 * Funcion de botones `Detener`, `Iniciar` y `Reiniciar` del Servidor en el Panel o Tablero de adminsitración.
 * Administración de los Parámetros del Servidor en `Propiedades`.
+* Gestión de archivos y en las copias de seguridad automáticas de respaldo del mundo en `Respaldos`. 
 
 ## Instalación:
 

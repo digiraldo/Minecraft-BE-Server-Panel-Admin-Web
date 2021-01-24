@@ -23,19 +23,8 @@ $usuarios = obtenerUsuarios();
                 <form action="" method="POST" role="form" enctype="multipart/form-data">
                     <legend></legend>
                    
-                        <!--
-                        <div class="form-group">
-                          <label for="validationServer01">Nombre</label>
-                          <input type="text" name="name" value="<?php echo $permisoP['name'] ?>"
-                          class="form-control <?php echo $errores['name'] ? 'is-invalid' : '' ?>" 
-                          id="validationServer01" aria-describedby="validationServer01Feedback" required>
-                          <div id="validationServer01Feedback" class="invalid-feedback">
-                          <?php echo $errores['name'] ?>
-                          </div>
-                        </div>
-                        -->
                         <?php if ($permisoP['name']): ?>
-                            <div class="form-group">
+                        <div class="form-group">
                         <label for="validationServer02">Nombre</label>
                         <div class="input-group mb-3">
                         <div class="input-group-prepend">
@@ -86,18 +75,11 @@ $usuarios = obtenerUsuarios();
                         </div>
                         </div>
                         <?php else: ?>
-                            <div class="form-group">
-                        <label for="validationServer04">Nivel de Permiso</label>
+                        <div class="form-group">
+                        <label for="validationServer02">Nivel de Permiso</label>
                         <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                        <label class="input-group-text" for="validationServer04"><i class="fas fa-address-book"> <?php echo $permisoP['spain'] ?></b></i></label>
-                        </div>
-                        <select name="permission" class="custom-select <?php echo $errores['permission'] ? 'is-valid' : '' ?>" 
-                        id="validationServer04" aria-describedby="validationServer04Feedback" required>
-                        <option value="operator" selected>Operador</option>                          
-                        </select>
-                        <div id="validationServer04Feedback" class="valid-feedback">
-                        <?php echo $errores['permission'] ?>
+                        <label class="input-group-text" name="permission" class="custom-select value="operator" for="validationServer04"><i class="fas fa-id-card"> Operador</b></i></label>
                         </div>
                         </div>
                         <?php endif ?>
@@ -110,6 +92,30 @@ $usuarios = obtenerUsuarios();
                         <input id="my-input" data-toggle="tooltip" data-placement="top" title="No Editable" value="<?php echo $permisoP['xuid'] ?>" class="form-control" type="text" name="xuid" disabled>
                 <?php else: ?>
                     <div class="form-group">
+                        <label for="validationServer02">Id xuid</label>
+                        <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                        <label class="input-group-text" for="validationServer04"><i class="fas fa-address-book"> <?php echo $permisoP['name'] ?></b></i></label>
+                        </div>
+                        <select name="xuid" class="custom-select <?php echo $errores['xuid'] ? 'is-valid' : '' ?>" 
+                        id="validationServer02" aria-describedby="validationServer02Feedback" required>
+                        <option selected>Seleccionar...</option>
+                        <?php foreach ($usuarios as $usuario): ?>
+                        <?php
+                        echo "<option value=".$usuario['xuid']." select>".$usuario['name']."</option>";                                                 
+                        ?>
+                        <?php endforeach;; ?>
+                        </select>
+                        <div id="validationServer04Feedback" class="valid-feedback">
+                        <?php echo $errores['permission'] ?>.
+                        </div>
+                        </div>
+                    
+                    
+                    
+                    
+                    <!--
+                    <div class="form-group">
                         <label for="my-input">Id xuid</label>
                         <input id="my-input" placeholder="Inserte Código" value="" class="form-control" type="text" name="xuid">
                         <small id="passwordHelpBlock" class="form-text text-muted">
@@ -117,12 +123,14 @@ $usuarios = obtenerUsuarios();
                         </small>                       
                  
                     </div>
+                    
                         <p>
                         <iframe width="645" height="400" src="https://www.cxkes.me/xbox/xuid" frameborder="0" allowfullscreen></iframe>
                         <small id="passwordHelpBlock" class="form-text text-muted">
                         Seleccionar Decimal antes de Resolve.
                         </small>
                         </p>
+                    -->
                 <?php endif ?> 
 
                     <?php if ($permisoP['name']): ?>
@@ -130,18 +138,7 @@ $usuarios = obtenerUsuarios();
                     <?php else: ?>
                         <button type="submit" class="btn btn-warning my-1"><i class="fas fa-user-plus"></i> Añadir</button>
                     <?php endif ?>
-
-                   <!--<a href="" type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Eliminar</a>-->
-                   <a href="index.php" type="submit" class="btn btn-primary"><i class="fas fa-times"></i> Cancelar</a>
-
-<!--    <form style="display: inline-block" method="POST" action="eliminar.php">
-    <input type="hidden" name="name" value="<?php echo $permiso['name'] ?>">
-    <button value="btnEliminar" data-toggle="tooltip" data-placement="top" title="Eliminar" onclick="return Confirmar('Realmente desea eliminar a este Jugador del Servidor servername? :(');" type="submit" class="btn btn-danger btn-sm" name="accion"><i class="fas fa-trash-alt"></i></button>
-    </form>
- -->
-
-                    
-
+                        <a href="index.php" type="submit" class="btn btn-primary"><i class="fas fa-times"></i> Cancelar</a>
 
                 </form>
             </div>

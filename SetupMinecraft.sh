@@ -128,7 +128,7 @@ echo "========================================================================="
   sleep 2s
   ls -l
   Print_Style "=========================================================================" "$CYAN"
-  sleep 6s
+  sleep 3s
   cd ~
   cd minecraftbe
   cd $ServerName
@@ -215,7 +215,7 @@ echo "========================================================================="
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/index.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/usuarios.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/_formulario.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/$ServerName/panelpro/srvdatos.json
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/config/srvdatos.json
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/$ServerName/web.sh
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/$ServerName/web.sh
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/propiedades/index.php
@@ -243,7 +243,7 @@ echo "========================================================================="
   echo "La configuración está completa. Iniciando el servidor Minecraft $ServerName ..."
   sudo systemctl start $ServerName.service
   # Duerme durante 5 segundos para que el servidor tenga tiempo de comenzar
-  sleep 5s
+  sleep 2s
   sudo systemctl restart nginx
 
   screen -r $ServerName
@@ -408,7 +408,7 @@ sudo systemctl daemon-reload
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/index.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/usuarios.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/_formulario.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/$ServerName/panelpro/srvdatos.json
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/config/srvdatos.json
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/$ServerName/web.sh
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/$ServerName/web.sh
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/propiedades/index.php
@@ -427,7 +427,7 @@ if [ "$answer" != "${answer#[Yy]}" ]; then
   echo "Zona horaria actual del sistema: $TimeZone"
   echo "Hora actual del sistema: $CurrentTime"
   echo "========================================================================="
-  sleep 3s
+  sleep 1s
   echo "Puede ajustar / eliminar el tiempo de reinicio seleccionado más tarde escribiendo crontab -e o ejecutando SetupMinecraft.sh nuevamente"
   echo "========================================================================="
   echo -n "¿Reiniciar automáticamente y hacer una copia de seguridad del servidor a las 4 am todos los días? (y/n)"
@@ -446,7 +446,7 @@ echo "========================================================================="
 echo "La configuración está completa. Iniciando el servidor de Minecraft..."
 sudo systemctl start $ServerName.service
 echo "========================================================================="
-sleep 5s
+sleep 4s
 
 # Espere hasta 20 segundos para que se inicie el servidor
 StartChecks=0
@@ -471,7 +471,7 @@ cd minecraftbe
 cd $ServerName
 echo "========================================================================="
 echo "========================================================================="
-echo "================CONFIGURACIÓN PREDETERMINADA DEL SERVIDOR================"
+Print_Style  "================CONFIGURACIÓN PREDETERMINADA DEL SERVIDOR================" "$REVERSE"
 echo "========================================================================="
 sudo sed -n "/server-name=/p" server.properties | sed 's/server-name=/Nombre del Servidor: .... /'
 sudo sed -n "/level-name=/p" server.properties | sed 's/level-name=/Nombre del Nivel: ....... /'
@@ -506,4 +506,5 @@ echo ""
 sleep 1s
 Print_Style "screen -r $ServerName" "$REVERSE"
 echo ""
-sleep 1s
+#sleep 8s
+#screen -r $ServerName

@@ -34,7 +34,7 @@ function obtenerPorPermission($name){
 
 function crearUsuario($data){
     //$data['spain'] = '';
-    //$data['xuid'] = '';
+    $data['xuid'] = false;
     $data['ignoresPlayerLimit'] = false;
     $usuarios = obtenerUsuarios();
     $usuarios[] = $data;

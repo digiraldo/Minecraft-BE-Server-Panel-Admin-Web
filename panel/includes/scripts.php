@@ -23,9 +23,10 @@
 <script type="text/javascript" src="../includes/js/tab-propiedades.js"></script>
 <script type="text/javascript" src="../includes/js/tab-permisos.js"></script>
 <script type="text/javascript" src="../includes/js/tab-usuarios.js"></script>
+<script type="text/javascript" src="../includes/js/tab-roles.js"></script>
 <script type="text/javascript" src="../includes/js/tab-respaldos.js"></script>
 
 
  
-<!-- Fecha -->
-<?php include "../includes/functions.php"; ?>
+<!-- Fecha 
+<?php include "../includes/functions.php"; ?>-->

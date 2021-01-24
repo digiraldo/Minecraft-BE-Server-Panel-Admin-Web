@@ -87,6 +87,7 @@
     <p>
         <a class="btn btn-primary" href="agregar.php"><i class="fas fa-user-plus"></i> Añadir Usuario</a>
     </p>
+
       <div class="section">
         <table id="tablaUsuarios" class="table table-striped table-bordered" style="width:100%">
             <thead>

@@ -10,6 +10,8 @@
     $active_logs="";	
     $title="Minecraft SRV | Simple Invoice"; 
 
+    //require 'administradores.php'
+
 ?>
 
 <!doctype html>
@@ -34,10 +36,57 @@
     </ol>
 </nav>
 
+<div class="container">
+<!-- Button trigger modal -->
+<?php //include 'agregar.php' ?>
+<?php include '_formulario.php' ?>
+<p>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalAdmin">
+<i class="fas fa-user-plus"></i> Añadir Rol
+</button>
+</p>
+<div class="section">
+<table id="tablaRoles" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+            <tr>
+                <th>Usuario</th>
+                <th>Rol</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        
+        <?php foreach ($roles as $rol): ?>
+            <tr>
+                <td>
+                <a href="# " data-toggle="tooltip" data-placement="right" 
+                  title="<i class='fas fa-city'></i>  <?php echo $rol['ciudad']; ?>">
+                  <?php echo $rol['usuario']; ?></a>
+                </td>
+                <td>
+                <a href="# " data-toggle="tooltip" data-placement="right" 
+                  title="<i class='fas fa-gamepad'></i>  <?php echo $rol['gamertag']; ?>">
+                  <?php echo $rol['rol']; ?></a>
+                </td>
+                <td>                
+                <a href="ver_rol.php?usuario=<?php echo $rol['usuario'] ?>" value="Seleccionar" data-toggle="tooltip" data-placement="top" title="Ver" type="submit" class="btn btn-warning btn-sm" name="accion"><i class="fas fa-eye"></i></a>
+                <a href="editar.php?usuario=<?php echo $rol['usuario'] ?>" value="Seleccionar" data-toggle="tooltip" data-placement="top" title="Editar" type="submit" class="btn btn-info btn-sm" name="accion"><i class="fas fa-pencil-alt"></i></a>
+                  
+                <form style="display: inline-block" method="POST" action="eliminar.php">
+                <input type="hidden" name="usuario" value="<?php echo $rol['usuario'] ?>">
+                <button value="btnEliminar" data-toggle="tooltip" data-placement="top" title="Eliminar" onclick="return Confirmar('Realmente desea eliminar a este Jugador del Servidor servername? :(');" type="submit" class="btn btn-danger btn-sm" name="accion"><i class="fas fa-trash-alt"></i></button>
+                </form>
+                </td>
+            </tr>
+            <?php endforeach;; ?>
+            </tbody> 
+    </table>
+</div>
+</div>
 
-
-    <?php include '../includes/footer.php'?>
-<!-- php include '../includes/modal.php'?> -->
+<?php //include "../administradores/agregar.php"; ?>
+<?php include '../includes/footer.php'?>
+<?php include '../includes/modal.php'?>
     
   </body>
 </html>

@@ -60,33 +60,20 @@
                   title="<i class='fas fa-id-card'></i> xuid: <?php echo $permiso['xuid']; ?>">
                   <?php echo $permiso['name']; ?></a>
                   </td>
-                  <!-- 
-                  <td>
-                  <?php echo $permiso['xuid']; ?></a>
-                  </td>
-                  -->
+
                   <td>
                   <a href="# " data-toggle="tooltip" data-placement="left" 
                   title="<i class='fas fa-id-card'></i> xuid: <?php echo $permiso['xuid']; ?>">
                   <?php echo $permiso['spain']; ?></a>
-                  
                   </td>
+
                   <td>
-                  
-                  <!--
-                  <a href="ver.php?name=<?php echo $permiso['name'] ?>" value="Seleccionar" data-toggle="tooltip" data-placement="top" title="Ver" type="submit" class="btn btn-warning btn-sm" name="accion"><i class="fas fa-eye"></i></a>
-                  -->
-                  
                   <a href="editar.php?xuid=<?php echo $permiso['xuid'] ?>" value="Seleccionar" data-toggle="tooltip" data-placement="top" title="Editar" type="submit" class="btn btn-info btn-sm" name="accion"><i class="fas fa-pencil-alt"></i></a>
                   
-                  <!-- 
-                  <a href="eliminar.php?xuid=<?php echo $permiso['xuid'] ?>" value="Seleccionar" data-toggle="tooltip" data-placement="top" title="Quitar" type="submit" class="btn btn-warning btn-sm" name="accion"><i class="fas fa-trash-alt"></i></a>
-                  --> 
-                <form style="display: inline-block" method="POST" action="eliminar.php">
-                <input type="hidden" name="name" value="<?php echo $permiso['xuid'] ?>">
-                <button value="btnEliminar" data-toggle="tooltip" data-placement="top" title="Quitar" onclick="return Confirmar('Realmente desea quitar el permiso a este jugador en el Servidor: servername? :(');" type="submit" class="btn btn-danger btn-sm" name="accion"><i class="fas fa-trash-alt"></i></button>
-                </form>
-                  
+                  <form style="display: inline-block" method="POST" action="eliminar.php">
+                  <input type="hidden" name="xuid" value="<?php echo $permiso['xuid'] ?>">
+                  <button value="btnEliminar" data-toggle="tooltip" data-placement="top" title="Quitar" onclick="return Confirmar('Realmente desea quitar el permiso a este jugador en el Servidor: servername? :(');" type="submit" class="btn btn-danger btn-sm" name="accion"><i class="fas fa-trash-alt"></i></button>
+                  </form>
                   </td>
               <?php endforeach; ?>
               </tr>  

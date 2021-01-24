@@ -4,7 +4,7 @@
 //$myFile1 = '../../servername/srvdatos.txt';
 //$lines1 = file($myFile1);
 
-$jsonString = file_get_contents(__DIR__ . '../../../servername/panelpro/srvdatos.json');
+$jsonString = file_get_contents(__DIR__ . '../../../config/srvdatos.json');
 $data = json_decode($jsonString, true);
 
 $txtDetener=(isset($_POST['detener']))?$_POST['detener']:"";
@@ -21,14 +21,17 @@ switch ($accion) {
   // Agregar Nombre sel Servidor
   case 'btnDetener':
    $txtDetener = shell_exec("sudo systemctl stop servername");
+   $btnaccion = 'Deteniendo Servidor...';
   break;
 
   case 'btnIniciar':
    $txtIniciar = shell_exec("sudo systemctl start servername");
+   $btnaccion = 'Iniciando Servidor...';
   break;
 
   case 'btnReiniciar':
    $txtReiniciar = shell_exec("sudo sh res.sh");
+   $btnaccion = 'Reiniciando Servidor...';
   // $txtReiniciar = shell_exec("sudo systemctl restart servername");
   break;
 

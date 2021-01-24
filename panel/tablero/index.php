@@ -53,21 +53,19 @@
     <button value="btnDetener" class="btn btn-danger" type="submit" name="accion"><i class="fas fa-stop"></i> Detener</button>
     <button value="btnIniciar" class="btn btn-success" type="submit" name="accion"><i class="fas fa-play"></i> Iniciar</button>
     <button value="btnReiniciar" class="btn btn-primary" type="submit" name="accion"><i class="fas fa-redo-alt"></i> Reiniciar</button>
-    <!-- <input class="btn btn-danger" type="submit" name="detener" value="Detener">
-    <input class="btn btn-success" type="submit" name="iniciar" value="Iniciar">
-    <input class="btn btn-warning" type="submit" name="reiniciar" value="Reiniciar"> -->
-
-    <!-- <button value="btnDetener" colacarsimbolo?php echo system('sudo docker container stop mcpe');die;?-> class="btn btn-primary" type="submit" name="accion"><i class="fas fa-stop-circle"></i> Detener</button> -->
-
-<!-- This link will add ?run=true to your URL, myfilename.php?run=true 
-<a href="?run=true">Click Me!</a> -->
     
   </div>
   <div class="card-footer text-muted">
   <?php 
   
-  echo "<pre>$btnReiniciar</pre>"; 
-  
+  echo "<pre>$btnaccion</pre>";
+  //echo 'Conteo';
+  ob_end_flush();
+  flush();
+  usleep(1500000);
+  echo "Ingreso al Servidor: {$data[12]['spain']} Puerto: {$data[8]['spain']}";
+
+
   ?>
   <!-- 
   Ingreso al Servidor: <?php echo $data[12]['spain']; ?> Puerto:<?php echo $data[8]['spain']; ?>
@@ -112,13 +110,13 @@
 </div>
 
   <div class="bg-success col-sm-3 card text-white">
-    <div class="card-header font-weight-bold">Administradores Web</div>
+    <div class="card-header font-weight-bold">Rol Administración Web</div>
     <div class="card-body">
     <!-- <h3 class="card-title font-italic">USUARIOS</h3> -->
     <i class="fas fa-user-cog fa-4x"></i>
-    <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark"><?php  echo ('0') ?></span></h4>
+    <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark"><?php  echo count($roles); ?></span></h4>
     </div>
-  <a href="../administradores" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="<?php  echo ('0') ?> Administradores">Ver Administradores</a>
+  <a href="../administradores" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="<?php  echo count($roles); ?> Roles">Ver Roles</a>
 </div>
 
 </div>

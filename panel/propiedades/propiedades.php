@@ -2,7 +2,7 @@
 
 // Obtener el contenido del archivo de json como una matriz de líneas
 function obtenerSrvDatos(){
-    return json_decode(file_get_contents(__DIR__ . '../../../servername/panelpro/srvdatos.json'), true);
+    return json_decode(file_get_contents(__DIR__ . '../../../config/srvdatos.json'), true);
 }
 
 function obtenerSrvDatosPorId($id){
@@ -26,14 +26,14 @@ function actualizarSrvDatos($data, $id){
     }
     //echo '<pre>'; var_dump($Datos); echo '</pre>';
 
-    file_put_contents(__DIR__ . '../../../servername/panelpro/srvdatos.json', json_encode($Datos, JSON_PRETTY_PRINT));
+    file_put_contents(__DIR__ . '../../../config/srvdatos.json', json_encode($Datos, JSON_PRETTY_PRINT));
 
     ponerJson ($Datos);
     return $actualizarSrvDatos;
 }
 
 function ponerJson($Datos){
-    file_put_contents(__DIR__ . '../../../servername/panelpro/srvdatos.json', json_encode($Datos, JSON_PRETTY_PRINT));
+    file_put_contents(__DIR__ . '../../../config/srvdatos.json', json_encode($Datos, JSON_PRETTY_PRINT));
 }
 
 ?>

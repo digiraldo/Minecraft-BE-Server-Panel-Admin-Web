@@ -8,11 +8,13 @@
     $usuarioP = obtenerUsuarios();
     require '../permisos/permisos.php';
     $permisos = obtenerPermisos();
+    require '../administradores/administradores.php';
+    $roles = obtenerRol();
     //print_r(array_column($permisos, 'permission'));
 
    // $percount = array_count_values(array_column($permisos, 'permission'))['operator'];  
 
-
+   
 
       
   //count($permisos) >= 0  
@@ -48,7 +50,7 @@
         </li>
 
         <li class="<?php echo $active_admin;?>">
-          <a class="nav-link" aria-current="page" href="../administradores" data-toggle="tooltip" data-placement="bottom" title="<?php echo ('0'); ?> Administradores"><i class="fas fa-user-tie"></i> Admin<span class="badge badge-pill badge-success"><?php echo ('0'); ?></span></a>
+          <a class="nav-link" aria-current="page" href="../administradores" data-toggle="tooltip" data-placement="bottom" title="<?php echo count($roles); ?> Roles"><i class="fas fa-user-tie"></i> Roles<span class="badge badge-pill badge-success"><?php echo count($roles); ?></span></a>
         </li>
 
         <li class="<?php echo $active_mundo;?>">

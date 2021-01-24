@@ -1,14 +1,8 @@
 #!/bin/bash
-# Este Script es para instalar la vesion de LomoHo con traduciones al español
-#
+# 
 # Instrucciones: https://github.com/LomotHo/minecraft-bedrock
 # Instrucciones en Español: https://gorobeta.blogspot.com
-# Para ejecutar el script de configuración, use:
-# wget https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Docker/master/DockerMinecraft.sh
-# chmod +x DockerMinecraft.sh
-# ./DockerMinecraft.sh
-#
-# Repositorio de GitHub: https://github.com/digiraldo/Minecraft-BE-Server-Docker
+# Repositorio de GitHub: https://github.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web
 
 # Colores del terminal
 BLACK=$(tput setaf 0)
@@ -91,12 +85,7 @@ sleep 3s
 
 cd ~
 cd minecraftbe
-#sudo rm -rf panel
-#sudo rm -rf Minecraft-BE-Server-Panel-Admin-Web
-#sudo rm -rf index.php
-#sudo rm -rf location
-#sudo rm -rf misitio.conf
-#sudo rm -rf web.sh
+
 sudo git clone https://github.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web.git
 cd Minecraft-BE-Server-Panel-Admin-Web
 
@@ -106,24 +95,18 @@ sudo mv panel dirname/minecraftbe/
 sudo mv index.php dirname/minecraftbe/
 sudo mv location dirname/minecraftbe/
 sudo mv misitio.conf dirname/minecraftbe/
+sudo mv web.sh dirname/minecraftbe/
 
 cd ~
 cd minecraftbe
-cd servername
-if [ ! -d "panelpro" ]; then
-  mkdir panelpro
+if [ ! -d "config" ]; then
+  Print_Style "Instalando Repositorios de Configuración..." "$YELLOW"
+  sudo mv Minecraft-BE-Server-Panel-Admin-Web/config dirname/minecraftbe/
   sleep 1s
-  sudo chmod -R 775 panelpro
-  sleep 1s
-  cd panelpro
-  Print_Style "Instalando Repositorios de propiedades..." "$YELLOW"
-  sleep 1s
-  sudo mv dirname/minecraftbe/panel/panelpro/srvdatos.json dirname/minecraftbe/servername/panelpro/
-  sudo mv dirname/minecraftbe/panel/panelpro/usradmin.json dirname/minecraftbe/servername/panelpro/
-  sudo rm -rf dirname/minecraftbe/panel/panelpro
+  sudo chmod -R 775 Minecraft-BE-Server-Panel-Admin-Web/config  
 else  
-cd panelpro
-  Print_Style "==========================DIRECTORIO PANELPRO============================" "$CYAN"
+cd config
+  Print_Style "=========================  DIRECTORIO CONFIG  ===========================" "$CYAN"
   ls -l
   Print_Style "=========================================================================" "$CYAN"
   sleep 3s
@@ -132,14 +115,10 @@ fi
 cd ~
 cd minecraftbe
 
-#sudo mv web.sh dirname/minecraftbe/
 sudo chmod -R 755 dirname/minecraftbe
 sudo chmod -R 775 dirname/minecraftbe/servername
-
-
-cd ~
-cd minecraftbe
-sleep 4s
+#Elimina repositorio clonado
+sleep 2s
 sudo rm -rf Minecraft-BE-Server-Panel-Admin-Web
 
 # Modificar archivo default para integrar el servidio de php
@@ -164,7 +143,7 @@ sleep 1s
 sudo sed -i '/# pass PHP scripts to FastCGI server/ {
 r location
 d}' /etc/nginx/sites-available/default
-sleep 4s
+sleep 2s
 
 sudo rm -rf  dirname/minecraftbe/location
 
@@ -176,12 +155,12 @@ sudo sed -n "/location ~ /p" /etc/nginx/sites-available/default
 sudo sed -n "/include snippets\/fastcgi-php.conf;/p" /etc/nginx/sites-available/default
 sudo sed -n "/fastcgi_pass unix:\/var\/run\/php\/php7.4-fpm.sock;/p" /etc/nginx/sites-available/default
 echo "======================================================================================="
-sleep 4s
+sleep 2s
 
 echo "======================================================================================="
 Print_Style "cargando la configuración del servidor web..." "$YELLOW"
 sudo systemctl reload nginx
-sleep 3s
+sleep 1s
 echo "======================================================================================="
 
 echo "======================================================================================="
@@ -201,10 +180,9 @@ sudo mv dirname/minecraftbe/misitio.conf /etc/nginx/sites-available
 
 echo "======================================================================================="
 Print_Style "Mostrando la versión php instalada..." "$CYAN"
-sleep 2s
+sleep 1s
 sudo php -v
 echo "======================================================================================="
-sleep 3s
 
 # Digitar la version php
 echo "========================================================================="
@@ -225,7 +203,7 @@ read_with_prompt IPV4 "Url o dirección IP del servidor"
 echo "========================================================================="
 
 Print_Style "Configurando la pagina web $IPV4/index.php..." "$YELLOW"
-sudo sed -i "s/MiIPV4/$IPV4/g" dirname/minecraftbe/servername/panelpro/srvdatos.json
+sudo sed -i "s/MiIPV4/$IPV4/g" dirname/minecraftbe/config/srvdatos.json
 sudo sed -i "s/MiIPV4/$IPV4/g" /etc/nginx/sites-available/misitio.conf
 sudo sed -i "s/versionphp/$VePHP/g" /etc/nginx/sites-available/misitio.conf
 sudo sed -i "s/versionphp/$VePHP/g" /etc/nginx/sites-available/default
@@ -241,7 +219,7 @@ cd nginx
 cd sites-enabled
 sudo ln -s ../sites-available/misitio.conf misitio.conf
 echo "========================================================================="
-sleep 2s
+sleep 1s
 
 echo "========================================================================="
 Print_Style "Configurando Permisos..." "$YELLOW"
@@ -257,11 +235,8 @@ sudo sed -n "/www-data ALL=(ALL) NOPASSWD: ALL/p" /etc/sudoers
 #sudo sed -i '/usr ALL=(ALL) NOPASSWD: ALL/d' /etc/sudoers
 #sudo sed -i '$a usr ALL=(ALL) NOPASSWD: ALL' /etc/sudoers
 #sudo sed -n "/usr ALL=(ALL) NOPASSWD: ALL/p" /etc/sudoers
-sleep 3s
-#/etc/sudoers#www-data ALL=(ALL) NOPASSWD: ALL###############################
-#/etc/sudoers#www-data ALL=(ALL) NOPASSWD: ALL############################### 
-sleep 2s
 
+sleep 2s
 
 echo "========================================================================="
 Print_Style "Verificando Servidor Web... " "$MAGENTA"
@@ -271,7 +246,7 @@ echo "========================================================================="
 
 echo "========================================================================="
 Print_Style "Reiniciando Servidor Web... " "$MAGENTA"
-sleep 4s
+sleep 1s
 sudo systemctl restart nginx
 echo "========================================================================="
 
@@ -308,5 +283,5 @@ echo ""
 echo ""
 echo ""
 echo ""
-sleep 6s
+sleep 3s
 echo ""

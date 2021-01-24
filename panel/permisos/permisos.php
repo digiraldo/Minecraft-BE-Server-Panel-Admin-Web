@@ -15,21 +15,11 @@ function obtenerPermisoPorPer($id){
         }
         return null;
 }
-
-$p = 'operator';
-function obtenerPermisoPer($p){
-    $permisos = obtenerPermisos();
-    foreach ($permisos as $permiso) {
-        if ($permiso['permission'] == $p) {
-            return $permiso;
-        }
-    }
-    return null;
-}
     
 
 function crearPermiso($data){
-    //$data['permission'] = 'operator';
+    $data['permission'] = 'operator';
+    //$data['xuid'] = '';
     $data['spain'] = 'Operador';
     $permisos = obtenerPermisos();
     $permisos[] = $data;

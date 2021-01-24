@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nombre = $_POST['name'];
     $xuid = $_POST['xuid'];
     $permiso = $_POST['permission'];
-    $spain = $_POST['permission'];
+    //$spain = $_POST['permission'];
 
     if (!$nombre){
         $errores['name'] = 'El Gamertag es obligatorio'; //================================== 1:19:00 video

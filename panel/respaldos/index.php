@@ -60,15 +60,10 @@
           </form>
 
 
-
-
-
-
-
       <!--tabla-->
     <div class="panel panel-primary">
       <div class="panel-heading">
-        <h5 class="panel-title">Descargas Disponibles</h5>
+        <h6 class="panel-title">Respaldos Disponibles</h6>
       </div>
       <div class="panel-body">
        <!-- <button type="button" class="btn btn-primary" id="botonLogs">Registros</button> -->
@@ -86,7 +81,7 @@
                 $num=0;
                 for ($i=2; $i<count($archivos); $i++)
                 {$num++;
-                ?>
+            ?>
                 <p>  
                 </p>
               <tr>
@@ -96,9 +91,8 @@
               <a href="../../servername/backups/<?php echo $archivos[$i]; ?>" download="<?php echo $archivos[$i]; ?>" data-toggle="tooltip" data-placement="top" title="Descargar" type="submit" class="btn btn-info btn-sm" name="accion"><i class="fas fa-download"></i></a>
               <a href="eliminar.php?name=../../servername/backups/<?php echo $archivos[$i]; ?>" value="Seleccionar" data-toggle="tooltip" data-placement="top" title="Eliminar" type="submit" class="btn btn-danger btn-sm" name="accion"><i class="fas fa-trash-alt"></i></a>
               </td>
-              
               </tr>
-              <?php }?> 
+            <?php }?> 
 
             </tbody>
           </table>
