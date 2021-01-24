@@ -95,7 +95,6 @@ sudo mv panel dirname/minecraftbe/
 sudo mv index.php dirname/minecraftbe/
 sudo mv location dirname/minecraftbe/
 sudo mv misitio.conf dirname/minecraftbe/
-sudo mv web.sh dirname/minecraftbe/servername
 
 cd ~
 cd minecraftbe
