@@ -223,7 +223,7 @@ echo "========================================================================="
 Print_Style "Configurando Permisos..." "$YELLOW"
 cd ~
 #sudo chown -hR usr:www-data minecraftbe
-sudo chown -hR :www-data minecraftbe
+sudo chown -hR username:www-data minecraftbe
 #sudo chown -hR :www-data minecraftbe/servername
 #sudo chown -hR www-data:www-data minecraftbe/panel
 #sudo chown -hR www-data:www-data minecraftbe/index.php

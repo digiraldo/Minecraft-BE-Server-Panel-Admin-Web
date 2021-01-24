@@ -106,6 +106,7 @@ sleep 4s
   # Obtener la ruta del directorio de inicio y el nombre de usuario
   DirName=$(readlink -e ~)
   UserName=$(whoami)
+  UserNow=$(users)
   cd ~
   cd minecraftbe
   cd $ServerName
@@ -139,6 +140,7 @@ echo "========================================================================="
   wget -O panel.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/panel.sh
   sudo chmod +x panel.sh
   sudo sed -i "s:dirname:$DirName:g" panel.sh
+  sudo sed -i "s:username:$UserName:g" panel.sh
   sudo sed -i "s:servername:$ServerName:g" panel.sh
 
   # Descarga start.sh desde el repositorio
@@ -324,8 +326,9 @@ unzip -o "downloads/$DownloadFile"
   wget -O panel.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/panel.sh
   sudo chmod +x panel.sh
   sudo sed -i "s:dirname:$DirName:g" panel.sh
+  sudo sed -i "s:username:$UserName:g" panel.sh
   sudo sed -i "s:servername:$ServerName:g" panel.sh
-
+  
 # Descarga start.sh desde el repositorio
 echo "========================================================================="
 echo "Tomando start.sh del repositorio..."
