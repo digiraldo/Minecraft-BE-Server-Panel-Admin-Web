@@ -97,8 +97,6 @@
   <a href="../usuarios" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="<?php echo count($usuarios); ?> Jugadores Agregados">Ver Whitelist</a>
 </div>
 
-<br/>
-
 <div class="bg-warning col-sm-3 card text-white">
   <div class="card-header font-weight-bold">Operadores Minecraft</div>
   <div class="card-body">
@@ -117,6 +115,16 @@
     <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark"><?php  echo count($roles); ?></span></h4>
     </div>
   <a href="../administradores" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="<?php  echo count($roles); ?> Roles">Ver Roles</a>
+</div>
+
+<div class="bg-info col-sm-3 card text-white">
+    <div class="card-header font-weight-bold">Respaldos del Mundo</div>
+    <div class="card-body">
+    <!-- <h3 class="card-title font-italic">USUARIOS</h3> -->
+    <i class="fas fa-archive fa-4x"></i>
+    <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark"><?php  echo $respaldos; ?></span></h4>
+    </div>
+  <a href="../respaldos" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="<?php  echo $respaldos; ?> Respaldos">Ver Respaldos</a>
 </div>
 
 </div>

@@ -10,6 +10,12 @@
     $permisos = obtenerPermisos();
     require '../administradores/administradores.php';
     $roles = obtenerRol();
+    $archivos = scandir("../../servername/backups");
+    $num=0;
+    for ($i=2; $i<count($archivos); $i++)
+    {$num++;
+      $respaldos = $num;
+    }
     //print_r(array_column($permisos, 'permission'));
 
    // $percount = array_count_values(array_column($permisos, 'permission'))['operator'];  
@@ -58,7 +64,7 @@
         </li>
 
         <li class="<?php echo $active_backups;?>">
-          <a class="nav-link" aria-current="page" href="../respaldos"><i class="fas fa-archive"></i> Respaldos</a>
+          <a class="nav-link" aria-current="page" href="../respaldos" data-toggle="tooltip" data-placement="bottom" title="<?php echo $respaldos; ?> Respaldos"><i class="fas fa-archive"></i> Respaldos<span class="badge badge-pill badge-info"><?php echo $respaldos; ?></span></a>
         </li>
 
         <li class="<?php echo $active_propiedades;?>">

@@ -113,8 +113,8 @@ fi
 cd ~
 cd minecraftbe
 
-sudo chmod -R 755 dirname/minecraftbe
-sudo chmod -R 775 dirname/minecraftbe/servername
+sudo chmod -R 775 dirname/minecraftbe
+#sudo chmod -R 775 dirname/minecraftbe/servername
 #Elimina repositorio clonado
 sleep 2s
 sudo rm -rf Minecraft-BE-Server-Panel-Admin-Web
