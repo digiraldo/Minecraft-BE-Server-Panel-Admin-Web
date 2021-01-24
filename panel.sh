@@ -102,8 +102,7 @@ cd minecraftbe
 if [ ! -d "config" ]; then
   Print_Style "Instalando Repositorios de Configuración..." "$YELLOW"
   sudo mv Minecraft-BE-Server-Panel-Admin-Web/config dirname/minecraftbe/
-  sleep 1s
-  sudo chmod -R 775 Minecraft-BE-Server-Panel-Admin-Web/config  
+  sleep 1s  
 else  
 cd config
   Print_Style "=========================  DIRECTORIO CONFIG  ===========================" "$CYAN"
@@ -115,8 +114,8 @@ fi
 cd ~
 cd minecraftbe
 
-sudo chmod -R 755 dirname/minecraftbe
-sudo chmod -R 775 dirname/minecraftbe/servername
+sudo chmod -R 765 dirname/minecraftbe
+sudo chmod -R 777 dirname/minecraftbe/servername
 #Elimina repositorio clonado
 sleep 2s
 sudo rm -rf Minecraft-BE-Server-Panel-Admin-Web
