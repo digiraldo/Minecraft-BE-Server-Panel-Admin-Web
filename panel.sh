@@ -95,7 +95,7 @@ sudo mv panel dirname/minecraftbe/
 sudo mv index.php dirname/minecraftbe/
 sudo mv location dirname/minecraftbe/
 sudo mv misitio.conf dirname/minecraftbe/
-sudo mv web.sh dirname/minecraftbe/
+sudo mv web.sh dirname/minecraftbe/servername
 
 cd ~
 cd minecraftbe
@@ -115,7 +115,7 @@ cd ~
 cd minecraftbe
 
 sudo chmod -R 765 dirname/minecraftbe
-sudo chmod -R 777 dirname/minecraftbe/servername
+sudo chmod -R 775 dirname/minecraftbe/servername
 #Elimina repositorio clonado
 sleep 2s
 sudo rm -rf Minecraft-BE-Server-Panel-Admin-Web
