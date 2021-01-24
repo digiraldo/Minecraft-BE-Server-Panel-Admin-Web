@@ -59,11 +59,10 @@
   <?php 
   
   echo "<pre>$btnaccion</pre>";
-  //echo 'Conteo';
   ob_end_flush();
   flush();
   usleep(1500000);
-  echo "Ingreso al Servidor: {$data[12]['spain']} Puerto: {$data[8]['spain']}";
+  //echo "Ingreso al Servidor: {$data[12]['spain']} Puerto: {$data[8]['spain']}";
 
 
   ?>
@@ -108,7 +107,7 @@
 </div>
 
   <div class="bg-success col-sm-3 card text-white">
-    <div class="card-header font-weight-bold">Rol Administración Web</div>
+    <div class="card-header font-weight-bold">Rol Admin Web</div>
     <div class="card-body">
     <!-- <h3 class="card-title font-italic">USUARIOS</h3> -->
     <i class="fas fa-user-cog fa-4x"></i>
