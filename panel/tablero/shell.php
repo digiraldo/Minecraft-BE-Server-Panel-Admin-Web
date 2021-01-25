@@ -10,6 +10,7 @@ $data = json_decode($jsonString, true);
 $txtDetener=(isset($_POST['detener']))?$_POST['detener']:"";
 $txtIniciar=(isset($_POST['iniciar']))?$_POST['iniciar']:"";
 $txtReiniciar=(isset($_POST['reiniciar']))?$_POST['reiniciar']:"";
+$txtCopia=(isset($_POST['copia']))?$_POST['copia']:"";
 
 $accion=(isset($_POST['accion']))?$_POST['accion']:"";
 
@@ -34,6 +35,13 @@ switch ($accion) {
    $btnaccion = 'Servidor Reiniciado';
   // $txtReiniciar = shell_exec("sudo systemctl restart servername");
   break;
+
+  case 'btnCopia':
+    $txtCopia = shell_exec("sudo zip -r /home/usr/minecraftbe/Parce/backups/$(date +%d.%m.%Y_%H\:%M\:%S_servername).zip /home/usr/minecraftbe/Parce/worlds");
+    $btnaccion = 'Servidor Reiniciado';
+    
+   // $txtReiniciar = shell_exec("sudo systemctl restart servername");
+   break;
 
 }
 

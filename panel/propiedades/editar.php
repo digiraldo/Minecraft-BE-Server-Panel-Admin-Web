@@ -23,8 +23,6 @@ $lines3 = file($myFile3);
 $content3 = file_get_contents($myFile3);
 
 
-
-
   $txtinputName=(isset($_POST['inputName']))?$_POST['inputName']:"";
   $txtLevelName=(isset($_POST['LevelName']))?$_POST['LevelName']:"";
   $txtUsarTruco=(isset($_POST['UsarTruco']))?$_POST['UsarTruco']:"";

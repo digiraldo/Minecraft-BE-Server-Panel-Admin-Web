@@ -10,11 +10,10 @@
     $active_logs="";	
     $title="Minecraft SRV | Simple Invoice"; 
 
-
     $directorio = "../../servername/backups";
     $archivos = scandir($directorio, 1);
     //print_r($archivos);
-
+    require '../tablero/shell.php';
   //  $respaldo = $_POST['respaldo'];
   //  shell_exec($respaldo);  
 
@@ -37,13 +36,8 @@
   <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="../tablero/">Inicio</a></li>
-    <li class="breadcrumb-item"><a href="">Respaldo</a></li>
-    <li class="breadcrumb-item active" aria-current="page"><?php echo fechaC(); ?> </li>
     </ol>
 </nav>
-
-
-
 
 <div class="container">
       <div class="section">
@@ -54,11 +48,11 @@
                 <input required="" type="file" name="file" id="exampleInputFile">
                 <button class="btn btn-info" type="submit"><i class="fas fa-upload"></i> Cargar Fichero</button>
               </label>
+              <button value="btnCopia" class="btn btn-secondary" type="submit" name="accion"><i class="fas fa-folder-plus"></i> Realizar Copia</button>
               
 </div>
 
           </form>
-
 
       <!--tabla-->
     <div class="panel panel-primary">
@@ -101,7 +95,6 @@
 
   </div>
 </div>
-
 
     <?php include '../includes/footer.php'?>
 <!-- php include '../includes/modal.php'?> -->
