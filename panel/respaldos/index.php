@@ -13,7 +13,7 @@
     $directorio = "../../servername/backups";
     $archivos = scandir($directorio, 1);
     //print_r($archivos);
-    require '../tablero/shell.php';
+    //require '../tablero/shell.php';
   //  $respaldo = $_POST['respaldo'];
   //  shell_exec($respaldo);  
 
@@ -42,22 +42,25 @@
 <div class="container">
       <div class="section">
 
-          <form method="POST" action="CargarFicheros.php" enctype="multipart/form-data">
+<form method="POST" action="CargarFicheros.php" enctype="multipart/form-data">
 <div class="form-group">
-              <label class="btn btn-outline-info" for="my-file-selector">
-                <input required="" type="file" name="file" id="exampleInputFile">
-                <button class="btn btn-info" type="submit"><i class="fas fa-upload"></i> Cargar Fichero</button>
-              </label>
-              <button value="btnCopia" class="btn btn-secondary" type="submit" name="accion"><i class="fas fa-folder-plus"></i> Realizar Copia</button>
-              
+    <label class="btn btn-outline-info" for="my-file-selector">
+      <input required="" type="file" name="file" id="exampleInputFile">
+      <button class="btn btn-info" type="submit"><i class="fas fa-upload"></i> Cargar Fichero</button>
+    </label>                            
 </div>
+</form>
 
-          </form>
+<form method="POST" action="CargarFicheros.php" enctype="multipart/form-data">
+<div class="form-group">                           
+<button value="btnCopia" class="btn btn-secondary" type="submit" name="accion"><i class="fas fa-folder-plus"></i> Realizar Copia</button>
+</div>
+</form>
 
       <!--tabla-->
     <div class="panel panel-primary">
       <div class="panel-heading">
-        <h6 class="panel-title">Respaldos Disponibles</h6>
+        <!--<h6 class="panel-title">Respaldos Disponibles</h6>-->
       </div>
       <div class="panel-body">
        <!-- <button type="button" class="btn btn-primary" id="botonLogs">Registros</button> -->
