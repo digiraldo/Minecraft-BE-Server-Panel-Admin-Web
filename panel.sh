@@ -52,7 +52,6 @@ function read_with_prompt {
 
 cd ~
 
-
 # Instale las dependencias necesarias para ejecutar el servidor de Minecraft en segundo plano
 Print_Style "Instalando screen, unzip, sudo, net-tools, wget y otras dependencias..." "$CYAN"
 if [ ! -n "`which sudo`" ]; then
@@ -63,6 +62,19 @@ sudo apt install -y software-properties-common
 sudo add-apt-repository universe -y
 sudo apt-get install ssh -y
 sudo apt install git -y
+
+# Busca nginx istalado
+if [ ! -d "/etc/nginx" ]; then
+  Print_Style "Aplicacoin nginx del Servidor Web Instalada..." "$YELLOW"
+  sleep 1s
+  # Desisntalar Aplicaciones Web
+  echo -n "¿Desea Remover la Aplicacion Web para luego instalarla..? (y/n)?"
+  read answer < /dev/tty
+  if [ "$answer" != "${answer#[Yy]}" ]; then
+    sudo apt-get purge --auto-remove nginx -y
+    sudo apt-get purge --auto-remove php-fpm -y
+  fi
+  fi
 
 cd ~
 cd minecraftbe
@@ -86,8 +98,6 @@ echo "==========================================================================
 Print_Style "Creando directorios y archivos del panel..." "$CYAN"
 sudo mv panel dirname/minecraftbe/
 sudo mv index.php dirname/minecraftbe/
-sudo mv location dirname/minecraftbe/
-sudo mv misitio.conf dirname/minecraftbe/
 
 cd ~
 cd minecraftbe
@@ -114,7 +124,7 @@ sudo rm -rf Minecraft-BE-Server-Panel-Admin-Web
 
 echo "========================================================================="
 if [ -e "/etc/nginx/sites-available/misitio.conf" ]; then
-  echo "¡El Servidor Web ya existe! Actualizando Panel Web..."
+Print_Style "¡El Servidor Web ya existe! Actualizando Panel Web..." "$YELLOW"
 echo "========================================================================="
 sleep 4s
 
@@ -132,12 +142,18 @@ echo "========================================================================="
 
 echo "========================================================================="
 else
-  echo "¡El Servidor Web No existe! Instalando Servidor..."
+echo "========================================================================="
+Print_Style "¡El Servidor Web No existe! Instalando Servidor..." "$YELLOW"
 echo "========================================================================="
 Print_Style "Instalando nginx y php..." "$MAGENTA"
 sleep 4s
 sudo apt install nginx -y
 sudo apt update && sudo apt install php-fpm -y
+
+echo "======================================================================================="
+Print_Style "Creando archivos del Servidor web..." "$CYAN"
+sudo mv location dirname/minecraftbe/
+sudo mv misitio.conf dirname/minecraftbe/
 
 # Modificar archivo default para integrar el servidio de php
 #cd /
