@@ -52,8 +52,6 @@ function read_with_prompt {
 
 cd ~
 
-Print_Style "Instalando nginx, php, git..." "$MAGENTA"
-sleep 4s
 
 # Instale las dependencias necesarias para ejecutar el servidor de Minecraft en segundo plano
 Print_Style "Instalando screen, unzip, sudo, net-tools, wget y otras dependencias..." "$CYAN"
@@ -61,13 +59,8 @@ if [ ! -n "`which sudo`" ]; then
   apt update && apt install sudo -y
 fi
 sudo apt update
-sudo apt install nginx -y
 sudo apt install -y software-properties-common
-sudo add-apt-repository universe -ya
-#sudo add-apt-repository ppa:ondrej/php
-##sudo apt -y install libapache2-mod-php    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-sudo apt update && sudo apt install php-fpm -y
-#sudo apt-get install php7.4 -y
+sudo add-apt-repository universe -y
 sudo apt-get install ssh -y
 sudo apt install git -y
 
@@ -112,12 +105,39 @@ fi
 
 cd ~
 cd minecraftbe
-
+#Permisos del servidor
 sudo chmod -R 775 dirname/minecraftbe
-#sudo chmod -R 775 dirname/minecraftbe/servername
+
 #Elimina repositorio clonado
 sleep 2s
 sudo rm -rf Minecraft-BE-Server-Panel-Admin-Web
+
+echo "========================================================================="
+if [ -e "/etc/nginx/sites-available/misitio.conf" ]; then
+  echo "¡El Servidor Web ya existe! Actualizando Panel Web..."
+echo "========================================================================="
+sleep 4s
+
+echo "================CONFIGURACIÓN DEL SERVIDOR WEB================"
+echo "========================================================================="
+sudo sed -n "/server_name/p" /etc/nginx/sites-available/misitio.conf | sed 's/server_name/Url o IP del Servidor Web: ..... /'
+sudo sed -n "/listen/p" /etc/nginx/sites-available/misitio.conf | sed 's/listen/Puerto del Servidor Web: ....... /'
+sleep 3s
+
+echo "========================================================================="
+Print_Style "Verificando Servidor Web... " "$MAGENTA"
+sudo nginx -t
+sleep 3s
+echo "========================================================================="
+
+echo "========================================================================="
+else
+  echo "¡El Servidor Web No existe! Instalando Servidor..."
+echo "========================================================================="
+Print_Style "Instalando nginx y php..." "$MAGENTA"
+sleep 4s
+sudo apt install nginx -y
+sudo apt update && sudo apt install php-fpm -y
 
 # Modificar archivo default para integrar el servidio de php
 #cd /
@@ -222,17 +242,14 @@ sleep 1s
 echo "========================================================================="
 Print_Style "Configurando Permisos..." "$YELLOW"
 cd ~
-#sudo chown -hR usr:www-data minecraftbe
+#Permisos de usuario:grupo y acceso sh desde la web
 sudo chown -hR username:www-data minecraftbe
-#sudo chown -hR :www-data minecraftbe/servername
-#sudo chown -hR www-data:www-data minecraftbe/panel
-#sudo chown -hR www-data:www-data minecraftbe/index.php
 sudo sed -i '/www-data ALL=(ALL) NOPASSWD: ALL/d' /etc/sudoers
 sudo sed -i '$a www-data ALL=(ALL) NOPASSWD: ALL' /etc/sudoers
 sudo sed -n "/www-data ALL=(ALL) NOPASSWD: ALL/p" /etc/sudoers
-#sudo sed -i '/usr ALL=(ALL) NOPASSWD: ALL/d' /etc/sudoers
-#sudo sed -i '$a usr ALL=(ALL) NOPASSWD: ALL' /etc/sudoers
-#sudo sed -n "/usr ALL=(ALL) NOPASSWD: ALL/p" /etc/sudoers
+sudo sed -i '/username ALL=(ALL) NOPASSWD: ALL/d' /etc/sudoers
+sudo sed -i '$a username ALL=(ALL) NOPASSWD: ALL' /etc/sudoers
+sudo sed -n "/username ALL=(ALL) NOPASSWD: ALL/p" /etc/sudoers
 
 sleep 2s
 
@@ -258,6 +275,7 @@ echo "========================================================================="
 Print_Style "Ingrese desde el navegador web con:" "$CYAN"
 Print_Style "http://$IPV4/" "$RED"
 echo "========================================================================="
+fi
 echo ""
 echo ""
 echo ""
