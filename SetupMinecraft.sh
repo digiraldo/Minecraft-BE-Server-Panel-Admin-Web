@@ -238,8 +238,10 @@ echo "========================================================================="
       croncmd="$DirName/minecraftbe/$ServerName/restart.sh"
       cronjob="0 4 * * * $croncmd"
       ( crontab -l | grep -v -F "$croncmd" ; echo "$cronjob" ) | crontab -
+      sudo sed -i "s:msmrespaldo:Respaldos automáticos a las 4 am todos los diás.:g" $DirName/minecraftbe/panel/respaldos/index.php      
       echo "Reinicio diario programado. Para cambiar la hora o eliminar el reinicio automático, escriba crontab -e"
     fi
+      sudo sed -i "s:Respaldos automáticos a las 4 am todos los diás.:Respaldos autimáticos desactivados:g" $DirName/minecraftbe/panel/respaldos/index.php
   fi
 
   # Configuración completada
@@ -442,8 +444,10 @@ if [ "$answer" != "${answer#[Yy]}" ]; then
     croncmd="$DirName/minecraftbe/$ServerName/restart.sh"
     cronjob="0 4 * * * $croncmd"
     ( crontab -l | grep -v -F "$croncmd" ; echo "$cronjob" ) | crontab -
+    sudo sed -i "s:msmrespaldo:Respaldos automáticos a las 4 am todos los diás.:g" $DirName/minecraftbe/panel/respaldos/index.php
     echo "Reinicio diario programado. Para cambiar la hora o eliminar el reinicio automático, escriba crontab -e"
   fi
+  sudo sed -i "s:msmrespaldo:Respaldos autimáticos desactivados:g" $DirName/minecraftbe/panel/respaldos/index.php
 fi
 
 # ¡Terminado!

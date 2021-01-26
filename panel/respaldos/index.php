@@ -13,9 +13,27 @@
     $directorio = "../../servername/backups";
     $archivos = scandir($directorio, 1);
     //print_r($archivos);
-    //require '../tablero/shell.php';
+    //require 'CargarFicheros.php';
   //  $respaldo = $_POST['respaldo'];
   //  shell_exec($respaldo);  
+  $txtCopia=(isset($_POST['copia']))?$_POST['copia']:"";
+  $accion=(isset($_POST['accion']))?$_POST['accion']:"";
+  
+  // marcar datos obligatorios en el Modal
+  $error=array();
+  
+  switch ($accion) {
+  
+    // REalizar Copia de Serguridad
+    case 'btnCopia':
+      $txtCopia = shell_exec("sudo zip -r /home/usr/minecraftbe/Parce/backups/$(date +%d.%m.%Y_%H\:%M\:%S_servername).zip /home/usr/minecraftbe/Parce/worlds");
+      $btnaccion = 'Respaldo o copia de seguridad manual realizado con exito';
+     break;
+     unset($_POST);
+     unset($_REQUEST);
+     header("Location: ".$_SERVER['PHP_SELF']);
+  }
+
 
 ?>
 
@@ -36,6 +54,8 @@
   <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="../tablero/">Inicio</a></li>
+    <li class="breadcrumb-item"><a href="">Respaldos</a></li>
+    <li class="breadcrumb-item active" aria-current="page"><?php echo fechaC(); ?> </li>
     </ol>
 </nav>
 
@@ -51,9 +71,19 @@
 </div>
 </form>
 
-<form method="POST" action="CargarFicheros.php" enctype="multipart/form-data">
+<form method="POST" action="" enctype="multipart/form-data">
 <div class="form-group">                           
-<button value="btnCopia" class="btn btn-secondary" type="submit" name="accion"><i class="fas fa-folder-plus"></i> Realizar Copia</button>
+<button value="btnCopia" class="btn btn-secondary" type="submit" name="accion"><i class="fas fa-folder-plus"></i> Realizar Respaldo</button>
+
+<?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  echo $btnaccion; 
+}
+else {
+  echo 'msmrespaldo';
+}
+?>
+
 </div>
 </form>
 
