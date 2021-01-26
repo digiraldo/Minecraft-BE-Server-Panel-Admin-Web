@@ -17,7 +17,7 @@ switch ($accion) {
 
   // REalizar Copia de Serguridad
   case 'btnCopia':
-    $txtCopia = shell_exec("sudo zip -r /home/usr/minecraftbe/Parce/backups/$(date +%d.%m.%Y_%H\:%M\:%S_servername).zip /home/usr/minecraftbe/Parce/worlds");
+    $txtCopia = shell_exec("sudo zip -r dirname/minecraftbe/servername/backups/$(date +%d.%m.%Y_%H\:%M\:%S_servername).zip dirname/minecraftbe/servername/worlds");
     $btnaccion = 'Respaldo o copia de seguridad manual realizado con exito';
     unset($_POST);
     unset($_REQUEST);
