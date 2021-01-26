@@ -1,7 +1,5 @@
 <?php
 
-
-
 // Cómo subir el archivo
 $fichero = $_FILES["file"];
 

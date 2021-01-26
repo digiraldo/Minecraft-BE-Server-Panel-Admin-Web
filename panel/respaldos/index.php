@@ -61,6 +61,14 @@
   <li class="list-group-item">
    <form method="POST" action="" enctype="multipart/form-data">                   
    <button value="btnCopia" class="btn btn-secondary btn-sm" type="submit" name="accion"><i class="fas fa-folder-plus"></i> Realizar Respaldo</button>
+   <?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  echo $btnaccion; 
+}
+else {
+  echo $data[14]['data'];
+}
+?>
    </form>  
   </li>
   <li class="list-group-item">
@@ -73,14 +81,7 @@
    </form>  
   </li>
 </ul>
-<?php
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  echo $btnaccion; 
-}
-else {
-  echo $data[14]['data'];
-}
-?>
+
 
 
 
