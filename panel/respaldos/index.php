@@ -12,27 +12,13 @@
 
     $directorio = "../../servername/backups";
     $archivos = scandir($directorio, 1);
+
+    require 'editar.php';
     //print_r($archivos);
     //require 'CargarFicheros.php';
   //  $respaldo = $_POST['respaldo'];
   //  shell_exec($respaldo);  
-  $txtCopia=(isset($_POST['copia']))?$_POST['copia']:"";
-  $accion=(isset($_POST['accion']))?$_POST['accion']:"";
-  
-  // marcar datos obligatorios en el Modal
-  $error=array();
-  
-  switch ($accion) {
-  
-    // REalizar Copia de Serguridad
-    case 'btnCopia':
-      $txtCopia = shell_exec("sudo zip -r /home/usr/minecraftbe/Parce/backups/$(date +%d.%m.%Y_%H\:%M\:%S_servername).zip /home/usr/minecraftbe/Parce/worlds");
-      $btnaccion = 'Respaldo o copia de seguridad manual realizado con exito';
-     break;
-     unset($_POST);
-     unset($_REQUEST);
-     header("Location: ".$_SERVER['PHP_SELF']);
-  }
+
 
 
 ?>
@@ -60,7 +46,7 @@
 </nav>
 
 <div class="container">
-      <div class="section">
+<div class="section">
 
 <form method="POST" action="CargarFicheros.php" enctype="multipart/form-data">
 <div class="form-group">
@@ -71,21 +57,37 @@
 </div>
 </form>
 
-<form method="POST" action="" enctype="multipart/form-data">
-<div class="form-group">                           
-<button value="btnCopia" class="btn btn-secondary" type="submit" name="accion"><i class="fas fa-folder-plus"></i> Realizar Respaldo</button>
-
+<ul class="list-group list-group-horizontal-sm">
+  <li class="list-group-item">
+   <form method="POST" action="" enctype="multipart/form-data">                   
+   <button value="btnCopia" class="btn btn-secondary btn-sm" type="submit" name="accion"><i class="fas fa-folder-plus"></i> Realizar Respaldo</button>
+   </form>  
+  </li>
+  <li class="list-group-item">
+  <form method="POST" action="" enctype="multipart/form-data">   
+   <div class="custom-control custom-switch">
+   <input type="checkbox" class="custom-control-input" name="CopiaSw" id="CopiaSw" <?php echo $data[14]['btn']; ?>>
+   <label class="custom-control-label" for="CopiaSw" data-toggle="tooltip" data-placement="top" title="<?php echo $data[14]['data']; ?>"><?php echo $data[14]['spain']; ?></label>
+   <button name="accion" type="submit" value="btnCopiaSw" class="btn btn-outline-dark btn-sm" data-toggle="tooltip" data-placement="top" title="Guardar"><i class="fas fa-save"></i></button>
+   </div>
+   </form>  
+  </li>
+</ul>
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   echo $btnaccion; 
 }
 else {
-  echo 'msmrespaldo';
+  echo $data[14]['data'];
 }
 ?>
 
-</div>
-</form>
+
+
+
+
+
+
 
       <!--tabla-->
     <div class="panel panel-primary">

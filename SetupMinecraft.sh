@@ -229,20 +229,17 @@ echo "========================================================================="
   read answer < /dev/tty
   if [ "$answer" != "${answer#[Yy]}" ]; then
     sudo systemctl enable $ServerName.service
+  fi
 
-    # Reinicio automático configurado a las 4 am
+      # Reinicio automático configurado a las 4 am
     echo "========================================================================="
-    echo -n "¿Reiniciar automáticamente y hacer una copia de seguridad del servidor a las 4 am todos los días? (y/n)"
-    read answer < /dev/tty
-    if [ "$answer" != "${answer#[Yy]}" ]; then
       croncmd="$DirName/minecraftbe/$ServerName/restart.sh"
       cronjob="0 4 * * * $croncmd"
       ( crontab -l | grep -v -F "$croncmd" ; echo "$cronjob" ) | crontab -
-      sudo sed -i "s:msmrespaldo:Respaldos automáticos a las 4 am todos los diás.:g" $DirName/minecraftbe/panel/respaldos/index.php      
       echo "Reinicio diario programado. Para cambiar la hora o eliminar el reinicio automático, escriba crontab -e"
-    fi
-      sudo sed -i "s:Respaldos automáticos a las 4 am todos los diás.:Respaldos autimáticos desactivados:g" $DirName/minecraftbe/panel/respaldos/index.php
-  fi
+    echo "========================================================================="
+
+
 
   # Configuración completada
   echo "========================================================================="
@@ -422,12 +419,6 @@ sudo systemctl daemon-reload
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/propiedades/index.php
   sudo sed -i "s:dirname:$DirName:g" /etc/nginx/sites-available/misitio.conf
 
-echo "========================================================================="
-echo -n "¿Iniciar el servidor de Minecraft automáticamente? (y/n)?"
-read answer < /dev/tty
-if [ "$answer" != "${answer#[Yy]}" ]; then
-  sudo systemctl enable $ServerName.service
-
   # Reinicio automático a las 4 am
   TimeZone=$(cat /etc/timezone)
   CurrentTime=$(date)
@@ -435,20 +426,24 @@ if [ "$answer" != "${answer#[Yy]}" ]; then
   echo "Zona horaria actual del sistema: $TimeZone"
   echo "Hora actual del sistema: $CurrentTime"
   echo "========================================================================="
-  sleep 1s
+  sleep 2s
   echo "Puede ajustar / eliminar el tiempo de reinicio seleccionado más tarde escribiendo crontab -e o ejecutando SetupMinecraft.sh nuevamente"
   echo "========================================================================="
-  echo -n "¿Reiniciar automáticamente y hacer una copia de seguridad del servidor a las 4 am todos los días? (y/n)"
-  read answer < /dev/tty
-  if [ "$answer" != "${answer#[Yy]}" ]; then
     croncmd="$DirName/minecraftbe/$ServerName/restart.sh"
     cronjob="0 4 * * * $croncmd"
     ( crontab -l | grep -v -F "$croncmd" ; echo "$cronjob" ) | crontab -
-    sudo sed -i "s:msmrespaldo:Respaldos automáticos a las 4 am todos los diás.:g" $DirName/minecraftbe/panel/respaldos/index.php
     echo "Reinicio diario programado. Para cambiar la hora o eliminar el reinicio automático, escriba crontab -e"
-  fi
-  sudo sed -i "s:msmrespaldo:Respaldos autimáticos desactivados:g" $DirName/minecraftbe/panel/respaldos/index.php
+  echo "========================================================================="
+
+
+echo "========================================================================="
+echo -n "¿Iniciar el servidor de Minecraft automáticamente? (y/n)?"
+read answer < /dev/tty
+if [ "$answer" != "${answer#[Yy]}" ]; then
+  sudo systemctl enable $ServerName.service
 fi
+
+
 
 # ¡Terminado!
 echo "========================================================================="
