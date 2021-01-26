@@ -34,7 +34,7 @@
     </ol>
 </nav>
 
-<form method="POST" action="cargarfichero.php" enctype="multipart/form-data">
+<form method="POST" action="subido.php" enctype="multipart/form-data">
 <div class="form-group">
     <label class="btn btn-outline-info" for="my-file-selector">Subir archivo ZIP: 
       <input required="" type="file" name="zip_file" id="">
@@ -44,14 +44,8 @@
 </form>
 
 </br>
-<!--
-<form enctype="multipart/form-data" method="POST" action="maneja.php">
-    <label>Subir archivo ZIP: <input type="file" name="zip_file" /></label>
-    <br />
-    <input type="submit" name="submit" value="Subir" />
-</form>
--->
-</br>
+
+
 
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalAdmin">

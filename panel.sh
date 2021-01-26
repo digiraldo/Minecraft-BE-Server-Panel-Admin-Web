@@ -62,6 +62,7 @@ sudo apt install -y software-properties-common
 sudo add-apt-repository universe -y
 sudo apt-get install ssh -y
 sudo apt install git -y
+sudo apt-get install php-zip -y
 
 # Busca nginx istalado
 if [ ! -d "/etc/nginx" ]; then
