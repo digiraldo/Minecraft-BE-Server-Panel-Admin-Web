@@ -213,6 +213,8 @@ echo "========================================================================="
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/index.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/editar.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/CargarFicheros.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/cronon.sh
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/cronoff.sh
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/index.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/shell.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/res.sh
@@ -223,15 +225,18 @@ echo "========================================================================="
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/config/srvdatos.json
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/$ServerName/web.sh
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/respaldos/editar.php
+  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/respaldos/cronon.sh
+  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/respaldos/cronoff.sh
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/$ServerName/web.sh
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/propiedades/index.php
   sudo sed -i "s:dirname:$DirName:g" /etc/nginx/sites-available/misitio.conf
 
-  echo -n "¿Iniciar el servidor de Minecraft automáticamente? (y/n)?"
-  read answer < /dev/tty
-  if [ "$answer" != "${answer#[Yy]}" ]; then
-    sudo systemctl enable $ServerName.service
-  fi
+echo "========================================================================="
+echo "Configuranfo iniciao del servidor automáticamente"
+#Iniciar el servidor de Minecraft automáticamente
+  sudo systemctl enable $ServerName.service
+echo "========================================================================="
+  
 
       # Reinicio automático configurado a las 4 am
     echo "========================================================================="
@@ -240,7 +245,6 @@ echo "========================================================================="
       ( crontab -l | grep -v -F "$croncmd" ; echo "$cronjob" ) | crontab -
       echo "Reinicio diario programado. Para cambiar la hora o eliminar el reinicio automático, escriba crontab -e"
     echo "========================================================================="
-
 
 
   # Configuración completada
@@ -409,6 +413,8 @@ sudo systemctl daemon-reload
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/index.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/editar.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/CargarFicheros.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/cronon.sh
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/cronoff.sh
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/index.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/shell.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/res.sh
@@ -419,6 +425,8 @@ sudo systemctl daemon-reload
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/config/srvdatos.json
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/$ServerName/web.sh
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/respaldos/editar.php
+  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/respaldos/cronon.sh
+  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/respaldos/cronoff.sh
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/$ServerName/web.sh
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/propiedades/index.php
   sudo sed -i "s:dirname:$DirName:g" /etc/nginx/sites-available/misitio.conf
@@ -441,12 +449,10 @@ sudo systemctl daemon-reload
 
 
 echo "========================================================================="
-echo -n "¿Iniciar el servidor de Minecraft automáticamente? (y/n)?"
-read answer < /dev/tty
-if [ "$answer" != "${answer#[Yy]}" ]; then
+echo "Configuranfo iniciao del servidor automáticamente"
+#Iniciar el servidor de Minecraft automáticamente
   sudo systemctl enable $ServerName.service
-fi
-
+echo "========================================================================="
 
 
 # ¡Terminado!

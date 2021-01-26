@@ -31,16 +31,26 @@ case 'btnCopiaSw':
               $data[14]['spain'] = 'Activado';
               $data[14]['btn'] = 'checked';
               $data[14]['icon'] = '<i class="fas fa-check"></i>';
-              $txtCopiaSw = shell_exec("( crontab -l | grep -v -F '$croncmd' ; echo '$cronjob' ) | crontab -");
+              
             }
         else  {
               $data[14]['data'] = 'Respaldos diarios automáticos desactivados';
               $data[14]['spain'] = 'Desactivado';
               $data[14]['btn'] = '';
               $data[14]['icon'] = '<i class="fas fa-times"></i>';
-              $txtCopiaSw = shell_exec("crontab -r");
+              
             }            
     }
+    foreach ($data as $key) {
+        if ($data[14]['id'] == '15' && $txtCopiaSw == '') {
+            $txtCopiaSw = shell_exec("sudo sh cronoff.sh");
+        } else {
+            
+            $txtCopiaSw = shell_exec("sudo sh cronon.sh");
+        }
+        
+    }
+
 
         $newJsonString = json_encode($data, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
         file_put_contents(__DIR__ . '../../../config/srvdatos.json', $newJsonString);
