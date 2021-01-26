@@ -31,14 +31,14 @@ case 'btnCopiaSw':
               $data[14]['spain'] = 'Activado';
               $data[14]['btn'] = 'checked';
               $data[14]['icon'] = '<i class="fas fa-check"></i>';
-              shell_exec("( crontab -l | grep -v -F '$croncmd' ; echo '$cronjob' ) | crontab -");
+              $txtCopiaSw = shell_exec("( crontab -l | grep -v -F '$croncmd' ; echo '$cronjob' ) | crontab -");
             }
         else  {
               $data[14]['data'] = 'Respaldos diarios automáticos desactivados';
               $data[14]['spain'] = 'Desactivado';
               $data[14]['btn'] = '';
               $data[14]['icon'] = '<i class="fas fa-times"></i>';
-              shell_exec("crontab -r");
+              $txtCopiaSw = shell_exec("crontab -r");
             }            
     }
 
