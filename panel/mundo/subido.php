@@ -29,7 +29,7 @@
   <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="../tablero/">Inicio</a></li>
-    <li class="breadcrumb-item"><a href="">Mundo</a></li>
+    <li class="breadcrumb-item"><a href="index.php">Mundo</a></li>
     <li class="breadcrumb-item active" aria-current="page"><?php echo fechaC(); ?> </li>
     </ol>
 </nav>
@@ -53,13 +53,34 @@ if ($_FILES["zip_file"]["name"])
     $ruta = $_FILES["zip_file"]["tmp_name"];
     $tipo = $_FILES["zip_file"]["type"];
  
+
+    //$carpeta = glob('../../servername/worlds'); //obtenemos todos los nombres de los ficheros
+
     // Función descomprimir ficheros en formato ZIP
-//creamos un array para guardar el nombre de los archivos que contiene el ZIP
+    //creamos un array para guardar el nombre de los archivos que contiene el ZIP
 $nombresFichZIP = array();
 $zip = new ZipArchive;
  
 if ($zip->open($ruta) === TRUE)
 {
+
+  //$cmdBorrarDir = "rm -R /dirname/minecraftbe/servername/worlds/";
+  //shell_exec($cmdBorrarDir);
+
+  $dir = '../../servername/worlds';     
+  $files = scandir($dir); // Devuelve un vector con todos los archivos y directorios
+  $ficherosEliminados = 0;
+  foreach($files as $f){
+   if (is_file($dir.$f)) {
+      if (unlink($dir.$file) ){
+         $ficherosEliminados++;
+       }
+    }
+}
+
+
+
+
    for($i = 0; $i < $zip->numFiles; $i++)
    {
 	//obtenemos ruta que tendrán los documentos cuando los descomprimamos
@@ -83,7 +104,11 @@ while ($archivo = readdir($directorio)) //obtenemos un archivo y luego otro suce
     }
     else
     {
-        echo $archivo . "<br />";
+      shell_exec("sudo zip -r dirname/minecraftbe/servername/backups/$(date +%d.%m.%Y_%H\:%M\:%S_servername).zip dirname/minecraftbe/servername/worlds");  
+     
+      echo $archivo . "<br />";
+      echo "Eliminados : <strong>". $ficherosEliminados ."</strong>" . "<br />";
+        
     }
 }
 // Fin de mostrar ficheros de carpetas
