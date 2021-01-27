@@ -63,18 +63,18 @@ if ($zip->open($ruta) === TRUE)
    for($i = 0; $i < $zip->numFiles; $i++)
    {
 	//obtenemos ruta que tendrán los documentos cuando los descomprimamos
-	$nombresFichZIP['tmp_name'][$i] = 'almacen/'.$zip->getNameIndex($i);
+	$nombresFichZIP['tmp_name'][$i] = '../../servername/'.$zip->getNameIndex($i);
 	//obtenemos nombre del fichero
 	$nombresFichZIP['name'][$i] = $zip->getNameIndex($i);
    }
  
    //descomprimimos zip
-   $zip->extractTo('almacen/');
+   $zip->extractTo('../../servername/');
    $zip->close();
 
 		
 		// Visualizar contenido d ela carpeta
-$directorio = opendir("almacen/"); //ruta actual
+$directorio = opendir("../../servername/"); //ruta actual
 while ($archivo = readdir($directorio)) //obtenemos un archivo y luego otro sucesivamente
 {
     if (is_dir($archivo))//verificamos si es o no un directorio
