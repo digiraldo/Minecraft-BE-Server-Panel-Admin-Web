@@ -224,6 +224,7 @@ echo "========================================================================="
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/includes/navbar.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/mundo/index.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/mundo/subido.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/mundo/select.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/config/srvdatos.json
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/$ServerName/web.sh
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/respaldos/editar.php
@@ -232,6 +233,7 @@ echo "========================================================================="
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/$ServerName/web.sh
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/propiedades/index.php
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/mundo/subido.php
+  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/mundo/select.php
   sudo sed -i "s:dirname:$DirName:g" /etc/nginx/sites-available/misitio.conf
 
 echo "========================================================================="

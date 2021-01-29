@@ -51,15 +51,16 @@
 
 <form method="POST" action="subido.php" enctype="multipart/form-data">
 <div class="form-group">
+<small id="emailHelp" class="form-text text-muted">Ejemplo de ruta de los directorios del archivo comprimido zip para subir: worlds/Bedrock level/db.</small>
     <label class="btn btn-outline-info" for="my-file-selector">Subir archivo ZIP: 
       <input required="" type="file" name="zip_file" id="">
       <button class="btn btn-info" name="submit" type="submit"><i class="fas fa-upload"></i> Cargar Fichero</button>
-    </label>                            
+    </label>
 </div>
 </form>
-<form method="POST" action="subido.php" enctype="multipart/form-data">
+<form method="POST" action="select.php" enctype="multipart/form-data">
 <div class="form-group">
-<label class="btn btn-outline-info" for="my-file-selector">Seleccionar de Respaldo: 
+<label class="btn btn-outline-info" for="my-file-selector">Seleccionar zip de Respaldo: 
   <select type="file" name="zip_file" class="custom-select" 
     id="validationServer02" aria-describedby="validationServer02Feedback" required>
     <option selected><?php print_r($rutaw); ?></option>
@@ -70,13 +71,13 @@
           {$num++;
       ?>
     <?php
-    echo "<option value=".$archivos[$i]." select>"."#"."<b>".$num."</b>"." -- ".$archivos[$i]."</option>";                                                  
+    echo "<option value=".$archivos[$i]." select>"."#"."<b>".$num."</b>"." -- ".$archivos[$i]."</option>";
     ?>
     <?php }?> 
   </select>
   <button class="btn btn-info" name="submit" type="submit"><i class="fas fa-upload"></i> Recuperar</button>                          
 </div>
-</label>                            
+</label>
 </div>
 </form>
 
@@ -91,10 +92,35 @@
     <h5 class="card-title"><?php print_r("<i class='fas fa-folder-open'></i> <b>$rutaw</b><br>"); ?></h5>
     <p class="card-text text-success">
     <?php
-        print_r("<i class='fas fa-folder'></i> $subdirectorios[2]<br>");
-        print_r("<i class='fas fa-database'></i> $subdirectorios[3]<br>");
-        print_r("<i class='fas fa-database'></i> $subdirectorios[4]<br>");
-        print_r("<i class='fas fa-file-alt'></i> $subdirectorios[5]<br>");
+        if ($subdirectorios[2] == '') {
+          echo "<b>MUNDO NO DETECTADO</b><br/>";
+        } else {
+          print_r("<i class='fas fa-folder'></i> $subdirectorios[2]<br>");
+        }
+        if ($subdirectorios[3] == '') {
+          echo "No existen los directorios del Mundo<br/>"; 
+        } else {
+          print_r("<i class='fas fa-database'></i> $subdirectorios[3]<br>");
+        }
+        if ($subdirectorios[4] == '') {
+          echo "Seleccione uno de Respaldo<br/>";  
+        } else {
+          print_r("<i class='fas fa-database'></i> $subdirectorios[4]<br>");
+        }
+        if ($subdirectorios[5] == '') {
+          echo "o Suba uno compimido Zip<br/>";
+        } else {
+          print_r("<i class='fas fa-file-alt'></i> $subdirectorios[5]<br>");
+        }
+        if ($subdirectorios[6] == '') {
+        } else {
+          print_r("$subdirectorios[5]<br>");
+        }
+        if ($subdirectorios[7] == '') {
+        } else {
+          print_r("$subdirectorios[5]<br>");
+        }
+
     ?>
     
     </p>
@@ -107,11 +133,7 @@
 
 </div>
 
-
-
-
-
-    <?php include '../includes/footer.php'?>
+<?php include '../includes/footer.php'?>
 <!-- php include '../includes/modal.php'?> -->
     
   </body>

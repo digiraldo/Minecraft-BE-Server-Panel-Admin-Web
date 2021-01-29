@@ -90,9 +90,8 @@ while ($archivo = readdir($directorio)) //obtenemos un archivo y luego otro suce
     }
     else
     {
-      shell_exec("sudo zip -r dirname/minecraftbe/servername/backups/$(date +%d.%m.%Y_%H\:%M\:%S_servername).zip dirname/minecraftbe/servername/worlds");  
-     
-      echo $archivo . "<br />";
+      shell_exec("sudo zip -r dirname/minecraftbe/servername/backups/$(date +%d.%m.%Y_%H\:%M\:%S_Wo_servername).zip dirname/minecraftbe/servername/worlds");      
+      echo $archivo . "<br/>";
       //echo "Eliminados : <strong>". $ficherosEliminados ."</strong>" . "<br />";
         
     }

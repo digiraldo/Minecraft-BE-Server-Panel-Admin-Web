@@ -114,9 +114,9 @@
     {
         "id": 15,
         "name": "Realizar Respaldo",
-        "spain": "Desactivado",
-        "btn": "",
-        "icon": "<i class=\"fas fa-times\"><\/i>",
-        "data": "Respaldos diarios automáticos desactivados"
+        "spain": "Activado",
+        "btn": "checked",
+        "icon": "<i class=\"fas fa-check\"><\/i>",
+        "data": "Respaldos automáticos activados a las 4 am todos los diás."
     }
 ]
