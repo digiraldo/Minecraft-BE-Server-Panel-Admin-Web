@@ -59,12 +59,12 @@
           <a class="nav-link" aria-current="page" href="../administradores" data-toggle="tooltip" data-placement="bottom" title="<?php echo count($roles); ?> Roles"><i class="fas fa-user-tie"></i> Roles<span class="badge badge-pill badge-success"><?php echo count($roles); ?></span></a>
         </li>
 
-        <li class="<?php echo $active_mundo;?>">
-          <a class="nav-link" aria-current="page" href="../mundo"><i class="fas fa-globe"></i> Mundo</a>
-        </li>
-
         <li class="<?php echo $active_backups;?>">
           <a class="nav-link" aria-current="page" href="../respaldos" data-toggle="tooltip" data-placement="bottom" title="<?php echo $respaldos; ?> Respaldos"><i class="fas fa-archive"></i> Respaldos<span class="badge badge-pill badge-info"><?php echo $respaldos; ?></span></a>
+        </li>
+
+        <li class="<?php echo $active_mundo;?>">
+          <a class="nav-link" aria-current="page" href="../mundo"><i class="fas fa-globe"></i> Mundo</a>
         </li>
 
         <li class="<?php echo $active_propiedades;?>">

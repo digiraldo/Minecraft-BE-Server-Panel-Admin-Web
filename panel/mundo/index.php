@@ -87,7 +87,8 @@
 
 <div class="card-deck">
 <div class="card text-center border-info mb-3">
-  <div class="card-header"><b><?php echo $data[12]['name']; ?></b> <i><?php echo $data[13]['spain']; ?></i> <?php echo $data[12]['spain']; ?> Puerto:<?php echo $data[8]['spain']; ?></div>
+  <div class="card-header"><b><?php echo $data[12]['name']; ?></b> <i><?php echo $data[13]['spain']; ?></i> <?php echo $data[12]['spain']; ?> Puerto:<?php echo $data[8]['spain']; ?><br/>
+  <b><i>DIRECTORIOS DEL MUNDO</i></b></div>
   <div class="card-body text-info">
     <h5 class="card-title"><?php print_r("<i class='fas fa-folder-open'></i> <b>$rutaw</b><br>"); ?></h5>
     <p class="card-text text-success">
