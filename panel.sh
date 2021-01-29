@@ -73,9 +73,9 @@ if [ ! -d "/etc/nginx" ]; then
   read answer < /dev/tty
   if [ "$answer" != "${answer#[Yy]}" ]; then
     sudo apt-get purge --auto-remove nginx -y
-    sudo apt-get purge --auto-remove php-fpm -y
+    sudo apt-get purge --auto-remove php-fpm -y 
   fi
-  fi
+fi
 
 cd ~
 cd minecraftbe
