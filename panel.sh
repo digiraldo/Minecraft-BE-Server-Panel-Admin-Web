@@ -243,7 +243,7 @@ Print_Style "Introduzca el puerto para el servidor web, Puerto predeterminado: 8
 read_with_prompt Port "Numero del Puerto" 80
 echo "========================================================================="
 
-Print_Style "Configurando la pagina web $IPV4/index.php..." "$YELLOW"
+Print_Style "Configurando la pagina web $IPV4:$Port/index.php..." "$YELLOW"
 sudo sed -i "s/MiIPV4/$IPV4/g" dirname/minecraftbe/config/srvdatos.json
 sudo sed -i "s/MiIPV4/$IPV4/g" /etc/nginx/sites-available/misitio.conf
 sudo sed -i "s/80/$Port/g" dirname/minecraftbe/config/srvdatos.json
@@ -301,7 +301,7 @@ Print_Style "PANEL DE ADMINISTRACIÓN WEB CREADO" "$GREEN"
 echo "========================================================================="
 echo "========================================================================="
 Print_Style "Ingrese desde el navegador web con:" "$CYAN"
-Print_Style "http://$IPV4/" "$RED"
+Print_Style "http://$IPV4:$Port/" "$RED"
 echo "========================================================================="
 fi
 echo ""
