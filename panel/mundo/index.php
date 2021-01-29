@@ -10,6 +10,21 @@
     $active_logs="";	
     $title="Minecraft SRV | Simple Invoice"; 
 
+    $jsonString = file_get_contents(__DIR__ . '../../../config/srvdatos.json');
+    $data = json_decode($jsonString, true);
+
+
+    // Obtener el contenido del archivo de propiedades como una matriz de líneas
+    $myFile = '../../servername/server.properties';
+    $lines = file($myFile);
+    // Obtener el contenido del archivo como cadena
+    $content = file_get_contents($myFile);
+
+    $directorio = '../../servername/worlds/';
+    $ficheros  = scandir($directorio);
+    $rutaw = ($ficheros[2]);
+    $subdirectorios = scandir($directorio . $rutaw);
+
 ?>
 
 <!doctype html>
@@ -42,38 +57,55 @@
     </label>                            
 </div>
 </form>
+<form method="POST" action="subido.php" enctype="multipart/form-data">
+<div class="form-group">
+<label class="btn btn-outline-info" for="my-file-selector">Seleccionar de Respaldo: 
+  <select type="file" name="zip_file" class="custom-select" 
+    id="validationServer02" aria-describedby="validationServer02Feedback" required>
+    <option selected><?php print_r($rutaw); ?></option>
+      <?php
+          $archivos = scandir("../../servername/backups");
+          $num=0;
+          for ($i=2; $i<count($archivos); $i++)
+          {$num++;
+      ?>
+    <?php
+    echo "<option value=".$archivos[$i]." select>"."#"."<b>".$num."</b>"." -- ".$archivos[$i]."</option>";                                                  
+    ?>
+    <?php }?> 
+  </select>
+  <button class="btn btn-info" name="submit" type="submit"><i class="fas fa-upload"></i> Recuperar</button>                          
+</div>
+</label>                            
+</div>
+</form>
 
 </br>
 
+<div class="card-body">
 
-
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalAdmin">
-<i class="fas fa-user-plus"></i> Añadir Usuario
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="modalAdmin" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="modalAdminLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="modalAdminLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary">Agregar</button>
-      </div>
-    </div>
+<div class="card-deck">
+<div class="card text-center border-info mb-3">
+  <div class="card-header"><b><?php echo $data[12]['name']; ?></b> <i><?php echo $data[13]['spain']; ?></i> <?php echo $data[12]['spain']; ?> Puerto:<?php echo $data[8]['spain']; ?></div>
+  <div class="card-body text-info">
+    <h5 class="card-title"><?php print_r("<i class='fas fa-folder-open'></i> <b>$rutaw</b><br>"); ?></h5>
+    <p class="card-text text-success">
+    <?php
+        print_r("<i class='fas fa-folder'></i> $subdirectorios[2]<br>");
+        print_r("<i class='fas fa-database'></i> $subdirectorios[3]<br>");
+        print_r("<i class='fas fa-database'></i> $subdirectorios[4]<br>");
+        print_r("<i class='fas fa-file-alt'></i> $subdirectorios[5]<br>");
+    ?>
+    
+    </p>
+  </div>
+  <div class="card-footer text-muted">
+  <a href="../tablero/ver_pro.php" type="submit" class="btn btn-outline-dark btn-sm" data-toggle="tooltip" data-placement="top" title="<i class='fas fa-database'></i> <?php echo $data[13]['spain']; ?>">Ver Propiedades</a>
   </div>
 </div>
+</div>
 
-
+</div>
 
 
 

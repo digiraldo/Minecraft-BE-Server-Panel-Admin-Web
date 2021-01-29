@@ -64,22 +64,8 @@ $zip = new ZipArchive;
 if ($zip->open($ruta) === TRUE)
 {
 
-  //$cmdBorrarDir = "rm -R /dirname/minecraftbe/servername/worlds/";
-  //shell_exec($cmdBorrarDir);
-
-  $dir = '../../servername/worlds';     
-  $files = scandir($dir); // Devuelve un vector con todos los archivos y directorios
-  $ficherosEliminados = 0;
-  foreach($files as $f){
-   if (is_file($dir.$f)) {
-      if (unlink($dir.$file) ){
-         $ficherosEliminados++;
-       }
-    }
-}
-
-
-
+  $cmdBorrarDir = "rm -R /dirname/minecraftbe/servername/worlds/";
+  shell_exec($cmdBorrarDir);
 
    for($i = 0; $i < $zip->numFiles; $i++)
    {
@@ -107,7 +93,7 @@ while ($archivo = readdir($directorio)) //obtenemos un archivo y luego otro suce
       shell_exec("sudo zip -r dirname/minecraftbe/servername/backups/$(date +%d.%m.%Y_%H\:%M\:%S_servername).zip dirname/minecraftbe/servername/worlds");  
      
       echo $archivo . "<br />";
-      echo "Eliminados : <strong>". $ficherosEliminados ."</strong>" . "<br />";
+      //echo "Eliminados : <strong>". $ficherosEliminados ."</strong>" . "<br />";
         
     }
 }
@@ -125,6 +111,13 @@ echo'</li></ul>';
 
 }
 ?>
+
+<!-- Button trigger modal -->
+<p>
+<a type="button" class="btn btn-primary" href="index.php" data-target="#modalAdmin">
+<i class="fas fa-globe"></i> Volver
+</a>
+</p>
 
     <?php include '../includes/footer.php'?>
 <!-- php include '../includes/modal.php'?> -->
