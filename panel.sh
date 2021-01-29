@@ -237,9 +237,17 @@ Print_Style "Introduzca la IP - IPV4 del servidor: " "$MAGENTA"
 read_with_prompt IPV4 "Url o dirección IP del servidor"
 echo "========================================================================="
 
+# Digitar el puerto a utilizar
+echo "========================================================================="
+Print_Style "Introduzca el puerto para el servidor web, Puerto predeterminado: 80" "$MAGENTA"
+read_with_prompt Port "Numero del Puerto" 80
+echo "========================================================================="
+
 Print_Style "Configurando la pagina web $IPV4/index.php..." "$YELLOW"
 sudo sed -i "s/MiIPV4/$IPV4/g" dirname/minecraftbe/config/srvdatos.json
 sudo sed -i "s/MiIPV4/$IPV4/g" /etc/nginx/sites-available/misitio.conf
+sudo sed -i "s/80/$Port/g" dirname/minecraftbe/config/srvdatos.json
+sudo sed -i "s/80/$Port/g" /etc/nginx/sites-available/misitio.conf
 sudo sed -i "s/versionphp/$VePHP/g" /etc/nginx/sites-available/misitio.conf
 sudo sed -i "s/versionphp/$VePHP/g" /etc/nginx/sites-available/default
 echo "========================================================================="
