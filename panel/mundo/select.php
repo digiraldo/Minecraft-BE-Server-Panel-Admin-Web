@@ -68,7 +68,7 @@ if (isset($_POST['zip_file']))
     //$carpeta = glob('../../servername/worlds'); //obtenemos todos los nombres de los ficheros
     $zip = new ZipArchive;
     if ($zip->open($rut) === TRUE){
-      $cmdBorDir = "rm -R /dirname/minecraftbe/servername/worlds/";
+      $cmdBorDir = "rm -R dirname/minecraftbe/servername/worlds/";
       shell_exec($cmdBorDir);
     // Función descomprimir ficheros en formato ZIP
     //creamos un array para guardar el nombre de los archivos que contiene el ZIP

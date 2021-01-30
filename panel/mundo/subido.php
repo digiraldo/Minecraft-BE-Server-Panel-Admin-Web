@@ -64,7 +64,7 @@ $zip = new ZipArchive;
 if ($zip->open($ruta) === TRUE)
 {
 
-  $cmdBorrarDir = "rm -R /dirname/minecraftbe/servername/worlds/";
+  $cmdBorrarDir = "rm -R dirname/minecraftbe/servername/worlds/";
   shell_exec($cmdBorrarDir);
 
    for($i = 0; $i < $zip->numFiles; $i++)
