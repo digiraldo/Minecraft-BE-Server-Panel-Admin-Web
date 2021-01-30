@@ -119,10 +119,6 @@ cd minecraftbe
 #Permisos del servidor
 sudo chmod -R 775 dirname/minecraftbe
 
-#Elimina repositorio clonado
-sleep 2s
-sudo rm -rf Minecraft-BE-Server-Panel-Admin-Web
-
 echo "========================================================================="
 if [ -e "/etc/nginx/sites-available/misitio.conf" ]; then
 Print_Style "¡El Servidor Web ya existe! Actualizando Panel Web..." "$YELLOW"
@@ -295,6 +291,10 @@ echo "========================================================================="
 
 echo "."
 echo "."
+
+#Elimina repositorio clonado
+sleep 2s
+sudo rm -rf Minecraft-BE-Server-Panel-Admin-Web
 
 echo "========================================================================="
 Print_Style "PANEL DE ADMINISTRACIÓN WEB CREADO" "$GREEN"
