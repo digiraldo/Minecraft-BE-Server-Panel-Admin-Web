@@ -232,6 +232,8 @@ echo "========================================================================="
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/respaldos/cronoff.sh
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/$ServerName/web.sh
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/propiedades/index.php
+  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/propiedades/editar.php
+  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/tablero/shell.php
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/mundo/subido.php
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/mundo/select.php
   sudo sed -i "s:dirname:$DirName:g" /etc/nginx/sites-available/misitio.conf
@@ -437,6 +439,8 @@ sudo systemctl daemon-reload
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/respaldos/cronoff.sh
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/$ServerName/web.sh
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/propiedades/index.php
+  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/propiedades/editar.php
+  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/tablero/shell.php
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/mundo/subido.php
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/mundo/select.php
   sudo sed -i "s:dirname:$DirName:g" /etc/nginx/sites-available/misitio.conf

@@ -8,7 +8,11 @@
     $active_backups="";
     $active_propiedades="";
     $active_logs="";	
-    $title="Minecraft SRV | Simple Invoice"; 
+    $title="Minecraft SRV | Simple Invoice";
+
+    require '../propiedades/editar.php';
+    $jsonString = file_get_contents(__DIR__ . '../../../config/srvdatos.json');
+    $data = json_decode($jsonString, true);
 
 ?>
 
@@ -43,7 +47,7 @@
 </div>
 </form>
 
-</br>
+
 <?php
 //comprobamos si se ha recibido el nombre del ZIP
 if ($_FILES["zip_file"]["name"]) 
@@ -53,7 +57,6 @@ if ($_FILES["zip_file"]["name"])
     $ruta = $_FILES["zip_file"]["tmp_name"];
     $tipo = $_FILES["zip_file"]["type"];
  
-
     //$carpeta = glob('../../servername/worlds'); //obtenemos todos los nombres de los ficheros
 
     // Función descomprimir ficheros en formato ZIP
@@ -101,6 +104,21 @@ echo '<br><ul class="list-group">';
 echo'<li class="list-group-item">';
 echo "Mundo cargado correctamente, reinicia el servidor";
 echo'</li></ul>';
+$line = $lines[57];
+$input = $txtSemilla . "\n";
+// Reemplazar la cadena inicial (de la matriz $lines) con $update en $content
+$linetext = "level-seed=";
+$output = "$linetext$input";
+$newcontent = str_replace($line, $output, $content);
+file_put_contents($myFile, $newcontent);
+
+foreach ($data as $key) {
+          $data[7]['data'] = '';
+          $data[7]['spain'] = 'Restaurado';
+          $data[7]['btn'] = '<i class="fas fa-undo-alt"></i>';
+        }
+$newJsonString = json_encode($data, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
+file_put_contents(__DIR__ . '../../../config/srvdatos.json', $newJsonString);
 	}else {
  echo '<br><ul class="list-group">';
  echo'<li class="list-group-item">';

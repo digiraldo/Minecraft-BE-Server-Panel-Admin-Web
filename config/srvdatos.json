@@ -59,7 +59,7 @@
         "id": 8,
         "name": "Número de Semilla:",
         "spain": "Aleatorio",
-        "btn": "",
+        "btn": "<i class=\"fas fa-random\"><\/i>",
         "icon": "",
         "data": ""
     },

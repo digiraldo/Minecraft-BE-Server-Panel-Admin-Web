@@ -331,11 +331,13 @@ switch ($accion) {
             if ($data[7]['id'] == '8' && $txtSemilla == '') {
                   $data[7]['data'] = $txtSemilla;
                   $data[7]['spain'] = 'Aleatorio';
-                  $data[7]['btn'] = '';
+                  $data[7]['btn'] = '<i class="fas fa-random"></i>';
                 }else {
                   $data[7]['data'] = $txtSemilla;
                   $data[7]['spain'] = $txtSemilla;
-                  $data[7]['btn'] = '';
+                  $data[7]['btn'] = '<i class="fas fa-seedling"></i>';
+                  $cmdBorraDir = "rm -R dirname/minecraftbe/servername/worlds/";
+                  shell_exec($cmdBorarDir);
                 }
             }
 

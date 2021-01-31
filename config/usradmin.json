@@ -1,12 +1,12 @@
 [
     {
         "id": 1,
-        "usuario": "Carlos_Pedro 2318",
-        "contrasena": "1234",
+        "usuario": "Admin",
+        "contrasena": "Admin1234",
         "pais": "Colombia",
         "ciudad": "Bogota",
-        "gamertag": "Xbox_Usuario",
+        "gamertag": "No Aplica",
         "rol": "Administrador",
-        "contacto": "Telegram: @julanito"
+        "contacto": "Telegram: @dparcero"
     }
 ]

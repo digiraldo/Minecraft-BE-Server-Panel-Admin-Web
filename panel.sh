@@ -149,11 +149,14 @@ sudo apt update && sudo apt install php-fpm -y
 
 echo "======================================================================================="
 Print_Style "Creando archivos del Servidor web..." "$CYAN"
+cd ~
+cd minecraftbe
 cd Minecraft-BE-Server-Panel-Admin-Web
 sudo mv location dirname/minecraftbe/
 sudo mv misitio.conf dirname/minecraftbe/
 
 cd ~
+cd minecraftbe
 # Modificar archivo default para integrar el servidio de php
 #cd /
 sudo chmod +x /etc/nginx/sites-available/default

@@ -231,7 +231,7 @@
   <div class="card text-white bg-dark mb-3">
   <div class="card-header"><?php echo $lines[57]; ?></div>
     <div class="card-body">
-      <h5 class="card-title">Número de Semilla: <?php echo $data[7]['spain']; ?></h5>
+      <h5 class="card-title">Número de Semilla: <?php echo $data[7]['btn']; ?> <?php echo $data[7]['spain']; ?></h5>
       <p class="card-text">Semilla o Número del Mundo, Si se deja vacío, se elige una semilla al azar.</p>
     </div>
     <div class="card-footer">
