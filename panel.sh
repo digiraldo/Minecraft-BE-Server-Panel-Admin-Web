@@ -149,9 +149,11 @@ sudo apt update && sudo apt install php-fpm -y
 
 echo "======================================================================================="
 Print_Style "Creando archivos del Servidor web..." "$CYAN"
+cd Minecraft-BE-Server-Panel-Admin-Web
 sudo mv location dirname/minecraftbe/
 sudo mv misitio.conf dirname/minecraftbe/
 
+cd ~
 # Modificar archivo default para integrar el servidio de php
 #cd /
 sudo chmod +x /etc/nginx/sites-available/default
@@ -176,7 +178,7 @@ r location
 d}' /etc/nginx/sites-available/default
 sleep 2s
 
-sudo rm -rf  dirname/minecraftbe/location
+sudo rm -rf dirname/minecraftbe/location
 
 echo "======================================================================================="
 Print_Style "Obteniendo Resultados..." "$MAGENTA"
@@ -294,6 +296,8 @@ echo "."
 
 #Elimina repositorio clonado
 sleep 2s
+cd ~
+cd minecraftbe
 sudo rm -rf Minecraft-BE-Server-Panel-Admin-Web
 
 echo "========================================================================="
