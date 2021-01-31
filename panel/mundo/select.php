@@ -48,6 +48,8 @@ if (isset($_POST['zip_file']))
       $ruta = $_POST['zip_file'];
       $tipo = 'zip'; 
 
+      shell_exec("sudo zip -r dirname/minecraftbe/servername/backups/$(date +%d.%m.%Y_%H\:%M\:%S_Wo_servername).zip dirname/minecraftbe/servername/worlds");
+
       $rut = "../../servername/backups/"."$nombre";
       $name = explode("../../servername/backups/", $nombre);
       $accepted_types = array('application/zip', 'application/x-zip-compressed', 'multipart/x-zip', 'application/x-compressed');
@@ -101,7 +103,6 @@ while ($archivo = readdir($directorio)) //obtenemos un archivo y luego otro suce
     }
     else
     {
-      shell_exec("sudo zip -r dirname/minecraftbe/servername/backups/$(date +%d.%m.%Y_%H\:%M\:%S_Wo_servername).zip dirname/minecraftbe/servername/worlds");
       echo $archivo . "<br />";
       //echo "Eliminados : <strong>". $ficherosEliminados ."</strong>" . "<br />";   
     }

@@ -56,6 +56,8 @@ if ($_FILES["zip_file"]["name"])
     $nombre = $_FILES["zip_file"]["name"];
     $ruta = $_FILES["zip_file"]["tmp_name"];
     $tipo = $_FILES["zip_file"]["type"];
+
+    shell_exec("sudo zip -r dirname/minecraftbe/servername/backups/$(date +%d.%m.%Y_%H\:%M\:%S_Wo_servername).zip dirname/minecraftbe/servername/worlds");
  
     //$carpeta = glob('../../servername/worlds'); //obtenemos todos los nombres de los ficheros
 
@@ -93,7 +95,6 @@ while ($archivo = readdir($directorio)) //obtenemos un archivo y luego otro suce
     }
     else
     {
-      shell_exec("sudo zip -r dirname/minecraftbe/servername/backups/$(date +%d.%m.%Y_%H\:%M\:%S_Wo_servername).zip dirname/minecraftbe/servername/worlds");      
       echo $archivo . "<br/>";
       //echo "Eliminados : <strong>". $ficherosEliminados ."</strong>" . "<br />";
         
