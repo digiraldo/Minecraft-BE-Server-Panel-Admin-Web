@@ -21,12 +21,14 @@ switch ($accion) {
 
   // Agregar Nombre sel Servidor
   case 'btnDetener':
-   $txtDetener = shell_exec("sudo systemctl stop servername");
+   $txtDetener = shell_exec("sudo sh sto.sh");
+   //$txtDetener = shell_exec("sudo systemctl stop servername");
    $btnaccion = 'Servidor Detenido';
   break;
 
   case 'btnIniciar':
-   $txtIniciar = shell_exec("sudo systemctl start servername");
+   $txtIniciar = shell_exec("sudo sh sta.sh");
+   //$txtIniciar = shell_exec("sudo systemctl start servername");
    $btnaccion = 'Servidor Iniciado';
   break;
 

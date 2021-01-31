@@ -58,10 +58,14 @@
   <div class="card-footer text-muted">
   <?php 
   
-  echo "<pre>$btnaccion</pre>";
-  ob_end_flush();
-  flush();
-  usleep(1500000);
+  echo "<pre>";
+  echo $txtDetener;
+  echo $txtIniciar;
+  echo $txtReiniciar;
+  echo "</pre>";
+  //ob_end_flush();
+  //flush();
+  //usleep(1500000);
   //echo "Ingreso al Servidor: {$data[12]['spain']} Puerto: {$data[8]['spain']}";
 
 
