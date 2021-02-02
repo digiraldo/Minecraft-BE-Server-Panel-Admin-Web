@@ -113,7 +113,7 @@
     },
     {
         "id": 15,
-        "name": "Realizar Respaldo",
+        "name": "Respaldos Automáticos:",
         "spain": "Activado",
         "btn": "checked",
         "icon": "<i class=\"fas fa-check\"><\/i>",

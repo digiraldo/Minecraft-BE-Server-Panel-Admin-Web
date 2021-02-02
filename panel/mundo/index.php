@@ -25,8 +25,6 @@
     $rutaw = ($ficheros[2]);
     $subdirectorios = scandir($directorio . $rutaw);
 
-
-
 ?>
 
 <!doctype html>
@@ -51,15 +49,20 @@
     </ol>
 </nav>
 
-
-
+<!-- Inicio cardbody -->
 <div class="card-body">
-
-<div class="card-deck">
+<!-- Inicio Tarjeta subir mundo -->
 <div class="card text-center card text-white bg-dark border-info mb-3">
-  <div class="card-header"><b><?php echo $data[12]['name']; ?></b> <i><?php echo $data[13]['spain']; ?></i> <?php echo $data[12]['spain']; ?> Puerto:<?php echo $data[8]['spain']; ?><br/>
-  
-  <form method="POST" action="subido.php" enctype="multipart/form-data">
+  <div class="card-header">
+  <b><?php echo $data[12]['name']; ?></b> <i><?php echo $data[13]['spain']; ?></i> <?php echo $data[12]['spain']; ?> Puerto:<?php echo $data[8]['spain']; ?>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">
+    <?php print_r("<i class='fas fa-folder-open'></i> <b>$rutaw</b><br>"); ?>
+    </h5>
+    <p class="card-text">
+
+    <form method="POST" action="subido.php" enctype="multipart/form-data">
 <div class="form-group">
 <small id="emailHelp" class="form-text text-muted">Ejemplo de ruta de los directorios del archivo comprimido zip para subir: worlds/Bedrock level/db.</small>
     <label class="btn btn-outline-secondary" for="my-file-selector">Subir archivo ZIP: 
@@ -68,6 +71,7 @@
     </label>
 </div>
 </form>
+
 <form method="POST" action="select.php" enctype="multipart/form-data">
 <div class="form-group">
 <label class="btn btn-outline-secondary" for="my-file-selector">Seleccionar zip de Respaldo: 
@@ -86,25 +90,29 @@
     <?php }?> 
   </select>
   <button class="btn btn-info" name="submit" type="submit"><i class="fas fa-upload"></i> Recuperar</button>                          
-</div>
 </label>
 </div>
 </form>
-
+    </p>
+  </div>
+  <div class="card-footer text-muted">
+  <b><?php echo $data[14]['name']; ?></b> <i><?php echo $data[14]['icon']; ?></i> <?php echo $data[14]['spain']; ?>
+  </div>
+<!-- Fin Tarjeta subir mundo -->
 </div>
-</div>
 
-
-
-
-
-<div class="card-deck">
+ 
+<!-- Inicio Tarjeta Directorio del Mundo mundo -->
 <div class="card text-center card text-white bg-dark border-info mb-3">
-  <div class="card-header"><b><?php echo $data[1]['name']; ?></b> <i><?php echo $data[1]['btn']; ?></i> <?php echo $data[1]['spain']; ?><br/>
+  <div class="card-header">
+  <b><?php echo $data[1]['name']; ?></b> <i><?php echo $data[1]['btn']; ?></i> <?php echo $data[1]['spain']; ?><br/>
   <b><?php echo $data[7]['name']; ?></b> <i><?php echo $data[7]['btn']; ?></i> <?php echo $data[7]['spain']; ?><br/>
-  <b><i>DIRECTORIOS DEL MUNDO</i></b></div>
+  <b><i>DIRECTORIOS DEL MUNDO</i></b>
+  </div>
   <div class="card-body text-info">
-    <h5 class="card-title"><?php print_r("<i class='fas fa-folder-open'></i> <b>$rutaw</b><br>"); ?></h5>
+    <h5 class="card-title">
+    <?php print_r("<i class='fas fa-folder-open'></i> <b>$rutaw</b><br>"); ?>
+    </h5>
     <p class="card-text text-success">
     <?php
         if ($subdirectorios[2] == '') {
@@ -135,18 +143,19 @@
         } else {
           print_r("$subdirectorios[5]<br>");
         }
-
     ?>
-    
     </p>
+    <a href="../respaldos/index.php" class="btn btn-primary">Ir a Respaldos <span class="badge badge-light"><?php  echo $respaldos; ?></span></a>
   </div>
   <div class="card-footer text-muted">
   <a href="../tablero/ver_pro.php" type="submit" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="<i class='fas fa-database'></i> <?php echo $data[13]['spain']; ?>">Ver Propiedades</a>
   </div>
-</div>
+<!-- Fin Tarjeta Directorio del Mundo mundo -->
 </div>
 
+<!-- Fin cardbody -->
 </div>
+
 
 <?php include '../includes/footer.php'?>
 <!-- php include '../includes/modal.php'?> -->

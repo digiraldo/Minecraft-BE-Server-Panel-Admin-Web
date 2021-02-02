@@ -34,6 +34,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Propiedades</title>
+    <!-- https://codepen.io/nisharg/pen/mdJmywW -->
+    <style type="text/css" media="screen">
+      @import '../includes/css/checkbox.css';
+    </style>
     <?php include "../includes/scripts.php" ?>
   </head>
   <body>

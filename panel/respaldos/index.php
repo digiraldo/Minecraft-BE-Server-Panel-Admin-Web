@@ -30,6 +30,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Respaldo</title>
+     <!-- https://codepen.io/nisharg/pen/mdJmywW -->
+    <style type="text/css" media="screen">
+      @import '../includes/css/checkbox.css';
+    </style>
     <?php include "../includes/scripts.php" ?>
 
   </head>
@@ -45,17 +49,17 @@
     </ol>
 </nav>
 
-
+<!-- Inicio cardbody -->
 <div class="card-body">
-
-<div class="card-deck">
+<!-- Inicio Tarjeta respaldo mundo -->
 <div class="card text-center card text-white bg-dark border-info mb-3">
+  <div class="card-header">
   <div class="card-header"><b><?php echo $data[12]['name']; ?></b> <i><?php echo $data[13]['spain']; ?></i> <?php echo $data[12]['spain']; ?> Puerto:<?php echo $data[8]['spain']; ?><br/>
-  
-  <div class="container">
-<div class="section">
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">
 
-<form method="POST" action="CargarFicheros.php" enctype="multipart/form-data">
+    <form method="POST" action="CargarFicheros.php" enctype="multipart/form-data">
 <div class="form-group">
     <label class="btn btn-outline-secondary" for="my-file-selector">
       <input required="" type="file" name="file" id="exampleInputFile">
@@ -64,43 +68,50 @@
 </div>
 </form>
 
-<ul class="list-group list-group-horizontal-sm">
-  <li class="list-group-item list-group-item-secondary d-flex justify-content-between align-items-center">
-   <form method="POST" action="" enctype="multipart/form-data">                   
-   <button value="btnCopia" class="btn btn-secondary btn-sm" type="submit" name="accion"><i class="fas fa-folder-plus"></i> Realizar Respaldo</button>
-   <?php
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  echo $btnaccion; 
-}
-else {
-  echo $data[14]['data'];
-}
-?>
-   </form>  
-  </li>
+<!-- Inicio Respaldos Automaticos mundo -->
+<div class="container-fluid">
+    <div class="row justify-content-md-center">
+        <div class="col-md-auto">
+        <form method="POST" action="" enctype="multipart/form-data">
+        <button value="btnCopia" class="btn btn-secondary" type="submit" name="accion"><i class="fas fa-folder-plus"></i> Realizar Respaldo</button>
+          <?php
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+              echo $btnaccion; 
+            }
+            else {
+              echo $data[14]['data'];
+            }
+          ?>
+        </form>
+        </div>
+        <div class="col-md-auto">
+        <form method="POST" action="" enctype="multipart/form-data">
+          <div class="custom-control custom-switch custom-switch-md">
+            <input type="checkbox" class="custom-control-input" name="CopiaSw" id="CopiaSw" <?php echo $data[14]['btn']; ?>>
+            <label class="custom-control-label" for="CopiaSw" data-toggle="tooltip" data-placement="top" title="<?php echo $data[14]['data']; ?>"><?php echo $data[14]['spain']; ?></label>
+            <button name="accion" type="submit" value="btnCopiaSw" class="btn btn-outline-light btn-sm badge-pill" data-toggle="tooltip" data-placement="top" title="Guardar"><i class="fas fa-save"></i></button>
+          </div>
+        </form>
+        </div>
+        <div class="col-md-auto">
+            Respaldos:
+            <span class="badge badge-info badge-pill"> <?php  echo $respaldos; ?></span>
+        </div>
+    </div>
+<!-- Fin Respaldos Automaticos mundo -->
+</div>
 
-  <li class="list-group-item list-group-item-secondary d-flex justify-content-between align-items-center">
-    <form method="POST" action="" enctype="multipart/form-data">
-      <div class="custom-control custom-switch">
-        <input type="checkbox" class="custom-control-input" name="CopiaSw" id="CopiaSw" <?php echo $data[14]['btn']; ?>>
-        <label class="custom-control-label" for="CopiaSw" data-toggle="tooltip" data-placement="top" title="<?php echo $data[14]['data']; ?>"><?php echo $data[14]['spain']; ?></label>
-        <button name="accion" type="submit" value="btnCopiaSw" class="btn btn-outline-dark btn-sm badge-pill" data-toggle="tooltip" data-placement="top" title="Guardar"><i class="fas fa-save"></i></button>
-      </div>
-    </form>
-  </li>
+  </div>
+  <div class="card-footer text-muted">
+  <b><?php echo $data[14]['name']; ?></b> <i><?php echo $data[14]['icon']; ?></i> <?php echo $data[14]['spain']; ?>
+  </div>
+<!-- Fin Tarjeta respaldo mundo -->
+</div>
 
-  <li class="list-group-item list-group-item-secondary d-flex justify-content-between align-items-center">
-    Respaldos:
-    <span class="badge badge-info badge-pill"> <?php  echo $respaldos; ?></span>
-  </li>
+<!-- Fin cardbody -->
+</div>
 
-</ul>
 
-</div>
-</div>
-</div>
-</div>
-</div>
 
 
       <!--tabla-->
@@ -113,9 +124,9 @@ else {
         <table id="tablaRespaldos" class="table table-striped table-bordered" style="width:100%">
             <thead>
               <tr>
-                <th width="7%" scope="col">#</th>
+                <th width="3%" scope="col">#</th> <!--<th width="7%" scope="col">#</th>-->
                 <th scope="col">Nombre de Respaldo</th>
-                <th width="10%" scope="col">Acciones</th>
+                <th width="4%" scope="col">Acciones</th> <!--<th width="10%" scope="col">Acciones</th>-->
               </tr>
             </thead>
 		        <tbody id="respaldos">
