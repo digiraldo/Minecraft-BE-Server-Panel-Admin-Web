@@ -119,6 +119,7 @@ cd minecraftbe
 #Permisos del servidor
 sudo chmod -R 775 dirname/minecraftbe
 
+
 echo "========================================================================="
 if [ -e "/etc/nginx/sites-available/misitio.conf" ]; then
 Print_Style "¡El Servidor Web ya existe! Actualizando Panel Web..." "$YELLOW"
@@ -153,6 +154,7 @@ cd ~
 cd minecraftbe
 cd Minecraft-BE-Server-Panel-Admin-Web
 sudo mv location dirname/minecraftbe/
+sudo mv ngnixsize dirname/minecraftbe/
 sudo mv misitio.conf dirname/minecraftbe/
 
 cd ~
@@ -173,15 +175,26 @@ echo "==========================================================================
 sleep 2s
 echo "======================================================================================"
 
+echo "========================================================================="
 Print_Style "Configurando location de PHP en Ngnix..." "$GREEN"
 sleep 1s
-
 sudo sed -i '/# pass PHP scripts to FastCGI server/ {
 r location
 d}' /etc/nginx/sites-available/default
+echo "========================================================================="
+sleep 2s
+
+echo "========================================================================="
+Print_Style "Configurando Servidor para subir archivos grandes" "$YELLOW"
+sudo sed -i '/# server_tokens off;/ {
+r ngnixsize
+d}' /etc/nginx/nginx.conf
+sleep 2s
+echo "========================================================================="
 sleep 2s
 
 sudo rm -rf dirname/minecraftbe/location
+sudo rm -rf dirname/minecraftbe/ngnixsize
 
 echo "======================================================================================="
 Print_Style "Obteniendo Resultados..." "$MAGENTA"
