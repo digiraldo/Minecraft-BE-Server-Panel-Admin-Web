@@ -25,6 +25,8 @@
     $rutaw = ($ficheros[2]);
     $subdirectorios = scandir($directorio . $rutaw);
 
+
+
 ?>
 
 <!doctype html>
@@ -49,10 +51,18 @@
     </ol>
 </nav>
 
-<form method="POST" action="subido.php" enctype="multipart/form-data">
+
+
+<div class="card-body">
+
+<div class="card-deck">
+<div class="card text-center card text-white bg-dark border-info mb-3">
+  <div class="card-header"><b><?php echo $data[12]['name']; ?></b> <i><?php echo $data[13]['spain']; ?></i> <?php echo $data[12]['spain']; ?> Puerto:<?php echo $data[8]['spain']; ?><br/>
+  
+  <form method="POST" action="subido.php" enctype="multipart/form-data">
 <div class="form-group">
 <small id="emailHelp" class="form-text text-muted">Ejemplo de ruta de los directorios del archivo comprimido zip para subir: worlds/Bedrock level/db.</small>
-    <label class="btn btn-outline-info" for="my-file-selector">Subir archivo ZIP: 
+    <label class="btn btn-outline-secondary" for="my-file-selector">Subir archivo ZIP: 
       <input required="" type="file" name="zip_file" id="">
       <button class="btn btn-info" name="submit" type="submit"><i class="fas fa-upload"></i> Cargar Fichero</button>
     </label>
@@ -60,7 +70,7 @@
 </form>
 <form method="POST" action="select.php" enctype="multipart/form-data">
 <div class="form-group">
-<label class="btn btn-outline-info" for="my-file-selector">Seleccionar zip de Respaldo: 
+<label class="btn btn-outline-secondary" for="my-file-selector">Seleccionar zip de Respaldo: 
   <select type="file" name="zip_file" class="custom-select" 
     id="validationServer02" aria-describedby="validationServer02Feedback" required>
     <option selected><?php print_r($rutaw); ?></option>
@@ -81,13 +91,17 @@
 </div>
 </form>
 
+</div>
+</div>
 
 
-<div class="card-body">
+
+
 
 <div class="card-deck">
-<div class="card text-center border-info mb-3">
-  <div class="card-header"><b><?php echo $data[12]['name']; ?></b> <i><?php echo $data[13]['spain']; ?></i> <?php echo $data[12]['spain']; ?> Puerto:<?php echo $data[8]['spain']; ?><br/>
+<div class="card text-center card text-white bg-dark border-info mb-3">
+  <div class="card-header"><b><?php echo $data[1]['name']; ?></b> <i><?php echo $data[1]['btn']; ?></i> <?php echo $data[1]['spain']; ?><br/>
+  <b><?php echo $data[7]['name']; ?></b> <i><?php echo $data[7]['btn']; ?></i> <?php echo $data[7]['spain']; ?><br/>
   <b><i>DIRECTORIOS DEL MUNDO</i></b></div>
   <div class="card-body text-info">
     <h5 class="card-title"><?php print_r("<i class='fas fa-folder-open'></i> <b>$rutaw</b><br>"); ?></h5>
@@ -127,7 +141,7 @@
     </p>
   </div>
   <div class="card-footer text-muted">
-  <a href="../tablero/ver_pro.php" type="submit" class="btn btn-outline-dark btn-sm" data-toggle="tooltip" data-placement="top" title="<i class='fas fa-database'></i> <?php echo $data[13]['spain']; ?>">Ver Propiedades</a>
+  <a href="../tablero/ver_pro.php" type="submit" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="<i class='fas fa-database'></i> <?php echo $data[13]['spain']; ?>">Ver Propiedades</a>
   </div>
 </div>
 </div>

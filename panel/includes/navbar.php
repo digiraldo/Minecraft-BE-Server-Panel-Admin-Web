@@ -5,28 +5,19 @@
     ---------------------------*/
     require '../usuarios/usuarios.php';
     $usuarios = obtenerUsuarios();
-    $usuarioP = obtenerUsuarios();
+
     require '../permisos/permisos.php';
     $permisos = obtenerPermisos();
+
     require '../administradores/administradores.php';
     $roles = obtenerRol();
+
     $archivos = scandir("../../servername/backups");
     $num=0;
     for ($i=2; $i<count($archivos); $i++)
     {$num++;
       $respaldos = $num;
     }
-    //print_r(array_column($permisos, 'permission'));
-
-   // $percount = array_count_values(array_column($permisos, 'permission'))['operator'];  
-
-   
-
-      
-  //count($permisos) >= 0  
-
-
-    //echo $percount;
 ?>
 <link rel="icon" href="../../favicon.ico" type="image/x-icon" />     
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">

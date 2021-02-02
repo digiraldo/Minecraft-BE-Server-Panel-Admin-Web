@@ -11,7 +11,7 @@
         "id": 2,
         "name": "Nombre del Nivel:",
         "spain": "Bedrock level",
-        "btn": "",
+        "btn": "<i class=\"fas fa-file-signature\"><\/i>",
         "icon": "",
         "data": "Bedrock level"
     },

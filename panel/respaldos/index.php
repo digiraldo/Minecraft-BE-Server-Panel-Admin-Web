@@ -45,12 +45,19 @@
     </ol>
 </nav>
 
-<div class="container">
+
+<div class="card-body">
+
+<div class="card-deck">
+<div class="card text-center card text-white bg-dark border-info mb-3">
+  <div class="card-header"><b><?php echo $data[12]['name']; ?></b> <i><?php echo $data[13]['spain']; ?></i> <?php echo $data[12]['spain']; ?> Puerto:<?php echo $data[8]['spain']; ?><br/>
+  
+  <div class="container">
 <div class="section">
 
 <form method="POST" action="CargarFicheros.php" enctype="multipart/form-data">
 <div class="form-group">
-    <label class="btn btn-outline-info" for="my-file-selector">
+    <label class="btn btn-outline-secondary" for="my-file-selector">
       <input required="" type="file" name="file" id="exampleInputFile">
       <button class="btn btn-info" type="submit"><i class="fas fa-upload"></i> Cargar Fichero</button>
     </label>                            
@@ -58,7 +65,7 @@
 </form>
 
 <ul class="list-group list-group-horizontal-sm">
-  <li class="list-group-item">
+  <li class="list-group-item list-group-item-secondary d-flex justify-content-between align-items-center">
    <form method="POST" action="" enctype="multipart/form-data">                   
    <button value="btnCopia" class="btn btn-secondary btn-sm" type="submit" name="accion"><i class="fas fa-folder-plus"></i> Realizar Respaldo</button>
    <?php
@@ -71,23 +78,29 @@ else {
 ?>
    </form>  
   </li>
-  <li class="list-group-item">
-  <form method="POST" action="" enctype="multipart/form-data">   
-   <div class="custom-control custom-switch">
-   <input type="checkbox" class="custom-control-input" name="CopiaSw" id="CopiaSw" <?php echo $data[14]['btn']; ?>>
-   <label class="custom-control-label" for="CopiaSw" data-toggle="tooltip" data-placement="top" title="<?php echo $data[14]['data']; ?>"><?php echo $data[14]['spain']; ?></label>
-   <button name="accion" type="submit" value="btnCopiaSw" class="btn btn-outline-dark btn-sm" data-toggle="tooltip" data-placement="top" title="Guardar"><i class="fas fa-save"></i></button>
-   </div>
-   </form>  
+
+  <li class="list-group-item list-group-item-secondary d-flex justify-content-between align-items-center">
+    <form method="POST" action="" enctype="multipart/form-data">
+      <div class="custom-control custom-switch">
+        <input type="checkbox" class="custom-control-input" name="CopiaSw" id="CopiaSw" <?php echo $data[14]['btn']; ?>>
+        <label class="custom-control-label" for="CopiaSw" data-toggle="tooltip" data-placement="top" title="<?php echo $data[14]['data']; ?>"><?php echo $data[14]['spain']; ?></label>
+        <button name="accion" type="submit" value="btnCopiaSw" class="btn btn-outline-dark btn-sm badge-pill" data-toggle="tooltip" data-placement="top" title="Guardar"><i class="fas fa-save"></i></button>
+      </div>
+    </form>
   </li>
+
+  <li class="list-group-item list-group-item-secondary d-flex justify-content-between align-items-center">
+    Respaldos:
+    <span class="badge badge-info badge-pill"> <?php  echo $respaldos; ?></span>
+  </li>
+
 </ul>
 
-
-
-
-
-
-
+</div>
+</div>
+</div>
+</div>
+</div>
 
 
       <!--tabla-->
@@ -128,9 +141,9 @@ else {
           </table>
       </div>
     </div>
+    </div>
+  
 
-  </div>
-</div>
 
     <?php include '../includes/footer.php'?>
 <!-- php include '../includes/modal.php'?> -->

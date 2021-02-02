@@ -38,7 +38,7 @@
 
   <div class="container">
   <p>
-        <a class="btn btn-primary" href="agregar.php"><i class="fas fa-user-plus"></i> Añadir Permiso</a>
+        <a class="btn btn-primary" href="agregar.php"><i class="fas fa-user-plus"></i> Añadir Permiso <span class="badge badge-light"><?php echo count($permisos); ?></span></a>
     </p>
   
       <div class="section">

@@ -42,7 +42,7 @@
 <?php include '_formulario.php' ?>
 <p>
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalAdmin">
-<i class="fas fa-user-plus"></i> Añadir Rol
+<i class="fas fa-user-plus"></i> Añadir Rol <span class="badge badge-light"><?php echo count($roles); ?></span>
 </button>
 </p>
 <div class="section">

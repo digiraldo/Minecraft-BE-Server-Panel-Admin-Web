@@ -85,9 +85,9 @@
   <div class="card-body">
   <!-- <h3 class="card-title font-italic">EN LÍNEA</h3> -->
   <span class="fas fa-server fa-4x"></span>
-  <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark">0/<?php echo $data[6]['btn']; ?></span></h4>
+  <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark"><?php echo $data[6]['btn']; ?></span></h4>
   </div>
-  <a href="ver_pro.php" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="0/<?php echo $data[6]['spain']; ?> Jugando Ahora">Ver Propiedades</a>
+  <a href="ver_pro.php" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="0/<?php echo $data[6]['spain']; ?> Jugando Ahora">Ver Propiedades <span class="badge badge-light"><?php echo $data[6]['spain']; ?></span></a>
 </div>
 
 <div class="bg-primary col-sm-3 card text-white">
@@ -97,7 +97,7 @@
   <i class="fas fa-user fa-4x"></i>
   <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark"><?php echo count($usuarios); ?></span></h4>
   </div>
-  <a href="../usuarios" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="<?php echo count($usuarios); ?> Jugadores Agregados">Ver Whitelist</a>
+  <a href="../usuarios" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="<?php echo count($usuarios); ?> Jugadores Agregados">Ver Whitelist <span class="badge badge-light"><?php echo count($usuarios); ?></span></a>
 </div>
 
 <div class="bg-warning col-sm-3 card text-white">
@@ -107,7 +107,7 @@
   <i class="fas fa-user-edit fa-4x"></i>
   <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark badge-10x"><?php echo count($permisos); ?></span></h4>
   </div>
-  <a href="../permisos" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="<?php echo count($permisos); ?> Operadores">Ver Permisos</a>
+  <a href="../permisos" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="<?php echo count($permisos); ?> Operadores">Ver Permisos <span class="badge badge-light"><?php echo count($permisos); ?></span></a>
 </div>
 
   <div class="bg-success col-sm-3 card text-white">
@@ -117,7 +117,7 @@
     <i class="fas fa-user-cog fa-4x"></i>
     <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark"><?php  echo count($roles); ?></span></h4>
     </div>
-  <a href="../administradores" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="<?php  echo count($roles); ?> Roles">Ver Roles</a>
+  <a href="../administradores" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="<?php  echo count($roles); ?> Roles">Ver Roles <span class="badge badge-light"><?php echo count($roles); ?></span></a>
 </div>
 
 <div class="bg-info col-sm-3 card text-white">
@@ -127,7 +127,7 @@
     <i class="fas fa-archive fa-4x"></i>
     <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark"><?php  echo $respaldos; ?></span></h4>
     </div>
-  <a href="../respaldos" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="<?php  echo $respaldos; ?> Respaldos">Ver Respaldos</a>
+  <a href="../respaldos" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="<?php  echo $respaldos; ?> Respaldos">Ver Respaldos <span class="badge badge-light"><?php  echo $respaldos; ?></span></a>
 </div>
 
 </div>

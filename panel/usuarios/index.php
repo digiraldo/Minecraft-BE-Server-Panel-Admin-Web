@@ -85,7 +85,7 @@
       </a>
     </p> -->
     <p>
-        <a class="btn btn-primary" href="agregar.php"><i class="fas fa-user-plus"></i> Añadir Usuario</a>
+        <a class="btn btn-primary" href="agregar.php"><i class="fas fa-user-plus"></i> Añadir Usuario <span class="badge badge-light"><?php echo count($usuarios); ?></span></a>
     </p>
 
       <div class="section">

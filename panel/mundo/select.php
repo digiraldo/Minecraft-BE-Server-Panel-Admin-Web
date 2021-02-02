@@ -21,7 +21,9 @@
     $directorio = '../../servername/worlds/';
     $ficheros  = scandir($directorio);
     $rutaw = ($ficheros[2]);
-
+    $subdirectorios = scandir($directorio . $rutaw);
+    
+    $nuevaURL = "mundo";
 ?>
 
 <!doctype html>
@@ -36,7 +38,7 @@
   </head>
   <body>
 
-  <?php include '../includes/navbar.php'?>
+  <?php //include '../includes/navbar.php'?>
 
   <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
@@ -93,58 +95,25 @@ if (isset($_POST['zip_file']))
         // desvincular ($ targetzip);
         echo "Su archivo .zip fue cargado y desempaquetado.";
     
-
-
- 
-   //descomprimimos zip
-   //$zip->extractTo('../../servername/');
-   //$zip->close();
-
-		
-		// Visualizar contenido d ela carpeta
-$directorio = opendir("../../servername/"."$rutaw"."/"); //ruta actual
-while ($archivo = readdir($directorio)) //obtenemos un archivo y luego otro sucesivamente
-{
-    if (is_dir($archivo))//verificamos si es o no un directorio
-    {
-        echo "[".$archivo . "]<br />"; //de ser un directorio lo envolvemos entre corchetes
-    }
-    else
-    {
-      echo $archivo . "<br />";
-      //echo "Eliminados : <strong>". $ficherosEliminados ."</strong>" . "<br />";   
-    }
-}
-// Fin de mostrar ficheros de carpetas
-echo '<br><ul class="list-group">';
-echo'<li class="list-group-item">';
-echo "Mundo cargado correctamente, reinicia el servidor";
-echo'</li></ul>';
 $line = $lines[57];
-$input = $txtSemilla . "\n";
+$input = "" . "\n";
 // Reemplazar la cadena inicial (de la matriz $lines) con $update en $content
 $linetext = "level-seed=";
 $output = "$linetext$input";
 $newcontent = str_replace($line, $output, $content);
 file_put_contents($myFile, $newcontent);
 
-$lineb = $lines[54];
-$inputb = $rutaw . "\n";
-$linetextb = "level-name=";
-$outputb = "$linetextb$inputb";
-$newcontentb = str_replace($lineb, $outputb, $content);
-file_put_contents($myFile, $newcontentb);
-
 foreach ($data as $key) {
           $data[7]['data'] = '';
           $data[7]['spain'] = 'Restaurado';
           $data[7]['btn'] = '<i class="fas fa-undo-alt"></i>';
-          $data[1]['data'] = $rutaw;
-          $data[1]['spain'] = $rutaw;
-          $data[1]['btn'] = '<i class="fas fa-undo-alt"></i>';
         }
 $newJsonString = json_encode($data, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
 file_put_contents(__DIR__ . '../../../config/srvdatos.json', $newJsonString);
+
+header("Location: mundo.php");
+exit();
+
 	}else {
  echo '<br><ul class="list-group">';
  echo'<li class="list-group-item">';

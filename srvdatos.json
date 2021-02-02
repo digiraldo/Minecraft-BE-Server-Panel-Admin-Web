@@ -11,7 +11,7 @@
         "id": 2,
         "name": "Nombre del Nivel:",
         "spain": "Bedrock level",
-        "btn": "",
+        "btn": "<i class=\"fas fa-file-signature\"><\/i>",
         "icon": "",
         "data": "Bedrock level"
     },
@@ -59,7 +59,7 @@
         "id": 8,
         "name": "Número de Semilla:",
         "spain": "Aleatorio",
-        "btn": "",
+        "btn": "<i class=\"fas fa-random\"><\/i>",
         "icon": "",
         "data": ""
     },
@@ -68,7 +68,7 @@
         "name": "Puerto IpV4:",
         "spain": "19132",
         "btn": "",
-        "icon": "",
+        "icon": "<i class=\"fas fa-ethernet\"><\/i>",
         "data": "19132"
     },
     {
@@ -76,7 +76,7 @@
         "name": "Puerto IpV6:",
         "spain": "19133",
         "btn": "",
-        "icon": "",
+        "icon": "<i class=\"fas fa-ethernet\"><\/i>",
         "data": "19133"
     },
     {
@@ -110,5 +110,21 @@
         "btn": "checked",
         "icon": "<i class=\"fas fa-server\"><\/i>",
         "data": "servername"
+    },
+    {
+        "id": 15,
+        "name": "Realizar Respaldo",
+        "spain": "Activado",
+        "btn": "checked",
+        "icon": "<i class=\"fas fa-check\"><\/i>",
+        "data": "Respaldos automáticos activados a las 4 am todos los diás."
+    },
+    {
+        "id": 16,
+        "name": "Puerto Servidor Web:",
+        "spain": "Activado",
+        "btn": "checked",
+        "icon": "<i class=\"fas fa-ethernet\"><\/i>",
+        "data": "80"
     }
 ]

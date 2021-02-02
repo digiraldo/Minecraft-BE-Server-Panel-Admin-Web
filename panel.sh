@@ -297,12 +297,6 @@ echo "========================================================================="
 echo "."
 echo "."
 
-#Elimina repositorio clonado
-sleep 2s
-cd ~
-cd minecraftbe
-sudo rm -rf Minecraft-BE-Server-Panel-Admin-Web
-
 echo "========================================================================="
 Print_Style "PANEL DE ADMINISTRACIÓN WEB CREADO" "$GREEN"
 echo "========================================================================="
@@ -311,6 +305,11 @@ Print_Style "Ingrese desde el navegador web con:" "$CYAN"
 Print_Style "http://$IPV4:$Port/" "$RED"
 echo "========================================================================="
 fi
+#Elimina repositorio clonado
+cd ~
+cd minecraftbe
+sleep 1s
+sudo rm -rf Minecraft-BE-Server-Panel-Admin-Web
 echo ""
 echo ""
 echo ""
