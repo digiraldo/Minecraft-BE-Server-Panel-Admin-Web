@@ -90,7 +90,7 @@
   <div class="card text-white bg-secondary mb-3">
     <div class="card-header"><?php echo $lines[54]; ?></div>
       <div class="card-body">
-      <h5 class="card-title">Nombre del Nivel: <?php echo $data[1]['spain']; ?></h5>
+      <h5 class="card-title">Nombre del Nivel: <?php echo $data[1]['btn']; ?> <?php echo $data[1]['spain']; ?></h5>
       <p class="card-text">El valor de "nombre de nivel" se utiliza como el nombre del mundo y su nombre de carpeta.</p>
     </div>
     <div class="card-footer">

@@ -60,12 +60,18 @@
             <tr>
                 <td>
                 <a href="# " data-toggle="tooltip" data-placement="right" 
-                  title="<i class='fas fa-city'></i>  <?php echo $rol['ciudad']; ?>">
+                  title="
+                  <i class='fas fa-atlas'></i> Pais: <?php echo $rol['pais']; ?><br/>
+                  <i class='fas fa-city'></i> Ciudad: <?php echo $rol['ciudad']; ?><br/>
+                  ">
                   <?php echo $rol['usuario']; ?></a>
                 </td>
                 <td>
                 <a href="# " data-toggle="tooltip" data-placement="right" 
-                  title="<i class='fas fa-gamepad'></i>  <?php echo $rol['gamertag']; ?>">
+                  title="
+                  <i class='fas fa-gamepad'></i> Gamertag: <?php echo $rol['gamertag']; ?><br/>
+                  <i class='fas fa-address-book'></i>  <?php echo $rol['contacto']; ?>
+                  ">
                   <?php echo $rol['rol']; ?></a>
                 </td>
                 <td>                

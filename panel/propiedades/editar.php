@@ -22,7 +22,6 @@ $lines3 = file($myFile3);
 // Obtener el contenido del archivo como cadena
 $content3 = file_get_contents($myFile3);
 
-//$cmdBorraDir = "rm -R dirname/minecraftbe/servername/worlds/";
 
 
   $txtinputName=(isset($_POST['inputName']))?$_POST['inputName']:"";
@@ -94,7 +93,7 @@ switch ($accion) {
             if ($data[1]['id'] == '2') {
                   $data[1]['data'] = $txtLevelName;
                   $data[1]['spain'] = $txtLevelName;
-                  $data[1]['btn'] = '';
+                  $data[1]['btn'] = '<i class="fas fa-file-signature"></i>';
                 }
             }
 
@@ -335,7 +334,7 @@ switch ($accion) {
                   $data[7]['spain'] = 'Aleatorio';
                   $data[7]['btn'] = '<i class="fas fa-random"></i>';
                 }else {
-                 shell_exec('rm -R dirname/minecraftbe/servername/worlds/');
+                  shell_exec('sudo rm -R dirname/minecraftbe/servername/worlds/');
                   $data[7]['data'] = $txtSemilla;
                   $data[7]['spain'] = $txtSemilla;
                   $data[7]['btn'] = '<i class="fas fa-seedling"></i>';                 

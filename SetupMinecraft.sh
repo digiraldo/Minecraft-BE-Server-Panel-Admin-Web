@@ -237,7 +237,7 @@ echo "========================================================================="
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/propiedades/editar.php
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/tablero/shell.php
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/mundo/subido.php
-  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/mundo/select.php
+  sudo sed -i "s:dirnameusr:$DirName:g" $DirName/minecraftbe/panel/mundo/select.php
   sudo sed -i "s:dirname:$DirName:g" /etc/nginx/sites-available/misitio.conf
 
 echo "========================================================================="

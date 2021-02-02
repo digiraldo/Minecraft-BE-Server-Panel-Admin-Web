@@ -7,6 +7,16 @@
         "ciudad": "Bogota",
         "gamertag": "No Aplica",
         "rol": "Administrador",
-        "contacto": "Telegram: @dparcero"
+        "contacto": "Telegram: @dparceros"
+    },   
+    {
+        "id": 2,
+        "usuario": "Didier",
+        "contrasena": "12345678",
+        "pais": "Colombia",
+        "ciudad": "Bogota",
+        "gamertag": "disaned",
+        "rol": "Editor",
+        "contacto": "Telegram: @digiraldo"
     }
 ]
