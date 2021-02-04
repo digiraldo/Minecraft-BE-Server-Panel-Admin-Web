@@ -65,17 +65,7 @@ sudo apt install git -y
 sudo apt-get install php-zip -y
 
 # Busca nginx istalado
-if [ ! -d "/etc/nginx" ]; then
-  Print_Style "Aplicacoin nginx del Servidor Web Instalada..." "$YELLOW"
-  sleep 1s
-  # Desisntalar Aplicaciones Web
-  echo -n "¿Desea Remover la Aplicacion Web para luego instalarla..? (y/n)?"
-  read answer < /dev/tty
-  if [ "$answer" != "${answer#[Yy]}" ]; then
-    sudo apt-get purge --auto-remove nginx -y
-    sudo apt-get purge --auto-remove php-fpm -y 
-  fi
-fi
+
 
 cd ~
 cd minecraftbe
@@ -283,7 +273,10 @@ echo "========================================================================="
 Print_Style "Configurando Permisos..." "$YELLOW"
 cd ~
 #Permisos de usuario:grupo y acceso sh desde la web
-sudo chown -hR username:www-data minecraftbe
+#Creando grupo Samba
+sudo addgroup www-data
+sudo usermod username -aG www-data
+sudo chown -hR www-data:www-data minecraftbe
 sudo sed -i '/www-data ALL=(ALL) NOPASSWD: ALL/d' /etc/sudoers
 sudo sed -i '$a www-data ALL=(ALL) NOPASSWD: ALL' /etc/sudoers
 sudo sed -n "/www-data ALL=(ALL) NOPASSWD: ALL/p" /etc/sudoers
