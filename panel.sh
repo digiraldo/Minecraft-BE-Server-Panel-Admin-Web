@@ -291,9 +291,9 @@ sudo sed -n "/www-data ALL=(ALL) NOPASSWD: ALL/p" /etc/sudoers
 sudo sed -i '/username ALL=(ALL) NOPASSWD: ALL/d' /etc/sudoers
 sudo sed -i '$a username ALL=(ALL) NOPASSWD: ALL' /etc/sudoers
 sudo sed -n "/username ALL=(ALL) NOPASSWD: ALL/p" /etc/sudoers
-sudo sed -i '/\%developers ALL=(www-data)NOPASSWD:/usr/bin/crontab/d' /etc/sudoers
-sudo sed -i '$a \%developers ALL=(www-data)NOPASSWD:/usr/bin/crontab' /etc/sudoers
-sudo sed -n "/\%developers ALL=(www-data)NOPASSWD:/usr/bin/crontab/p" /etc/sudoers
+sudo sed -i '/\%developers ALL=(www-data)NOPASSWD:\/usr\/bin\/crontab/d' /etc/sudoers
+sudo sed -i '$a \%developers ALL=(www-data)NOPASSWD:\/usr\/bin\/crontab' /etc/sudoers
+sudo sed -n "/\%developers ALL=(www-data)NOPASSWD:\/usr\/bin\/crontab/p" /etc/sudoers
 
 sleep 2s
 
