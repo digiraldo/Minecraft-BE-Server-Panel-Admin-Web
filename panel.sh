@@ -274,18 +274,20 @@ Print_Style "Configurando Permisos..." "$YELLOW"
 cd ~
 #Permisos de usuario:grupo y acceso sh desde la web
 #Creando grupo Samba
+sudo crontab -r -i
+sudo useradd www-data
 sudo addgroup www-data
 sudo usermod username -aG www-data
-sudo chown -hR www-data:www-data minecraftbe
+sudo chown -hR username:www-data minecraftbe
 sudo sed -i '/www-data ALL=(ALL) NOPASSWD: ALL/d' /etc/sudoers
 sudo sed -i '$a www-data ALL=(ALL) NOPASSWD: ALL' /etc/sudoers
 sudo sed -n "/www-data ALL=(ALL) NOPASSWD: ALL/p" /etc/sudoers
 sudo sed -i '/username ALL=(ALL) NOPASSWD: ALL/d' /etc/sudoers
 sudo sed -i '$a username ALL=(ALL) NOPASSWD: ALL' /etc/sudoers
 sudo sed -n "/username ALL=(ALL) NOPASSWD: ALL/p" /etc/sudoers
-sudo sed -i '/%developers ALL=(www-data)NOPASSWD:/usr/bin/crontab/d' /etc/sudoers
-sudo sed -i '$a %developers ALL=(www-data)NOPASSWD:/usr/bin/crontab' /etc/sudoers
-sudo sed -n "/%developers ALL=(www-data)NOPASSWD:/usr/bin/crontab/p" /etc/sudoers
+sudo sed -i '/\%developers ALL=(www-data)NOPASSWD:/usr/bin/crontab/d' /etc/sudoers
+sudo sed -i '$a \%developers ALL=(www-data)NOPASSWD:/usr/bin/crontab' /etc/sudoers
+sudo sed -n "/\%developers ALL=(www-data)NOPASSWD:/usr/bin/crontab/p" /etc/sudoers
 
 sleep 2s
 

@@ -251,7 +251,7 @@ echo "========================================================================="
     echo "========================================================================="
       croncmd="$DirName/minecraftbe/$ServerName/restart.sh"
       cronjob="0 4 * * * $croncmd"
-      ( crontab -l | grep -v -F "$croncmd" ; echo "$cronjob" ) | crontab -
+      ( sudo crontab -u www-data -l | grep -v -F "$croncmd" ; echo "$cronjob" ) | crontab -
       echo "Reinicio diario programado. Para cambiar la hora o eliminar el reinicio automático, escriba crontab -e"
     echo "========================================================================="
 
@@ -461,7 +461,7 @@ sudo systemctl daemon-reload
   echo "========================================================================="
     croncmd="$DirName/minecraftbe/$ServerName/restart.sh"
     cronjob="0 4 * * * $croncmd"
-    ( crontab -l | grep -v -F "$croncmd" ; echo "$cronjob" ) | crontab -
+    ( sudo crontab -u www-data -l | grep -v -F "$croncmd" ; echo "$cronjob" ) | crontab -
     echo "Reinicio diario programado. Para cambiar la hora o eliminar el reinicio automático, escriba crontab -e"
   echo "========================================================================="
 
