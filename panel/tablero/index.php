@@ -1,4 +1,11 @@
 <?php
+  $jsonTemp = file_get_contents(__DIR__ . '../../../config/tmp.json');
+  $tmp = json_decode($jsonTemp, true);
+
+  if ($tmp[0]['id_rol'] != 1)
+  {
+    header("location: ../../log.php");
+ }
 
   $active_tablero="active";
   $active_whitelist="";
@@ -81,7 +88,7 @@
 <div class="row">
 
 <div class="bg-danger col-sm-3 card text-white">
-  <div class="card-header font-weight-bold">Jugando En Linea</div>
+  <div class="card-header font-weight-bold">Jugadores</div>
   <div class="card-body">
   <!-- <h3 class="card-title font-italic">EN LÍNEA</h3> -->
   <span class="fas fa-server fa-4x"></span>

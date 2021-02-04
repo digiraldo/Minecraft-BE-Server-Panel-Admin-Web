@@ -1,68 +1,50 @@
 <?php
-$alert = '';
+include "panel/includes/scripts.php";
 
-session_start();
-if(!empty($_SESSION['active']))
-{
-    header('location: tablero/');
-}else{
+$txtUsr=(isset($_POST['usr']))?$_POST['usr']:"";
+$txtCon=(isset($_POST['con']))?$_POST['con']:"";
 
-if(!empty($_POST))
-{
-    if(empty($_POST['usuario']) || empty($_POST['clave']))
-     {
-        $alert = 'Ingrese su Usuario y su Contraseña';  
-     }else{
-        require_once "conexion/conection.php";
-        // include ("conexion/conexion.php");
+$accion=(isset($_POST['accion']))?$_POST['accion']:"";
 
-        $user = mysqli_real_escape_string($conection,$_POST['usuario']);  
-        $pass = md5(mysqli_real_escape_string($conection,$_POST['clave']));
+// marcar datos obligatorios en el Modal
 
-        $query = mysqli_query($conection,"SELECT u.id_usuario, u.nombre, u.apellido, u.usuario, u.clave, u.correo_usr, u.imagen, u.fecha, u.fecha_add,  u.usuario_id, u.usuario_mod, u.usuario_eli, u.estatu, 
-        (u.rol) AS id_rol, (r.rol) AS rol
-        FROM usuarios u 
-        INNER JOIN rol r ON u.rol = r.id_rol
-        WHERE usuario = '$user' AND clave = '$pass'");
-        mysqli_close($conection);
-        $result = mysqli_num_rows($query);
-        
-        if($result > 0) 
-        {
-            $data = mysqli_fetch_array($query);
+$error=array();
 
-            $_SESSION['active'] = true;
-            $_SESSION['idUser'] = $data['id_usuario'];
-            $_SESSION['img'] = $data['imagen'];
-            $_SESSION['nombre'] = $data['nombre'];
-            $_SESSION['apellido'] = $data['apellido'];
-            $_SESSION['user'] = $data['usuario'];
-            $_SESSION['pass'] = $data['clave'];
-            $_SESSION['email'] = $data['correo_usr'];
-            $_SESSION['date'] = $data['fecha'];
-            $_SESSION['id_rol'] = $data['id_rol'];
-            $_SESSION['rol'] = $data['rol'];
-            $_SESSION['usuario_id'] = $data['usuario_id'];
-            $_SESSION['usuario_mod'] = $data['usuario_mod'];
-            $_SESSION['estatus'] = $data['estatus'];
-            $_SESSION['modifica'] = $data['modifica'];
+$jsonTemp = file_get_contents(__DIR__ . '/config/tmp.json');
+$tmp = json_decode($jsonTemp, true);
 
-            header('location: tablero/'); 
+$jsonS = file_get_contents(__DIR__ . '/config/log.json');
+$dat = json_decode($jsonS, true);
 
-        }else{
-            $alert = 'El Usuario y la Contraseña son incorrectos';
-            session_destroy();
-        }
+$jsonString = file_get_contents(__DIR__ . '/config/usradmin.json');
+$data = json_decode($jsonString, true);
 
+if ($dat[0]['id'] == '1' && $dat[0]['usuario'] == 'Panel' && $dat[0]['contra'] == 'Tcq4gqvllpshsh3up1pshsh3up1') {
+       // print_r($dat[0]);
+        foreach ($data as $key => $value) {
+            //print_r($data);  
+           if ($data[$key]['usuario'] == $txtUsr && $data[$key]['contrasena'] == $txtCon) {
+            //echo $data[$key]['usuario'] . " => " . $data[$key]['contrasena'] . "<br>";
+            $tmp[0]['id'] = $data[$key]['id'];
+            $tmp[0]['usuario'] = $data[$key]['usuario'];
+            $tmp[0]['pais'] = $data[$key]['pais'];
+            $tmp[0]['ciudad'] = $data[$key]['ciudad'];
+            $tmp[0]['gamertag'] = $data[$key]['gamertag'];
+            $tmp[0]['id_rol'] = $data[$key]['id_rol'];
+            $tmp[0]['rol'] = $data[$key]['rol'];
+            $tmp[0]['contacto'] = $data[$key]['contacto'];
+            $tmp[0]['img'] = $data[$key]['img'];
+
+            $newJsonString = json_encode($tmp, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
+            file_put_contents(__DIR__ . '/config/tmp.json', $newJsonString);
+            //echo $tmp[0]['img'];
+            header("Location: panel/tablero/index.php");
+            exit;
+           } 
+           $alert = 'Iniciar Seccion';
+            //echo "No Hay Nada". "<br/>";  
         }
     }
-}
-
-include ("conexion/conexion.php");
-
-$sentencia= $pdo->prepare("SELECT * FROM `configuracion` WHERE 1");
-$sentencia->execute();
-$imglog=$sentencia->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -72,8 +54,8 @@ $imglog=$sentencia->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login | Sistema Cotización</title>
-    <link rel="stylesheet" type="text/css" href="css/style_login.css">
+    <title>Login | Panel Minecraft</title>
+    <link rel="stylesheet" type="text/css" href="/panel/includes/css/style_login.css">
 
         <!--JQUERY-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -85,16 +67,18 @@ $imglog=$sentencia->fetchAll(PDO::FETCH_ASSOC);
         <!-- Los iconos tipo Solid de Fontawesome-->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
         <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
 </head>
 <body>
 
-<?php foreach ($imglog as $configuracion) { ?>  
+
+<?php // foreach ($imglog as $configuracion) { ?>  
 <section id="container">
 <div class="content">
     <form action="" method="post">
-    <img src="imagenes/configuracion/<?php echo $configuracion['imagen']; ?>" alt="login">
-    <input type="text" name="usuario" placeholder="Usuario" id="usr">
-    <input type="password" name="clave" placeholder="Contraseña" id="psw">
+    <img src="/panel/includes/img/Minecraft_Logo.png" alt="login">
+    <input type="text" name="usr" placeholder="Usuario" id="usr">
+    <input type="password" name="con" placeholder="Contraseña" id="psw">
 
     <div class="alert alert-secondary alert-dismissible fade show" role="alert">
         <?php echo isset($alert) ? $alert : ''; ?>
@@ -106,38 +90,8 @@ $imglog=$sentencia->fetchAll(PDO::FETCH_ASSOC);
 </div>
 
 </section>
-<?php } ?>
+<?php //} ?>
 
-
-<script>
-
-$('.alert').alert()
-
-function Confirmar(Mensaje) {
-    return (confirm(Mensaje))?true:false     
-}
-
-$(function () {
- $('[data-toggle="tooltip"]').tooltip({
-   container: 'body',
-   html:true
-   })
- })
-
-
-$(document).ready(function(){
- 
- $('[data-toggle="popover"]').popover({
-   html:true,
-   container: 'body',
-   trigger: 'hover focus',
-   delay: 300,
-   template: '<div class="popover" role="tooltip"><div class="arrow"></div><h3 class="popover-header bg-primary text-white"></h3><div class="popover-body"></div></div>'
- });
- 
-});
-
-</script>
 
 </body>
 </html>

@@ -20,9 +20,25 @@ function obtenerRolPorName($name){
 function crearRol($dat){
     //$data['spain'] = '';
     $dat['id'] = false;
+    $dat['id_rol'] = '';
     $roles = obtenerRol();
     $roles[] = $dat;
-    ponerJsonR($roles);
+
+    foreach ($roles as $key) {
+            if ($rolU['usuario'] == $name && $rolU['rol'] == 'Administrador') {
+                $roles[$key]['id_rol'] = 1;
+            }
+            if ($rolU['usuario'] == $name && $rolU['rol'] == 'Editor') {
+                $roles[$key]['id_rol'] = 2;
+            }
+            if ($rolU['usuario'] == $name && $rolU['rol'] == 'Usuario') {
+                $roles[$key]['id_rol'] = 3;
+            }
+            ponerJsonR($roles);
+      
+ }
+
+    
 }
 
 

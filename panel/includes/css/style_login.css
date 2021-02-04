@@ -1,0 +1,80 @@
+body {
+    background: url(../img/bg_mc.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
+
+#container {
+    width: 100%;
+    height: 100vh;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    background-color: #3b4652;
+    opacity: .85;
+    padding: 0 20px;
+    box-shadow: 0px 0px 3px #848484;
+}
+
+#container form img {
+    margin-top: -50px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 25px;
+    text-align: center;
+    display: block;
+    width: 100xp;
+    height: 100px;
+}
+
+#container form input {
+    width: 94%;
+    padding: 3px;
+    font-size: 16pt;
+    display: block;
+    margin: 20px auto;
+    border-radius: 5px;
+    border: 1px solid #acabab;
+    text-align: center;
+}
+
+/* .alert {
+    font-family: Arial;
+    font-size: 16px;
+    text-align: center;
+} */
+
+#btn {
+    text-align: center;
+    display: block;
+    margin: 15px auto;
+}
+
+button {
+    width: 60%;
+    margin: 5px 0 25px;
+}
+
+.alert {
+    width: 100%;
+    background-color: aquamarine;
+    border-radius: 6px;
+    margin: 20px auto;
+    /* text-align: center;
+    font-family: Arial; */
+}
+.msg_error {
+    color: darkred;
+}
+.msg_save {
+    color: navy;
+}
+.alert p{
+    padding: 10px;
+}

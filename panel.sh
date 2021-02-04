@@ -99,6 +99,7 @@ echo "==========================================================================
 Print_Style "Creando directorios y archivos del panel..." "$CYAN"
 sudo mv panel dirname/minecraftbe/
 sudo mv index.php dirname/minecraftbe/
+sudo mv log.php dirname/minecraftbe/
 
 cd ~
 cd minecraftbe

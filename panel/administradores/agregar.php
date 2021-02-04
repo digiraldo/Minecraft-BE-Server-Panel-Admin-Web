@@ -11,6 +11,7 @@ $rolU = [
     'pais' => '',
     'ciudad' => '',
     'gamertag' => '',
+    'id_rol' => '',
     'rol' => '',
     'contacto' => '',
 ];
@@ -30,6 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $pais = $_POST['pais'];
     $ciudad = $_POST['ciudad'];
     $gamertag = $_POST['gamertag'];
+    $idrol = $_POST['id_rol'];
     $rol = $_POST['rol'];
     $contacto = $_POST['contacto'];
 
