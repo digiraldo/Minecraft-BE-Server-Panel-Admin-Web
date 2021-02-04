@@ -278,6 +278,12 @@ sudo crontab -r -i
 sudo useradd www-data
 sudo addgroup www-data
 sudo usermod username -aG www-data
+echo "========================================================================="
+echo "Se ha creado el usuario y garupo www-data"
+Print_Style "Por Favor digite la contraseña dos veces: " "$MAGENTA"
+sudo smbpasswd -a www-data
+echo "========================================================================="
+
 sudo chown -hR username:www-data minecraftbe
 sudo sed -i '/www-data ALL=(ALL) NOPASSWD: ALL/d' /etc/sudoers
 sudo sed -i '$a www-data ALL=(ALL) NOPASSWD: ALL' /etc/sudoers
