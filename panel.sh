@@ -63,6 +63,7 @@ sudo add-apt-repository universe -y
 sudo apt-get install ssh -y
 sudo apt install git -y
 sudo apt-get install php-zip -y
+sudo apt install vim -y
 
 # Busca nginx istalado
 
@@ -278,6 +279,7 @@ sudo crontab -r -i
 sudo useradd www-data
 sudo addgroup www-data
 sudo usermod username -aG www-data
+sudo usermod www-data -aG sudo
 echo "========================================================================="
 echo "Se ha creado el usuario y garupo www-data"
 Print_Style "Por Favor digite la contraseña dos veces: " "$MAGENTA"
