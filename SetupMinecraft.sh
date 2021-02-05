@@ -197,7 +197,7 @@ echo "========================================================================="
   echo "Configurando el servicio $ServerName ..."
   sudo wget -O /etc/systemd/system/$ServerName.service https://raw.githubusercontent.com/TheRemote/MinecraftBedrockServer/master/minecraftbe.service
   sudo chmod +x /etc/systemd/system/$ServerName.service
-  sudo sed -i "s/replace/$UserName/g" /etc/systemd/system/$ServerName.service
+  sudo sed -i "s/userxname/$UserName/g" /etc/systemd/system/$ServerName.service
   sudo sed -i "s:dirname:$DirName:g" /etc/systemd/system/$ServerName.service
   sudo sed -i "s:servername:$ServerName:g" /etc/systemd/system/$ServerName.service
   sudo sed -i "/server-name=/c\server-name=$ServerName" server.properties
@@ -250,9 +250,9 @@ echo "========================================================================="
       # Reinicio automático configurado a las 4 am
     echo "========================================================================="
       croncmd="$DirName/minecraftbe/$ServerName/restart.sh"
-      cronjob="0 4 * * * $croncmd"
+      cronjob="0 0 1 1 * $croncmd"
       ( sudo crontab -u www-data -l | grep -v -F "$croncmd" ; echo "$cronjob" ) | crontab -
-      echo "Reinicio diario programado. Para cambiar la hora o eliminar el reinicio automático, escriba crontab -e"
+      echo "Reinicio programado. Para cambiar la hora o eliminar el reinicio automático, escriba crontab -e"
     echo "========================================================================="
 
 
@@ -406,7 +406,7 @@ echo "========================================================================="
 echo "Configurando el servicio Minecraft $ServerName ..."
 sudo wget -O /etc/systemd/system/$ServerName.service https://raw.githubusercontent.com/TheRemote/MinecraftBedrockServer/master/minecraftbe.service
 sudo chmod +x /etc/systemd/system/$ServerName.service
-sudo sed -i "s/replace/$UserName/g" /etc/systemd/system/$ServerName.service
+sudo sed -i "s/userxname/$UserName/g" /etc/systemd/system/$ServerName.service
 sudo sed -i "s:dirname:$DirName:g" /etc/systemd/system/$ServerName.service
 sudo sed -i "s:servername:$ServerName:g" /etc/systemd/system/$ServerName.service
 sudo sed -i "/server-name=/c\server-name=$ServerName" server.properties
@@ -460,9 +460,9 @@ sudo systemctl daemon-reload
   echo "Puede ajustar / eliminar el tiempo de reinicio seleccionado más tarde escribiendo crontab -e o ejecutando SetupMinecraft.sh nuevamente"
   echo "========================================================================="
     croncmd="$DirName/minecraftbe/$ServerName/restart.sh"
-    cronjob="0 4 * * * $croncmd"
+    cronjob="0 0 1 1 * $croncmd"
     ( sudo crontab -u www-data -l | grep -v -F "$croncmd" ; echo "$cronjob" ) | crontab -
-    echo "Reinicio diario programado. Para cambiar la hora o eliminar el reinicio automático, escriba crontab -e"
+    echo "Reinicio programado. Para cambiar la hora o eliminar el reinicio automático, escriba crontab -e"
   echo "========================================================================="
 
 

@@ -281,8 +281,8 @@ sudo addgroup www-data
 sudo usermod username -aG www-data
 sudo usermod www-data -aG sudo
 echo "========================================================================="
-echo "Se ha creado el usuario y garupo www-data"
-Print_Style "Por Favor digite la contraseña dos veces: " "$MAGENTA"
+echo "Se ha creado el usuario y el grupo www-data"
+Print_Style "Por Favor digite la contraseña para el usuario www-data dos veces: " "$MAGENTA"
 sudo smbpasswd -a www-data
 echo "========================================================================="
 
