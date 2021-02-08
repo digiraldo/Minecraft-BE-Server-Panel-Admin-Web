@@ -1,5 +1,5 @@
 <?php
-require '../includes/login.php';
+require '../includes/_login.php';
 /**/
 if ($datalogin[$key]['id_rol'] != 1) {
   header("location: ../../index.php");
