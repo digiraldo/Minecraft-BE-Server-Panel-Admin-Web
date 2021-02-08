@@ -15,7 +15,7 @@
     $jsonString = file_get_contents(__DIR__ . '../../../config/srvdatos.json');
     $srvdat = json_decode($jsonString, true);
 
-    require '../includes/login.php';
+    require '../includes/_login.php';
 
     $archivos = scandir("../../servername/backups");
     $num=0;
