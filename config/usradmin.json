@@ -1,51 +1,14 @@
 [
     {
         "id": 1,
-        "usuario": "admin",
-        "contrasena": "Dian2021",
-        "pais": "Colombia",
-        "ciudad": "Bogota",
-        "gamertag": "No Aplica",
-        "id_rol": 1,
-        "rol": "Administrador",
-        "contacto": "Telegram: @dparceros",
-        "img": "usuario.png"
-    },   
-    {
-        "id": 2,
-        "usuario": "Admin",
-        "contrasena": "Admin1234",
-        "pais": "Colombia",
-        "ciudad": "Bogota",
-        "gamertag": "No Aplica",
-        "id_rol": 1,
-        "rol": "Administrador",
-        "contacto": "Telegram: @dparceros",
-        "img": "usuario.png"
-    },   
-    {
-        "id": 3,
         "usuario": "Didier",
         "contrasena": "12345678",
         "pais": "Colombia",
-        "ciudad": "Bogota",
-        "gamertag": "disaned",
+        "ciudad": "Bogotá",
+        "gamertag": "Xbox Id",
         "id_rol": 1,
-        "rol": "Editor",
-        "contacto": "Telegram: @digiraldo",
-        "img": "usuario.png"
-    }
-    ,   
-    {
-        "id": 4,
-        "usuario": "CARLOS",
-        "contrasena": "54321",
-        "pais": "Colombia",
-        "ciudad": "Bogota",
-        "gamertag": "Calis0023",
-        "id_rol": 1,
-        "rol": "Editor",
-        "contacto": "Telegram: @digiraldo",
+        "rol": "Administrador",
+        "contacto": "Telegram: @dparceros",
         "img": "usuario.png"
     }
 ]

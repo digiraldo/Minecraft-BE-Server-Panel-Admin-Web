@@ -1,4 +1,5 @@
 <?php
+/*
 $jsonString = file_get_contents(__DIR__ . '../../../config/tmp.json');
 $data = json_decode($jsonString, true);
 
@@ -14,9 +15,9 @@ $data[0]['img'] = '';
 
 $newJsonString = json_encode($data, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
 file_put_contents(__DIR__ . '../../../config/tmp.json', $newJsonString);
-
+*/
 unset($_POST);
 unset($_REQUEST);
-header('location: ../../log.php');
+header('location: ../../index.php');
 
 ?>

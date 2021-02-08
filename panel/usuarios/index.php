@@ -1,5 +1,9 @@
 <?php
-
+require '../includes/login.php';
+/**/
+if ($datalogin[$key]['id_rol'] != 1) {
+  header("location: ../../index.php");
+}
 
 //$cont = 'SELECT * FROM name';
 //$sentencia= $pdo->prepare($cont);

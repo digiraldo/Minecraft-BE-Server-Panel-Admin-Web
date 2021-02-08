@@ -11,15 +11,11 @@
 
     require '../administradores/administradores.php';
     $roles = obtenerRol();
+    
+    $jsonString = file_get_contents(__DIR__ . '../../../config/srvdatos.json');
+    $srvdat = json_decode($jsonString, true);
 
-    require '../tablero/shell.php';
-
-    function obtenerTemp(){
-      return json_decode(file_get_contents(__DIR__ . '../../../config/tmp.json'), true);
-      }
-      $temp = obtenerTemp();
-    //  $jsonTmp = file_get_contents(__DIR__ . '../../../config/tmp.json');
-    //  $temp = json_decode($jsonTmp, true);
+    require '../includes/login.php';
 
     $archivos = scandir("../../servername/backups");
     $num=0;
@@ -48,7 +44,7 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
         <li class="<?php echo $active_tablero;?>">
-          <a class="nav-link" aria-current="page" href="../tablero" data-toggle="tooltip" data-placement="bottom" title="<?php echo $data[6]['spain']; ?> Jugadores Max."><i class="fas fa-tachometer-alt"></i> Tablero<span class="badge badge-pill badge-danger"><?php echo $data[6]['spain']; ?></span></a>
+          <a class="nav-link" aria-current="page" href="../tablero" data-toggle="tooltip" data-placement="bottom" title="<?php echo $srvdat[6]['spain']; ?> Jugadores Max."><i class="fas fa-tachometer-alt"></i> Tablero<span class="badge badge-pill badge-danger"><?php echo $srvdat[6]['spain']; ?></span></a>
         </li>
 
         <li class="<?php echo $active_whitelist;?>">
@@ -86,16 +82,16 @@
 -->
    
 
-        <a class="navbar-brand" href="#" data-toggle="tooltip" data-placement="bottom" title="<img class='rounded-lg' width='90px'  src='../includes/img/<?php echo $temp[0]['img']; ?>' />"><img src="../includes/img/<?php echo $temp[0]['img']; ?>" height="30" class="d-inline-block align-top" alt=""> </a>
+        <a class="navbar-brand" href="#" data-toggle="tooltip" data-placement="bottom" title="<img class='rounded-lg' width='90px'  src='../includes/img/<?php echo $datalogin[$key]['img']; ?>' />"><img src="../includes/img/<?php echo $datalogin[$key]['img']; ?>" height="30" class="d-inline-block align-top" alt=""> </a>
       
         <a class="navbar-brand" href="#" data-toggle="popover" data-placement="bottom" 
-        title="<img class='rounded-lg' width='150px'  src='../includes/img/<?php echo $temp[0]['img']; ?>' /><br>" 
-        data-content="<h5><?php echo $temp[0]['usuario']; ?></h5><br>
-        <i class='fas fa-user-tag'></i> Usuario: <?php echo $temp[0]['usuario']; ?><br>
-        <i class='fas fa-gamepad'></i> Gamertag: <?php echo $temp[0]['gamertag']; ?><br>
-        <i class='fas fa-envelope'></i> <?php echo $temp[0]['contacto'];?><br>
-        <i class='fas fa-user-edit'></i> Rol: <?php echo $temp[0]['rol'];?><br>
-        " > <?php echo (ucwords(strtolower($temp[0]['usuario']))); ?></a>
+        title="<img class='rounded-lg' width='150px'  src='../includes/img/<?php echo $datalogin[$key]['img']; ?>' /><br>" 
+        data-content="<h5><?php echo $datalogin[$key]['usuario']; ?></h5><br>
+        <i class='fas fa-user-tag'></i> Usuario: <?php echo $datalogin[$key]['usuario']; ?><br>
+        <i class='fas fa-gamepad'></i> Gamertag: <?php echo $datalogin[$key]['gamertag']; ?><br>
+        <i class='fas fa-envelope'></i> <?php echo $datalogin[$key]['contacto'];?><br>
+        <i class='fas fa-user-edit'></i> Rol: <?php echo $datalogin[$key]['rol'];?><br>
+        " > <?php echo (ucwords(strtolower($datalogin[$key]['usuario']))); ?></a>
 <!-- 
         <span>|</span>
 -->        

@@ -10,10 +10,10 @@ $accion = (isset($_POST['accion'])) ? $_POST['accion'] : "";
 
 $error = array();
 
-$jsonTemp = file_get_contents(__DIR__ . '/config/tmp.json');
+$jsonTemp = file_get_contents(__DIR__ . 'config/tmp.json');
 $tmp = json_decode($jsonTemp, true);
 
-$jsonS = file_get_contents(__DIR__ . '/config/log.json');
+$jsonS = file_get_contents(__DIR__ . 'config/log.json');
 $dat = json_decode($jsonS, true);
 
 $jsonString = file_get_contents(__DIR__ . '/config/usradmin.json');
@@ -56,7 +56,7 @@ if ($dat[0]['id'] == '1' && $dat[0]['usuario'] == 'Panel' && $dat[0]['contra'] =
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login | Panel Minecraft</title>
-    <link rel="stylesheet" type="text/css" href="/panel/includes/css/style_login.css">
+    <link rel="stylesheet" type="text/css" href="panel/includes/css/style_login.css">
 
     <!--JQUERY-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

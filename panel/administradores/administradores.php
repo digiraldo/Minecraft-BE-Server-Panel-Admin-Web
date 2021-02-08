@@ -27,15 +27,16 @@ function crearRol($dat){
     foreach ($roles as $key) {
             if ($rolU['usuario'] == $name && $rolU['rol'] == 'Administrador') {
                 $roles[$key]['id_rol'] = 1;
+                ponerJsonR($roles);
             }
             if ($rolU['usuario'] == $name && $rolU['rol'] == 'Editor') {
                 $roles[$key]['id_rol'] = 2;
+                ponerJsonR($roles);
             }
             if ($rolU['usuario'] == $name && $rolU['rol'] == 'Usuario') {
                 $roles[$key]['id_rol'] = 3;
+                ponerJsonR($roles);
             }
-            ponerJsonR($roles);
-      
  }
 
     

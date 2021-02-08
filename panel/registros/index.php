@@ -1,11 +1,9 @@
 <?php
-  $jsonTemp = file_get_contents(__DIR__ . '../../../config/tmp.json');
-  $tmp = json_decode($jsonTemp, true);
-
-  if ($tmp[0]['id_rol'] != 1)
-  {
-    header("location: ../../log.php");
- }
+require '../includes/login.php';
+/**/
+if ($datalogin[$key]['id_rol'] != 1) {
+  header("location: ../../index.php");
+}
 
     $active_tablero="";
     $active_whitelist="";
