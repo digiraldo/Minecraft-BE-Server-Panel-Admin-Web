@@ -122,7 +122,7 @@ echo "========================================================================="
   sudo rm -rf panel
   sudo rm -rf Minecraft-BE-Server-Panel-Admin-Web
   sudo rm -rf index.php
-  sudo rm -rf log.php
+  sudo rm -rf shell.php
   sudo rm -rf location
   sudo rm -rf misitio.conf
   sudo rm -rf web.sh

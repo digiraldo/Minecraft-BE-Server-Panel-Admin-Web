@@ -56,6 +56,12 @@ body {
     margin: 15px auto;
 }
 
+#mod {
+    text-align: center;
+    display: block;
+    margin: 2px auto;
+}
+
 button {
     width: 60%;
     margin: 5px 0 25px;
@@ -66,15 +72,18 @@ button {
     background-color: aquamarine;
     border-radius: 6px;
     margin: 20px auto;
-    /* text-align: center;
-    font-family: Arial; */
+    text-align: center;
+    font-family: Arial;
 }
 .msg_error {
     color: darkred;
+    text-align: center;
 }
 .msg_save {
     color: navy;
+    text-align: center;
 }
 .alert p{
     padding: 10px;
+    text-align: center;
 }

@@ -69,3 +69,4 @@ switch ($accion) {
         //exit;
         break;
 }
+?>

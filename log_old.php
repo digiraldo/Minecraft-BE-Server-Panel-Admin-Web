@@ -79,7 +79,7 @@ if ($dat[0]['id'] == '1' && $dat[0]['usuario'] == 'Panel' && $dat[0]['contra'] =
     <section id="container">
         <div class="content">
             <form action="" method="post">
-                <img src="/panel/includes/img/Minecraft_Logo.png" alt="login">
+                <img src="/panel/includes/img/perfil/Minecraft_Logo.png" alt="login">
                 <input type="text" name="usr" placeholder="Usuario" id="usr">
                 <input type="password" name="con" placeholder="Contraseña" id="psw">
 

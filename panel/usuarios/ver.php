@@ -43,12 +43,13 @@ $usuarioN = obtenerUsuarioPorName($usuarioName);
                 <td><?php echo $usuarioN['name'] ?></td>
             </tr>
             <tr>
-                <th scope="col">Nivel de Permiso:</th>
-                <td><?php echo $usuarioN['permission'] ?></td>
-            </tr>
-            <tr>
                 <th scope="col">Id xuid:</th>
-                <td><?php echo $usuarioN['xuid'] ?></td>
+                <?php if ($usuarioN['xuid']) : ?>
+                    <td><?php echo $usuarioN['xuid'] ?></td>
+                <?php else : ?>
+                <td>No ha ingresado al Mundo</td>  
+                <?php endif ?>
+
             </tr>
         </tbody>
         </table>

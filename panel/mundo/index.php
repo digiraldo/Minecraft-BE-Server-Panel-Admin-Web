@@ -1,8 +1,8 @@
 <?php
-require '../includes/_login.php';
-/**/
-if ($datalogin[$key]['id_rol'] != 1) {
-  header("location: ../../index.php");
+session_start();
+if ($_SESSION['id_rol'] != 1 && $_SESSION['id_rol'] != 2 && $_SESSION['id_rol'] != 3)
+{
+  header("location: ../../");
 }
 
 $active_tablero = "";
@@ -154,7 +154,7 @@ $subdirectorios = scandir($directorio . $rutaw);
         <a href="../respaldos/index.php" class="btn btn-primary">Ir a Respaldos <span class="badge badge-light"><?php echo $respaldos; ?></span></a>
       </div>
       <div class="card-footer text-muted">
-        <a href="../tablero/ver_pro.php" type="submit" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="<i class='fas fa-database'></i> <?php echo $data[13]['spain']; ?>">Ver Propiedades</a>
+        <a href="../../shell.php" type="submit" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="<i class='fas fa-code'></i> <?php echo $data[13]['spain']; ?>">Contol</a>
       </div>
       <!-- Fin Tarjeta Directorio del Mundo mundo -->
     </div>

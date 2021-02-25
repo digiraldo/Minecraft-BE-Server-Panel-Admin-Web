@@ -1,8 +1,8 @@
 <?php
-require '../includes/_login.php';
-/**/
-if ($datalogin[$key]['id_rol'] != 1) {
-  header("location: ../../index.php");
+session_start();
+if ($_SESSION['id_rol'] != 1 && $_SESSION['id_rol'] != 2 && $_SESSION['id_rol'] != 3)
+{
+  header("location: ../../");
 }
 
 //$cont = 'SELECT * FROM name';
@@ -113,10 +113,8 @@ $title = "Minecraft SRV | Simple Invoice";
                   <?php if ($usuario['xuid']) : ?>
                     <?php echo $usuario['xuid'] ?>
                   <?php else : ?>
-                    <?php echo $usuario['name'] ?>
+                    No Ingreso al Mundo
                   <?php endif ?>
-
-
 
               </td>
 
@@ -147,8 +145,6 @@ $title = "Minecraft SRV | Simple Invoice";
       </table>
     </div>
   </div>
-
-
 
   <?php include '../includes/footer.php' ?>
   <!-- php include '../includes/modal.php'?> -->

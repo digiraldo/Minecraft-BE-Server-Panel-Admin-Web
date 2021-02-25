@@ -1,13 +1,14 @@
 <?php
-require '../includes/_login.php';
-/**/
-if ($datalogin[$key]['id_rol'] != 1) {
-  header("location: ../../index.php");
+session_start();
+if ($_SESSION['id_rol'] != 1 && $_SESSION['id_rol'] != 2 && $_SESSION['id_rol'] != 3)
+{
+  header("location: ../../");
 }
 
 $active_tablero = "";
 $active_whitelist = "";
 $active_permisos = "";
+$active_admin = "";
 $active_mundo = "";
 $active_backups = "";
 $active_propiedades = "active";
@@ -18,7 +19,6 @@ $title = "Minecraft SRV | Simple Invoice";
 // $prop = shell_exec('sudo sh dirname/minecraftbe/servername/prop.sh');
 //echo $prop;
 // }
-
 
 
 //  require 'propiedades.php';

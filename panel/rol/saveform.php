@@ -1,10 +1,3 @@
-<?php 
-include "../includes/footer.php";
-//include "../includes/scripts.php";
-//require __DIR__.'/agregar.php';
-
-?>
-
 <!-- Modal -->
 <div class="modal fade" id="modalAdmin" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="modalAdminLabel" aria-hidden="true">
   <div class="modal-dialog">

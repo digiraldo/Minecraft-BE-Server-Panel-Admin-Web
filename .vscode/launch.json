@@ -6,11 +6,12 @@
     // "request": "attach",
     "version": "0.2.0",
     "configurations": [
+    
         {
             "name": "Listen for XDebug",
             "type": "php",
             "request": "launch",
-            "port": 9001
+            "port": 9000
         },
         {
             "name": "Launch currently open script",
@@ -18,7 +19,7 @@
             "request": "launch",
             "program": "${file}",
             "cwd": "${fileDirname}",
-            "port": 9001
+            "port": 9000
         }
     ]
 }

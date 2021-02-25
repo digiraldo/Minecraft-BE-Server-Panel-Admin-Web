@@ -1,10 +1,10 @@
 <?php
-require '../includes/_login.php';
-/**/
-if ($datalogin[$key]['id_rol'] != 1) {
-  header("location: ../../index.php");
+session_start();
+if ($_SESSION['id_rol'] != 1 && $_SESSION['id_rol'] != 2 && $_SESSION['id_rol'] != 3)
+{
+  header("location: ../../");
 }
-//echo $datalogin[$key]['ciudad'];
+
 
 $active_tablero = "active";
 $active_whitelist = "";
@@ -88,7 +88,7 @@ require 'shell.php';
 
       <div class="row">
 
-        <div class="bg-danger col-sm-3 card text-white">
+        <div class="bg-danger col-sm-4 card text-white">
           <div class="card-header font-weight-bold">Jugadores</div>
           <div class="card-body">
             <!-- <h3 class="card-title font-italic">EN LÍNEA</h3> -->
@@ -98,7 +98,7 @@ require 'shell.php';
           <a href="ver_pro.php" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="0/<?php echo $data[6]['spain']; ?> Jugando Ahora">Ver Propiedades <span class="badge badge-light"><?php echo $data[6]['spain']; ?></span></a>
         </div>
 
-        <div class="bg-primary col-sm-3 card text-white">
+        <div class="bg-primary col-sm-4 card text-white">
           <div class="card-header font-weight-bold">Whitelist Gamertag</div>
           <div class="card-body">
             <!-- <h3 class="card-title font-italic">AGREGADOS</h3> -->
@@ -108,7 +108,7 @@ require 'shell.php';
           <a href="../usuarios" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="<?php echo count($usuarios); ?> Jugadores Agregados">Ver Whitelist <span class="badge badge-light"><?php echo count($usuarios); ?></span></a>
         </div>
 
-        <div class="bg-warning col-sm-3 card text-white">
+        <div class="bg-warning col-sm-4 card text-white">
           <div class="card-header font-weight-bold">Operadores Minecraft</div>
           <div class="card-body">
             <!-- <h3 class="card-title font-italic">OPERADORES</h3> -->
@@ -118,17 +118,17 @@ require 'shell.php';
           <a href="../permisos" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="<?php echo count($permisos); ?> Operadores">Ver Permisos <span class="badge badge-light"><?php echo count($permisos); ?></span></a>
         </div>
 
-        <div class="bg-success col-sm-3 card text-white">
+        <div class="bg-info col-sm-4 card text-white">
           <div class="card-header font-weight-bold">Rol Admin Web</div>
           <div class="card-body">
             <!-- <h3 class="card-title font-italic">USUARIOS</h3> -->
             <i class="fas fa-user-cog fa-4x"></i>
-            <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark"><?php echo count($roles); ?></span></h4>
+            <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark"><?php echo count($rolesJ); ?></span></h4>
           </div>
-          <a href="../administradores" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="<?php echo count($roles); ?> Roles">Ver Roles <span class="badge badge-light"><?php echo count($roles); ?></span></a>
+          <a href="../rol" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="<?php echo count($rolesJ); ?> Roles">Ver Roles <span class="badge badge-light"><?php echo count($rolesJ); ?></span></a>
         </div>
 
-        <div class="bg-info col-sm-3 card text-white">
+        <div class="bg-success col-sm-4 card text-white">
           <div class="card-header font-weight-bold">Respaldos del Mundo</div>
           <div class="card-body">
             <!-- <h3 class="card-title font-italic">USUARIOS</h3> -->
@@ -136,6 +136,16 @@ require 'shell.php';
             <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark"><?php echo $respaldos; ?></span></h4>
           </div>
           <a href="../respaldos" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="<?php echo $respaldos; ?> Respaldos">Ver Respaldos <span class="badge badge-light"><?php echo $respaldos; ?></span></a>
+        </div>
+
+        <div class="bg-secondary col-sm-4 card text-white">
+          <div class="card-header font-weight-bold">Logs o Registros</div>
+          <div class="card-body">
+            <!-- <h3 class="card-title font-italic">USUARIOS</h3> -->
+            <i class="fas fa-history fa-4x"></i>
+            <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark"><?php echo $registros; ?></span></h4>
+          </div>
+          <a href="../respaldos" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="<?php echo $registros; ?> Registros">Ver Registros <span class="badge badge-light"><?php echo $registros; ?></span></a>
         </div>
 
       </div>

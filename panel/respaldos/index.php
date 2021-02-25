@@ -1,8 +1,8 @@
 <?php
-require '../includes/_login.php';
-/**/
-if ($datalogin[$key]['id_rol'] != 1) {
-  header("location: ../../index.php");
+session_start();
+if ($_SESSION['id_rol'] != 1 && $_SESSION['id_rol'] != 2 && $_SESSION['id_rol'] != 3)
+{
+  header("location: ../../");
 }
 
 $active_tablero = "";

@@ -90,7 +90,7 @@ echo "==========================================================================
 Print_Style "Creando directorios y archivos del panel..." "$CYAN"
 sudo mv panel dirname/minecraftbe/
 sudo mv index.php dirname/minecraftbe/
-sudo mv log.php dirname/minecraftbe/
+sudo mv shell.php dirname/minecraftbe/
 
 cd ~
 cd minecraftbe
@@ -148,6 +148,7 @@ cd Minecraft-BE-Server-Panel-Admin-Web
 sudo mv location dirname/minecraftbe/
 sudo mv ngnixsize dirname/minecraftbe/
 sudo mv misitio.conf dirname/minecraftbe/
+
 
 cd ~
 cd minecraftbe

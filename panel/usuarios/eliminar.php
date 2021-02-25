@@ -1,14 +1,14 @@
 <?php
 
 include "../includes/scripts.php";
+require __DIR__ . '/usuarios.php';
 
-require __DIR__.'/usuarios.php';
+if (!isset($_POST['name'])) {
+    include "../includes/per_no_encontrado.php";
+    exit;
+}
 
-    if (!isset($_POST['name'])) {
-        include "../includes/no_encontrado.php";
-        exit;
-    }
-$usuarioName = $_POST['name'];
-eliminarUsuario($usuarioName);
+$roU = $_POST['name'];
+eliminarUsuario($roU);
 
- header("Location: index.php");
+header("Location: index.php");
