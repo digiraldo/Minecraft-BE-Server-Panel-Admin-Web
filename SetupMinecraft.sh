@@ -165,6 +165,14 @@ echo "========================================================================="
   chmod +x restart.sh
   sed -i "s:dirname:$DirName:g" restart.sh
   sed -i "s:servername:$ServerName:g" restart.sh
+
+  # Descarga fixpermissions.sh desde el repositorio
+  echo "Tomando fixpermissions.sh del repositorio .."
+  wget -O fixpermissions.sh https://raw.githubusercontent.com/TheRemote/MinecraftBedrockServer/master/fixpermissions.sh
+  chmod +x fixpermissions.sh
+  sed -i "s:dirname:$DirName:g" fixpermissions.sh
+  sed -i "s:servername:$ServerName:g" fixpermissions.sh
+  sed -i "s:userxname:$UserName:g" fixpermissions.sh
   
   # Descargar cloud.sh desde el repositorio
   echo "Tomando cloud.sh del repositorio..."
