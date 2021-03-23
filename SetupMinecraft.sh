@@ -114,7 +114,7 @@ sleep 4s
   echo "El directorio del servidor es: $DirName/minecraftbe/$ServerName"
 echo "========================================================================="
   # Eliminar scripts existentes
-  sudo rm -rf start.sh stop.sh restart.sh cloud.sh back.sh panel.sh config.sh prop.sh
+  sudo rm -rf start.sh stop.sh restart.sh cloud.sh back.sh panel.sh config.sh prop.sh fixpermissions.sh
   sleep 2s
   cd ~
   cd minecraftbe
@@ -168,7 +168,7 @@ echo "========================================================================="
 
   # Descarga fixpermissions.sh desde el repositorio
   echo "Tomando fixpermissions.sh del repositorio .."
-  wget -O fixpermissions.sh https://raw.githubusercontent.com/TheRemote/MinecraftBedrockServer/master/fixpermissions.sh
+  wget -O fixpermissions.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/fixpermissions.sh
   chmod +x fixpermissions.sh
   sed -i "s:dirname:$DirName:g" fixpermissions.sh
   sed -i "s:servername:$ServerName:g" fixpermissions.sh
@@ -385,6 +385,14 @@ wget -O restart.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Serv
 chmod +x restart.sh
 sed -i "s:dirname:$DirName:g" restart.sh
 sed -i "s:servername:$ServerName:g" restart.sh
+
+# Descarga fixpermissions.sh desde el repositorio
+echo "Tomando fixpermissions.sh del repositorio .."
+wget -O fixpermissions.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/fixpermissions.sh
+chmod +x fixpermissions.sh
+sed -i "s:dirname:$DirName:g" fixpermissions.sh
+sed -i "s:servername:$ServerName:g" fixpermissions.sh
+sed -i "s:userxname:$UserName:g" fixpermissions.sh
 
 # Descargar cloud.sh desde el repositorio
 echo "========================================================================="
