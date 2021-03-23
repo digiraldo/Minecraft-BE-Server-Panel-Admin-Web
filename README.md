@@ -25,10 +25,14 @@ Antes de iniciar hay que aclarar que el Servidor dedicado de Minecraft Bedrock E
 * Ubuntu Server 18.04.2
 
 ## Funciones habilitadas del Panel de Administración Web:
+* Gestión y/o permisos de Usuarios inscritos: `Administrador`, `Editor`, `Usuario` e `Inscrito`, .
 * Administración y/o `permisos de usuarios` agregar, editar y eliminar con el Gamertag.
 * Funcion de botones `Detener`, `Iniciar` y `Reiniciar` del Servidor en el Panel o Tablero de adminsitración.
 * Administración de los Parámetros del Servidor en `Propiedades`.
-* Gestión de archivos y en las copias de seguridad automáticas de respaldo del mundo en `Respaldos`. 
+* Gestión de archivos y en las copias de seguridad automáticas de respaldo del mundo en `Respaldos`.
+* Opción de activar o desactivar Respaldos Automáticos Diarios en `Respaldos`.
+* Gestión cargar o recuperar `mundos` en el servidor.
+
 
 ## Instalación:
 

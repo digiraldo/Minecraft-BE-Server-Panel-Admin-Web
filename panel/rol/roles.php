@@ -22,8 +22,8 @@ function obtenerRolPor_Id($id)
 }
 
 function crearRol($dat){
-    $dat['clave'] = md5($_POST['clave']);
-    $dat['fecha'] = date("d/m/Y");
+    //$dat['clave'] = md5($_POST['clave']);
+    //$dat['fecha'] = date("d/m/Y");
     $roles = obtenerRol();
     $roles[] = $dat;
     colocarJson($roles);

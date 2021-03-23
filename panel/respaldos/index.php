@@ -1,6 +1,6 @@
 <?php
 session_start();
-if ($_SESSION['id_rol'] != 1 && $_SESSION['id_rol'] != 2 && $_SESSION['id_rol'] != 3)
+if ($_SESSION['id_rol'] != 0 && $_SESSION['id_rol'] != 1 && $_SESSION['id_rol'] != 2 && $_SESSION['id_rol'] != 3)
 {
   header("location: ../../");
 }
@@ -58,12 +58,15 @@ require 'editar.php';
 
   <!-- Inicio cardbody -->
   <div class="card-body">
+  <?php if ($_SESSION['id_rol'] == 0 || $_SESSION['id_rol'] == 1 || $_SESSION['id_rol'] == 2) : ?>
     <!-- Inicio Tarjeta respaldo mundo -->
     <div class="card text-center card text-white bg-dark border-info mb-3">
       <div class="card-header">
         <div class="card-header"><b><?php echo $data[12]['name']; ?></b> <i><?php echo $data[13]['spain']; ?></i> <?php echo $data[12]['spain']; ?> Puerto:<?php echo $data[8]['spain']; ?><br />
         </div>
         <div class="card-body">
+
+                    
           <h5 class="card-title">
 
             <form method="POST" action="CargarFicheros.php" enctype="multipart/form-data">
@@ -117,6 +120,39 @@ require 'editar.php';
       <!-- Fin cardbody -->
     </div>
 
+    <?php else : ?>  
+
+      <!-- Inicio Tarjeta respaldo mundo -->
+      <div class="card text-center card text-white bg-dark border-info mb-3">
+      <div class="card-header">
+        <div class="card-header"><b><?php echo $data[12]['name']; ?></b> <i><?php echo $data[13]['spain']; ?></i> <?php echo $data[12]['spain']; ?> Puerto:<?php echo $data[8]['spain']; ?><br />
+        </div>
+        <div class="card-body">
+
+            <!-- Inicio Respaldos Automaticos mundo -->
+            <div class="container-fluid">
+              <div class="row justify-content-md-center">
+                <div class="col-md-auto">
+                  <form method="POST" action="" enctype="multipart/form-data">
+                    <button class="btn btn-secondary"><i class="fas fa-folder-plus"></i> Respaldos: <span class="badge badge-info badge-pill"> <?php echo $respaldos; ?></span></button>
+                    
+                  </form>
+                </div>
+              </div>
+              <!-- Fin Respaldos Automaticos mundo -->
+            </div>
+
+        </div>
+        <div class="card-footer text-muted">
+          <b><?php echo $data[14]['name']; ?></b> <i><?php echo $data[14]['icon']; ?></i> <?php echo $data[14]['spain']; ?>
+        </div>
+        <!-- Fin Tarjeta respaldo mundo -->
+      </div>
+
+      <!-- Fin cardbody -->
+    </div>
+
+              <?php endif ?>
 
 
 
@@ -151,7 +187,11 @@ require 'editar.php';
                 <td><?php echo $archivos[$i]; ?></td>
                 <td>
                   <a href="../../servername/backups/<?php echo $archivos[$i]; ?>" download="<?php echo $archivos[$i]; ?>" data-toggle="tooltip" data-placement="top" title="Descargar" type="submit" class="btn btn-info btn-sm" name="accion"><i class="fas fa-download"></i></a>
-                  <a href="eliminar.php?name=../../servername/backups/<?php echo $archivos[$i]; ?>" value="Seleccionar" data-toggle="tooltip" data-placement="top" title="Eliminar" type="submit" class="btn btn-danger btn-sm" name="accion"><i class="fas fa-trash-alt"></i></a>
+                  <?php if ($_SESSION['id_rol'] == 0 || $_SESSION['id_rol'] == 1 || $_SESSION['id_rol'] == 2) : ?>
+                    <a href="eliminar.php?name=../../servername/backups/<?php echo $archivos[$i]; ?>" value="Seleccionar" data-toggle="tooltip" data-placement="top" title="Eliminar" type="submit" class="btn btn-danger btn-sm" name="accion"><i class="fas fa-trash-alt"></i></a>
+                  <?php else : ?>    
+              <?php endif ?>
+                  
                 </td>
               </tr>
             <?php } ?>

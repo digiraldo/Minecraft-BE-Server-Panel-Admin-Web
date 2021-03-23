@@ -1,4 +1,5 @@
 <?php
+
 include "data.php";
 include "../includes/footer.php";
 ?>
@@ -18,8 +19,7 @@ include "../includes/footer.php";
 
         <div class="form-row align-items-center">
           <!-- Inicio Form Row -->
-          <?php if ($rolU['id']) : ?>
-          <?php if ($_SESSION['id_rol'] == 0) : ?>
+
           <div class="col-md-6 mb-3">
             <label for="usuario">Usuario</label>
             <input type="text" name="usuario" class="form-control <?php echo $errors['usuario'] ? 'is-invalid' : '' ?>" id="usuario" value="<?php echo $rolU['usuario']; ?>" required>
@@ -27,26 +27,7 @@ include "../includes/footer.php";
               <?php echo $errors['usuario']; ?>
             </div>
           </div>
-          <?php else : ?>
-            <div class="col-md-6 mb-3">
-            <label for="usuario">Usuario</label>
-            <input type="text" name="usuario" class="form-control <?php echo $errors['usuario'] ? 'is-invalid' : '' ?>" id="usuario" value="<?php echo $rolU['usuario']; ?>" disabled>
-            <div class="invalid-tooltip">
-              <?php echo $errors['usuario']; ?>
-            </div>
-          </div>
-            <?php endif ?>
-            <?php else : ?>
-              <div class="col-md-6 mb-3">
-            <label for="usuario">Usuario</label>
-            <input type="text" name="usuario" class="form-control <?php echo $errors['usuario'] ? 'is-invalid' : '' ?>" id="usuario" value="<?php echo $rolU['usuario']; ?>" required>
-            <div class="invalid-tooltip">
-              <?php echo $errors['usuario']; ?>
-            </div>
-          </div>
-              <?php endif ?>
           <?php if ($rolU['id']) : ?>
-            <?php if ($_SESSION['id_rol'] == 0) : ?>
             <div class="col-md-6 mb-3">
             <label for="clave">Contraseña</label>
             <input type="password" name="clave" class="form-control <?php echo $errors['clave'] ? 'is-invalid' : '' ?>" id="clave" value="<?php echo $rolU['clave']; ?>" autocomplete="new-password" placeholder="" required>
@@ -55,36 +36,18 @@ include "../includes/footer.php";
             </div>
           </div>
           <?php else : ?>
-            <div class="col-md-6 mb-3">
-            <label for="clave">Contraseña</label>
-            <input type="password" name="clave" class="form-control <?php echo $errors['clave'] ? 'is-invalid' : '' ?>" id="clave" value="<?php echo $rolU['clave']; ?>" autocomplete="new-password" placeholder="" disabled>
-            <div class="invalid-tooltip">
-                Ingrese la Contraseña 
-            </div>
-          </div>
-            <?php endif ?>
-          <?php else : ?>
           <div class="col-md-6 mb-3">
             <label for="clave">Contraseña</label>
-            <input type="password" name="clave" class="form-control <?php echo $errors['clave'] ? 'is-invalid' : '' ?>" id="clave" value="" autocomplete="new-password" placeholder="*****" required>
+            <input type="password" name="clave" class="form-control <?php echo $errors['clave'] ? 'is-invalid' : '' ?>" id="clave" value="" autocomplete="new-password" placeholder="****" required>
             <div class="invalid-tooltip">
                 <?php echo $errors['clave']; ?> 
             </div>
           </div>
           <?php endif ?>
 
-
           <div class="col-md-4 mb-3">
             <label for="nombre">Nombre</label>
-            <?php if ($rolU['id']) : ?>
-            <?php if ($_SESSION['id_rol'] == 0 || $_SESSION['id_rol'] == 1) : ?>
             <input type="text" name="nombre" class="form-control <?php echo $errors['nombre'] ? 'is-invalid' : '' ?>" id="nombre" value="<?php echo $rolU['nombre']; ?>" required>
-            <?php else : ?>
-              <input type="text" name="nombre" class="form-control <?php echo $errors['nombre'] ? 'is-invalid' : '' ?>" id="nombre" value="<?php echo $rolU['nombre']; ?>" disabled>
-            <?php endif ?>
-            <?php else : ?>
-              <input type="text" name="nombre" class="form-control <?php echo $errors['nombre'] ? 'is-invalid' : '' ?>" id="nombre" value="<?php echo $rolU['nombre']; ?>" required>
-              <?php endif ?>
             <div class="invalid-tooltip">
               <?php echo $errors['nombre']; ?>
             </div>
@@ -99,29 +62,7 @@ include "../includes/footer.php";
           <div class="col-md-3 mb-3">
             <label for="rol">Rol</label>
             <select class="custom-select  <?php echo $errors['gamertag'] ? 'is-valid' : '' ?>" name="rol" id="rol" required>
-              <?php if ($rolU['id']) : ?>
                 <option value="<?php echo $rolU['rol']; ?>"><?php echo $rolU['rol']; ?></option>
-                
-              <?php else : ?>
-                <option value="Inscrito"><?php echo $rolU['rol']; ?></option>
-              <?php endif ?>
-
-              <?php if ($_SESSION['id_rol'] == 0) { ?>
-              <option value="Propietario">Propietario</option>
-              <option value="Administrador">Administrador</option>
-              <option value="Editor">Editor</option>
-              <option value="Usuario">Usuario</option>
-              <option value="Inscrito">Inscrito</option>
-              <?php }elseif ($_SESSION['id_rol'] == 1) { ?>
-              <option value="Administrador">Administrador</option>
-              <option value="Editor">Editor</option>
-              <option value="Usuario">Usuario</option>
-              <option value="Inscrito">Inscrito</option>
-              <?php }elseif ($_SESSION['id_rol'] == 2) { ?>
-              <option value="Usuario">Usuario</option>
-              <option value="Inscrito">Inscrito</option>
-              <?php } ?>
-
             </select>
             <div class="valid-tooltip">
               Rol Inscrito por defecto
@@ -129,15 +70,7 @@ include "../includes/footer.php";
           </div>
           <div class="col-md-4 mb-3">
             <label for="contacto">Contacto</label>
-            <?php if ($rolU['id']) : ?>
-            <?php if ($_SESSION['id_rol'] == 0 || $_SESSION['id_rol'] == 1) : ?>
             <input type="text" name="contacto" class="form-control" id="contacto" value="<?php echo $rolU['contacto']; ?>" required>
-            <?php else : ?>
-              <input type="text" name="contacto" class="form-control" id="contacto" value="<?php echo $rolU['contacto']; ?>" disabled>
-            <?php endif ?>
-            <?php else : ?>
-              <input type="text" name="contacto" class="form-control" id="contacto" value="<?php echo $rolU['contacto']; ?>" required>
-              <?php endif ?>
             <div class="valid-tooltip">
               Contacto
             </div>
@@ -176,15 +109,13 @@ include "../includes/footer.php";
                     <a href="#" data-toggle="tooltip" data-placement="right" title="<img class='rounded-lg' width='150px'  src='../includes/img/perfil/<?php echo $rolU['img']; ?>' border='0' name='Imagen' /><br/>Imágen Actual: <?php echo $rolU['n_img']; ?>">
                       <img class="rounded-circle" width="25px" height="25px" src="../includes/img/perfil/<?php echo $rolU['img']; ?>" /></a>
                   <?php } else { ?>
-                    <a href="#" data-toggle="tooltip" data-placement="right" title="<img class='rounded-lg' width='150px'  src='../includes/img/perfil/usuario.png' border='0' name='Imagen' /><br/>Imágen Predeterminada: Usuario">
+                    <a href="#" data-toggle="tooltip" data-placement="right" title="<img class='rounded-lg' width='150px'  src='../includes/img/perfil/usuario.png' border='0' name='Imagen' /><br/>Imágen Predeterminada">
                       <img class="rounded-circle" width="25px" height="25px" src="../includes/img/perfil/usuario.png" /></a>
                   <?php } ?>
                 </label>
               </div>
               <form method="get">
                 <select type="file" name="img" class="custom-select" id="inputGroupSelect01" onchange="cambiarA(this)">
-                <?php if ($rolU['id']) : ?>
-                <?php if ($_SESSION['id_rol'] == 0 || $_SESSION['id_rol'] == 1) : ?>
                   <option value="<?php echo $rolU['img']; ?>">Seleccionar Imagen</option>
                   <option value="13">Alex</option>
                   <option value="0">Araña</option>
@@ -200,42 +131,11 @@ include "../includes/footer.php";
                   <option value="10">Usuario</option>
                   <option value="11">Vaca</option>
                   <option value="12">Zombie</option>
-                  </select>
+                </select>
 
-</div>
-<small id="imgHelp" class="form-text text-muted">Seleccionar Imágen para el Perfil.</small>
-</div>
-                  <?php else : ?>
-                    <option value="<?php echo $rolU['img']; ?>"><?php echo $rolU['n_img']; ?></option>
-                    </select>
-
-</div>
-<small id="imgHelp" class="form-text text-muted">Imágen de Perfil Seleccionado.</small>
-</div>
-            <?php endif ?>
-            <?php else : ?>
-              <option value="<?php echo $rolU['img']; ?>">Seleccionar Imagen</option>
-                  <option value="13">Alex</option>
-                  <option value="0">Araña</option>
-                  <option value="1">Araña Cueva</option>
-                  <option value="2">Cerdo</option>
-                  <option value="3">Creeper</option>
-                  <option value="4">Enderman</option>
-                  <option value="5">Esqueleto</option>
-                  <option value="6">Granjero</option>
-                  <option value="7">Lobo</option>
-                  <option value="8">Oveja</option>
-                  <option value="9">Steve</option>
-                  <option value="10">Usuario</option>
-                  <option value="11">Vaca</option>
-                  <option value="12">Zombie</option>
-                  </select>
-
-</div>
-<small id="imgHelp" class="form-text text-muted">Seleccionar Imágen para el Perfil.</small>
-</div>
-              <?php endif ?>
-
+            </div>
+            <small id="imgHelp" class="form-text text-muted">Seleccionar Imágen para el Perfil.</small>
+          </div>
 
         </div><!-- Fin Form Row -->
 

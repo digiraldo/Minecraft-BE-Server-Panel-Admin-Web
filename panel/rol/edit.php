@@ -1,37 +1,41 @@
 <?php
+
 session_start();
-if ($_SESSION['id_rol'] != 0 && $_SESSION['id_rol'] != 1 && $_SESSION['id_rol'] != 2 && $_SESSION['id_rol'] != 3) {
+if ($_SESSION['id_rol'] != 0 && $_SESSION['id_rol'] != 1 && $_SESSION['id_rol'] != 2 && $_SESSION['id_rol'] != 3 && $_SESSION['id_rol'] != 4) {
 header("location: ../../");
 }
+
+$host = $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+
+if ($host == '../rol/edit.php?id=1') {
+    echo $host;
+}
+
 
 include "../includes/scripts.php";
 require __DIR__ . '/roles.php';
 
-$jsonString = file_get_contents(__DIR__ . '../../../config/usradmin.json');
-$data = json_decode($jsonString, true);
+if (!isset($_GET['id'])) {
+    header('Refresh: 3; URL=editar.php');
+    include "../includes/rol_no_encontrado.php";
+    exit;
+}
 
-foreach ($data as $key => $value) {
-    $codigo = (empty($data[$key]['numero']) ? 1 : $data[$key]['numero']+=1);
-    }
-    //echo 'El codigo actual es: '.$codigo; 
+$rolId = $_GET['id'];
+$rolU = obtenerRolPor_Id($rolId);
+//if ($rolU['clave'] === $_POST['clave'] && $rolU['clave'] === $_SESSION['clave'])
+if ($rolU['clave'] === $_POST['clave']) {
+    $ediclave = $_POST['clave'];
+    //echo "iguales";
+}else{
+    $ediclave = md5($_POST['clave']);
+    //echo "no iguales";
+}
 
-$rolU = [
-    'numero' => '',
-    'id' => '',
-    'nombre' => '',
-    'usuario' => '',
-    'clave' => '',
-    'pais' => '',
-    'ciudad' => '',
-    'gamertag' => '',
-    'id_rol' => '',
-    'rol' => '',
-    'contacto' => '',
-    'fecha' => '',
-    'img' => '',
-    'n_img' => '',
-];
-
+if (!$rolU) {
+    include "../includes/no_encontrado.php";
+    exit;
+}
 $errors = [
     'nombre' => '',
     'usuario' => '',
@@ -39,7 +43,6 @@ $errors = [
     'gamertag' => '',
 ];
 
-$esValido = true;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $rolU = array_merge($rolU, $_POST);
@@ -48,10 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($esValido) {
 
-        $_POST['numero'] = $codigo;
-        $_POST['id'] =  rand(1000000, 2000000);
-        $_POST['clave'] = md5($_POST['clave']);
-        $_POST['fecha'] = date("d/m/Y");
+        $_POST['clave'] = $ediclave;
 
         if ($_POST['rol'] == 'Administrador') {
             $_POST['id_rol'] = 1;
@@ -122,13 +122,45 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_POST['img'] = "alex.png";
             $_POST['n_img'] = "Alex";
         }
-        
-        $rolU = crearRol($_POST);
+
+        $rolU = actualizarRol($_POST, $rolId);
         header("Location: index.php");
     }
 }
 
+
+/*
+foreach ($roles as $rol) {
+    if ($rol["id_rol"] != 1){
+        header("Location: index.php");
+     }else {
+        include '_formulario.php';
+     }
+}
+
+
+
+if ($_SESSION['id_rol'] == 1){
+    header("Location: index.php");
+ }else {
+    include '_formulario.php';
+ }
+*/
+
+
+if (htmlspecialchars($_GET["id"] == $_SESSION['idUser'])) {
+    include '_formulario_edit.php';
+}else {
+    header("Location: ../tablero/");
+}
+
+
 ?>
 
-<?php include '_formulario.php' ?>
-<?php //include 'index.php' ?>
+<?php 
+
+ ?>
+
+
+
+

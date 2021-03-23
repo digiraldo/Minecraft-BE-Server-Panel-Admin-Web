@@ -207,15 +207,21 @@ echo "========================================================================="
   /bin/bash $DirName/minecraftbe/$ServerName/panel.sh
 
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/includes/js/logs.js
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/permisos/index.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/permisos/permisos.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/propiedades/propiedades.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/propiedades/index.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/propiedades/editar.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/propiedades/ver_propiedades.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/registros/index.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/registros/logs.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/registros/ver_logs.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/index.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/editar.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/CargarFicheros.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/cronon.sh
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/cronoff.sh
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/rol/index.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/index.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/shell.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/sto.sh
@@ -225,6 +231,7 @@ echo "========================================================================="
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/usuarios.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/_formulario.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/includes/navbar.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/includes/signup.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/mundo/index.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/mundo/subido.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/mundo/select.php
@@ -416,15 +423,21 @@ sudo systemctl daemon-reload
  /bin/bash $DirName/minecraftbe/$ServerName/panel.sh
 
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/includes/js/logs.js
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/permisos/index.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/permisos/permisos.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/propiedades/propiedades.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/propiedades/index.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/propiedades/editar.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/propiedades/ver_propiedades.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/registros/index.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/registros/logs.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/registros/ver_logs.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/index.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/editar.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/CargarFicheros.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/cronon.sh
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/cronoff.sh
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/rol/index.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/index.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/shell.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/sto.sh
@@ -434,6 +447,7 @@ sudo systemctl daemon-reload
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/usuarios.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/_formulario.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/includes/navbar.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/includes/signup.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/mundo/index.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/mundo/subido.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/mundo/select.php

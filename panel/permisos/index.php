@@ -1,6 +1,6 @@
 <?php
 session_start();
-if ($_SESSION['id_rol'] != 1 && $_SESSION['id_rol'] != 2 && $_SESSION['id_rol'] != 3)
+if ($_SESSION['id_rol'] != 0 && $_SESSION['id_rol'] != 1 && $_SESSION['id_rol'] != 2)
 {
   header("location: ../../");
 }
@@ -44,9 +44,15 @@ $title = "Minecraft SRV | Simple Invoice";
 
 
   <div class="container">
+
+  <?php if ($_SESSION['id_rol'] == 0 || $_SESSION['id_rol'] == 1) : ?>
     <p>
       <a class="btn btn-primary" href="agregar.php"><i class="fas fa-user-plus"></i> Añadir Permiso <span class="badge badge-light"><?php echo count($permisos); ?></span></a>
     </p>
+    <?php else : ?>    
+    <?php endif ?>
+
+
 
     <div class="section">
 
@@ -72,7 +78,8 @@ $title = "Minecraft SRV | Simple Invoice";
                   <?php echo $permiso['spain']; ?></a>
               </td>
 
-              <td>
+              <?php if ($_SESSION['id_rol'] == 0 || $_SESSION['id_rol'] == 1) : ?>
+                <td>
                 <a href="editar.php?xuid=<?php echo $permiso['xuid'] ?>" value="Seleccionar" data-toggle="tooltip" data-placement="top" title="Editar" type="submit" class="btn btn-info btn-sm" name="accion"><i class="fas fa-pencil-alt"></i></a>
 
                 <form style="display: inline-block" method="POST" action="eliminar.php">
@@ -80,6 +87,11 @@ $title = "Minecraft SRV | Simple Invoice";
                   <button value="btnEliminar" data-toggle="tooltip" data-placement="top" title="Quitar" onclick="return Confirmar('Realmente desea quitar el permiso a este jugador en el Servidor: servername? :(');" type="submit" class="btn btn-danger btn-sm" name="accion"><i class="fas fa-trash-alt"></i></button>
                 </form>
               </td>
+    <?php else : ?>
+      <td>
+              </td> 
+    <?php endif ?>
+
             <?php endforeach; ?>
             </tr>
         </tbody>

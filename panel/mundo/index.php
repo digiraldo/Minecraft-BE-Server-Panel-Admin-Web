@@ -1,6 +1,6 @@
 <?php
 session_start();
-if ($_SESSION['id_rol'] != 1 && $_SESSION['id_rol'] != 2 && $_SESSION['id_rol'] != 3)
+if ($_SESSION['id_rol'] != 0 && $_SESSION['id_rol'] != 1 && $_SESSION['id_rol'] != 2 && $_SESSION['id_rol'] != 3)
 {
   header("location: ../../");
 }
@@ -63,6 +63,8 @@ $subdirectorios = scandir($directorio . $rutaw);
       <div class="card-header">
         <b><?php echo $data[12]['name']; ?></b> <i><?php echo $data[13]['spain']; ?></i> <?php echo $data[12]['spain']; ?> Puerto:<?php echo $data[8]['spain']; ?>
       </div>
+
+      <?php if ($_SESSION['id_rol'] == 0 || $_SESSION['id_rol'] == 1 || $_SESSION['id_rol'] == 2) : ?>
       <div class="card-body">
         <h5 class="card-title">
           <?php print_r("<i class='fas fa-folder-open'></i> <b>$rutaw</b><br>"); ?>
@@ -101,6 +103,11 @@ $subdirectorios = scandir($directorio . $rutaw);
         </form>
         </p>
       </div>
+            <?php else : ?>
+              
+            <?php endif ?>
+
+
       <div class="card-footer text-muted">
         <b><?php echo $data[14]['name']; ?></b> <i><?php echo $data[14]['icon']; ?></i> <?php echo $data[14]['spain']; ?>
       </div>
@@ -151,10 +158,19 @@ $subdirectorios = scandir($directorio . $rutaw);
           }
           ?>
         </p>
+        <?php if ($_SESSION['id_rol'] == 0 || $_SESSION['id_rol'] == 1 || $_SESSION['id_rol'] == 2) : ?>
         <a href="../respaldos/index.php" class="btn btn-primary">Ir a Respaldos <span class="badge badge-light"><?php echo $respaldos; ?></span></a>
+        <?php else : ?>
+              
+        <?php endif ?>
       </div>
       <div class="card-footer text-muted">
+      <?php if ($_SESSION['id_rol'] == 0) : ?>
         <a href="../../shell.php" type="submit" class="btn btn-outline-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="<i class='fas fa-code'></i> <?php echo $data[13]['spain']; ?>">Contol</a>
+            <?php else : ?>
+              
+            <?php endif ?>
+        
       </div>
       <!-- Fin Tarjeta Directorio del Mundo mundo -->
     </div>

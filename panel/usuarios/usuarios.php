@@ -2,8 +2,6 @@
 $jsonRo = file_get_contents(__DIR__ . '../../../servername/whitelist.json');
 $usuariosReg = json_decode($jsonRo, true);
 
-
-
 function obtenerUsuarios()
 {
     return json_decode(file_get_contents(__DIR__ . '../../../servername/whitelist.json'), true);
@@ -63,10 +61,36 @@ function validarUsuario($usuarioN, &$errors)
 {
 $esValido = true;
 // Start of validation
+
+// xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx editando
+/*
+https://stackoverflow.com/questions/6661530/php-multidimensional-array-search-by-value
+https://blog.vermiip.es/2013/08/01/comprobar-si-un-valor-existe-en-un-array-php/#:~:text=Si%20tenemos%20un%20array%20y,devuelve%20un%20TRUE%20o%20FALSE.
+https://stackoverflow.com/questions/4128323/in-array-and-multidimensional-array
+https://es.stackoverflow.com/questions/302182/verificar-si-ya-existe-usuario-y-email-en-la-base-de-datos-php
+https://informaticapc.com/tutorial-php/validar-formulario.php
+https://manuales.guebs.com/php/function.array-search.html
+*/
+$usuarios = obtenerUsuarios();
+$jsonRo = file_get_contents(__DIR__ . '../../../servername/whitelist.json');
+$usuariosReg = json_decode($jsonRo, true);
+$nameusr = $_POST['name'];
 if (!$usuarioN['name']) {
 $esValido = false;
 $errors['name'] = 'Gamertag o usuario de Minecraft obligatorio';
+//print_r($usuarios)."<br>";
+//print_r(array_search('disaned', array_column($usuarios, 'name')));
+print_r(array_search('disaned', $usuarios));
+print_r(obtenerUsuarioPorName('disaned', $usuarios));
+//echo $usuarios."<br>";
+//var_dump(json_decode($jsonRo, true));
+//$key = array_search('100', array_column($userdb, 'uid'));
+// }elseif (array_search('disaned', $usuariosReg)) {
+// }elseif (obtenerUsuarioPorName('disaned', $usuariosReg)) {
+}elseif (obtenerUsuarioPorName('disaned', array_column($usuarios, 'name'))) {
+    $errors['name'] = 'Gamertag o usuario de Minecraft ya existe';
 }
+
 
 // End Of validation
 return $esValido;

@@ -1,5 +1,11 @@
 <?php 
 
+session_start();
+if ($_SESSION['id_rol'] != 0 && $_SESSION['id_rol'] != 1 && $_SESSION['id_rol'] != 2)
+{
+  header("location: ../../");
+}
+
 include "../includes/footer.php";
 require '../usuarios/usuarios.php';
 $usuarios = obtenerUsuarios();

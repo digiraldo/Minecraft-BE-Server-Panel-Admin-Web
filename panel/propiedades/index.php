@@ -1,6 +1,6 @@
 <?php
 session_start();
-if ($_SESSION['id_rol'] != 1 && $_SESSION['id_rol'] != 2 && $_SESSION['id_rol'] != 3)
+if ($_SESSION['id_rol'] != 0 && $_SESSION['id_rol'] != 1 && $_SESSION['id_rol'] != 2 && $_SESSION['id_rol'] != 3)
 {
   header("location: ../../");
 }
@@ -15,10 +15,6 @@ $active_propiedades = "active";
 $active_logs = "";
 $title = "Minecraft SRV | Simple Invoice";
 
-//if ($_POST) {
-// $prop = shell_exec('sudo sh dirname/minecraftbe/servername/prop.sh');
-//echo $prop;
-// }
 
 
 //  require 'propiedades.php';
@@ -66,16 +62,21 @@ require 'editar.php';
     <div class="card-deck">
       <div class="card text-center border-info mb-3">
         <div class="card-header"><b><?php echo $data[12]['name']; ?></b> <i><?php echo $data[13]['spain']; ?></i> <?php echo $data[12]['spain']; ?> Puerto:<?php echo $data[8]['spain']; ?></div>
+        <?php if ($_SESSION['id_rol'] == 0 || $_SESSION['id_rol'] == 1 || $_SESSION['id_rol'] == 2) : ?>
         <div class="card-body text-info">
           <h5 class="card-title">Propiedades del Servidor</h5>
           <p class="card-text text-success">Aqui puede editar las configuraciones del servidor, recuerde reiniciar el servidor para que surta efecto.</p>
         </div>
         <div class="card-footer text-muted">
-          <a href="../tablero/ver_pro.php" type="submit" class="btn btn-outline-dark btn-sm" data-toggle="tooltip" data-placement="top" title="<i class='fas fa-database'></i> <?php echo $data[13]['spain']; ?>">Ver Propiedades</a>
+          <a href="ver_propiedades.php" type="submit" class="btn btn-outline-dark btn-sm" data-toggle="tooltip" data-placement="top" title="<i class='fas fa-database'></i> server.properties">Ver Archivo: server.properties</a>
         </div>
+        <?php else : ?>
+              
+        <?php endif ?>
       </div>
     </div>
 
+<?php if ($_SESSION['id_rol'] == 0 || $_SESSION['id_rol'] == 1) : ?>
 
     <div class="card-deck">
       <div class="card text-white bg-primary mb-3">
@@ -289,23 +290,48 @@ require 'editar.php';
 
     <div class="card-deck">
       <div class="card text-white bg-secondary mb-3">
-        <div class="card-header"><?php echo $data[11]['spain']; ?>
-          <button type="button" class="btn btn-secondary btn-sm" data-container="body" data-toggle="popover" data-placement="top" title="<i class='fas fa-gamepad'></i> <?php echo $data[10]['spain']; ?>" data-content="<i class='fas fa-language'></i> es_ES: <?php echo $lines2[2312]; ?><br><i class='fas fa-language'></i> es_MX: <?php echo $lines3[2312]; ?>">
+        <div class="card-header"><?php echo $data[10]['name']; ?> <?php echo $data[10]['btn']; ?>
+          <button type="button" class="btn btn-secondary btn-sm" data-container="body" data-toggle="popover" data-placement="top" title="<i class='fas fa-gamepad'></i> <?php echo $data[0]['spain']; ?>" data-content="<i class='fas fa-language'></i> es_ES: <?php echo $lines2[2312]; ?><br><i class='fas fa-language'></i> es_MX: <?php echo $lines3[2312]; ?>">
             Ver
           </button>
         </div>
         <div class="card-body">
-          <h5 class="card-title">Solicitud Acceso al Servidor: <?php echo $data[10]['spain']; ?></h5>
-          <p class="card-text">Introduce url, grupo de Telegram o permiso de Discord para que el usuario lo vea al intentar acceder al Servidor y no tiene los permisos.</p>
+          <h5 class="card-title">Acceso al Servidor: <?php echo $data[10]['icon']; ?> <?php echo $data[10]['spain']; ?></h5>
+          <p class="card-text">Introduce url o servidor de Discord.</p>
         </div>
         <div class="card-footer">
           <form action="index.php" method="POST" role="form" enctype="multipart/form-data">
             <div class="form-row">
               <div class="col">
-                <input type="text" name="Discord" class="form-control form-control-sm" id="Discord" placeholder="<?php echo $data[10]['spain']; ?>">
+                <input type="text" name="Discord" class="form-control form-control-sm" id="Discord" placeholder="<?php echo $data[10]['data']; ?>">
               </div>
               <div class="col">
                 <button name="accion" value="btnDiscord" type="submit" class="btn btn-outline-light btn-sm" data-toggle="tooltip" data-placement="top" title="Guardar"><i class="fas fa-save"></i></button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+
+      <div class="card text-white bg-secondary mb-3">
+        <div class="card-header"><?php echo $data[16]['name']; ?> <?php echo $data[16]['btn']; ?>
+          <button type="button" class="btn btn-secondary btn-sm" data-container="body" data-toggle="popover" data-placement="top" title="<i class='fas fa-gamepad'></i> <?php echo $data[0]['spain']; ?>" data-content="<i class='fas fa-language'></i> es_ES: <?php echo $lines2[2312]; ?><br><i class='fas fa-language'></i> es_MX: <?php echo $lines3[2312]; ?>">
+            Ver
+          </button>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Acceso al Grupo: <?php echo $data[16]['icon']; ?> <?php echo $data[16]['spain']; ?></h5>
+          <p class="card-text">Introduce url o grupo de Telegram.</p>
+        </div>
+        <div class="card-footer">
+          <form action="index.php" method="POST" role="form" enctype="multipart/form-data">
+            <div class="form-row">
+              <div class="col">
+                <input type="text" name="Telegram" class="form-control form-control-sm" id="Telegram" placeholder="<?php echo $data[16]['data']; ?>">
+              </div>
+              <div class="col">
+                <button name="accion" value="btnTelegram" type="submit" class="btn btn-outline-light btn-sm" data-toggle="tooltip" data-placement="top" title="Guardar"><i class="fas fa-save"></i></button>
               </div>
             </div>
           </form>
@@ -316,6 +342,152 @@ require 'editar.php';
 
   </div>
 
+  <?php elseif ($_SESSION['id_rol'] == 2) : ?>
+
+    <div class="card-deck">
+      <div class="card text-white bg-primary mb-3">
+        <div class="card-header"><?php echo $lines[0]; ?></div>
+        <div class="card-body">
+          <h5 class="card-title">Nombre del Servidor: <?php echo $data[0]['spain']; ?></h5>
+          <p class="card-text">Este es el nombre del servidor que se muestra en la lista de servidores del juego.</p>
+        </div>
+        <div class="card-footer">
+          <form action="index.php" method="POST" role="form" enctype="multipart/form-data">
+            <div class="form-row">
+              <div class="col">
+                <input type="text" name="inputName" class="form-control form-control-sm" id="inputName" placeholder="<?php echo $data[0]['spain']; ?>">
+              </div>
+              <div class="col">
+                <button name="accion" value="btninputName" type="submit" class="btn btn-outline-light btn-sm" data-toggle="tooltip" data-placement="top" title="Guardar"><i class="fas fa-save"></i></button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="card text-white bg-warning mb-3">
+        <div class="card-header"><?php echo $lines[8]; ?></div>
+        <div class="card-body">
+          <h5 class="card-title">Difucultad: <?php echo $data[4]['spain']; ?></h5>
+          <p class="card-text">Establece la dificultad del mundo.</p>
+        </div>
+        <div class="card-footer">
+          <form action="index.php" method="POST" role="form" enctype="multipart/form-data">
+            <div class="form-row">
+              <div class="col">
+                <select class="custom-select custom-select-sm" name="Dificultad" id="Dificultad">
+                  <option selected><?php echo $data[4]['spain']; ?></option>
+                  <option value="peaceful">Pacífico</option>
+                  <option value="easy">Fácil</option>
+                  <option value="normal">Normal</option>
+                  <option value="hard">Difícil</option>
+                </select>
+              </div>
+              <div class="col">
+                <button name="accion" value="btnDificultad" type="submit" class="btn btn-outline-light btn-sm" data-toggle="tooltip" data-placement="top" title="Guardar"><i class="fas fa-save"></i></button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="card text-white bg-success mb-3">
+        <div class="card-header"><?php echo $lines[12]; ?></div>
+        <div class="card-body">
+          <h5 class="card-title">Usar Trucos: <?php echo $data[2]['icon']; ?></h5>
+          <p class="card-text">Si es verdadero, entonces se pueden usar trucos como comandos.</p>
+        </div>
+        <div class="card-footer">
+          <form action="index.php" method="POST" role="form" enctype="multipart/form-data" id="resetPost">
+            <div class="form-row">
+              <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" name="UsarTruco" id="UsarTruco" <?php echo $data[2]['btn']; ?>>
+                <label class="custom-control-label" for="UsarTruco"><?php echo $data[2]['spain']; ?></label>
+              </div>
+              <div class="col">
+                <button name="accion" type="submit" value="btnUsarTruco" class="btn btn-outline-light btn-sm" data-toggle="tooltip" data-placement="top" title="Guardar"><i class="fas fa-save"></i></button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  <?php else : ?>
+
+    <div class="container-fluid">
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title"><?php echo $data[12]['icon']; ?> <?php echo $data[13]['name']; ?> <b><?php echo $data[13]['spain']; ?></b></h5>
+        <div class="section">
+        <table id="tablaUsuarios" class="table table-striped table-bordered" style="width:100%">
+        <tbody>
+            <tr>
+                <th scope="col"><?php echo $data[0]['name']; ?></th>
+                <td><?php echo $data[0]['spain'] ?></td>
+            </tr>
+            <tr>
+                <th scope="col"><?php echo $data[1]['name']; ?></th>
+                <td><?php echo $data[1]['spain'] ?></td>
+            </tr>
+            <tr>
+                <th scope="col"><?php echo $data[2]['name']; ?></th>
+                <td><?php echo $data[2]['spain'] ?></td>
+            </tr>
+            <tr>
+                <th scope="col"><?php echo $data[3]['name']; ?></th>
+                <td><?php echo $data[3]['spain'] ?></td>
+            </tr>
+            <tr>
+                <th scope="col"><?php echo $data[4]['name']; ?></th>
+                <td><?php echo $data[4]['spain'] ?></td>
+            </tr>
+            <tr>
+                <th scope="col"><?php echo $data[5]['name']; ?></th>
+                <td><?php echo $data[5]['spain'] ?></td>
+            </tr>
+            <tr>
+                <th scope="col"><?php echo $data[6]['name']; ?></th>
+                <td><?php echo $data[6]['spain'] ?></td>
+            </tr>
+            <tr>
+                <th scope="col"><?php echo $data[7]['name']; ?></th>
+                <td><?php echo $data[7]['spain'] ?></td>
+            </tr>
+            <tr>
+                <th scope="col"><?php echo $data[8]['name']; ?></th>
+                <td><?php echo $data[8]['spain'] ?></td>
+            </tr>
+            <tr>
+                <th scope="col"><?php echo $data[9]['name']; ?></th>
+                <td><?php echo $data[9]['spain'] ?></td>
+            </tr>
+            <?php if ($data[10]['btn'] == ""):  ?>
+            <?php else : ?>
+            <tr>
+                <th scope="col"><?php echo $data[10]['name']; ?> <?php echo $data[10]['spain'] ?></th>
+                <td><?php echo $data[10]['btn'] ?></td>
+            </tr>
+            <?php endif ?>
+            <?php if ($data[16]['btn'] == ""):  ?>
+            <?php else : ?>
+            <tr>
+                <th scope="col"><?php echo $data[16]['name']; ?> <?php echo $data[16]['spain'] ?></th>
+                <td><?php echo $data[16]['btn'] ?></td>
+            </tr>
+            <?php endif ?>
+            <tr>
+                <th scope="col"><?php echo $data[12]['name']; ?></th>
+                <td><?php echo $data[12]['spain'] ?> Puerto: <?php echo $data[8]['spain'] ?></td>
+            </tr>
+        </tbody>
+        </table>
+        </div>
+    </div>
+</div>
+</div>
+
+  <?php endif ?>
 
   <?php include '../includes/footer.php' ?>
   <!-- php include '../includes/modal.php'?> <script>$("#resetPost").submit()</script>-->

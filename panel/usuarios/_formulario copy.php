@@ -1,4 +1,10 @@
 <?php
+session_start();
+if ($_SESSION['id_rol'] != 0 && $_SESSION['id_rol'] != 1 && $_SESSION['id_rol'] != 2 && $_SESSION['id_rol'] != 3)
+{
+  header("location: ../../");
+}
+
 include "../includes/footer.php";
 ?>
 

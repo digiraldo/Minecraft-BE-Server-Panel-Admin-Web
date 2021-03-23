@@ -1,4 +1,9 @@
 <?php
+session_start();
+if ($_SESSION['id_rol'] != 0 && $_SESSION['id_rol'] != 1 && $_SESSION['id_rol'] != 2 && $_SESSION['id_rol'] != 3 && $_SESSION['id_rol'] != 4)
+{
+  header("location: ../../");
+}
 
 include "../includes/scripts.php";
 include "../includes/footer.php";
@@ -68,10 +73,12 @@ include "../includes/footer.php";
                 <th scope="col"><?php echo $data[9]['name']; ?></th>
                 <td><?php echo $data[9]['spain'] ?></td>
             </tr>
+            <!--
             <tr>
                 <th scope="col"><?php echo $data[10]['name']; ?></th>
-                <td><?php echo $data[10]['spain'] ?></td>
+                <td><?php echo $data[10]['icon'] ?> <?php echo $data[10]['btn'] ?></td>
             </tr>
+            -->
             <tr>
                 <th scope="col"><?php echo $data[12]['name']; ?></th>
                 <td><?php echo $data[12]['spain'] ?> Puerto: <?php echo $data[8]['spain'] ?></td>
@@ -81,7 +88,10 @@ include "../includes/footer.php";
         </div>
     </div>
     <a href="index.php" type="submit" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="<i class='fas fa-tachometer-alt'></i> Panel Principal">Cerrar</a>
+    <?php if ($_SESSION['id_rol'] == 4) : ?>
+    <?php else : ?>
     <a href="../propiedades" type="submit" class="btn btn-info" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="<i class='fas fa-cogs'></i> Propiedades">Editar</a>
+    <?php endif ?>
 </div>
 </div>
 

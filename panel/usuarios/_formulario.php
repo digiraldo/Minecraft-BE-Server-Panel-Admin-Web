@@ -1,4 +1,10 @@
 <?php
+session_start();
+if ($_SESSION['id_rol'] != 0 && $_SESSION['id_rol'] != 1 && $_SESSION['id_rol'] != 2 && $_SESSION['id_rol'] != 3)
+{
+  header("location: ../../");
+}
+
 include "../includes/footer.php";
 ?>
 
@@ -45,12 +51,15 @@ include "../includes/footer.php";
 
     <?php else : ?>
 
+
+      <?php if ($_SESSION['id_rol'] == 0 || $_SESSION['id_rol'] == 1) : ?>
       <ul class="nav justify-content-center nav-pills mb-3" id="pills-tab" role="tablist">
         <li class="nav-item" role="presentation">
           <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Nuevo</a>
         </li>
         <li class="nav-item" role="presentation">
           <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Registrado</a>
+        </li>
       </ul>
 
 
@@ -109,8 +118,52 @@ include "../includes/footer.php";
 
       </div>
 
+      <?php else : ?> 
+
+        <ul class="nav justify-content-center nav-pills mb-3" id="pills-tab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Usuario Registrado</a>
+        </li>
+      </ul>
 
 
+      <div class="tab-content" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+
+        <div class="card-body">
+            <form method="POST" enctype="multipart/form-data" action="" class="needs-validation" novalidate>
+              <div class="form-row align-items-center">
+                <!-- Inicio Form Row -->
+                <div class="col">
+                  <label for="gamertag">Seleccionar Nombre de Usuario</label>
+                  <select class="custom-select <?php echo $errors['name'] ? 'is-valid' : '' ?>" name="name" id="gamertag-dropdown" required>
+
+
+                  </select>
+                  <div class="valid-tooltip">
+                    Seleccione usuario registrado
+                  </div>
+                </div>
+
+              </div><!-- Fin Form Row -->
+
+          </div>
+
+          <div class="card-footer">
+            <button type="submit" class="btn btn-warning my-1"><i class="fas fa-user-plus"></i> Añadir</button>
+            <a href="index.php" type="submit" class="btn btn-info"><i class="fas fa-times"></i> Cancelar</a>
+          </div>
+          </form>
+
+        </div>
+        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+
+
+
+        </div>
+
+      </div>
+<?php endif ?>
 
 
 

@@ -1,4 +1,9 @@
 <?php
+session_start();
+if ($_SESSION['id_rol'] != 0 && $_SESSION['id_rol'] != 1 && $_SESSION['id_rol'] != 2 && $_SESSION['id_rol'] != 3)
+{
+  header("location: ../../");
+}
 
 if (isset($_POST['zip_file'])) {
 

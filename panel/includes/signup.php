@@ -1,5 +1,5 @@
 <?php
-setlocale(LC_ALL,"es_ES");
+setlocale(LC_ALL, "es_ES");
 date_default_timezone_set('America/Bogota');
 
 $jsoning = file_get_contents(__DIR__ . '../../../config/usradmin.json');
@@ -11,14 +11,16 @@ if (file_exists($filename) && array_key_exists(0, $datsignup)) {
     header("Location: ../../");
     exit;
 }
- 
+
 /*
 */
-function obtenerRegistro(){
-return json_decode(file_get_contents(__DIR__ . '../../../config/usradmin.json'), true);
+function obtenerRegistro()
+{
+    return json_decode(file_get_contents(__DIR__ . '../../../config/usradmin.json'), true);
 }
 
-function obtenerRegistroName($nam){
+function obtenerRegistroName($nam)
+{
 
     $registros = obtenerRegistro();
     foreach ($registros as $registroN) {
@@ -29,30 +31,33 @@ function obtenerRegistroName($nam){
     return null;
 }
 
-function crearRegistro($datr){
-    $datr['id'] = 1;
-    $datr['nombre'] = "servername";
-    $datr['clave'] = md5($_POST['clave']);
-    $datr['pais'] = "No Aplica";
-    $datr['ciudad'] = "No Aplica";
-    $datr['gamertag'] = "Xbox Id";
-    $datr['id_rol'] = 1;
-    $datr['rol'] = "Administrador";
-    $datr['contacto'] = "Telegram: @dparceros";
-    $datr['fecha'] = date("d/m/Y");
-    $datr['img'] = "admin_minecraft.png";
+function crearRegistro($datr)
+{
+    // $datr['id'] = 1;
+    // $datr['nombre'] = "servername";
+    // $datr['clave'] = md5($_POST['clave']);
+    // $datr['pais'] = "No Aplica";
+    // $datr['ciudad'] = "No Aplica";
+    // $datr['gamertag'] = "Xbox Id";
+    // $datr['id_rol'] = 1;
+    // $datr['rol'] = "Administrador";
+    // $datr['contacto'] = "Telegram: @dparceros";
+    // $datr['fecha'] = date("d/m/Y");
+    // $datr['img'] = "admin_minecraft.png";
     $registros = obtenerRegistro();
     $registros[] = $datr;
     introJson($registros);
 }
-function introJson($registros){
-file_put_contents(__DIR__ . '../../../config/usradmin.json', json_encode($registros, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT));
+function introJson($registros)
+{
+    file_put_contents(__DIR__ . '../../../config/usradmin.json', json_encode($registros, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
 }
 //$jsonString = file_get_contents(__DIR__ . '../../../servername/whitelist.json');
 //$data = json_decode($jsonString, true);
 
 
 $registroN = [
+    'numero' => '',
     'id' => '',
     'nombre' => '',
     'usuario' => '',
@@ -65,38 +70,58 @@ $registroN = [
     'contacto' => '',
     'fecha' => '',
     'img' => '',
+    'n_img' => '',
 ];
 
 
 $error = [
-    'usuario' => "El Usuario es obligatorio",
-    'contrasena' => "Contraseña Obligatoria",
+    'usuario' => "",
+    'clave' => "",
 ];
 
-$esValido = false;
-//if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['permission'] == 'visitor')
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $usuario = $_POST['usuario'];
-    $contrasena = $_POST['clave'];
-    //$pais = $_POST['permission'];
-    //$ciudad = $_POST['permission'];
-    //$gamertag = $_POST['permission'];
-    //$id_rol = $_POST['permission'];
-    //$rol = $_POST['permission'];
-    //$contacto = $_POST['permission'];
-    //$img = $_POST['permission'];
-    //$spain = $_POST['permission'];
 
-    if (!$nombre){
-        $error['name'] = 'El Usuario es obligatorio'; //================================== 1:19:00 video
+$esValido = true;
+//if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['permission'] == 'visitor')
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    $registroN = array_merge($registroN, $_POST);
+    $esValido = validarRegistro($registroN, $error);
+    if ($esValido) {
+        $_POST['numero'] = 1;
+        $_POST['id'] =  rand(1000000, 2000000);
+        $_POST['nombre'] = "servername";
+        $_POST['usuario'] = $_POST['usuario'];
+        $_POST['clave'] = md5($_POST['clave']);
+        $_POST['pais'] = "No Aplica";
+        $_POST['ciudad'] = "No Aplica";
+        $_POST['gamertag'] = "Xbox Id";
+        $_POST['id_rol'] = 0;
+        $_POST['rol'] = "Propietario";
+        $_POST['contacto'] = "Telegram: @dparceros";
+        $_POST['fecha'] = date("d/m/Y");
+        $_POST['img'] = "admin_minecraft.png";
+        $_POST['n_img'] = "Admin";
+        $registroN = crearRegistro($_POST);
+        unset($_POST);
+        header("Location: ../../");
     }
-       
-    $registroN = crearRegistro($_POST);       
-    unset($_POST);
-    header("Location: ../../");
-    exit;
 }
 
+function validarRegistro($registroN, &$error)
+{
+    $esValido = true;
+    // Start of validation
+    if (!$registroN['usuario'] || strlen($registroN['usuario']) < 4 || strlen($registroN['usuario']) > 10) {
+        $esValido = false;
+        $error['usuario'] = 'Usuario obligatorio con más de 4 y menos de 10 caracteres';
+    }
+    if (!$registroN['clave'] || strlen($registroN['clave']) < 6 ) {
+        $esValido = false;
+        $error['clave'] = 'Contraseña obligatoria con más de 6 caracteres';
+    }
+    // End Of validation
+    return $esValido;
+}
 
 ?>
 
@@ -128,14 +153,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <section id="container">
         <div class="content">
-        <form method="post" name="login_form" id="login_form" action="" onsubmit="enviar(this); return false;">
+            <!--<form method="post" name="login_form" id="login_form" action="" onsubmit="enviar(this); return false;">-->
+            <form method="POST" enctype="multipart/form-data" action="" class="needs-validation" novalidate>
+                <!--<form method="post" name="login_form" id="login_form" action="" class="needs-validation" novalidate>-->
                 <img src="img/Minecraft_Logo.png" alt="login">
-                <input type="text" name="usuario" placeholder="Usuario" id="usuario" autocomplete>
-                <input type="password" name="clave" placeholder="Contraseña" id="clave" autocomplete>
-
+                <input type="text" name="usuario" placeholder="Usuario" id="usuario" class="form-control <?php echo $error['usuario'] ? 'is-invalid' : '' ?>" autocomplete="" required>
+                <div class="invalid-tooltip"><?php echo $error['usuario']; ?></div>
+                <input type="password" name="clave" placeholder="Contraseña" id="clave" class="form-control <?php echo $error['clave'] ? 'is-invalid' : '' ?>" autocomplete="" required>
+                <div class="invalid-tooltip"><?php echo $error['clave']; ?></div>
                 <div class="alert alert-secondary alert-dismissible fade show" role="alert">
-                Crear Usuario Administrador
-                </div>    
+                <?php 
+                if (empty($_POST)) {
+                    echo 'Crear Usuario Administrador';
+                }else {
+                    echo $error['usuario'].'<br>';
+                    echo $error['clave'].'<br>'; 
+                }
+                ?>
+                
+                    
+                </div>
                 <button id="btn" type="submit" class="btn btn-primary" id="login_submit"><i <i class="fas fa-user-plus"></i> Registrar</button>
 
             </form>

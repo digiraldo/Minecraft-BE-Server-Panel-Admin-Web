@@ -45,6 +45,19 @@
         $('#modalRol').modal('show');
     </script>
 <?php } ?>
+<<<<<<< HEAD
+
+<?php if ($mostrarModal) { ?>
+    <script>
+        $('#modalRegistrar').modal('show');
+    </script>
+<?php } ?>
+
+
+
+
+=======
+>>>>>>> 9a4e6d3161ce8faad465ae411301634522980cc1
 <!---->
 <?php //if ($mostrarToast) { ?>
     <script>

@@ -5,26 +5,21 @@ if ($_SESSION['id_rol'] != 0 && $_SESSION['id_rol'] != 1 && $_SESSION['id_rol'] 
   header("location: ../../");
 }
 
-include "../includes/scripts.php";
-require __DIR__ . '/logs.php';
-$txtInLog = (isset($_POST['log'])) ? $_POST['log'] : "";
-$txtNumLog = (isset($_POST['num'])) ? $_POST['num'] : "";
-//include "../includes/footer.php";
-//include "../includes/scripts.php";
-$dirlog = "../../servername/logs/";
-$archivo = fopen("$dirlog$txtInLog", 'r');
-//echo "$dirlog$txtInLog";
+
+$dirlog = "../../servername/server.properties";
+$archivo = fopen("$dirlog", 'r');
 
 ?>
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Info Registro</title>
+  <title>Info server_properties</title>
+  <?php include "../includes/scripts.php" ?>
 
 </head>
 
@@ -33,13 +28,14 @@ $archivo = fopen("$dirlog$txtInLog", 'r');
     <div class="card text-white bg-dark">
       <div class="card-header text-info">
         <h4 class="card-title">
-          <i class="fas fa-list-ol"></i> Número: <b><?php echo $txtNumLog; ?></b> de <?php echo $registrosb; ?>
+        <i class="fas fa-tasks"></i> Nombre: <b>server.properties</b>
         </h4>
+        <h5 class="card-title text-success">
+          <i class="fas fa-server"></i> Servidor: <b>servername</b>
+        </h5>
       </div>
       <div class="card-body">
-        <h5 class="card-title text-success">
-          <i class="fas fa-history"></i> Nombre: <b><?php echo $txtInLog; ?></b>
-        </h5>
+
         <p class="card-text">
           <?php while ($linea = fgets($archivo)) {
             echo $linea . '<br/>';
@@ -51,9 +47,12 @@ $archivo = fopen("$dirlog$txtInLog", 'r');
 
       </div>
       <div class="card-footer text-muted">
-        <a href="index.php" type="submit" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="<i class='fas fa-tachometer-alt'></i> Panel Principal">Cerrar</a>
+        <a href="index.php" type="submit" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="<i class='fas fa-cog'></i> Propiedades">Cerrar</a>
       </div>
     </div>
   </div>
 
+  <?php include '../includes/footer.php' ?>
 </body>
+
+</html>
