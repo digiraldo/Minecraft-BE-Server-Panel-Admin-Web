@@ -1,0 +1,18 @@
+[
+    {
+        "usuario": "Admin",
+        "clave": "751cb3f4aa17c36186f4856c8982bf27",
+        "numero": 1,
+        "id": 1863309,
+        "nombre": "servername",
+        "pais": "No Aplica",
+        "ciudad": "No Aplica",
+        "gamertag": "Xbox Id",
+        "id_rol": 0,
+        "rol": "Propietario",
+        "contacto": "Telegram: @dparceros",
+        "fecha": "23\/03\/2021",
+        "img": "admin_minecraft.png",
+        "n_img": "Admin"
+    }
+]

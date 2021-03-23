@@ -71,7 +71,6 @@ $title = "Minecraft SRV | Simple Invoice";
                 <th scope="row"><?php echo $num; ?></th>
                 <td><?php echo $archivos[$i]; ?></td>
                 <td>
-<<<<<<< HEAD
                 <?php if ($_SESSION['id_rol'] == 0 || $_SESSION['id_rol'] == 1 || $_SESSION['id_rol'] == 2) : ?>
                   <a href="../../servername/logs/<?php echo $archivos[$i]; ?>" download="<?php echo $archivos[$i]; ?>" data-toggle="tooltip" data-placement="top" title="Descargar" type="submit" class="btn btn-info btn-sm" name="accion"><i class="fas fa-download"></i></a>  
                   <?php else : ?>
@@ -79,10 +78,6 @@ $title = "Minecraft SRV | Simple Invoice";
               <?php endif ?>
                   
                  
-=======
-                  <a href="../../servername/logs/<?php echo $archivos[$i]; ?>" download="<?php echo $archivos[$i]; ?>" data-toggle="tooltip" data-placement="top" title="Descargar" type="submit" class="btn btn-info btn-sm" name="accion"><i class="fas fa-download"></i></a>
-                  <!-- <a href="ver_log.php?log=../../servername/logs/<?php echo $archivos[$i]; ?>" value="Seleccionar" data-toggle="tooltip" data-placement="top" title="Ver Log" type="submit" class="btn btn-warning btn-sm" name="accion"><i class="fas fa-eye"></i></a> -->
->>>>>>> 9a4e6d3161ce8faad465ae411301634522980cc1
                   <form style="display: inline-block" method="POST" action="ver_log.php">
                     <input type="hidden" name="log" value="<?php echo $archivos[$i] ?>">
                     <input type="hidden" name="num" value="<?php echo $num ?>">

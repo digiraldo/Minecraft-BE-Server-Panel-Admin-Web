@@ -57,21 +57,15 @@ Panel
 <a class="nav-link" aria-current="page" href="../tablero" data-toggle="tooltip" data-placement="bottom" title="<?php echo $srvdat[6]['spain']; ?> Jugadores Max."><i class="fas fa-tachometer-alt"></i> Tablero<span class="badge badge-pill badge-danger"><?php echo $srvdat[6]['spain']; ?></span></a>
 </li>
 
-<<<<<<< HEAD
 <?php if ($_SESSION['id_rol'] == 4) : ?>
 <?php else : ?>
 
-=======
->>>>>>> 9a4e6d3161ce8faad465ae411301634522980cc1
 <li class="<?php echo $active_whitelist;?>">
 <a class="nav-link" aria-current="page" href="../usuarios" data-toggle="tooltip" data-placement="bottom" title="<?php echo count($usuarios); ?> Jugadores Agregados"><i class="fas fa-user"></i> Whitelist<span class="badge badge-pill badge-primary"><?php echo count($usuarios); ?></span></a>
 </li>
 
-<<<<<<< HEAD
 <?php if ($_SESSION['id_rol'] == 3) : ?>
 <?php else : ?>
-=======
->>>>>>> 9a4e6d3161ce8faad465ae411301634522980cc1
 <li class="<?php echo $active_permisos;?>">
 <a class="nav-link" aria-current="page" href="../permisos" data-toggle="tooltip" data-placement="bottom" title="<?php echo count($permisos); ?> Permisos"><i class="fas fa-user-edit"></i> Permisos<span class="badge badge-pill badge-warning"><?php echo count($permisos); ?></span></a>
 </li>
@@ -79,10 +73,7 @@ Panel
 <li class="<?php echo $active_admin;?>">
 <a class="nav-link" aria-current="page" href="../rol" data-toggle="tooltip" data-placement="bottom" title="<?php echo count($rolesJ); ?> Roles"><i class="fas fa-user-tie"></i> Roles<span class="badge badge-pill badge-info"><?php echo count($rolesJ); ?></span></a>
 </li>
-<<<<<<< HEAD
 <?php endif ?>
-=======
->>>>>>> 9a4e6d3161ce8faad465ae411301634522980cc1
 
 <li class="<?php echo $active_backups;?>">
 <a class="nav-link" aria-current="page" href="../respaldos" data-toggle="tooltip" data-placement="bottom" title="<?php echo $respaldos; ?> Respaldos"><i class="fas fa-archive"></i> Respaldos<span class="badge badge-pill badge-success"><?php echo $respaldos; ?></span></a>
@@ -100,33 +91,19 @@ Panel
 <a class="nav-link" aria-current="page" href="../propiedades"><i class="fas fa-cog"></i> Propiedades</a>
 </li>
 
-<<<<<<< HEAD
 <?php endif ?>
 
 </ul>
 <div class="dropdown-divider"></div>
 <ul class="navbar-nav ml-auto">
-=======
-</ul>
-<div class="dropdown-divider"></div>
-<ul class="nav navbar-nav navbar-right">
->>>>>>> 9a4e6d3161ce8faad465ae411301634522980cc1
 <!--        
 <li><a href="mailto:didierandresgt@gmail.com" target='_blank' class="btn btn-primary" href="#" role="button"><i class="fas fa-tools"></i></a></li>
 -->
 
-<<<<<<< HEAD
 <a class="navbar-brand" href="#" data-toggle="tooltip" data-placement="bottom" title="<img class='rounded-lg' width='90px'  src='../includes/img/perfil/<?php echo $_SESSION['img']; ?>' />"><img class="rounded-lg" src="../includes/img/perfil/<?php echo $_SESSION['img']; ?>" height="29" class="d-inline-block align-top" alt=""> </a>
 
 <a class="navbar-brand" href="#" data-toggle="popover" data-placement="bottom" 
 title="<img class='rounded-lg' width='180px'  src='../includes/img/perfil/<?php echo $_SESSION['img']; ?>' /><br>" 
-=======
-
-<a class="navbar-brand" href="#" data-toggle="tooltip" data-placement="bottom" title="<img class='rounded-lg' width='90px'  src='../includes/img/perfil/<?php echo $_SESSION['img']; ?>' />"><img class="rounded-lg" src="../includes/img/perfil/<?php echo $_SESSION['img']; ?>" height="30" class="d-inline-block align-top" alt=""> </a>
-
-<a class="navbar-brand" href="#" data-toggle="popover" data-placement="bottom" 
-title="<img class='rounded-lg' width='150px'  src='../includes/img/perfil/<?php echo $_SESSION['img']; ?>' /><br>" 
->>>>>>> 9a4e6d3161ce8faad465ae411301634522980cc1
 data-content="<h5><?php echo (ucwords(strtolower($_SESSION['nombre']))); ?></h5><br>
 <i class='fas fa-user-tag'></i> Usuario: <?php echo $_SESSION['user']; ?><br>
 <i class='fas fa-gamepad'></i> Gamertag: <?php echo $_SESSION['gamertag']; ?><br>
@@ -135,10 +112,7 @@ data-content="<h5><?php echo (ucwords(strtolower($_SESSION['nombre']))); ?></h5>
 <i class='fas fa-envelope'></i> <?php echo $_SESSION['contact'];?><br>
 <i class='fas fa-user-edit'></i> Rol: <?php echo $_SESSION['rol'];?><br>
 <i class='fas fa-calendar-alt'></i> Creado: <?php echo $_SESSION['date']; ?><br>
-<<<<<<< HEAD
 <a href='../rol/edit.php?id=<?php echo $_SESSION['idUser'] ?>' data-toggle='tooltip' data-placement='top' title='Editar' type='submit'><i class='fas fa-pencil-alt'></i> Editar</a><br>
-=======
->>>>>>> 9a4e6d3161ce8faad465ae411301634522980cc1
 " > <?php echo (ucwords(strtolower($_SESSION['user']))); ?></a>
 
 <!-- 

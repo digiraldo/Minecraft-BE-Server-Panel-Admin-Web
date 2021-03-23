@@ -45,7 +45,6 @@
         $('#modalRol').modal('show');
     </script>
 <?php } ?>
-<<<<<<< HEAD
 
 <?php if ($mostrarModal) { ?>
     <script>
@@ -56,8 +55,6 @@
 
 
 
-=======
->>>>>>> 9a4e6d3161ce8faad465ae411301634522980cc1
 <!---->
 <?php //if ($mostrarToast) { ?>
     <script>
