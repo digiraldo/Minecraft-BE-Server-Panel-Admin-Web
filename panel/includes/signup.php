@@ -94,10 +94,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_POST['clave'] = md5($_POST['clave']);
         $_POST['pais'] = "No Aplica";
         $_POST['ciudad'] = "No Aplica";
-        $_POST['gamertag'] = "Xbox Id";
+        $_POST['gamertag'] = "...";
         $_POST['id_rol'] = 0;
         $_POST['rol'] = "Propietario";
-        $_POST['contacto'] = "Telegram: @dparceros";
+        $_POST['contacto'] = "GitHub: digiraldo";
         $_POST['fecha'] = date("d/m/Y");
         $_POST['img'] = "admin_minecraft.png";
         $_POST['n_img'] = "Admin";

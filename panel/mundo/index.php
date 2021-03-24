@@ -150,7 +150,7 @@ $subdirectorios = scandir($directorio . $rutaw);
           }
           if ($subdirectorios[6] == '') {
           } else {
-            print_r("$subdirectorios[5]<br>");
+            print_r("<i class='fas fa-file-invoice'></i> $subdirectorios[5]<br>");
           }
           if ($subdirectorios[7] == '') {
           } else {

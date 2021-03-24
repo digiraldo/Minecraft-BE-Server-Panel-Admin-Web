@@ -223,7 +223,7 @@ echo "========================================================================="
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/propiedades/ver_propiedades.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/registros/index.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/registros/logs.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/registros/ver_logs.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/registros/ver_log.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/index.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/editar.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/CargarFicheros.php
@@ -447,7 +447,7 @@ sudo systemctl daemon-reload
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/propiedades/ver_propiedades.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/registros/index.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/registros/logs.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/registros/ver_logs.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/registros/ver_log.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/index.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/editar.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/CargarFicheros.php

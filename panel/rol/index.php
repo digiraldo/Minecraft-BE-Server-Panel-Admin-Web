@@ -81,8 +81,8 @@ $roles = obtenerRol();
             <td>
               <a href="# " data-toggle="tooltip" data-placement="right" title="
               <i class='fas fa-gamepad'></i> Gamertag: <?php echo $rol['gamertag']; ?><br/>
-              <i class='fas fa-address-book'></i>  <?php echo $rol['contacto']; ?><br/>
-              <i class='fas fa-calendar-alt'></i> Creado: <?php echo $rol['fecha']; ?>
+              <i class='fas fa-address-book'></i> <?php echo $rol['contacto']; ?><br/>
+              <i class='fas fa-calendar-alt'></i> Creado: <?php echo $rol['fecha']; ?><br/>
               ">
                 <?php echo $rol['rol']; ?></a>
             </td>

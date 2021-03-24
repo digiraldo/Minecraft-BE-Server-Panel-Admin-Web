@@ -81,19 +81,19 @@
     },
     {
         "id": 11,
-        "name": "Solicitar Acceso al Servidor:",
-        "spain": "Discord",
+        "name": "Acceder al Servidor:",
+        "spain": "",
         "btn": "",
-        "icon": "",
+        "icon": "<i class=\"fab fa-discord\"><\/i>",
         "data": "Discord"
     },
     {
         "id": 12,
         "name": "Texto Permiso al Servidor",
-        "spain": "Solicita permiso en Discord para jugar en este servidor.",
+        "spain": "Solicita permiso en  para jugar en este servidor.",
         "btn": "",
         "icon": "",
-        "data": "Solicita permiso en Discord para jugar en este servidor."
+        "data": "Solicita permiso en  para jugar en este servidor."
     },
     {
         "id": 13,
@@ -126,5 +126,13 @@
         "btn": "checked",
         "icon": "<i class=\"fas fa-ethernet\"><\/i>",
         "data": "80"
+    },
+    {
+        "id": 17,
+        "name": "Acceder al Grupo:",
+        "spain": "",
+        "btn": "",
+        "icon": "<i class=\"fab fa-telegram\"><\/i>",
+        "data": "Telegram"
     }
 ]

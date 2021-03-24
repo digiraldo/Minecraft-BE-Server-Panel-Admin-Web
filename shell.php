@@ -1,6 +1,6 @@
 <?php
 session_start();
-if ($_SESSION['id_rol'] != 1 && $_SESSION['id_rol'] != 2 && $_SESSION['id_rol'] != 3) {
+if ($_SESSION['id_rol'] != 0) {
 header("location: ../../");
 }
 
@@ -24,7 +24,7 @@ $title = "Minecraft SRV | Simple Invoice";
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Registros</title>
+  <title>Consola</title>
   <?php include "panel/includes/scripts.php" ?>
 
 </head>
