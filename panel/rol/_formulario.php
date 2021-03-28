@@ -30,7 +30,7 @@ include "../includes/footer.php";
           <?php else : ?>
             <div class="col-md-6 mb-3">
             <label for="usuario">Usuario</label>
-            <input type="text" name="usuario" class="form-control <?php echo $errors['usuario'] ? 'is-invalid' : '' ?>" id="usuario" value="<?php echo $rolU['usuario']; ?>" disabled>
+            <input type="text" name="usuario" class="form-control <?php echo $errors['usuario'] ? 'is-invalid' : '' ?>" id="usuario" value="<?php echo $rolU['usuario']; ?>" readonly>
             <div class="invalid-tooltip">
               <?php echo $errors['usuario']; ?>
             </div>
@@ -57,9 +57,9 @@ include "../includes/footer.php";
           <?php else : ?>
             <div class="col-md-6 mb-3">
             <label for="clave">Contraseña</label>
-            <input type="password" name="clave" class="form-control <?php echo $errors['clave'] ? 'is-invalid' : '' ?>" id="clave" value="<?php echo $rolU['clave']; ?>" autocomplete="new-password" placeholder="" disabled>
+            <input type="password" name="clave" class="form-control <?php echo $errors['clave'] ? 'is-invalid' : '' ?>" id="clave" value="<?php echo $rolU['clave']; ?>" autocomplete="new-password" placeholder="*****" readonly>
             <div class="invalid-tooltip">
-                Ingrese la Contraseña 
+                <?php echo $errors['clave']; ?> 
             </div>
           </div>
             <?php endif ?>
@@ -74,15 +74,20 @@ include "../includes/footer.php";
           <?php endif ?>
 
 
-          <div class="col-md-4 mb-3">
-            <label for="nombre">Nombre</label>
+
             <?php if ($rolU['id']) : ?>
             <?php if ($_SESSION['id_rol'] == 0 || $_SESSION['id_rol'] == 1) : ?>
+              <div class="col-md-4 mb-3">
+            <label for="nombre">Nombre</label>
             <input type="text" name="nombre" class="form-control <?php echo $errors['nombre'] ? 'is-invalid' : '' ?>" id="nombre" value="<?php echo $rolU['nombre']; ?>" required>
             <?php else : ?>
-              <input type="text" name="nombre" class="form-control <?php echo $errors['nombre'] ? 'is-invalid' : '' ?>" id="nombre" value="<?php echo $rolU['nombre']; ?>" disabled>
+              <div class="col-md-4 mb-3">
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" class="form-control <?php echo $errors['nombre'] ? 'is-invalid' : '' ?>" id="nombre" value="<?php echo $rolU['nombre']; ?>" readonly>
             <?php endif ?>
             <?php else : ?>
+              <div class="col-md-4 mb-3">
+            <label for="nombre">Nombre</label>
               <input type="text" name="nombre" class="form-control <?php echo $errors['nombre'] ? 'is-invalid' : '' ?>" id="nombre" value="<?php echo $rolU['nombre']; ?>" required>
               <?php endif ?>
             <div class="invalid-tooltip">
@@ -127,15 +132,20 @@ include "../includes/footer.php";
               Rol Inscrito por defecto
             </div>
           </div>
-          <div class="col-md-4 mb-3">
-            <label for="contacto">Contacto</label>
+
             <?php if ($rolU['id']) : ?>
             <?php if ($_SESSION['id_rol'] == 0 || $_SESSION['id_rol'] == 1) : ?>
+              <div class="col-md-4 mb-3">
+            <label for="contacto">Contacto</label>
             <input type="text" name="contacto" class="form-control" id="contacto" value="<?php echo $rolU['contacto']; ?>" required>
             <?php else : ?>
-              <input type="text" name="contacto" class="form-control" id="contacto" value="<?php echo $rolU['contacto']; ?>" disabled>
+              <div class="col-md-4 mb-3">
+            <label for="contacto">Contacto</label>
+            <input type="text" name="contacto" class="form-control" id="contacto" value="<?php echo $rolU['contacto']; ?>" readonly>
             <?php endif ?>
             <?php else : ?>
+              <div class="col-md-4 mb-3">
+            <label for="contacto">Contacto</label>
               <input type="text" name="contacto" class="form-control" id="contacto" value="<?php echo $rolU['contacto']; ?>" required>
               <?php endif ?>
             <div class="valid-tooltip">
@@ -185,7 +195,7 @@ include "../includes/footer.php";
                 <select type="file" name="img" class="custom-select" id="inputGroupSelect01" onchange="cambiarA(this)">
                 <?php if ($rolU['id']) : ?>
                 <?php if ($_SESSION['id_rol'] == 0 || $_SESSION['id_rol'] == 1) : ?>
-                  <option value="<?php echo $rolU['img']; ?>">Seleccionar Imagen</option>
+                  <option value="<?php echo $rolU['img']; ?>"><?php echo $rolU['n_img']; ?></option>
                   <option value="13">Alex</option>
                   <option value="0">Araña</option>
                   <option value="1">Araña Cueva</option>
@@ -205,7 +215,7 @@ include "../includes/footer.php";
 </div>
 <small id="imgHelp" class="form-text text-muted">Seleccionar Imágen para el Perfil.</small>
 </div>
-                  <?php else : ?>
+            <?php else : ?>
                     <option value="<?php echo $rolU['img']; ?>"><?php echo $rolU['n_img']; ?></option>
                     </select>
 
@@ -214,7 +224,7 @@ include "../includes/footer.php";
 </div>
             <?php endif ?>
             <?php else : ?>
-              <option value="<?php echo $rolU['img']; ?>">Seleccionar Imagen</option>
+              <option value="<?php echo $rolU['img']; ?>">Seleccionar Imagen...</option>
                   <option value="13">Alex</option>
                   <option value="0">Araña</option>
                   <option value="1">Araña Cueva</option>

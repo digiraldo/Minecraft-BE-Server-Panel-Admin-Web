@@ -116,7 +116,7 @@ include "../includes/footer.php";
               </div>
               <form method="get">
                 <select type="file" name="img" class="custom-select" id="inputGroupSelect01" onchange="cambiarA(this)">
-                  <option value="<?php echo $rolU['img']; ?>">Seleccionar Imagen</option>
+                  <option value="<?php echo $rolU['img']; ?>"><?php echo $rolU['n_img']; ?></option>
                   <option value="13">Alex</option>
                   <option value="0">Araña</option>
                   <option value="1">Araña Cueva</option>

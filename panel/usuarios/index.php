@@ -73,13 +73,12 @@ $title = "Minecraft SRV | Simple Invoice";
             <tr>
 
               <td>
-                <a href="# " data-toggle="tooltip" data-placement="left" title="<i class='fas fa-user-tag'></i>  <?php echo $usuario['name']; ?>">
-                  <?php if ($usuario['xuid']) : ?>
-                    <?php echo $usuario['xuid'] ?>
+              <a href="# " data-toggle="tooltip" data-placement="left" title="<i class='fab fa-xbox'></i>  <?php echo $usuario['name']; ?>"
+                  <?php if ($usuario['xuid']) : ?>                   
+                   type="button" class="btn btn-success"><?php echo $usuario['xuid'] ?></a> 
                   <?php else : ?>
-                    No Ingreso al Mundo
+                   type="button" class="btn btn-danger">No Ingreso al Mundo</a>     
                   <?php endif ?>
-
               </td>
 
               <td>
@@ -130,13 +129,12 @@ $title = "Minecraft SRV | Simple Invoice";
             <tr>
 
               <td>
-                <a href="# " data-toggle="tooltip" data-placement="left" title="<i class='fas fa-user-tag'></i>  <?php echo $usuario['name']; ?>">
-                  <?php if ($usuario['xuid']) : ?>
-                    <?php echo $usuario['xuid'] ?>
+                <a href="# " data-toggle="tooltip" data-placement="left" title="<i class='fab fa-xbox'></i>  <?php echo $usuario['name']; ?>"
+                  <?php if ($usuario['xuid']) : ?>                   
+                   type="button" class="btn btn-success"><?php echo $usuario['xuid'] ?></a> 
                   <?php else : ?>
-                    No Ingreso al Mundo
+                   type="button" class="btn btn-danger">No Ingreso al Mundo</a>     
                   <?php endif ?>
-
               </td>
 
               <td>
@@ -181,7 +179,11 @@ $title = "Minecraft SRV | Simple Invoice";
           <?php foreach ($usuarios as $usuario) : ?>
             <tr>
               <td>
-                <i class="fab fa-xbox"></i>
+              <?php if ($usuario['xuid']) : ?>                   
+                <a href="#" type="button" class="btn btn-success" data-toggle="tooltip" data-placement="right" title="Jugador Activo"><i class="fab fa-xbox"></i></a>   
+                  <?php else : ?>
+                <a href="#" type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="right" title="No ha ingresado al Mundo"><i class="fab fa-xbox"></i></a>      
+                  <?php endif ?>                     
               </td>
               <td>
                 <a href="# " data-toggle="tooltip" data-placement="right" title="<i class='fab fa-microsoft'></i> Usuario Microsoft">
