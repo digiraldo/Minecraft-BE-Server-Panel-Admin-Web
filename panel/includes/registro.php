@@ -37,8 +37,8 @@ function obtenerRegisPorId($id) {
 function crearRegis($rdat) {
     $rdat['clave'] = md5($_POST['clave']);
     $rdat['ciudad'] = false;
-    $rdat['id_rol'] = 3;
-    $rdat['rol'] = 'Usuario';
+    $rdat['id_rol'] = 4;
+    $rdat['rol'] = 'Registrado';
     $rdat['fecha'] = date("d/m/Y");
     $regist = obtenerRegis();
     $regist[] = $rdat;

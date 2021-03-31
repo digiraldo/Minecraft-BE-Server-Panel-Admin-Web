@@ -97,6 +97,8 @@ file_put_contents(__DIR__ . '/config/usradmin.json', json_encode($registros, JSO
 
 function validateRegistro($registro, &$errors) {
 $isValid = true;
+$jsonSu = file_get_contents(__DIR__ . '/config/usradmin.json');
+$datSu = json_decode($jsonSu, true);
 // Start of validation
 if (!$registro['nombre']) {
 $isValid = false;
@@ -104,9 +106,12 @@ $errors['nombre'] = 'El nombre es obligatorio';
 }else {
 $errors['nombre'] = 'Nombre:'.' '.$_POST['nombre'];
 }
-if (!$registro['usuario'] || strlen($registro['usuario']) < 4 || strlen($registro['usuario']) > 10) {
+if (obtenerUsusPorName($_POST['usuario'], array_column($datSu, 'usuario'))) {
 $isValid = false;
-$errors['usuario'] = 'Obligatorio, debe tener más de 4 y menos de 10 caracteres';
+$errors['usuario'] = 'Usuario Ya existe!';
+}elseif (!$registro['usuario'] || strlen($registro['usuario']) < 4 || strlen($registro['usuario']) > 10){
+$isValid = false;
+$errors['usuario'] = 'Tener más de 4 y menos de 10 caracteres';
 }else {
 $errors['usuario'] = 'Usuario:'.' '.$_POST['usuario'];
 }
@@ -128,7 +133,10 @@ $errors['pais'] = 'Pais Obligatorio';
 }else {
 $errors['pais'] = 'País:'.' '.$_POST['pais'];
 }
-if (!$registro['gamertag']) {
+if (obtenerUsusPorGamer($_POST['gamertag'], array_column($datSu, 'gamertag'))) {
+$isValid = false;
+$errors['gamertag'] = 'Gamertag Ya Existe!';
+}elseif (!$registro['gamertag']){
 $isValid = false;
 $errors['gamertag'] = 'Gamertag o usuario de Minecraft obligatorio';
 }else {
@@ -256,6 +264,45 @@ break;
 
 }
 
+function obtenerUsus()
+{
+    return json_decode(file_get_contents(__DIR__ . '/config/usradmin.json'), true);
+}
+
+
+function obtenerUsusPorName($nam)
+{
+    $usuarios = obtenerUsus();
+    foreach ($usuarios as $usuarioN) {
+        if ($usuarioN['usuario'] == $nam) {
+            return $usuarioN;
+        }
+    }
+    return null;
+}
+function obtenerUsusPorGamer($gam)
+{
+    $usuarios = obtenerUsus();
+    foreach ($usuarios as $usuarioN) {
+        if ($usuarioN['gamertag'] == $gam) {
+            return $usuarioN;
+        }
+    }
+    return null;
+}
+
+$jsonSus = file_get_contents(__DIR__ . '/config/usradmin.json');
+$datSus = json_decode($jsonSus, true);
+
+/* 
+if (obtenerUsusPorGamer('disaned', array_column($datSus, 'gamertag'))) {
+    //echo 'Usuario:'.' '.$_POST['usuario'].' '.'Ya existe!';
+    echo 'GamerTag Ya Existe!';
+} else {
+    //echo 'Usuario:'.' '.$_POST['usuario'].' '.'No existe!';
+    echo 'GamerTag No Existe!';
+}
+*/
 ?>
 
 <!doctype html>
@@ -290,6 +337,48 @@ break;
 <form action="" method="post" enctype="multipart/form-data">
 <!-- Form Modal -->
 <div class="row g-3 needs-validation" novalidate>
+
+<div class="col-sm-7 text-info position-relative">
+<label for="usuario" class="form-label">Usuario:</label>
+<input type="text" class="form-control <?php 
+if (!empty($_POST['usuario'])) {
+if (strlen($_POST['usuario']) < 4 || strlen($_POST['usuario']) > 10 || obtenerUsusPorName($_POST['usuario'], array_column($datSus, 'usuario'))) {
+echo 'is-invalid';
+} else {
+echo $errors['usuario'] ? 'is-valid' : '';
+} }?>" name="usuario" value="<?php if (!empty($_POST['usuario'])) {
+echo $_POST['usuario'];
+} ?>" placeholder="" id="usuario" requiere>
+<small id="usuarioHelp" class="form-text text-muted">Usuario de Inicio de Sesión</small>
+<div class="<?php
+if (empty($_POST['usuario']) || strlen($_POST['usuario']) < 4 || strlen($_POST['usuario']) > 10 || obtenerUsusPorName($_POST['usuario'], array_column($datSus, 'usuario'))) {
+echo 'invalid-tooltip';
+} else {
+echo 'valid-tooltip';
+} ?>">
+<?php echo $errors['usuario']; ?>
+</div>
+</div>
+
+<div class="col-sm-5 text-info position-relative">
+<label for="clave" class="form-label">Contraseña:</label>
+<input type="password" class="form-control <?php if (!empty($_POST['clave'])) {
+echo 'is-valid';
+} else {
+echo $errors['clave'] ? 'is-invalid' : '';
+} ?>" name="clave" value="<?php if (!empty($_POST)) {
+echo $_POST['clave'];
+} ?>" placeholder="" id="clave" requiere>
+<small id="claveHelp" class="form-text text-muted">Contraseña Inicio de Sesión</small>
+<div class="<?php if (!empty($_POST['clave'])) {
+echo 'valid-tooltip';
+} else {
+echo 'invalid-tooltip';
+} ?>">
+<?php echo $errors['clave']; ?>
+</div>
+</div>
+
 <div class="col-sm-6 text-info position-relative">
 <label for="nombre" class="form-label">Nombre:</label>
 <input type="text" class="form-control <?php if (!empty($_POST['nombre'])) {
@@ -327,44 +416,6 @@ echo 'invalid-tooltip';
 </div>
 </div>
 
-<div class="col-sm-7 text-info position-relative">
-<label for="usuario" class="form-label">Usuario:</label>
-<input type="text" class="form-control <?php if (!empty($_POST['usuario'])) {
-echo 'is-valid';
-} else {
-echo $errors['usuario'] ? 'is-invalid' : '';
-} ?>" name="usuario" value="<?php if (!empty($_POST['usuario'])) {
-echo $_POST['usuario'];
-} ?>" placeholder="" id="usuario" requiere>
-<small id="usuarioHelp" class="form-text text-muted">Usuario de Inicio de Sesión</small>
-<div class="<?php if (!empty($_POST['usuario'])) {
-echo 'valid-tooltip';
-} else {
-echo 'invalid-tooltip';
-} ?>">
-<?php echo $errors['usuario']; ?>
-</div>
-</div>
-
-<div class="col-sm-5 text-info position-relative">
-<label for="clave" class="form-label">Contraseña:</label>
-<input type="password" class="form-control <?php if (!empty($_POST['clave'])) {
-echo 'is-valid';
-} else {
-echo $errors['clave'] ? 'is-invalid' : '';
-} ?>" name="clave" value="<?php if (!empty($_POST)) {
-echo $_POST['clave'];
-} ?>" placeholder="" id="clave" requiere>
-<small id="claveHelp" class="form-text text-muted">Contraseña Inicio de Sesión</small>
-<div class="<?php if (!empty($_POST['clave'])) {
-echo 'valid-tooltip';
-} else {
-echo 'invalid-tooltip';
-} ?>">
-<?php echo $errors['clave']; ?>
-</div>
-</div>
-
 <div class="col-sm-5 text-info position-relative">
 <label for="pais" class="form-label">Pais:</label>
 <input type="text" name="pais" value="<?php if (!empty($_POST)) {
@@ -386,18 +437,21 @@ echo 'invalid-tooltip';
 
 <div class="col-sm-7 text-info position-relative">
 <label for="gamertag" class="form-label">Gamertag:</label>
-<input type="text" name="gamertag" class="form-control <?php if (!empty($_POST['gamertag'])) {
-echo 'is-valid';
+<input type="text" class="form-control <?php 
+if (!empty($_POST['gamertag'])) {
+if (obtenerUsusPorGamer($_POST['gamertag'], array_column($datSus, 'gamertag'))) {
+echo 'is-invalid';
 } else {
-echo $errors['gamertag'] ? 'is-invalid' : '';
-} ?>" id="gamertag" value="<?php if (!empty($_POST)) {
+echo $errors['gamertag'] ? 'is-valid' : '';
+} }?>" name="gamertag" value="<?php if (!empty($_POST['gamertag'])) {
 echo $_POST['gamertag'];
-} ?>" requiere>
+} ?>" placeholder="" id="gamertag" requiere>
 <small id="gamertagHelp" class="form-text text-muted">Usuario Minecraft o Cuenta de Microsoft.</small>
-<div class="<?php if (!empty($_POST['gamertag'])) {
-echo 'valid-tooltip';
-} else {
+<div class="<?php
+if (empty($_POST['gamertag']) || obtenerUsusPorGamer($_POST['gamertag'], array_column($datSus, 'gamertag'))) {
 echo 'invalid-tooltip';
+} else {
+echo 'valid-tooltip';
 } ?>">
 <?php echo $errors['gamertag']; ?>
 </div>
@@ -418,7 +472,7 @@ echo 'invalid-tooltip';
 </div>
 <form method="get">
 <select type="file" name="img" class="custom-select" id="inputImg" onchange="cambiarA(this)">
-<option value="">Seleccionar Imagen ...</option>
+<option value="10">Seleccionar Imagen ...</option>
 <option value="13">Alex</option>
 <option value="0">Araña</option>
 <option value="1">Araña Cueva</option>
