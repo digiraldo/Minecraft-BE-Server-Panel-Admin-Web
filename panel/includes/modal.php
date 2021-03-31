@@ -52,6 +52,12 @@
     </script>
 <?php } ?>
 
+<?php if ($mostrarModal) { ?>
+    <script>
+        $('#modalReglas').modal('show');
+    </script>
+<?php } ?>
+
 
 
 

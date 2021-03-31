@@ -261,6 +261,7 @@ break;
 <!doctype html>
 <html lang="es">
 <head>
+<link rel="icon" href="panel/favicon.ico" type="image/x-icon" />
 <!-- Required meta tags -->
 <meta charset="utf-8">
 

@@ -18,9 +18,10 @@ $title = "Minecraft SRV | Simple Invoice";
 ?>
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
 
 <head>
+
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -79,7 +80,7 @@ $title = "Minecraft SRV | Simple Invoice";
               <th width="3%" scope="col">#</th>
               <!--<th width="7%" scope="col">#</th>-->
               <th scope="col">Nombre Archivo</th>
-              <th width="10%" scope="col">Acciones</th>
+              <th width="26%" scope="col">Acciones</th>
               <!--<th width="10%" scope="col">Acciones</th>-->
             </tr>
           </thead>

@@ -4,6 +4,27 @@ if ($_SESSION['id_rol'] != 0 && $_SESSION['id_rol'] != 1 && $_SESSION['id_rol'] 
   header("location: ../../");
 }
 
+function obtenerUsu()
+{
+    return json_decode(file_get_contents(__DIR__ . '../../../servername/whitelist.json'), true);
+}
+
+
+function obtenerUsuPorName($nam)
+{
+    $usuarios = obtenerUsu();
+    foreach ($usuarios as $usuarioN) {
+        if ($usuarioN['name'] == $nam) {
+            return $usuarioN;
+        }
+    }
+    return null;
+}
+
+$url = "../../servername/whitelist.json";
+$dataU = json_decode(file_get_contents($url), true);
+asort($dataU);
+
 $active_tablero = "";
 $active_whitelist = "";
 $active_permisos = "";
@@ -17,12 +38,27 @@ $title = "Minecraft SRV | Simple Invoice";
 require 'roles.php';
 $roles = obtenerRol();
 
+/*
+//valor existe en dos json
+foreach ($roles as $key) {
+if ($key["id_rol"] == 0) {
+  
+}elseif (obtenerUsuPorName($key['gamertag'], array_column($dataU, 'name'))) {
+//}elseif (in_array($key['gamertag'], $dataU, true)) {
+    echo $key['gamertag']. ": SI". "<br>";
+}else {
+  echo $key['gamertag']. ": NO". "<br>";
+}
+}
+print_r($dataU);
+*/
 ?>
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
 
 <head>
+
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -65,18 +101,43 @@ $roles = obtenerRol();
       </thead>
       <tbody>
         <?php foreach ($roles as $rol) : ?>
+          <?php //foreach ($dataU as $key) : ?>
           <tr>
             <td>
               <a scope="row" href="#" data-toggle="tooltip" data-placement="right" title="<img class='rounded-lg' width='150px'  src='../includes/img/perfil/<?php echo $rol['img']; ?>' />">
                 <img class="rounded-circle" width="35px" height="35px" src="../includes/img/perfil/<?php echo $rol['img']; ?>" /></a>
             </td>
             <td>
+
+                <?php if ($rol["id_rol"] == 0) : ?>
               <a href="# " data-toggle="tooltip" data-placement="right" title="
               <i class='fas fa-atlas'></i> Pais: <?php echo $rol['pais']; ?><br/>
               <i class='fas fa-city'></i> Ciudad: <?php echo $rol['ciudad']; ?><br/>
               <i class='fas fa-user-tag'></i> <?php echo $rol['nombre']; ?><br/>
               ">
-                <?php echo $rol['usuario']; ?></a>
+              <?php echo $rol['usuario']; ?> 
+
+
+                <?php elseif (obtenerUsuPorName($rol['gamertag'], array_column($dataU, 'name'))) : ?>
+                  <a href="# " data-toggle="tooltip" data-placement="right" title="
+              <i class='fas fa-atlas'></i> Pais: <?php echo $rol['pais']; ?><br/>
+              <i class='fas fa-city'></i> Ciudad: <?php echo $rol['ciudad']; ?><br/>
+              <i class='fas fa-user-tag'></i> <?php echo $rol['nombre']; ?><br/>
+              <i class='fas fa-check-circle'></i> Agregado a Whitelist<br/>
+              ">
+              <?php echo $rol['usuario']; ?>
+                  <i class="fas fa-check-circle fa-xs" style="color: #008000;"></i>
+                <?php else : ?>
+                  <a href="# " data-toggle="tooltip" data-placement="right" title="
+              <i class='fas fa-atlas'></i> Pais: <?php echo $rol['pais']; ?><br/>
+              <i class='fas fa-city'></i> Ciudad: <?php echo $rol['ciudad']; ?><br/>
+              <i class='fas fa-user-tag'></i> <?php echo $rol['nombre']; ?><br/>
+              <i class='fas fa-times-circle'></i> No agregado a Whitelist<br/>
+              ">
+              <?php echo $rol['usuario']; ?>
+                  <i class="fas fa-times-circle fa-xs" style="color: #FF0000;"></i>
+                <?php endif ?>
+              </a>
             </td>
             <td>
               <a href="# " data-toggle="tooltip" data-placement="right" title="
@@ -99,6 +160,7 @@ $roles = obtenerRol();
               </form>
             </td>
           </tr>
+        <?php //endforeach;; ?>
         <?php endforeach;; ?>
       </tbody>
     </table>

@@ -20,7 +20,7 @@
         "clave": "45c48cce2e2d7fbdea1afc51c7c6ad26",
         "nombre": "DIDIER ANDRES G.",
         "gamertag": "disaned",
-        "rol": "Editor",
+        "rol": "Administrador",
         "contacto": "disaned@gmail.com",
         "pais": "Colombia",
         "ciudad": "Tuluá",
@@ -28,7 +28,7 @@
         "numero": 2,
         "id": 1662028,
         "fecha": "27\/03\/2021",
-        "id_rol": 2,
+        "id_rol": 1,
         "n_img": "Oveja"
     },
     {
@@ -42,9 +42,25 @@
         "id": 1187531,
         "numero": 3,
         "ciudad": "Tuluá",
-        "id_rol": 3,
-        "rol": "Usuario",
+        "id_rol": 4,
+        "rol": "Registrado",
         "fecha": "27\/03\/2021",
         "n_img": "Enderman"
+    },
+    {
+        "usuario": "Sandra",
+        "clave": "45c48cce2e2d7fbdea1afc51c7c6ad26",
+        "nombre": "SANDRA MOSQUERA",
+        "gamertag": "masdesandra",
+        "rol": "Editor",
+        "contacto": "masdesandra@hotmail.com",
+        "pais": "Colombia",
+        "ciudad": "La Cumbre",
+        "img": "vaca.png",
+        "numero": 4,
+        "id": 1615751,
+        "fecha": "30\/03\/2021",
+        "id_rol": 2,
+        "n_img": "Vaca"
     }
 ]

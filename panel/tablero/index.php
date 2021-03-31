@@ -17,15 +17,16 @@ $active_logs = "";
 $title = "Minecraft SRV | Simple Invoice";
 
 require 'shell.php';
-
+$mostrarModal='';
 // echo "<pre>$controlsrv</pre>";
 
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -44,6 +45,39 @@ require 'shell.php';
       <li class="breadcrumb-item active" aria-current="page"><?php echo fechaC(); ?> </li>
     </ol>
   </nav>
+
+<!-- Modal -->
+<div class="modal fade" id="modalReglas" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="modalReglasLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalReglasLabel"><i class="fas fa-tasks"></i> Reglas del Juego</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+<i class="fas fa-check"></i> No invadir propiedad privada. <br>
+<i class="fas fa-check"></i> No ser tóxicos. <br>
+<i class="fas fa-check"></i> No pedir comandos, trucos y demás. <br>
+<i class="fas fa-check"></i> Cero conflictos o riñas. <br>
+<i class="fas fa-check"></i> No destruir el ambiente. <br>
+<i class="fas fa-check"></i> Pueden marcar o etiquetar sus propiedades o construcciones. <br>
+<i class="fas fa-check"></i> La Casa o Cabaña que esta delante del Spawn es de todos, así que pueden guardar objetos en los baúles para los otros o nuevos jugadores. <br>
+<i class="fas fa-check"></i> La versión del Servidor es Minecraft Bedrock Edición, se actualiza solo desde la pagina original de Minecraft cuando encuentra nuevos archivos o actualizaciones. <br>
+
+<i class="fas fa-check"></i> El Servidor es privado y lo estoy pagando con un amigo, así que mantiene encendido las 24 horas para que ingresen dependiendo de su tiempo, son 10 jugadores simultáneos para no saturarlo ya que la maquina que alquilamos es pequeña. <br>
+
+<i class="fas fa-check"></i> Los que estén interesados envíen sus Gamertag por Telegram o Discord para darles el permiso, si no ingresan al instante deben esperar a que hayan el mínimo de jugadores ya que al agregar un jugador toca reiniciar el servidor. <br>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
   <div class="container">
     <form action="" method="post" enctype="multipart/form-data">
@@ -72,6 +106,12 @@ require 'shell.php';
           echo "</pre>";
           ?>
 
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modalReglas">
+<i class="fas fa-tasks"></i> Ver Reglas
+</button>
+
         </div>
 
         <?php elseif ($_SESSION['id_rol'] == 2) : ?>
@@ -91,6 +131,12 @@ require 'shell.php';
           echo $txtReiniciar;
           echo "</pre>";
           ?>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modalReglas">
+<i class="fas fa-tasks"></i> Ver Reglas
+</button>
+
 
         </div>
 
@@ -112,7 +158,13 @@ require 'shell.php';
           <?php endif ?>
         </div>
         <div class="card-footer text-muted">
-        Solicitud Ingreso al Servidor: servername
+        Solicitud Ingreso al Servidor: servername <br>
+        
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modalReglas">
+<i class="fas fa-tasks"></i> Ver Reglas
+</button>
+
         </div>
         </div>
           <?php endif ?>
@@ -151,6 +203,37 @@ require 'shell.php';
           </div>
           <a href="#" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="<?php echo count($rolesJ); ?> Inscritos">Registrados <span class="badge badge-light"><?php echo count($rolesJ); ?></span></a>
         </div>
+
+<?php $mostrarToast=true; ?>
+
+<div id="toast3" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="50000" style="position: absolute; top: 0; right: 0;">
+  <div class="toast-header">
+    <svg class="bd-placeholder-img rounded mr-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
+      <rect width="100%" height="100%" fill="#ff0000"></rect>
+    </svg>
+    <strong class="mr-auto">Alerta</strong>
+    <small>Reglas del Juego</small>
+    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="toast-body">
+<strong>¡Te damos la Bienvenida!</strong> <br>
+<strong>REGLAS EN EL JUEGO</strong> <br>
+<i class="fas fa-check"></i> No invadir propiedad privada. <br>
+<i class="fas fa-check"></i> No ser tóxicos. <br>
+<i class="fas fa-check"></i> No pedir comandos, trucos y demás. <br>
+<i class="fas fa-check"></i> Cero conflictos o riñas. <br>
+<i class="fas fa-check"></i> No destruir el ambiente. <br>
+<i class="fas fa-check"></i> Pueden marcar o etiquetar sus propiedades o construcciones. <br>
+<i class="fas fa-check"></i> La Casa o Cabaña que esta delante del Spawn es de todos, así que pueden guardar objetos en los baúles para los otros o nuevos jugadores. <br>
+<i class="fas fa-check"></i> La versión del Servidor es Minecraft Bedrock Edición, se actualiza solo desde la pagina original de Minecraft cuando encuentra nuevos archivos o actualizaciones. <br>
+
+<i class="fas fa-check"></i> El Servidor es privado y lo estoy pagando con un amigo, así que mantiene encendido las 24 horas para que ingresen dependiendo de su tiempo, son 10 jugadores simultáneos para no saturarlo ya que la maquina que alquilamos es pequeña. <br>
+
+<i class="fas fa-check"></i> Los que estén interesados envíen sus Gamertag por Telegram o Discord para darles el permiso, si no ingresan al instante deben esperar a que hayan el mínimo de jugadores ya que al agregar un jugador toca reiniciar el servidor. <br>
+  </div>
+</div>
 
           <?php elseif ($_SESSION['id_rol'] == 3) : ?>
         <div class="bg-danger col-sm-6 card text-white">
@@ -286,7 +369,23 @@ require 'shell.php';
       </div>
 
       <?php include '../includes/footer.php' ?>
-      <!-- php include '../includes/modal.php'?> -->
+      <?php //include '../includes/modal.php'?>
+
+
+<?php if ($mostrarModal) { ?>
+    <script>
+        $('#modalReglas').modal('show');
+    </script>
+<?php } ?>
+
+
+<?php if ($mostrarToast) { ?>
+  <script>
+    $(document).ready(function() {
+      $('.toast').toast('show');
+    });
+  </script>
+<?php } ?>
 
 </body>
 

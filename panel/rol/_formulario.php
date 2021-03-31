@@ -195,7 +195,7 @@ include "../includes/footer.php";
                 <select type="file" name="img" class="custom-select" id="inputGroupSelect01" onchange="cambiarA(this)">
                 <?php if ($rolU['id']) : ?>
                 <?php if ($_SESSION['id_rol'] == 0 || $_SESSION['id_rol'] == 1) : ?>
-                  <option value="<?php echo $rolU['img']; ?>"><?php echo $rolU['n_img']; ?></option>
+                  <option value="<?php echo $rolU['img']; ?>">Actual: <?php echo $rolU['n_img']; ?></option>
                   <option value="13">Alex</option>
                   <option value="0">Araña</option>
                   <option value="1">Araña Cueva</option>
