@@ -28,6 +28,7 @@ include "../includes/footer.php";
             </div>
           </div>
           <?php else : ?>
+          <!--
             <div class="col-md-6 mb-3">
             <label for="usuario">Usuario</label>
             <input type="text" name="usuario" class="form-control <?php echo $errors['usuario'] ? 'is-invalid' : '' ?>" id="usuario" value="<?php echo $rolU['usuario']; ?>" readonly>
@@ -35,6 +36,7 @@ include "../includes/footer.php";
               <?php echo $errors['usuario']; ?>
             </div>
           </div>
+            -->
             <?php endif ?>
             <?php else : ?>
               <div class="col-md-6 mb-3">
@@ -55,6 +57,7 @@ include "../includes/footer.php";
             </div>
           </div>
           <?php else : ?>
+            <!--
             <div class="col-md-6 mb-3">
             <label for="clave">Contraseña</label>
             <input type="password" name="clave" class="form-control <?php echo $errors['clave'] ? 'is-invalid' : '' ?>" id="clave" value="<?php echo $rolU['clave']; ?>" autocomplete="new-password" placeholder="*****" readonly>
@@ -62,6 +65,7 @@ include "../includes/footer.php";
                 <?php echo $errors['clave']; ?> 
             </div>
           </div>
+            -->
             <?php endif ?>
           <?php else : ?>
           <div class="col-md-6 mb-3">
@@ -195,7 +199,7 @@ include "../includes/footer.php";
                 <select type="file" name="img" class="custom-select" id="inputGroupSelect01" onchange="cambiarA(this)">
                 <?php if ($rolU['id']) : ?>
                 <?php if ($_SESSION['id_rol'] == 0 || $_SESSION['id_rol'] == 1) : ?>
-                  <option value="<?php echo $rolU['img']; ?>">Actual: <?php echo $rolU['n_img']; ?></option>
+                  <option value="<?php echo $rolU['id_img']; ?>">Actual: <?php echo $rolU['n_img']; ?></option>
                   <option value="13">Alex</option>
                   <option value="0">Araña</option>
                   <option value="1">Araña Cueva</option>
@@ -216,15 +220,15 @@ include "../includes/footer.php";
 <small id="imgHelp" class="form-text text-muted">Seleccionar Imágen para el Perfil.</small>
 </div>
             <?php else : ?>
-                    <option value="<?php echo $rolU['img']; ?>"><?php echo $rolU['n_img']; ?></option>
-                    </select>
+              <option value="<?php echo $rolU['id_img']; ?>"><?php echo $rolU['n_img']; ?></option>
+            </select>
 
 </div>
 <small id="imgHelp" class="form-text text-muted">Imágen de Perfil Seleccionado.</small>
 </div>
             <?php endif ?>
             <?php else : ?>
-              <option value="<?php echo $rolU['img']; ?>">Seleccionar Imagen...</option>
+              <option value="10">Seleccionar Imagen...</option>
                   <option value="13">Alex</option>
                   <option value="0">Araña</option>
                   <option value="1">Araña Cueva</option>
@@ -303,6 +307,7 @@ include "../includes/footer.php";
         _img[12].src = "../includes/img/perfil/zombie.png";
         _img[13] = new Image();
         _img[13].src = "../includes/img/perfil/alex.png";
+ 
 
         function cambiarA(_obj) {
             if (!_obj) return;

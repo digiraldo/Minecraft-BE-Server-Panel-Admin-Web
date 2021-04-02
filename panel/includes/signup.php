@@ -71,6 +71,7 @@ $registroN = [
     'fecha' => '',
     'img' => '',
     'n_img' => '',
+    'id_img' => '',
 ];
 
 
@@ -94,13 +95,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_POST['clave'] = md5($_POST['clave']);
         $_POST['pais'] = "No Aplica";
         $_POST['ciudad'] = "No Aplica";
-        $_POST['gamertag'] = "...";
-        $_POST['id_rol'] = 0;
+        $_POST['gamertag'] = "======";
+        $_POST['id_rol'] = 9999;
         $_POST['rol'] = "Propietario";
         $_POST['contacto'] = "GitHub: digiraldo";
         $_POST['fecha'] = date("d/m/Y");
         $_POST['img'] = "admin_minecraft.png";
         $_POST['n_img'] = "Admin";
+        $_POST['id_img'] = 00;
         $registroN = crearRegistro($_POST);
         unset($_POST);
         header("Location: ../../");

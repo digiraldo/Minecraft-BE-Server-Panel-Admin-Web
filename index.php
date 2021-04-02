@@ -56,6 +56,7 @@ $_SESSION['contact'] = $rdata[$key]['contacto'];
 $_SESSION['date'] = $rdata[$key]['fecha'];
 $_SESSION['img'] = $rdata[$key]['img'];
 $_SESSION['n_img'] = $rdata[$key]['n_img'];
+$_SESSION['id_img'] = $rdata[$key]['id_img'];
 
 header('location: panel/tablero/');
 } else {
@@ -168,6 +169,7 @@ $registro = [
 'fecha' => '',
 'img' => '',
 'n_img' => '',
+'id_img' => '',
 ];
 
 $errors = [
@@ -195,61 +197,71 @@ $_POST['id_rol'] = 4;
 $_POST['rol'] = 'Inscrito';
 $_POST['fecha'] = date("d/m/Y");
 
-if ($_POST['img'] == 0) {
-$_POST['img'] = 'arana.png';
-$_POST['n_img'] = "Araña";
-}
+
 if ($_POST['img'] == 1) {
-$_POST['img'] = "arana_cueva.png";
-$_POST['n_img'] = "Araña Cueva";
+    $_POST['img'] = "arana_cueva.png";
+    $_POST['n_img'] = "Araña Cueva";
+    $_POST['id_img'] = 1;
 }
 if ($_POST['img'] == 2) {
-$_POST['img'] = "cerdo.png";
-$_POST['n_img'] = "Cerdo";
+    $_POST['img'] = "cerdo.png";
+    $_POST['n_img'] = "Cerdo";
+    $_POST['id_img'] = 2;
 }
 if ($_POST['img'] == 3) {
-$_POST['img'] = "creeper.png";
-$_POST['n_img'] = "Creeper";
+    $_POST['img'] = "creeper.png";
+    $_POST['n_img'] = "Creeper";
+    $_POST['id_img'] = 3;
 }
 if ($_POST['img'] == 4) {
-$_POST['img'] = "enderman.png";
-$_POST['n_img'] = "Enderman";
+    $_POST['img'] = "enderman.png";
+    $_POST['n_img'] = "Enderman";
+    $_POST['id_img'] = 4;
 }
 if ($_POST['img'] == 5) {
-$_POST['img'] = "esqueleto.png";
-$_POST['n_img'] = "Esqueleto";
+    $_POST['img'] = "esqueleto.png";
+    $_POST['n_img'] = "Esqueleto";
+    $_POST['id_img'] = 5;
 }
 if ($_POST['img'] == 6) {
-$_POST['img'] = "granjero.png";
-$_POST['n_img'] = "Granjero";
+    $_POST['img'] = "granjero.png";
+    $_POST['n_img'] = "Granjero";
+    $_POST['id_img'] = 6;
 }
 if ($_POST['img'] == 7) {
-$_POST['img'] = "lobo.png";
-$_POST['n_img'] = "Lobo";
+    $_POST['img'] = "lobo.png";
+    $_POST['n_img'] = "Lobo";
+    $_POST['id_img'] = 7;
 }
 if ($_POST['img'] == 8) {
-$_POST['img'] = "oveja.png";
-$_POST['n_img'] = "Oveja";
+    $_POST['img'] = "oveja.png";
+    $_POST['n_img'] = "Oveja";
+    $_POST['id_img'] = 8;
 }
 if ($_POST['img'] == 9) {
-$_POST['img'] = "steve.png";
-$_POST['n_img'] = "Steve";
+    $_POST['img'] = "steve.png";
+    $_POST['n_img'] = "Steve";
+    $_POST['id_img'] = 9;
 }
 if ($_POST['img'] == 10) {
-$_POST['img'] = "usuario.png";
-$_POST['n_img'] = "Usuario";
+    $_POST['img'] = "usuario.png";
+    $_POST['n_img'] = "Usuario";
+    $_POST['id_img'] = 10;
 }
 if ($_POST['img'] == 11) {
-$_POST['img'] = "vaca.png";
-$_POST['n_img'] = "Vaca";
+    $_POST['img'] = "vaca.png";
+    $_POST['n_img'] = "Vaca";
+    $_POST['id_img'] = 11;
 }
 if ($_POST['img'] == 12) {
-$_POST['img'] = "zombie.png";
-$_POST['n_img'] = "Zombie";
+    $_POST['img'] = "zombie.png";
+    $_POST['n_img'] = "Zombie";
+    $_POST['id_img'] = 12;
 }
 if ($_POST['img'] == 13) {
-$_POST['img'] = "alex.png";
-$_POST['n_img'] = "Alex";
+    $_POST['img'] = "alex.png";
+    $_POST['n_img'] = "Alex";
+    $_POST['id_img'] = 13;
 }
 
 $registro = createRegistro($_POST);

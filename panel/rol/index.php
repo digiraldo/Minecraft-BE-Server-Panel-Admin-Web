@@ -148,7 +148,9 @@ print_r($dataU);
                 <?php echo $rol['rol']; ?></a>
             </td>
             <td>
-            <?php if ($rol["id_rol"] != 0 || $_SESSION['id_rol'] == 0){ ?>
+            
+            <?php if ($_SESSION['id_rol'] == 0 || $_SESSION['id_rol'] == 1) : ?>
+              <?php if ($rol["id_rol"] != 0 || $_SESSION['id_rol'] == 0){ ?>
               <a href="ver_rol.php?id=<?php echo $rol['id'] ?>" data-toggle="tooltip" data-placement="top" title="Ver" type="submit" class="btn btn-warning btn-sm"><i class="fas fa-eye"></i></a>
               <a href="editar.php?id=<?php echo $rol['id'] ?>" data-toggle="tooltip" data-placement="top" title="Editar" type="submit" class="btn btn-info btn-sm"><i class="fas fa-pencil-alt"></i></a>
               <form style="display: inline-block" method="POST" action="eliminar.php">
@@ -156,8 +158,17 @@ print_r($dataU);
                 <button data-toggle="tooltip" data-placement="top" title="Eliminar" onclick="return Confirmar('Realmente desea eliminar a este Jugador del Servidor servername? :(');" type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
                 <?php }elseif ($rol["id_rol"] != 0 || $_SESSION['id_rol'] == 1) { ?>
               <a href="ver_rol.php?id=<?php echo $rol['id'] ?>" data-toggle="tooltip" data-placement="top" title="Ver" type="submit" class="btn btn-warning btn-sm"><i class="fas fa-eye"></i></a>
-                <?php } ?>
+                  <?php  } ?>
               </form>
+            <?php else : ?>
+              <?php if ($rol["id_rol"] != 0 || $_SESSION['id_rol'] == 0){ ?>
+              <a href="ver_rol.php?id=<?php echo $rol['id'] ?>" data-toggle="tooltip" data-placement="top" title="Ver" type="submit" class="btn btn-warning btn-sm"><i class="fas fa-eye"></i></a>
+              <a href="editar.php?id=<?php echo $rol['id'] ?>" data-toggle="tooltip" data-placement="top" title="Editar" type="submit" class="btn btn-info btn-sm"><i class="fas fa-pencil-alt"></i></a>
+                <?php }elseif ($rol["id_rol"] != 0 || $_SESSION['id_rol'] == 1) { ?>
+              <a href="ver_rol.php?id=<?php echo $rol['id'] ?>" data-toggle="tooltip" data-placement="top" title="Ver" type="submit" class="btn btn-warning btn-sm"><i class="fas fa-eye"></i></a>
+                  <?php  } ?>
+            <?php endif ?>
+
             </td>
           </tr>
         <?php //endforeach;; ?>
