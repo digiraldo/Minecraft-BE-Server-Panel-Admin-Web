@@ -1,4 +1,7 @@
 <?php
+// 'sudo su -l "crontab -u" root
+// 'sudo su -l "crontab -u" www-data
+// 'sudo su -l "crontab -u" username
 $outputOn = shell_exec('sudo crontab -u www-data -l');
 $findOn = "0 0 1 1 * dirname/minecraftbe/servername/restart.sh";
 $replaceOn = "0 4 * * * dirname/minecraftbe/servername/restart.sh";

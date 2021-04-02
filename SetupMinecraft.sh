@@ -255,6 +255,8 @@ echo "========================================================================="
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/mundo/subido.php
   sudo sed -i "s:dirnameusr:$DirName:g" $DirName/minecraftbe/panel/mundo/select.php
   sudo sed -i "s:dirname:$DirName:g" /etc/nginx/sites-available/misitio.conf
+  sudo sed -i "s:username:$UserName:g" $DirName/minecraftbe/panel/respaldos/editar.php
+  sudo sed -i "s:username:$UserName:g" $DirName/minecraftbe/panel/respaldos/eliminar.php
 
 echo "========================================================================="
 echo "Configuranfo iniciao del servidor automáticamente"
@@ -479,6 +481,8 @@ sudo systemctl daemon-reload
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/mundo/subido.php
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/mundo/select.php
   sudo sed -i "s:dirname:$DirName:g" /etc/nginx/sites-available/misitio.conf
+  sudo sed -i "s:username:$UserName:g" $DirName/minecraftbe/panel/respaldos/editar.php
+  sudo sed -i "s:username:$UserName:g" $DirName/minecraftbe/panel/respaldos/eliminar.php
 
   # Reinicio automático a las 4 am
   TimeZone=$(cat /etc/timezone)
