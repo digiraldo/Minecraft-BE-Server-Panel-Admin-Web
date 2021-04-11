@@ -1,1 +1,19 @@
-[]
+[
+    {
+        "usuario": "Admin",
+        "clave": "751cb3f4aa17c36186f4856c8982bf27",
+        "numero": 1,
+        "id": 1326667,
+        "nombre": "servername",
+        "pais": "No Aplica",
+        "ciudad": "No Aplica",
+        "gamertag": "======",
+        "id_rol": 0,
+        "rol": "Propietario",
+        "contacto": "GitHub: digiraldo",
+        "fecha": "11\/04\/2021",
+        "img": "admin_minecraft.png",
+        "n_img": "Admin",
+        "id_img": 9999
+    }
+]

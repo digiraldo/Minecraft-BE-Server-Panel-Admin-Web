@@ -1,55 +1,45 @@
-
-<?php 
-require 'scripts2.php';
-require '../propiedades/editar.php'; 
+<?php
+//require 'scripts.php';
+require '../propiedades/editar.php';
 ?>
 
-<?php if ($data[20]['data'] == "true") { ?>
-  
+<style>
+  .bs-alertas {
+    margin: 30px;
+  }
+</style>
 <script>
-toastr.<?php echo $data[20]['type']; ?>( '<?php echo $data[20]['txt']; ?>', '<?php echo $data[20]['name']; ?>', {
-  "closeButton": true,
-  "debug": false,
-  "newestOnTop": false,
-  "progressBar": true,
-  "positionClass": "toast-bottom-right",
-  "preventDuplicates": false,
-  "onclick": null,
-  "showDuration": "500",
-  "hideDuration": "1000",
-  "timeOut": "20000",
-  "extendedTimeOut": "1000",
-  "showEasing": "swing",
-  "hideEasing": "linear",
-  "showMethod": "fadeIn",
-  "hideMethod": "fadeOut"
-}
-)
-</script> 
+  $(document).ready(function() {
+    $(".toast").toast();
+  });
+</script>
 
-  <?php } ?>
+<div class="bs-alertas">
+  <!-- Elemento de envoltura -->
+  <div style="position: absolute; min-height: 300px;">
+    <!-- Pocición toasts -->
+    <div style="position: absolute; top: 0; right: 1; min-width: 300px;">
+      <?php if ($data[20]['data'] == "true") { ?>
+        <div class="toast text-white bg-<?php echo $data[20]['type']; ?>" role="alert" aria-live="assertive" aria-atomic="true" data-delay="10000">
+          <div class="toast-header text-dark bg-outline-<?php echo $data[20]['type']; ?>">
+            <strong class="mr-auto"><?php echo $data[20]['logo']; ?> Alerta!</strong>
+            <small class="text-muted"><?php echo $data[20]['name']; ?></small>
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">&times;</button>
+          </div>
+          <div class="toast-body"><b><?php echo $data[20]['txt']; ?></b></div>
+        </div>
+      <?php } ?>
 
-  <?php if ($data[21]['data'] == "true") { ?>
-
-<script>
-toastr.<?php echo $data[21]['type']; ?>( '<?php echo $data[21]['txt']; ?>', '<?php echo $data[21]['name']; ?>', {
-  "closeButton": true,
-  "debug": false,
-  "newestOnTop": false,
-  "progressBar": true,
-  "positionClass": "toast-bottom-right",
-  "preventDuplicates": false,
-  "onclick": null,
-  "showDuration": "500",
-  "hideDuration": "1000",
-  "timeOut": "21000",
-  "extendedTimeOut": "1000",
-  "showEasing": "swing",
-  "hideEasing": "linear",
-  "showMethod": "fadeIn",
-  "hideMethod": "fadeOut"
-}
-)
-</script> 
-
-  <?php } ?>
+      <?php if ($data[21]['data'] == "true") { ?>
+        <div class="toast text-white bg-<?php echo $data[21]['type']; ?>" role="alert" aria-live="assertive" aria-atomic="true" data-delay="11000">
+          <div class="toast-header text-dark bg-outline-<?php echo $data[21]['type']; ?>">
+            <strong class="mr-auto"><?php echo $data[21]['logo']; ?> Alerta!</strong>
+            <small class="text-muted"><?php echo $data[21]['name']; ?></small>
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">&times;</button>
+          </div>
+          <div class="toast-body"><b><?php echo $data[21]['txt']; ?></b></div>
+        </div>
+      <?php } ?>
+    </div>
+  </div>
+</div>

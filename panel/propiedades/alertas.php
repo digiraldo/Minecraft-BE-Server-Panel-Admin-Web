@@ -75,7 +75,7 @@ Editar: <b>Alertas</b>
                     <textarea type="text" class="form-control" id="txt" name="txt" value="<?php echo $data[20]['txt']; ?>"></textarea>
                 </div>
                 <small id="alertaHelpBlock" class="form-text text-muted">
-                <?php echo $data[20]['logo']; ?>  <b><?php echo $data[20]['name']; ?>:</b>  <?php echo $data[21]['txt']; ?>
+                <?php echo $data[20]['logo']; ?>  <b><?php echo $data[20]['name']; ?>:</b>  <?php echo $data[20]['txt']; ?>
                 </small>
             </div>
 

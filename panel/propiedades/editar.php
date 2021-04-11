@@ -989,7 +989,7 @@ case 'btnType':
 
                 if ($txtType0 == 1) {
                     $data[21]['type'] = 'success';
-                    $data[21]['logo'] = '<i class="fas fa-check" style="color: #009B00;"></i>';
+                    $data[21]['logo'] = '<i class="fas fa-check" style="color: #01DF01;"></i>';
                 }
                 if ($txtType0 == 2) {
                     $data[21]['type'] = 'info';
@@ -1040,7 +1040,7 @@ case 'btnType':
         
                     if ($txtType0 == 1) {
                         $data[21]['type'] = 'success';
-                        $data[21]['logo'] = '<i class="fas fa-check" style="color: #009B00;"></i>';
+                        $data[21]['logo'] = '<i class="fas fa-check" style="color: #01DF01;"></i>';
                     }
                     if ($txtType0 == 2) {
                         $data[21]['type'] = 'info';

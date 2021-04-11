@@ -553,8 +553,8 @@ Inserar tíulo y esablecer las normas del juego o mundo en Editar.
 </form>
       </div>
 
-      <?php include '../includes/toast.php' ?>
       <?php include '../includes/footer.php' ?>
+      <?php include '../includes/toast.php' ?>
       <?php //include '../includes/modal.php'?>
 
 
@@ -572,6 +572,8 @@ Inserar tíulo y esablecer las normas del juego o mundo en Editar.
     });
   </script>
 <?php } ?>
+
+
 
 </body>
 

@@ -174,24 +174,24 @@
     },
     {
         "id": 21,
-        "name": "",
-        "spain": "Desactivado",
-        "btn": "",
-        "logo": "<i class=\"fas fa-edit\" style=\"color: #8B0483;\"><\/i>",
-        "icon": "<i class=\"fas fa-times fa-xs\" style=\"color: #FA0D02;\"><\/i>",
-        "data": "",
-        "txt": "",
-        "type": ""
+        "name": "Alerta!",
+        "spain": "Activado",
+        "btn": "checked",
+        "logo": "<i class=\"fas fa-check\" style=\"color: #009B00;\"><\/i>",
+        "icon": "<i class=\"fas fa-check-circle fa-xs\" style=\"color: #2EFA2B;\"><\/i>",
+        "data": "true",
+        "txt": "Gracias por inscribirte contáctanos a Telegram: @dparceros",
+        "type": "success"
     },
     {
         "id": 22,
-        "name": "",
-        "spain": "Desactivado",
-        "btn": "",
-        "logo": "<i class=\"fas fa-edit\" style=\"color: #8B0483;\"><\/i>",
-        "icon": "<i class=\"fas fa-times fa-xs\" style=\"color: #FA0D02;\"><\/i>",
-        "data": "",
-        "txt": "",
-        "type": ""
+        "name": "Actualización",
+        "spain": "Activado",
+        "btn": "checked",
+        "logo": "<i class=\"fas fa-info\" style=\"color: #2E86C1;\"><\/i>",
+        "icon": "<i class=\"fas fa-check-circle fa-xs\" style=\"color: #2EFA2B;\"><\/i>",
+        "data": "true",
+        "txt": "El sistema fue actualizado V 1.220.02",
+        "type": "info"
     }
 ]
