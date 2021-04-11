@@ -506,11 +506,28 @@ echo 'valid-tooltip';
 <small id="imgHelp" class="form-text text-muted">Seleccionar Imágen para el Perfil.</small>
 </div>
 <div class="modal-footer">
-<button type="button" class="col-3 btn btn-secondary" data-bs-dismiss="modal"><i class="fas fa-times"></i> Cerrar</button>
+<a href="index.php" type="button" class="col-3 btn btn-secondary"><i class="fas fa-times"></i> Cerrar</a>
 <button value="btnAgregar" <?php echo $accionAgregar; ?> class="col-4 btn btn-success" type="submit" name="id"><i class="fas fa-plus"></i> Registrarse</button>
 </div>
+
 </div>
 </form><!-- Fin Form Modal -->
+
+<?php $mostrarToastReg=true; ?>
+
+<div id="toast" class="toast bg-secondary" role="alert" aria-live="assertive" aria-atomic="true" style="position: absolute; top: 0; right: 0;" data-bs-delay="30000">
+  <div class="toast-header">
+    <strong class="me-auto"><i class="fas fa-times-circle fa-lg fa-spin" style="color: #FF0000;"></i> Alerta</strong>
+    <small class="text-muted">Datos de Registro </small>
+    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+  </div>
+  <div class="toast-body">
+  <strong>¡Datos a diligenciar!</strong> <br>
+<i class="fas fa-check"></i> El Usuario y Contraseña es únicamente para esta página, por favor no utilizar ninguna cuenta y/o contraseña de Microsoft u otro servicio. <br>
+<i class="fas fa-check"></i> El Gamertag debe ser diligenciado para agregarlo al Whitelist y el servidor Minecraft acepte su ingreso. <br>
+  </div>
+</div><!-- Fin Toast -->
+
 </div>
 </div>
 </div>
@@ -533,6 +550,7 @@ echo 'valid-tooltip';
 </form>
 </div>
 </section>
+
 
 <!--content end-->
 <!-- JavaScript -->
@@ -606,7 +624,19 @@ document.onreadystatechange = function() {
 myModal.show();
 };
 </script>
+
+
 <?php } ?>
+
+<?php if ($mostrarToastReg) { ?>
+<script>
+$(document).ready(function() {
+      $('.toast').toast('show');
+});
+</script>
+<?php } ?>
+
+
 </body>
 </body>
 </html>

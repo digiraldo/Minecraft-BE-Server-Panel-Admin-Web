@@ -57,7 +57,6 @@ require 'editar.php';
   </nav>
 
 
-
   <div class="card-body">
 
     <div class="card-deck">
@@ -69,7 +68,10 @@ require 'editar.php';
           <p class="card-text text-success">Aqui puede editar las configuraciones del servidor, recuerde reiniciar el servidor para que surta efecto.</p>
         </div>
         <div class="card-footer text-muted">
-          <a href="ver_propiedades.php" type="submit" class="btn btn-outline-dark btn-sm" data-toggle="tooltip" data-placement="top" title="<i class='fas fa-database'></i> server.properties">Ver Archivo: server.properties</a>
+        <a href="reglas.php" type="submit" class="btn btn-outline-dark btn-sm" data-toggle="tooltip" data-placement="top" title="<i class='fas fa-tasks'></i> Editar Reglas o Normas">Editar: <?php echo $data[18]['name'] ?></a>
+        <a href="alertas.php" type="submit" class="btn btn-outline-dark btn-sm" data-toggle="tooltip" data-placement="top" title="<i class='fas fa-comment-alt'></i> Editar Alertas o Notificaciones">Editar: Alertas</a>
+        <a href="ver_propiedades.php" type="submit" class="btn btn-outline-dark btn-sm" data-toggle="tooltip" data-placement="top" title="<i class='fas fa-database'></i> server.properties">Ver Archivo: server.properties</a>
+        
         </div>
         <?php else : ?>
               
