@@ -148,7 +148,7 @@
         "name": "",
         "spain": "",
         "btn": "",
-        "icon": "",
+        "icon": "<i class=\"fas fa-check\" style=\"color: #900C3F;\"><\/i>",
         "data": "",
         "data0": "",
         "data1": "",
@@ -167,31 +167,53 @@
     {
         "id": 20,
         "name": "Usar Reglas:",
-        "spain": "Desactivado",
+        "spain": "No Hay Títilo",
         "btn": "",
-        "icon": "<i class=\"fas fa-times fa-xs\" style=\"color: #FA0D02;\"><\/i>",
+        "icon": "<i class=\"fas fa-times fa-xs\" style=\"color: #CC0099;\"><\/i>",
         "data": ""
     },
     {
         "id": 21,
-        "name": "Alerta!",
-        "spain": "Activado",
-        "btn": "checked",
-        "logo": "<i class=\"fas fa-check\" style=\"color: #009B00;\"><\/i>",
-        "icon": "<i class=\"fas fa-check-circle fa-xs\" style=\"color: #2EFA2B;\"><\/i>",
-        "data": "true",
-        "txt": "Gracias por inscribirte contáctanos a Telegram: @dparceros",
-        "type": "success"
+        "name": "",
+        "spain": "Desactivado",
+        "btn": "",
+        "logo": "<i class=\"fas fa-edit\" style=\"color: #8B0483;\"><\/i>",
+        "icon": "<i class=\"fas fa-times fa-xs\" style=\"color: #FA0D02;\"><\/i>",
+        "data": "",
+        "txt": "",
+        "type": ""
     },
     {
         "id": 22,
-        "name": "Actualización",
+        "name": "",
+        "spain": "Desactivado",
+        "btn": "",
+        "logo": "<i class=\"fas fa-edit\" style=\"color: #8B0483;\"><\/i>",
+        "icon": "<i class=\"fas fa-times fa-xs\" style=\"color: #FA0D02;\"><\/i>",
+        "data": "",
+        "txt": "",
+        "type": ""
+    },
+    {
+        "id": 23,
+        "name": "",
+        "spain": "Desactivado",
+        "btn": "",
+        "logo": "<i class=\"fas fa-edit\" style=\"color: #8B0483;\"><\/i>",
+        "icon": "<i class=\"fas fa-times fa-xs\" style=\"color: #FA0D02;\"><\/i>",
+        "data": "",
+        "txt": "",
+        "txt0": "",
+        "txt1": "",
+        "type": "",
+        "type0": ""
+    },
+    {
+        "id": 24,
+        "name": "Mostrar Alerta Reglas",
         "spain": "Activado",
         "btn": "checked",
-        "logo": "<i class=\"fas fa-info\" style=\"color: #2E86C1;\"><\/i>",
-        "icon": "<i class=\"fas fa-check-circle fa-xs\" style=\"color: #2EFA2B;\"><\/i>",
-        "data": "true",
-        "txt": "El sistema fue actualizado V 1.220.02",
-        "type": "info"
+        "icon": "<i class=\"fas fa-check fa-xs\" style=\"color: #2EFA2B;\"><\/i>",
+        "data": "true"
     }
 ]

@@ -55,11 +55,16 @@ $txtData11 = (isset($_POST['data11'])) ? $_POST['data11'] : "";
 $txtData12 = (isset($_POST['data12'])) ? $_POST['data12'] : "";
 
 $txtUsarRegla = (isset($_POST['UsarRegla'])) ? $_POST['UsarRegla'] : "";
+$txtUsarRegla0 = (isset($_POST['UsarRegla0'])) ? $_POST['UsarRegla0'] : "";
 $txtAlerta = (isset($_POST['Alerta'])) ? $_POST['Alerta'] : "";
 $txtAlerta0 = (isset($_POST['Alerta0'])) ? $_POST['Alerta0'] : "";
+$txtAlerta1 = (isset($_POST['Alerta1'])) ? $_POST['Alerta1'] : "";
 $txtText = (isset($_POST['txt'])) ? $_POST['txt'] : "";
+$txtText0 = (isset($_POST['txt0'])) ? $_POST['txt0'] : "";
+$txtText1 = (isset($_POST['txt1'])) ? $_POST['txt1'] : "";
 $txtType = (isset($_POST['type'])) ? $_POST['type'] : "";
 $txtType0 = (isset($_POST['type0'])) ? $_POST['type0'] : "";
+$txtType1 = (isset($_POST['type1'])) ? $_POST['type1'] : "";
 
 $accion = (isset($_POST['accion'])) ? $_POST['accion'] : "";
 
@@ -520,67 +525,71 @@ switch ($accion) {
 
         foreach ($data as $key) {
             if ($data[18]['id'] == '19') {
-
+                
                 if (!empty($_POST['name'])) {
                     $data[18]['name'] = $txtName;
                     $data[18]['spain'] = $txtName;
-                    $data[18]['icon'] = '<i class="fas fa-check"></i>';
+                    $data[18]['icon'] = '<i class="fas fa-check" style="color: #900C3F;"></i>';
+                    $data[19]['data'] = '';
+                $data[19]['spain'] = 'Desactivado';
+                $data[19]['btn'] = '';
+                $data[19]['icon'] = '<i class="fas fa-times fa-xs" style="color: #FA0D02;"></i>';
                 }
                 if (!empty($_POST['data'])) {
                     $data[18]['data'] = $txtData;
-                    $data[18]['icon'] = '<i class="fas fa-check"></i>';
+                    $data[18]['icon'] = '<i class="fas fa-check" style="color: #900C3F;"></i>';
                 }
                 if (!empty($_POST['data0'])) {
                     $data[18]['data0'] = $txtData0;
-                    $data[18]['icon'] = '<i class="fas fa-check"></i>';
+                    $data[18]['icon'] = '<i class="fas fa-check" style="color: #900C3F;"></i>';
                 }
                 if (!empty($_POST['data1'])) {
                     $data[18]['data1'] = $txtData1;
-                    $data[18]['icon'] = '<i class="fas fa-check"></i>';
+                    $data[18]['icon'] = '<i class="fas fa-check" style="color: #900C3F;"></i>';
                 }
                 if (!empty($_POST['data2'])) {
                     $data[18]['data2'] = $txtData2;
-                    $data[18]['icon'] = '<i class="fas fa-check"></i>';
+                    $data[18]['icon'] = '<i class="fas fa-check" style="color: #900C3F;"></i>';
                 }
                 if (!empty($_POST['data3'])) {
                     $data[18]['data3'] = $txtData3;
-                    $data[18]['icon'] = '<i class="fas fa-check"></i>';
+                    $data[18]['icon'] = '<i class="fas fa-check" style="color: #900C3F;"></i>';
                 }
                 if (!empty($_POST['data4'])) {
                     $data[18]['data4'] = $txtData4;
-                    $data[18]['icon'] = '<i class="fas fa-check"></i>';
+                    $data[18]['icon'] = '<i class="fas fa-check" style="color: #900C3F;"></i>';
                 }
                 if (!empty($_POST['data5'])) {
                     $data[18]['data5'] = $txtData5;
-                    $data[18]['icon'] = '<i class="fas fa-check"></i>';
+                    $data[18]['icon'] = '<i class="fas fa-check" style="color: #900C3F;"></i>';
                 }
                 if (!empty($_POST['data6'])) {
                     $data[18]['data6'] = $txtData6;
-                    $data[18]['icon'] = '<i class="fas fa-check"></i>';
+                    $data[18]['icon'] = '<i class="fas fa-check" style="color: #900C3F;"></i>';
                 }
                 if (!empty($_POST['data7'])) {
                     $data[18]['data7'] = $txtData7;
-                    $data[18]['icon'] = '<i class="fas fa-check"></i>';
+                    $data[18]['icon'] = '<i class="fas fa-check" style="color: #900C3F;"></i>';
                 }
                 if (!empty($_POST['data8'])) {
                     $data[18]['data8'] = $txtData8;
-                    $data[18]['icon'] = '<i class="fas fa-check"></i>';
+                    $data[18]['icon'] = '<i class="fas fa-check" style="color: #900C3F;"></i>';
                 }
                 if (!empty($_POST['data9'])) {
                     $data[18]['data9'] = $txtData9;
-                    $data[18]['icon'] = '<i class="fas fa-check"></i>';
+                    $data[18]['icon'] = '<i class="fas fa-check" style="color: #900C3F;"></i>';
                 }
                 if (!empty($_POST['data10'])) {
                     $data[18]['data10'] = $txtData10;
-                    $data[18]['icon'] = '<i class="fas fa-check"></i>';
+                    $data[18]['icon'] = '<i class="fas fa-check" style="color: #900C3F;"></i>';
                 }
                 if (!empty($_POST['data11'])) {
                     $data[18]['data11'] = $txtData11;
-                    $data[18]['icon'] = '<i class="fas fa-check"></i>';
+                    $data[18]['icon'] = '<i class="fas fa-check" style="color: #900C3F;"></i>';
                 }
                 if (!empty($_POST['data12'])) {
                     $data[18]['data12'] = $txtData12;
-                    $data[18]['icon'] = '<i class="fas fa-check"></i>';
+                    $data[18]['icon'] = '<i class="fas fa-check" style="color: #900C3F;"></i>';
                 }
             }
         }
@@ -597,10 +606,14 @@ switch ($accion) {
     case 'name':
         foreach ($data as $key) {
             if ($data[18]['id'] == '19') {
-                if ($accion == "eliminar" || empty($_POST['name'])) {
+                if (!empty($_POST['name'])) {
                     $data[18]['name'] = "";
                     $data[18]['spain'] = "";
                     $data[18]['icon'] = "";
+                    $data[19]['data'] = '';
+                    $data[19]['spain'] = 'No Hay Títilo';
+                    $data[19]['btn'] = '';
+                    $data[19]['icon'] = '<i class="fas fa-times fa-xs" style="color: #CC0099;"></i>';
                 }
             }
         }
@@ -617,7 +630,7 @@ switch ($accion) {
             if ($data[18]['id'] == '19') {
                 if ($accion == "eliminar" || empty($_POST['data'])) {
                     $data[18]['data'] = "";
-                    $data[18]['icon'] = '<i class="fas fa-check"></i>';
+                    $data[18]['icon'] = '<i class="fas fa-check" style="color: #900C3F;"></i>';
                 }
             }
         }
@@ -634,7 +647,7 @@ switch ($accion) {
             if ($data[18]['id'] == '19') {
                 if ($accion == "eliminar" || empty($_POST['data0'])) {
                     $data[18]['data0'] = "";
-                    $data[18]['icon'] = '<i class="fas fa-check"></i>';
+                    $data[18]['icon'] = '<i class="fas fa-check" style="color: #900C3F;"></i>';
                 }
             }
         }
@@ -651,7 +664,7 @@ switch ($accion) {
             if ($data[18]['id'] == '19') {
                 if ($accion == "eliminar" || empty($_POST['data1'])) {
                     $data[18]['data1'] = "";
-                    $data[18]['icon'] = '<i class="fas fa-check"></i>';
+                    $data[18]['icon'] = '<i class="fas fa-check" style="color: #900C3F;"></i>';
                 }
             }
         }
@@ -668,7 +681,7 @@ switch ($accion) {
             if ($data[18]['id'] == '19') {
                 if ($accion == "eliminar" || empty($_POST['data2'])) {
                     $data[18]['data2'] = "";
-                    $data[18]['icon'] = '<i class="fas fa-check"></i>';
+                    $data[18]['icon'] = '<i class="fas fa-check" style="color: #900C3F;"></i>';
                 }
             }
         }
@@ -685,7 +698,7 @@ switch ($accion) {
             if ($data[18]['id'] == '19') {
                 if ($accion == "eliminar" || empty($_POST['data3'])) {
                     $data[18]['data3'] = "";
-                    $data[18]['icon'] = '<i class="fas fa-check"></i>';
+                    $data[18]['icon'] = '<i class="fas fa-check" style="color: #900C3F;"></i>';
                 }
             }
         }
@@ -702,7 +715,7 @@ switch ($accion) {
             if ($data[18]['id'] == '19') {
                 if ($accion == "eliminar" || empty($_POST['data4'])) {
                     $data[18]['data4'] = "";
-                    $data[18]['icon'] = '<i class="fas fa-check"></i>';
+                    $data[18]['icon'] = '<i class="fas fa-check" style="color: #900C3F;"></i>';
                 }
             }
         }
@@ -719,7 +732,7 @@ switch ($accion) {
             if ($data[18]['id'] == '19') {
                 if ($accion == "eliminar" || empty($_POST['data5'])) {
                     $data[18]['data5'] = "";
-                    $data[18]['icon'] = '<i class="fas fa-check"></i>';
+                    $data[18]['icon'] = '<i class="fas fa-check" style="color: #900C3F;"></i>';
                 }
             }
         }
@@ -736,7 +749,7 @@ switch ($accion) {
             if ($data[18]['id'] == '19') {
                 if ($accion == "eliminar" || empty($_POST['data6'])) {
                     $data[18]['data6'] = "";
-                    $data[18]['icon'] = '<i class="fas fa-check"></i>';
+                    $data[18]['icon'] = '<i class="fas fa-check" style="color: #900C3F;"></i>';
                 }
             }
         }
@@ -753,7 +766,7 @@ switch ($accion) {
             if ($data[18]['id'] == '19') {
                 if ($accion == "eliminar" || empty($_POST['data7'])) {
                     $data[18]['data7'] = "";
-                    $data[18]['icon'] = '<i class="fas fa-check"></i>';
+                    $data[18]['icon'] = '<i class="fas fa-check" style="color: #900C3F;"></i>';
                 }
             }
         }
@@ -770,7 +783,7 @@ switch ($accion) {
             if ($data[18]['id'] == '19') {
                 if ($accion == "eliminar" || empty($_POST['data8'])) {
                     $data[18]['data8'] = "";
-                    $data[18]['icon'] = '<i class="fas fa-check"></i>';
+                    $data[18]['icon'] = '<i class="fas fa-check" style="color: #900C3F;"></i>';
                 }
             }
         }
@@ -787,7 +800,7 @@ switch ($accion) {
             if ($data[18]['id'] == '19') {
                 if ($accion == "eliminar" || empty($_POST['data9'])) {
                     $data[18]['data9'] = "";
-                    $data[18]['icon'] = '<i class="fas fa-check"></i>';
+                    $data[18]['icon'] = '<i class="fas fa-check" style="color: #900C3F;"></i>';
                 }
             }
         }
@@ -804,7 +817,7 @@ switch ($accion) {
             if ($data[18]['id'] == '19') {
                 if ($accion == "eliminar" || empty($_POST['data10'])) {
                     $data[18]['data10'] = "";
-                    $data[18]['icon'] = '<i class="fas fa-check"></i>';
+                    $data[18]['icon'] = '<i class="fas fa-check" style="color: #900C3F;"></i>';
                 }
             }
         }
@@ -821,7 +834,7 @@ switch ($accion) {
             if ($data[18]['id'] == '19') {
                 if ($accion == "eliminar" || empty($_POST['data11'])) {
                     $data[18]['data11'] = "";
-                    $data[18]['icon'] = '<i class="fas fa-check"></i>';
+                    $data[18]['icon'] = '<i class="fas fa-check" style="color: #900C3F;"></i>';
                 }
             }
         }
@@ -838,7 +851,7 @@ switch ($accion) {
             if ($data[18]['id'] == '19') {
                 if ($accion == "eliminar" || empty($_POST['data12'])) {
                     $data[18]['data12'] = "";
-                    $data[18]['icon'] = '<i class="fas fa-check"></i>';
+                    $data[18]['icon'] = '<i class="fas fa-check" style="color: #900C3F;"></i>';
                 }
             }
         }
@@ -849,14 +862,24 @@ switch ($accion) {
         unset($_REQUEST);
         header("Location: " . $_SERVER['PHP_SELF']);
         break;
-
+/** Editar cuando hay nombre aparezca solo Desactivado con x roja*/
     case 'btnUsarRegla':
         foreach ($data as $key) {
-            if ($data[19]['id'] == '20' && $txtUsarRegla == 'on') {
+            if (!empty($data[18]['name']) && $data[19]['id'] == '20' && $txtUsarRegla == 'on') {
                 $data[19]['data'] = 'true';
                 $data[19]['spain'] = 'Activado';
                 $data[19]['btn'] = 'checked';
                 $data[19]['icon'] = '<i class="fas fa-check fa-xs" style="color: #2EFA2B;"></i>';
+            } elseif (!empty($data[18]['name']) && $data[19]['id'] == '20' && $txtUsarRegla == '') {
+                $data[19]['data'] = '';
+                $data[19]['spain'] = 'Desactivado';
+                $data[19]['btn'] = '';
+                $data[19]['icon'] = '<i class="fas fa-times fa-xs" style="color: #FA0D02;"></i>';
+            }elseif (empty($data[18]['name']) && $txtUsarRegla == 'on' || $txtUsarRegla == '') {
+                $data[19]['data'] = '';
+                $data[19]['spain'] = 'No Hay Títilo';
+                $data[19]['btn'] = '';
+                $data[19]['icon'] = '<i class="fas fa-times fa-xs" style="color: #CC0099;"></i>';
             } else {
                 $data[19]['data'] = '';
                 $data[19]['spain'] = 'Desactivado';
@@ -1087,4 +1110,157 @@ case 'btnType':
         header("Location: " . $_SERVER['PHP_SELF']);
         /** */
         break;
+
+
+
+
+
+
+        case 'guaralerta1':
+            foreach ($data as $key) {
+                if ($data[22]['id'] == '23') {
+                    $data[22]['name'] = $txtName;
+                    $data[22]['txt'] = $txtText;
+                    $data[22]['txt0'] = $txtText0;
+                    $data[22]['txt1'] = $txtText1;
+    
+                    if ($txtType1 == 1) {
+                        $data[22]['type'] = 'success';
+                        $data[22]['type0'] = 'success';
+                        $data[22]['logo'] = '<i class="fas fa-check" style="color: #009B00;"></i>';
+                    }
+                    if ($txtType1 == 2) {
+                        $data[22]['type'] = 'info';
+                        $data[22]['type0'] = 'info';
+                        $data[22]['logo'] = '<i class="fas fa-info" style="color: #2E86C1;"></i>';
+                    }
+                    if ($txtType1 == 3) {
+                        $data[22]['type'] = 'warning';
+                        $data[22]['type0'] = 'warning';
+                        $data[22]['logo'] = '<i class="fas fa-exclamation" style="color: #F39C12;"></i>';
+                    }
+                    if ($txtType1 == 4) {
+                        $data[22]['type'] = 'error';
+                        $data[22]['type0'] = "danger";
+                        $data[22]['logo'] = '<i class="fas fa-times" style="color: #C41300;"></i>';
+                    }
+                }
+            }
+            $newJsonString = json_encode($data, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+            file_put_contents(__DIR__ . '../../../config/srvdatos.json', $newJsonString);
+    
+            unset($_POST);
+            unset($_REQUEST);
+            header("Location: " . $_SERVER['PHP_SELF']);
+            break;
+    
+        case 'elimalerta1':
+            foreach ($data as $key) {
+                if ($data[22]['id'] == '23') {
+                    $data[22]['name'] = "";
+                    $data[22]['txt'] = "";
+                    $data[22]['txt0'] = "";
+                    $data[22]['txt1'] = "";
+                    $data[22]['type'] = "";
+                    $data[22]['type0'] = "";
+                    $data[22]['data'] = '';
+                    $data[22]['spain'] = 'Desactivado';
+                    $data[22]['btn'] = '';
+                    $data[22]['logo'] = '<i class="fas fa-edit" style="color: #8B0483;"></i>';
+                    $data[22]['icon'] = '<i class="fas fa-times fa-xs" style="color: #FA0D02;"></i>';
+                }
+            }
+            $newJsonString = json_encode($data, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+            file_put_contents(__DIR__ . '../../../config/srvdatos.json', $newJsonString);
+    
+            unset($_POST);
+            unset($_REQUEST);
+            header("Location: " . $_SERVER['PHP_SELF']);
+            break;
+    
+    case 'btnType1':
+        foreach ($data as $key) {
+            if ($data[22]['id'] == '23') {
+    
+                if ($txtType1 == 1) {
+                    $data[22]['type'] = 'success';
+                    $data[22]['type0'] = 'success';
+                    $data[22]['logo'] = '<i class="fas fa-check" style="color: #009B00;"></i>';
+                }
+                if ($txtType1 == 2) {
+                    $data[22]['type'] = 'info';
+                    $data[22]['type0'] = 'info';
+                    $data[22]['logo'] = '<i class="fas fa-info" style="color: #2E86C1;"></i>';
+                }
+                if ($txtType1 == 3) {
+                    $data[22]['type'] = 'warning';
+                    $data[22]['type0'] = 'warning';
+                    $data[22]['logo'] = '<i class="fas fa-exclamation" style="color: #F39C12;"></i>';
+                }
+                if ($txtType1 == 4) {
+                    $data[22]['type'] = 'error';
+                    $data[22]['type0'] = 'danger';
+                    $data[22]['logo'] = '<i class="fas fa-times" style="color: #C41300;"></i>';
+                }
+            }
+        }
+        $newJsonString = json_encode($data, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+        file_put_contents(__DIR__ . '../../../config/srvdatos.json', $newJsonString);
+    
+        unset($_POST);
+        unset($_REQUEST);
+        header("Location: " . $_SERVER['PHP_SELF']);
+        break;
+    
+        case 'btnAlerta1':
+            foreach ($data as $key) {
+                if ($data[22]['id'] == '23' && $txtAlerta1 == 'on') {
+                    $data[22]['data'] = 'true';
+                    $data[22]['spain'] = 'Activado';
+                    $data[22]['btn'] = 'checked';
+                    $data[22]['icon'] = '<i class="fas fa-check-circle fa-xs" style="color: #2EFA2B;"></i>';
+                } else {
+                    $data[22]['data'] = '';
+                    $data[22]['spain'] = 'Desactivado';
+                    $data[22]['btn'] = '';
+                    $data[22]['icon'] = '<i class="fas fa-times-circle fa-xs" style="color: #FA0D02;"></i>';
+                }
+            }
+    
+            $newJsonString = json_encode($data, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+            file_put_contents(__DIR__ . '../../../config/srvdatos.json', $newJsonString);
+    
+            unset($_POST);
+            unset($_REQUEST);
+            header("Location: " . $_SERVER['PHP_SELF']);
+            /** */
+            break;
+
+            case 'btnUsarRegla0':
+                foreach ($data as $key) {
+                    if ($data[23]['id'] == '24' && $txtUsarRegla0 == 'on') {
+                        $data[23]['data'] = 'true';
+                        $data[23]['spain'] = 'Activado';
+                        $data[23]['btn'] = 'checked';
+                        $data[23]['icon'] = '<i class="fas fa-check fa-xs" style="color: #2EFA2B;"></i>';
+                    } else {
+                        $data[23]['data'] = '';
+                        $data[23]['spain'] = 'Desactivado';
+                        $data[23]['btn'] = '';
+                        $data[23]['icon'] = '<i class="fas fa-times fa-xs" style="color: #FA0D02;"></i>';
+                    }
+                }
+        
+                $newJsonString = json_encode($data, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+                file_put_contents(__DIR__ . '../../../config/srvdatos.json', $newJsonString);
+        
+                unset($_POST);
+                unset($_REQUEST);
+                header("Location: " . $_SERVER['PHP_SELF']);
+                /** */
+                break;
+
+
+
+
 }

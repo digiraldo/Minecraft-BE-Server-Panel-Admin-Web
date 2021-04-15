@@ -175,31 +175,9 @@ $mostrarModal='';
 </button>
 <?php endif ?> 
 
-<?php if (empty($data[18]['name'])):  ?>
-<?php $mostrarToast=true; ?>
 
-<div id="toast" class="toast text-white bg-danger" role="alert" aria-live="assertive" aria-atomic="true" data-delay="10000" style="position: absolute; top: 0; right: 0;">
-  <div class="toast-header">
-    <svg class="bd-placeholder-img rounded mr-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
-      <rect width="100%" height="100%" fill="#ff0000"></rect>
-    </svg>
-    <strong class="mr-auto">Alerta</strong>
-    <small>Inserar Título</small>
-    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-      <span aria-hidden="true">×</span>
-    </button>
-  </div>
-  <div class="toast-body">
-<strong><?php echo strtoupper('Inserar Título') ?></strong> <br>
-Inserar tíulo y esablecer las normas del juego o mundo en Editar.
-  </div>
-  <div class="mt-2 pt-2 border-top">
-      <a href="../propiedades/reglas.php" type="button" class="btn btn-info btn-sm"><i class="fas fa-edit"></i> Editar</a href="">
-    </div>
-</div>
-<?php else : ?>
 
-<?php endif ?>     
+
 
 </div>
         <?php elseif ($_SESSION['id_rol'] == 2) : ?>
@@ -324,103 +302,9 @@ Inserar tíulo y esablecer las normas del juego o mundo en Editar.
           <a href="#" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="<?php echo count($rolesJ); ?> Inscritos">Registrados <span class="badge badge-light"><?php echo count($rolesJ); ?></span></a>
         </div>
 
-<?php if (empty($data[18]['name'])):  ?>
-<?php else : ?>
-<?php $mostrarToast=$data[19]['btn']; ?>
-<?php endif ?>
-
-<div id="toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="50000" style="position: absolute; top: 0; right: 0;">
-  <div class="toast-header">
-    <svg class="bd-placeholder-img rounded mr-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
-      <rect width="100%" height="100%" fill="#ff0000"></rect>
-    </svg>
-    <strong class="mr-auto">Alerta</strong>
-    <small><?php echo $data[18]['name'] ?></small>
-    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-      <span aria-hidden="true">×</span>
-    </button>
-  </div>
-  <div class="toast-body">
-<strong><?php echo strtoupper($data[18]['name']) ?></strong> <br>
-
-<?php if (empty($data[18]['data'])):  ?>
-<?php else : ?>
-<?php echo $data[18]['icon']; echo " ".$data[18]['data']; ?> <br>
-<?php endif ?>
-
-<?php if (empty($data[18]['data0'])):  ?>
-<?php else : ?>
-<?php echo $data[18]['icon']; echo " ".$data[18]['data0']; ?> <br>
-<?php endif ?>
-
-<?php if (empty($data[18]['data1'])):  ?>
-<?php else : ?>
-<?php echo $data[18]['icon']; echo " ".$data[18]['data1']; ?> <br>
-<?php endif ?>
-
-<?php if (empty($data[18]['data2'])):  ?>
-<?php else : ?>
-<?php echo $data[18]['icon']; echo " ".$data[18]['data2']; ?> <br>
-<?php endif ?>
-
-<?php if (empty($data[18]['data3'])):  ?>
-<?php else : ?>
-<?php echo $data[18]['icon']; echo " ".$data[18]['data3']; ?> <br>
-<?php endif ?>
-
-<?php if (empty($data[18]['data4'])):  ?>
-<?php else : ?>
-<?php echo $data[18]['icon']; echo " ".$data[18]['data4']; ?> <br>
-<?php endif ?>
-
-<?php if (empty($data[18]['data5'])):  ?>
-<?php else : ?>
-<?php echo $data[18]['icon']; echo " ".$data[18]['data5']; ?> <br>
-<?php endif ?>
-
-<?php if (empty($data[18]['data6'])):  ?>
-<?php else : ?>
-<?php echo $data[18]['icon']; echo " ".$data[18]['data6']; ?> <br>
-<?php endif ?>
-
-<?php if (empty($data[18]['data7'])):  ?>
-<?php else : ?>
-<?php echo $data[18]['icon']; echo " ".$data[18]['data7']; ?> <br>
-<?php endif ?>
-
-<?php if (empty($data[18]['data8'])):  ?>
-<?php else : ?>
-<?php echo $data[18]['icon']; echo " ".$data[18]['data8']; ?> <br>
-<?php endif ?>
-
-<?php if (empty($data[18]['data9'])):  ?>
-<?php else : ?>
-<?php echo $data[18]['icon']; echo " ".$data[18]['data9']; ?> <br>
-<?php endif ?>
-
-<?php if (empty($data[18]['data10'])):  ?>
-<?php else : ?>
-<?php echo $data[18]['icon']; echo " ".$data[18]['data10']; ?> <br>
-<?php endif ?>
-
-<?php if (empty($data[18]['data11'])):  ?>
-<?php else : ?>
-<?php echo $data[18]['icon']; echo " ".$data[18]['data11']; ?> <br>
-<?php endif ?>
-
-<?php if (empty($data[18]['data12'])):  ?>
-<?php else : ?>
-<?php echo $data[18]['icon']; echo " ".$data[18]['data12']; ?> <br>
-<?php endif ?>
-
-<!--
-<i class="fas fa-check"></i> La Casa o Cabaña que esta delante del Spawn es de todos, así que pueden guardar objetos en los baúles para los otros o nuevos jugadores. <br>
--->
-
-  </div>
-</div>
 
           <?php elseif ($_SESSION['id_rol'] == 3) : ?>
+
         <div class="bg-danger col-sm-6 card text-white">
           <div class="card-header font-weight-bold">Jugadores</div>
           <div class="card-body">
@@ -553,6 +437,74 @@ Inserar tíulo y esablecer las normas del juego o mundo en Editar.
 </form>
       </div>
 
+
+      <?php if ($_SESSION['id_rol'] == 4 && !empty($data[18]['name']) && $data[19]['data'] == 'true'){  ?>
+  <script>
+  toastr.info(
+'<?php if (!empty($data[18]['data'])) { ?>
+  <?php echo $data[18]['icon']; echo " ".$data[18]['data']."<br>"; ?>
+  <?php } ?>
+  <?php if (!empty($data[18]['data0'])) { ?>
+  <?php echo $data[18]['icon']; echo " ".$data[18]['data0']."<br>"; ?>
+  <?php } ?>
+  <?php if (!empty($data[18]['data1'])) { ?>
+  <?php echo $data[18]['icon']; echo " ".$data[18]['data1']."<br>"; ?>
+  <?php } ?>
+  <?php if (!empty($data[18]['data2'])) { ?>
+  <?php echo $data[18]['icon']; echo " ".$data[18]['data2']."<br>"; ?>
+  <?php } ?>
+  <?php if (!empty($data[18]['data3'])) { ?>
+  <?php echo $data[18]['icon']; echo " ".$data[18]['data3']."<br>"; ?>
+  <?php } ?>
+  <?php if (!empty($data[18]['data4'])) { ?>
+  <?php echo $data[18]['icon']; echo " ".$data[18]['data4']."<br>"; ?>
+  <?php } ?>
+  <?php if (!empty($data[18]['data5'])) { ?>
+  <?php echo $data[18]['icon']; echo " ".$data[18]['data5']."<br>"; ?>
+  <?php } ?>
+  <?php if (!empty($data[18]['data6'])) { ?>
+  <?php echo $data[18]['icon']; echo " ".$data[18]['data6']."<br>"; ?>
+  <?php } ?>
+  <?php if (!empty($data[18]['data7'])) { ?>
+  <?php echo $data[18]['icon']; echo " ".$data[18]['data7']."<br>"; ?>
+  <?php } ?>
+  <?php if (!empty($data[18]['data8'])) { ?>
+  <?php echo $data[18]['icon']; echo " ".$data[18]['data8']."<br>"; ?>
+  <?php } ?>
+  <?php if (!empty($data[18]['data9'])) { ?>
+  <?php echo $data[18]['icon']; echo " ".$data[18]['data9']."<br>"; ?>
+  <?php } ?>
+  <?php if (!empty($data[18]['data10'])) { ?>
+  <?php echo $data[18]['icon']; echo " ".$data[18]['data10']."<br>"; ?>
+  <?php } ?>
+  <?php if (!empty($data[18]['data11'])) { ?>
+  <?php echo $data[18]['icon']; echo " ".$data[18]['data11']."<br>"; ?>
+  <?php } ?>
+  <?php if (!empty($data[18]['data12'])) { ?>
+  <?php echo $data[18]['icon']; echo " ".$data[18]['data12']."<br>"; ?>
+  <?php } ?>', '<i class="fas fa-edit" style="color: #DAF7A6;"></i> <?php echo strtoupper($data[18]['name'])."<br>"; ?>', {
+  "closeButton": true,
+  "debug": false,
+  "newestOnTop": true,
+  "progressBar": true,
+  "positionClass": "toast-top-full-width",
+  "preventDuplicates": false,
+  "onclick": null,
+  "showDuration": "600",
+  "hideDuration": "1000",
+  "timeOut": "50000",
+  "extendedTimeOut": "20000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "slideDown",
+  "hideMethod": "slideUp"
+}
+)
+</script> 
+<?php } ?>
+
+
+
       <?php include '../includes/footer.php' ?>
       <?php include '../includes/toast.php' ?>
       <?php //include '../includes/modal.php'?>
@@ -562,15 +514,6 @@ Inserar tíulo y esablecer las normas del juego o mundo en Editar.
     <script>
         $('#modalReglas').modal('show');
     </script>
-<?php } ?>
-
-
-<?php if ($mostrarToast) { ?>
-  <script>
-    $(document).ready(function() {
-      $('.toast').toast('show');
-    });
-  </script>
 <?php } ?>
 
 

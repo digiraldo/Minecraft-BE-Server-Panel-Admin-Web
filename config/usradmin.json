@@ -15,5 +15,22 @@
         "img": "admin_minecraft.png",
         "n_img": "Admin",
         "id_img": 9999
+    },
+    {
+        "usuario": "Didier",
+        "clave": "45c48cce2e2d7fbdea1afc51c7c6ad26",
+        "nombre": "Didier Andrés",
+        "contacto": "Telegram: @digiraldo",
+        "pais": "Colombia",
+        "gamertag": "disaned",
+        "img": "creeper.png",
+        "id": 1760405,
+        "numero": 2,
+        "ciudad": false,
+        "id_rol": 4,
+        "rol": "Inscrito",
+        "fecha": "13\/04\/2021",
+        "n_img": "Creeper",
+        "id_img": 3
     }
 ]

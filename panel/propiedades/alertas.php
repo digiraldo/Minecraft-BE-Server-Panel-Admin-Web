@@ -43,7 +43,7 @@ Editar: <b>Alertas</b>
     <td>
         <div class="form-group">
             <div class="col-auto">
-                <label class="sr-only" for="name"></label>
+                <label class="text-white" for="name">Alerta Tablero 1</label>
                 <div class="input-group mb-2">
                     <div class="input-group-prepend">
                         <div class="input-group-text"><?php echo $data[20]['logo']; ?></div>
@@ -98,7 +98,7 @@ Editar: <b>Alertas</b>
     <td>
         <div class="form-group">
             <div class="col-auto">
-                <label class="sr-only" for="name"></label>
+                <label class="text-white" for="name">Alerta Tablero 2</label>
                 <div class="input-group mb-2">
                     <div class="input-group-prepend">
                         <div class="input-group-text"><?php echo $data[21]['logo']; ?></div>
@@ -147,6 +147,95 @@ Editar: <b>Alertas</b>
     </th>
     </form>
 </tr>
+
+
+<tr>
+    <form method="POST" role="form" enctype="multipart/form-data">
+    <th width="3%" scope="col" class="text-white">3</th>
+    <td>
+        <div class="form-group">
+            <div class="col-auto">
+                <label class="text-white" for="name">Alerta Formulario de Registro</label>
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><?php echo $data[22]['logo']; ?></div>
+                    </div>
+                    <div class="col-md-3">
+                    <select class="custom-select" id="type1" name="type1">
+                        <option value="<?php echo $data[22]['type']; ?>" selected>Seleccionar tipo...</option>
+                        <option value="1" style="color: #009B00;"><b>Éxito</b></option>
+                        <option value="2" style="color: #2E86C1;"><b>Información</b></option>
+                        <option value="3" style="color: #F39C12;">Advertencia</option>
+                        <option value="4" style="color: #C41300;">Error</option>
+                    </select>
+                    </div>
+                    <button name="accion" type="submit" value="btnType1" class="btn btn-outline-light btn-sm" data-toggle="tooltip" data-placement="top" title="Guardar tipo"><i class="fas fa-save"></i></button>
+
+                </div>
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">Título:</div>
+                    </div>
+                    <input type="text" class="form-control" id="name" name="name" value="<?php echo $data[22]['name']; ?>">
+                </div>
+            </div>
+            <div class="col-auto">
+                <label class="sr-only" for="name"></label>
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">Texto 1:</div>
+                    </div>
+                    
+                    <textarea type="text" class="form-control" id="txt" name="txt" value="<?php echo $data[22]['txt']; ?>" rows="1"></textarea>
+                </div>
+            </div>
+            <div class="col-auto">
+                <label class="sr-only" for="name"></label>
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">Texto 2:</div>
+                    </div>
+                    <textarea type="text" class="form-control" id="txt0" name="txt0" value="<?php echo $data[22]['txt0']; ?>" rows="1"></textarea>
+                </div>
+            </div>
+            <div class="col-auto">
+                <label class="sr-only" for="name"></label>
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">Texto 3:</div>
+                    </div>
+                    <textarea type="text" class="form-control" id="txt1" name="txt1" value="<?php echo $data[22]['txt1']; ?>" rows="1"></textarea>
+                </div>
+                <small id="alerta0HelpBlock" class="form-text text-<?php echo $data[22]['type0'] ?>">
+                <?php echo $data[22]['logo']; ?> <b><?php echo $data[22]['name']; ?></b>
+                </small>
+                <small id="alerta1HelpBlock" class="form-text text-muted">
+                <i class="fas fa-check fa-xs"></i>  <?php echo $data[22]['txt']; ?>
+                </small>
+                <small id="alerta2HelpBlock" class="form-text text-muted">
+                <i class="fas fa-check fa-xs"></i>  <?php echo $data[22]['txt0']; ?>
+                </small>
+                <small id="alerta3HelpBlock" class="form-text text-muted">
+                <i class="fas fa-check fa-xs"></i>  <?php echo $data[22]['txt1']; ?>
+                </small>
+            </div>
+
+
+            <div class="custom-control text-white custom-switch custom-switch-md">
+                <input type="checkbox" class="custom-control-input" name="Alerta1" id="Alerta1" <?php echo $data[22]['btn']; ?>>
+                <label class="custom-control-label" for="Alerta1"> <?php echo ' ' . $data[22]['icon'] . ' ' . $data[22]['spain']; ?></label>
+                <button name="accion" type="submit" value="btnAlerta1" class="btn btn-outline-light btn-sm badge-pill" data-toggle="tooltip" data-placement="top" title="Guardar"><i class="fas fa-save"></i></button>
+            </div>
+        </div>
+    </td>
+    <th width="9%" scope="col">
+        <button name="accion" value="guaralerta1" type="submit" type="button" class="btn btn-info btn-sm badge-pill"><i class="fas fa-save"></i></button>
+        <button name="accion" value="elimalerta1" type="submit" type="button" class="btn btn-danger btn-sm badge-pill"><i class="fas fa-trash-alt"></i></button>
+    </th>
+    </form>
+</tr>
+
+
 </tbody>
 </table>
 </div>

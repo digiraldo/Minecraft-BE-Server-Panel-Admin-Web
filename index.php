@@ -2,6 +2,9 @@
 setlocale(LC_ALL, "es_ES");
 date_default_timezone_set('America/Bogota');
 
+$jsonString01 = file_get_contents(__DIR__ . '/config/srvdatos.json');
+$alerta = json_decode($jsonString01, true);
+
 $jsonString = file_get_contents(__DIR__ . '/config/usradmin.json');
 $rdata = json_decode($jsonString, true);
 
@@ -513,20 +516,31 @@ echo 'valid-tooltip';
 </div>
 </form><!-- Fin Form Modal -->
 
-<?php $mostrarToastReg=true; ?>
 
-<div id="toast" class="toast bg-secondary" role="alert" aria-live="assertive" aria-atomic="true" style="position: absolute; top: 0; right: 0;" data-bs-delay="30000">
-  <div class="toast-header">
+    <?php $mostrarToastReg=true; ?>
+
+<div id="toast" class="toast bg-<?php echo $alerta[22]['type0'] ?>" role="alert" aria-live="assertive" aria-atomic="true" style="position: absolute; top: 0; right: 0;" data-bs-delay="30000">
+  <div class="toast-header bg-outline-<?php echo $alerta[22]['type0'] ?>">
     <strong class="me-auto"><i class="fas fa-times-circle fa-lg fa-spin" style="color: #FF0000;"></i> Alerta</strong>
     <small class="text-muted">Datos de Registro </small>
     <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
   </div>
   <div class="toast-body">
-  <strong>¡Datos a diligenciar!</strong> <br>
-<i class="fas fa-check"></i> El Usuario y Contraseña es únicamente para esta página, por favor no utilizar ninguna cuenta y/o contraseña de Microsoft u otro servicio. <br>
-<i class="fas fa-check"></i> El Gamertag debe ser diligenciado para agregarlo al Whitelist y el servidor Minecraft acepte su ingreso. <br>
+  <strong><?php echo $alerta[22]['name']; ?></strong> <br>
+  <?php if (!empty($alerta[22]['txt'])) { ?>
+  <?php echo '<i class="fas fa-check fa-xs"></i>'; echo " ".$alerta[22]['txt']."<br>"; ?>
+  <?php } ?>
+  <?php if (!empty($alerta[22]['txt0'])) { ?>
+  <?php echo '<i class="fas fa-check fa-xs"></i>'; echo " ".$alerta[22]['txt0']."<br>"; ?>
+  <?php } ?>
+  <?php if (!empty($alerta[22]['txt1'])) { ?>
+  <?php echo '<i class="fas fa-check fa-xs"></i>'; echo " ".$alerta[22]['txt1']."<br>"; ?>
+  <?php } ?>
   </div>
 </div><!-- Fin Toast -->
+    
+
+
 
 </div>
 </div>

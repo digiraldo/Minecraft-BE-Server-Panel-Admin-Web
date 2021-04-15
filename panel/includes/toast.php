@@ -1,45 +1,85 @@
 <?php
-//require 'scripts.php';
+//require 'scripts2.php';
 require '../propiedades/editar.php';
 ?>
 
-<style>
-  .bs-alertas {
-    margin: 30px;
+<?php if ($data[20]['data'] == "true") { ?>
+  
+  <script>
+  toastr.<?php echo $data[20]['type']; ?>( '<?php echo $data[20]['txt']; ?>', '<?php echo $data[20]['name']; ?>', {
+  "closeButton": true,
+  "debug": false,
+  "newestOnTop": true,
+  "progressBar": true,
+  "positionClass": "toast-top-left",
+  "preventDuplicates": false,
+  "onclick": null,
+  "showDuration": "500",
+  "hideDuration": "1000",
+  "timeOut": "20000",
+  "extendedTimeOut": "2000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "slideDown",
+  "hideMethod": "slideUp"
   }
-</style>
-<script>
-  $(document).ready(function() {
-    $(".toast").toast();
-  });
-</script>
+  )
+  </script> 
+  
+    <?php } ?>
+  
+    <?php if ($data[21]['data'] == "true") { ?>
+  
+  <script>
 
-<div class="bs-alertas">
-  <!-- Elemento de envoltura -->
-  <div style="position: absolute; min-height: 300px;">
-    <!-- Pocición toasts -->
-    <div style="position: absolute; top: 0; right: 1; min-width: 300px;">
-      <?php if ($data[20]['data'] == "true") { ?>
-        <div class="toast text-white bg-<?php echo $data[20]['type']; ?>" role="alert" aria-live="assertive" aria-atomic="true" data-delay="10000">
-          <div class="toast-header text-dark bg-outline-<?php echo $data[20]['type']; ?>">
-            <strong class="mr-auto"><?php echo $data[20]['logo']; ?> Alerta!</strong>
-            <small class="text-muted"><?php echo $data[20]['name']; ?></small>
-            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">&times;</button>
-          </div>
-          <div class="toast-body"><b><?php echo $data[20]['txt']; ?></b></div>
-        </div>
-      <?php } ?>
 
-      <?php if ($data[21]['data'] == "true") { ?>
-        <div class="toast text-white bg-<?php echo $data[21]['type']; ?>" role="alert" aria-live="assertive" aria-atomic="true" data-delay="11000">
-          <div class="toast-header text-dark bg-outline-<?php echo $data[21]['type']; ?>">
-            <strong class="mr-auto"><?php echo $data[21]['logo']; ?> Alerta!</strong>
-            <small class="text-muted"><?php echo $data[21]['name']; ?></small>
-            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">&times;</button>
-          </div>
-          <div class="toast-body"><b><?php echo $data[21]['txt']; ?></b></div>
-        </div>
-      <?php } ?>
-    </div>
-  </div>
-</div>
+  toastr.<?php echo $data[21]['type']; ?>( '<?php echo $data[21]['txt']; ?>', '<?php echo $data[21]['name']; ?>', {
+  "closeButton": true,
+  "debug": false,
+  "newestOnTop": true,
+  "progressBar": true,
+  "positionClass": "toast-top-left",
+  "preventDuplicates": false,
+  "onclick": null,
+  "showDuration": "500",
+  "hideDuration": "1000",
+  "timeOut": "21000",
+  "extendedTimeOut": "2000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "slideDown",
+  "hideMethod": "slideUp"
+  }
+  )
+  </script> 
+  
+    <?php } ?>
+
+<a href="../propiedades/reglas.php"></a>
+
+  <?php if (empty($data[18]['name']) && $data[23]['data'] == "true" && $_SESSION['id_rol'] == 0 || $_SESSION['id_rol'] == 1 || $_SESSION['id_rol'] == 2) : ?>
+
+      <script>
+toastr.error('Insertar título y establecer las normas del juego o mundo en Editar.<br /><br /><a href="../propiedades/reglas.php" type="button" class="btn btn-dark btn-sm"><i class="fas fa-pen-square"></i> Editar</a>', 'Insertar Título', {
+  "closeButton": true,
+  "debug": false,
+  "newestOnTop": true,
+  "progressBar": true,
+  "positionClass": "toast-top-right",
+  "preventDuplicates": false,
+  "onclick": null,
+  "showDuration": "500",
+  "hideDuration": "1000",
+  "timeOut": "22000",
+  "extendedTimeOut": "22000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "slideDown",
+  "hideMethod": "slideUp"
+}
+)
+</script> 
+
+<?php else : ?>
+
+<?php endif ?>

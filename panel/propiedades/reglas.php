@@ -347,6 +347,16 @@ Editar: <b><?php echo $data[18]['name']; ?></b>
 </tbody>
 </table>
 </div>
+<div class="card-title">
+<b>Alerta de Reglas o Normas <?php echo $data[23]['spain']; ?></b>
+    <div class="custom-control custom-switch custom-switch-md">
+        <form method="POST" role="form" enctype="multipart/form-data">
+        <input type="checkbox" class="custom-control-input" name="UsarRegla0" id="UsarRegla0" <?php echo $data[23]['btn']; ?>>
+        <label class="custom-control-label" for="UsarRegla0"> <?php echo ' '.$data[23]['icon'].' '.$data[23]['spain']; ?></label>
+        <button name="accion" type="submit" value="btnUsarRegla0" class="btn btn-outline-light btn-sm badge-pill" data-toggle="tooltip" data-placement="top" title="Guardar"><i class="fas fa-save"></i></button>
+        </form>
+    </div>
+</div>
 </div>
 
 <a href="index.php" type="submit" class="btn btn-danger"><i class="fas fa-window-close"></i> Cerrar</a>

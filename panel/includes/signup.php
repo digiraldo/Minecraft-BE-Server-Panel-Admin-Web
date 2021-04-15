@@ -176,7 +176,7 @@ function validarRegistro($registroN, &$error)
                 
                     
                 </div>
-                <button id="btn" type="submit" class="btn btn-primary" id="login_submit"><i <i class="fas fa-user-plus"></i> Registrar</button>
+                <button id="btn" type="submit" class="btn btn-primary" id="login_submit"><i class="fas fa-user-plus"></i> Registrar</button>
 
             </form>
         </div>
