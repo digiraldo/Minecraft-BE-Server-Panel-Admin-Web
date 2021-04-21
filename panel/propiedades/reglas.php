@@ -53,7 +53,7 @@ Editar: <b><?php echo $data[18]['name']; ?></b>
 <tbody>
 <tr>
 <form action="" method="POST" role="form" enctype="multipart/form-data">
-<th width="3%" scope="col">#</th>
+<th class="text-white" width="3%" scope="col">#</th>
 <td>
 
 
@@ -65,7 +65,7 @@ Editar: <b><?php echo $data[18]['name']; ?></b>
         </div>
         <input type="text" class="form-control" id="name" name="name" value="<?php echo $data[18]['name']; ?>">
     </div>
-    <small id="nameHelpBlock" class="form-text text-muted">
+    <small id="nameHelpBlock" class="form-text text-white">
             <?php echo 'Título:' . ' ' . $data[18]['name']; ?>
     </small>
 </div>
@@ -79,12 +79,12 @@ Editar: <b><?php echo $data[18]['name']; ?></b>
 </tr>
 <tr>
 <form action="" method="POST" role="form" enctype="multipart/form-data">
-<th width="3%" scope="col">1</th>
+<th class="text-white" class="text-white" width="3%" scope="col">1</th>
 <td>
 
 <div class="form-group">
 <textarea value="<?php echo $data[18]['data']; ?>" class="form-control" id="data" name="data" rows="1"></textarea>
-<small id="dataHelpBlock" class="form-text text-muted">
+<small id="dataHelpBlock" class="form-text text-white">
 <i class="fas fa-check fa-xs"></i> <?php echo $data[18]['data']; ?>
 </small>
 </div>
@@ -98,12 +98,12 @@ Editar: <b><?php echo $data[18]['name']; ?></b>
 </tr>
 <tr>
 <form action="reglas.php" method="POST" role="form" enctype="multipart/form-data">
-<th width="3%" scope="col">2</th>
+<th class="text-white" width="3%" scope="col">2</th>
 <td>
 
 <div class="form-group">
 <textarea value="<?php echo $data[18]['data0']; ?>" class="form-control" id="data0" name="data0" rows="1"></textarea>
-<small id="data0HelpBlock" class="form-text text-muted">
+<small id="data0HelpBlock" class="form-text text-white">
 <i class="fas fa-check fa-xs"></i> <?php echo $data[18]['data0']; ?>
 </small>
 </div>
@@ -117,12 +117,12 @@ Editar: <b><?php echo $data[18]['name']; ?></b>
 </tr>
 <tr>
 <form action="" method="POST" role="form" enctype="multipart/form-data">
-<th width="3%" scope="col">3</th>
+<th class="text-white" width="3%" scope="col">3</th>
 <td>
 
 <div class="form-group">
 <textarea value="<?php echo $data[18]['data1'];?>" class="form-control" id="data1" name="data1" rows="1"></textarea>
-<small id="data1HelpBlock" class="form-text text-muted">
+<small id="data1HelpBlock" class="form-text text-white">
 <i class="fas fa-check fa-xs"></i> <?php echo $data[18]['data1']; ?>
 </small>
 </div>
@@ -136,12 +136,12 @@ Editar: <b><?php echo $data[18]['name']; ?></b>
 </tr>
 <tr>
 <form action="" method="POST" role="form" enctype="multipart/form-data">
-<th width="3%" scope="col">4</th>
+<th class="text-white" width="3%" scope="col">4</th>
 <td>
 
 <div class="form-group">
 <textarea value="<?php echo $data[18]['data2']; ?>" class="form-control" id="data2" name="data2" rows="1"></textarea>
-<small id="data2HelpBlock" class="form-text text-muted">
+<small id="data2HelpBlock" class="form-text text-white">
 <i class="fas fa-check fa-xs"></i> <?php echo $data[18]['data2']; ?>
 </small>
 </div>
@@ -155,12 +155,12 @@ Editar: <b><?php echo $data[18]['name']; ?></b>
 </tr>
 <tr>
 <form action="" method="POST" role="form" enctype="multipart/form-data">
-<th width="3%" scope="col">5</th>
+<th class="text-white" width="3%" scope="col">5</th>
 <td>
 
 <div class="form-group">
 <textarea value="<?php echo $data[18]['data3']; ?>" class="form-control" id="data3" name="data3" rows="1"></textarea>
-<small id="data3HelpBlock" class="form-text text-muted">
+<small id="data3HelpBlock" class="form-text text-white">
 <i class="fas fa-check fa-xs"></i> <?php echo $data[18]['data3']; ?>
 </small>
 </div>
@@ -174,12 +174,12 @@ Editar: <b><?php echo $data[18]['name']; ?></b>
 </tr>
 <tr>
 <form action="" method="POST" role="form" enctype="multipart/form-data">
-<th width="3%" scope="col">6</th>
+<th class="text-white" width="3%" scope="col">6</th>
 <td>
 
 <div class="form-group">
 <textarea value="<?php echo $data[18]['data4']; ?>" class="form-control" id="data4" name="data4" rows="1"></textarea>
-<small id="data4HelpBlock" class="form-text text-muted">
+<small id="data4HelpBlock" class="form-text text-white">
 <i class="fas fa-check fa-xs"></i> <?php echo $data[18]['data4']; ?>
 </small>
 </div>
@@ -193,12 +193,12 @@ Editar: <b><?php echo $data[18]['name']; ?></b>
 </tr>
 <tr>
 <form action="" method="POST" role="form" enctype="multipart/form-data">
-<th width="3%" scope="col">7</th>
+<th class="text-white" width="3%" scope="col">7</th>
 <td>
 
 <div class="form-group">
 <textarea value="<?php echo $data[18]['data5']; ?>" class="form-control" id="data5" name="data5" rows="1"></textarea>
-<small id="data5HelpBlock" class="form-text text-muted">
+<small id="data5HelpBlock" class="form-text text-white">
 <i class="fas fa-check fa-xs"></i> <?php echo $data[18]['data5']; ?>
 </small>
 </div>
@@ -212,12 +212,12 @@ Editar: <b><?php echo $data[18]['name']; ?></b>
 </tr>
 <tr>
 <form action="" method="POST" role="form" enctype="multipart/form-data">
-<th width="3%" scope="col">8</th>
+<th class="text-white" width="3%" scope="col">8</th>
 <td>
 
 <div class="form-group">
 <textarea value="<?php echo $data[18]['data6']; ?>" class="form-control" id="data6" name="data6" rows="1"></textarea>
-<small id="data6HelpBlock" class="form-text text-muted">
+<small id="data6HelpBlock" class="form-text text-white">
 <i class="fas fa-check fa-xs"></i> <?php echo $data[18]['data6']; ?>
 </small>
 </div>
@@ -231,12 +231,12 @@ Editar: <b><?php echo $data[18]['name']; ?></b>
 </tr>
 <tr>
 <form action="" method="POST" role="form" enctype="multipart/form-data">
-<th width="3%" scope="col">9</th>
+<th class="text-white" width="3%" scope="col">9</th>
 <td>
 
 <div class="form-group">
 <textarea value="<?php echo $data[18]['data7']; ?>" class="form-control" id="data7" name="data7" rows="1"></textarea>
-<small id="data7HelpBlock" class="form-text text-muted">
+<small id="data7HelpBlock" class="form-text text-white">
 <i class="fas fa-check fa-xs"></i> <?php echo $data[18]['data7']; ?>
 </small>
 </div>
@@ -250,12 +250,12 @@ Editar: <b><?php echo $data[18]['name']; ?></b>
 </tr>
 <tr>
 <form action="" method="POST" role="form" enctype="multipart/form-data">
-<th width="3%" scope="col">10</th>
+<th class="text-white" width="3%" scope="col">10</th>
 <td>
 
 <div class="form-group">
 <textarea value="<?php echo $data[18]['data8']; ?>" class="form-control" id="data8" name="data8" rows="1"></textarea>
-<small id="data8HelpBlock" class="form-text text-muted">
+<small id="data8HelpBlock" class="form-text text-white">
 <i class="fas fa-check fa-xs"></i> <?php echo $data[18]['data8']; ?>
 </small>
 </div>
@@ -269,12 +269,12 @@ Editar: <b><?php echo $data[18]['name']; ?></b>
 </tr>
 <tr>
 <form action="" method="POST" role="form" enctype="multipart/form-data">
-<th width="3%" scope="col">11</th>
+<th class="text-white" width="3%" scope="col">11</th>
 <td>
 
 <div class="form-group">
 <textarea value="<?php echo $data[18]['data9']; ?>" class="form-control" id="data9" name="data9" rows="1"></textarea>
-<small id="data9HelpBlock" class="form-text text-muted">
+<small id="data9HelpBlock" class="form-text text-white">
 <i class="fas fa-check fa-xs"></i> <?php echo $data[18]['data9']; ?>
 </small>
 </div>
@@ -288,12 +288,12 @@ Editar: <b><?php echo $data[18]['name']; ?></b>
 </tr>
 <tr>
 <form action="" method="POST" role="form" enctype="multipart/form-data">
-<th width="3%" scope="col">12</th>
+<th class="text-white" width="3%" scope="col">12</th>
 <td>
 
 <div class="form-group">
 <textarea value="<?php echo $data[18]['data10']; ?>" class="form-control" id="data10" name="data10" rows="1"></textarea>
-<small id="data10HelpBlock" class="form-text text-muted">
+<small id="data10HelpBlock" class="form-text text-white">
 <i class="fas fa-check fa-xs"></i> <?php echo $data[18]['data10']; ?>
 </small>
 </div>
@@ -307,12 +307,12 @@ Editar: <b><?php echo $data[18]['name']; ?></b>
 </tr>
 <tr>
 <form action="" method="POST" role="form" enctype="multipart/form-data">
-<th width="3%" scope="col">13</th>
+<th class="text-white" width="3%" scope="col">13</th>
 <td>
 
 <div class="form-group">
 <textarea value="<?php echo $data[18]['data11']; ?>" class="form-control" id="data11" name="data11" rows="1"></textarea>
-<small id="data11HelpBlock" class="form-text text-muted">
+<small id="data11HelpBlock" class="form-text text-white">
 <i class="fas fa-check fa-xs"></i> <?php echo $data[18]['data11']; ?>
 </small>
 </div>
@@ -326,12 +326,12 @@ Editar: <b><?php echo $data[18]['name']; ?></b>
 </tr>
 <tr>
 <form action="" method="POST" role="form" enctype="multipart/form-data">
-<th width="3%" scope="col">14</th>
+<th class="text-white" width="3%" scope="col">14</th>
 <td>
 
 <div class="form-group">
 <textarea value="<?php echo $data[18]['data12']; ?>" class="form-control" id="data12" name="data12" rows="1"></textarea>
-<small id="data12HelpBlock" class="form-text text-muted">
+<small id="data12HelpBlock" class="form-text text-white">
 <i class="fas fa-check fa-xs"></i> <?php echo $data[18]['data12']; ?>
 </small>
 </div>

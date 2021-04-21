@@ -130,8 +130,9 @@ $sizef = folderSize($carpeta);
               <!--<th width="10%" scope="col">Acciones</th>-->
             </tr>
           </thead>
-          <tbody id="respaldos">
+          <tbody id="registros">
             <?php
+            $num = 0;
             for ($i = 2; $i < count($archivosb); $i++) {
               $realfile = $carpeta . "/" . $archivosb[$i];
               $filesizea = filesize($realfile);
