@@ -24,6 +24,70 @@ require 'editar.php';
 //  $respaldo = $_POST['respaldo'];
 //  shell_exec($respaldo);  
 
+
+$carpeta = "../../servername/backups";
+$archivosr = scandir($carpeta);
+
+
+function convert_filesize($bytes, $decimals = 2){
+  $sizeRespaldos = array(' B',' kB',' MB',' GB',' TB', 'PB',' EB',' ZB',' YB');
+  $factor = floor((strlen($bytes) - 1) / 3);
+  return sprintf("%.{$decimals}f", $bytes / pow(1024, $factor)) . @$sizeRespaldos[$factor];
+}
+
+
+// Get file size
+$sizeRespaldos = filesize($carpeta);
+
+// Convert file size
+//echo convert_filesize($size);
+
+function folderSize_Respaldos ($dir)
+{
+    $size = 0;
+    $contents = glob(rtrim($dir, '/').'/*', GLOB_NOSORT);
+
+    foreach ($contents as $contents_value) {
+        if (is_file($contents_value)) {
+            $size += filesize($contents_value);
+        } else {
+            $size += realfolderSize_Respaldos($contents_value);
+        }
+    }
+
+    return $size;
+}
+
+$sizef = folderSize_Respaldos($carpeta);
+
+
+
+$ocupado = $sizef;
+$almacenamiento = 5368709120; // 5 GB de almacenamiento
+ 
+$formula = $ocupado/$almacenamiento*100;
+$porcentaje2 = round($formula,2);
+$porcentaje = round($ocupado/$almacenamiento*100);
+/** 
+*echo $ocupado.'<br>';
+*echo $almacenamiento.'<br>';
+*echo $formula2.'%'.'<br>';
+*echo $porcentaje2.'%'.'<br>';
+*echo $porcentaje.'%'.'<br>';
+*/
+
+
+if ($porcentaje < 30) {
+  $colorPorcentaje = 'success';
+} elseif ($porcentaje > 31 && $porcentaje < 70) {
+  $colorPorcentaje = 'info';
+} elseif ($porcentaje > 71 && $porcentaje < 94) {
+  $colorPorcentaje = 'warning';
+} elseif ($porcentaje > 95) {
+  $colorPorcentaje = 'danger';
+}
+
+
 ?>
 
 <!doctype html>
@@ -154,7 +218,16 @@ require 'editar.php';
               <?php endif ?>
 
 
+<div class="container">
 
+      <p>
+      <a class="btn btn-<?php echo $colorPorcentaje; ?> text-white">
+        <i class="fas fa-archive"></i> Tamaño Archivos: <span class="badge badge-light"><?php echo convert_filesize($sizef); ?></span> de: <?php echo convert_filesize($almacenamiento) ; ?>
+      </a>
+      <div class="progress">
+        <div class="progress-bar bg-<?php echo $colorPorcentaje; ?>" role="progressbar" style="width: <?php echo $porcentaje; ?>%;" aria-valuenow="<?php echo $ocupado; ?>" aria-valuemin="0" aria-valuemax="<?php echo $almacenamiento; ?>"><?php echo $porcentaje; ?>%</div>
+      </div>
+    </p>
     <!--tabla-->
     <div class="panel panel-primary">
       <div class="panel-heading">
@@ -168,15 +241,17 @@ require 'editar.php';
               <th width="3%" scope="col">#</th>
               <!--<th width="7%" scope="col">#</th>-->
               <th scope="col">Nombre de Respaldo</th>
+              <th scope="col">Tamaño</th>
               <th width="4%" scope="col">Acciones</th>
               <!--<th width="10%" scope="col">Acciones</th>-->
             </tr>
           </thead>
           <tbody id="respaldos">
             <?php
-            $archivos = scandir("../../servername/backups");
             $num = 0;
             for ($i = 2; $i < count($archivos); $i++) {
+              $realfile = $carpeta . "/" . $archivos[$i];
+              $filesizer = filesize($realfile);
               $num++;
             ?>
               <p>
@@ -184,6 +259,7 @@ require 'editar.php';
               <tr>
                 <th scope="row"><?php echo $num; ?></th>
                 <td><?php echo $archivos[$i]; ?></td>
+                <td><?php echo convert_filesize($filesizer); ?></td>
                 <td>
                   <a href="../../servername/backups/<?php echo $archivos[$i]; ?>" download="<?php echo $archivos[$i]; ?>" data-toggle="tooltip" data-placement="top" title="Descargar" type="submit" class="btn btn-info btn-sm" name="accion"><i class="fas fa-download"></i></a>
                   <?php if ($_SESSION['id_rol'] == 0 || $_SESSION['id_rol'] == 1 || $_SESSION['id_rol'] == 2) : ?>
@@ -199,6 +275,7 @@ require 'editar.php';
         </table>
       </div>
     </div>
+  </div>
   </div>
 
 
