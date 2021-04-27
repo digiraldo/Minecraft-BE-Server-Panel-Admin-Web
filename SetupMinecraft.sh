@@ -227,6 +227,7 @@ echo "========================================================================="
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/index.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/editar.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/CargarFicheros.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/size.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/cronon.sh
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/cronoff.sh
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/rol/index.php
@@ -460,6 +461,7 @@ sudo systemctl daemon-reload
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/index.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/editar.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/CargarFicheros.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/size.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/cronon.sh
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/cronoff.sh
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/rol/index.php

@@ -26,7 +26,7 @@ require 'editar.php';
 
 require 'size.php';
 
-
+//include "";
 
 ?>
 

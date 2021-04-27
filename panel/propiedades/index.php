@@ -369,7 +369,7 @@ $ds = disk_total_space("/");
         <div class="progress-bar bg-<?php echo $colorPorcentaje; ?>" role="progressbar" style="width: <?php echo $porcentaje; ?>%;" aria-valuenow="<?php echo $ocupado; ?>" aria-valuemin="0" aria-valuemax="<?php echo $almacenamiento; ?>"><?php echo $porcentaje; ?>%</div>
         </div>
 
-        <p class="card-text">Configurar los GB de almacenamiento para los respaldos.</p>
+        <p class="card-text">Configurar almacenamiento para los respaldos.</p>
         </div>
         <div class="card-footer">
           <form action="index.php" method="POST" role="form" enctype="multipart/form-data">

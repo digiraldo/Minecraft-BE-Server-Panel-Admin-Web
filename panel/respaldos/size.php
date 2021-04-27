@@ -1,6 +1,5 @@
 <?php
 
-
 $carpeta = "../../servername/backups";
 $archivosr = scandir($carpeta);
 
@@ -37,21 +36,20 @@ function folderSize_Respaldos ($dir)
 $sizef = folderSize_Respaldos($carpeta);
 
 
-
 $ocupado = $sizef;
 $almacenamiento = $data[24]['size']; // 5368709120 = 5 GB de almacenamiento
  
 $formula = $ocupado/$almacenamiento*100;
 $porcentaje2 = round($formula,2);
 $porcentaje = round($ocupado/$almacenamiento*100);
-/** 
-*echo $ocupado.'<br>';
-*echo $almacenamiento.'<br>';
-*echo $formula2.'%'.'<br>';
-*echo $porcentaje2.'%'.'<br>';
-*echo $porcentaje.'%'.'<br>';
-*/
 
+
+//echo $ocupado.'<br>';
+//echo $almacenamiento.'<br>';
+//echo $formula2.'%'.'<br>';
+//echo $porcentaje2.'%'.'<br>';
+//echo $porcentaje.'%'.'<br>';
+//echo $sizef.'<br>';
 
 if ($porcentaje < 30) {
   $colorPorcentaje = 'success';
@@ -66,6 +64,5 @@ if ($porcentaje < 30) {
   $colorPorcentaje = 'danger';
   $colorIcono = 'FFCDCD';
 }
-
 
 ?>
