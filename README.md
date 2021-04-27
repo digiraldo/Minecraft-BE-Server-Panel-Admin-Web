@@ -128,6 +128,8 @@ tar -xf backups/13.11.2020_22.06.30_Mundo.tar.gz
 
 ¡Tu mundo ahora ha sido restaurado! Es una buena idea descargar estas copias de seguridad del servidor periódicamente en caso de que falle el almacenamiento del servidor.
 
+
+Ver Instalación completa en: [Instalar Panel Web](https://gorobeta.blogspot.com/2021/04/instalar-minecraft-bedrock-edition-panel-admin.html)
 #
 #
 #
