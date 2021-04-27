@@ -65,6 +65,7 @@ $txtText1 = (isset($_POST['txt1'])) ? $_POST['txt1'] : "";
 $txtType = (isset($_POST['type'])) ? $_POST['type'] : "";
 $txtType0 = (isset($_POST['type0'])) ? $_POST['type0'] : "";
 $txtType1 = (isset($_POST['type1'])) ? $_POST['type1'] : "";
+$txtSize = (isset($_POST['Espacio'])) ? $_POST['Espacio'] : "";
 
 $accion = (isset($_POST['accion'])) ? $_POST['accion'] : "";
 
@@ -1259,6 +1260,37 @@ case 'btnType':
                 header("Location: " . $_SERVER['PHP_SELF']);
                 /** */
                 break;
+
+                case 'btnEspacio':
+                    $size = round($txtSize * 1024 * 1024 * 1024,4);
+                    
+                    foreach ($data as $key) {
+                        if ($data[24]['id'] == '25' && !empty($txtSize)) {
+                            $data[24]['size'] = $size;
+                            $data[24]['icon_size'] = '<i class="fas fa-hdd fa-xs"></i>';
+                        }
+
+                        if ($data[24]['id'] == '25' && $txtUsarRegla0 == 'on') {
+                            $data[24]['data'] = 'true';
+                            $data[24]['spain'] = 'Activado';
+                            $data[24]['btn'] = 'checked';
+                            $data[24]['icon'] = '<i class="fas fa-check fa-xs" style="color: #2EFA2B;"></i>';
+                        } else {
+                            $data[24]['data'] = '';
+                            $data[24]['spain'] = 'Desactivado';
+                            $data[24]['btn'] = '';
+                            $data[24]['icon'] = '<i class="fas fa-times fa-xs" style="color: #FA0D02;"></i>';
+                        }
+                    }
+            
+                    $newJsonString = json_encode($data, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+                    file_put_contents(__DIR__ . '../../../config/srvdatos.json', $newJsonString);
+            
+                    unset($_POST);
+                    unset($_REQUEST);
+                    header("Location: " . $_SERVER['PHP_SELF']);
+                    /** */
+                    break;
 
 
 

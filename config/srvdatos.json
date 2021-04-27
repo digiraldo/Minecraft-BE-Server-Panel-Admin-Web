@@ -215,5 +215,15 @@
         "btn": "checked",
         "icon": "<i class=\"fas fa-check fa-xs\" style=\"color: #2EFA2B;\"><\/i>",
         "data": "true"
+    },
+    {
+        "id": 25,
+        "name": "Espacio Disco:",
+        "spain": "Desactivado",
+        "btn": "",
+        "icon": "<i class=\"fas fa-times fa-xs\" style=\"color: #FA0D02;\"><\/i>",
+        "data": "",
+        "size": 2147483648,
+        "icon_size": "<i class=\"fas fa-hdd fa-xs\"><\/i>"
     }
 ]

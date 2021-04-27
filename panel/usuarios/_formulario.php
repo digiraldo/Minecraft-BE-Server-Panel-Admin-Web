@@ -1,16 +1,12 @@
 <?php
-//session_start();
-//if ($_SESSION['id_rol'] != 0 && $_SESSION['id_rol'] != 1 && $_SESSION['id_rol'] != 2 && $_SESSION['id_rol'] != 3)
-//{
-//  header("location: ../../");
-//}
 
 include "../includes/footer.php";
+
 ?>
-<!--
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
- -->
+
 
 <div class="container">
   <div class="card card text-center text-white bg-dark">
@@ -159,12 +155,10 @@ include "../includes/footer.php";
         <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
 
 
-
         </div>
 
       </div>
 <?php endif ?>
-
 
 
     <?php endif ?>
@@ -174,8 +168,6 @@ include "../includes/footer.php";
 
 
 <script src="../includes/js/select_rol.js"></script>
-<!--
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
--->

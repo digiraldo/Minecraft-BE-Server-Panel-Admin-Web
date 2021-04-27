@@ -156,16 +156,16 @@ $mostrarModal='';
           <button value="btnReiniciar" class="btn btn-primary" type="submit" name="accion"><i class="fas fa-redo-alt"></i> Reiniciar</button>
 
         </div>
-        <div class="card-footer text-white">
+        <div class="card-footer text-muted">
+        <pre>
           <?php
-          echo "<pre>";
-          echo $txtDetener;
-          echo $txtIniciar;
-          echo $txtReiniciar;
-          echo 'Prueba: Servidor reiniciado exitosamente :)';
-          echo "</pre>";
+          echo "";
+          echo "<font color='red'>$txtDetener</font>";
+          echo "<font color='lime'>$txtIniciar</font>";
+          echo "<font color='blue'>$txtReiniciar</font>";
+          echo "";
           ?>
-
+        </pre>
 
 <?php if (empty($data[18]['name'])):  ?>
 
@@ -190,8 +190,8 @@ $mostrarModal='';
         <div class="card-footer text-muted">
           <?php
           echo "<pre>";
-          echo $txtIniciar;
-          echo $txtReiniciar;
+          echo "<font color='lime'>$txtIniciar</font>";
+          echo "<font color='blue'>$txtReiniciar</font>";
           echo "</pre>";
           ?>
 
@@ -405,7 +405,6 @@ Inserar tíulo y esablecer las normas del juego o mundo en Editar.
 
 
 
-
 </div>
 <br>
 <div class="card text-center card text-white bg-dark border-info mb-3">
@@ -437,8 +436,7 @@ Inserar tíulo y esablecer las normas del juego o mundo en Editar.
 
       <?php if ($_SESSION['id_rol'] == 4 && !empty($data[18]['name']) && $data[19]['data'] == 'true'){  ?>
   <script>
-  toastr.info(
-'<?php if (!empty($data[18]['data'])) { ?>
+  toastr.info('<?php if (!empty($data[18]['data'])) { ?>
   <?php echo $data[18]['icon']; echo " ".$data[18]['data']."<br>"; ?>
   <?php } ?>
   <?php if (!empty($data[18]['data0'])) { ?>

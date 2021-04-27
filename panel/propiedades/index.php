@@ -16,13 +16,23 @@ $active_logs = "";
 $title = "Minecraft SRV | Simple Invoice";
 
 
-
 //  require 'propiedades.php';
 //obtenerPermisos();
 //$propiedades = obtenerPropiedades();
 //  $propiedades = propiedadesSrv();
 
 require 'editar.php';
+require '../respaldos/size.php';
+
+// $df contiene el número de bytes disponibles en "/"
+$df = disk_free_space("/");
+$ds = disk_total_space("/");
+
+// En Windows:
+//$df_c = disk_free_space("C:");
+//$df_d = disk_free_space("D:");
+
+
 
 //echo $lines1[43];
 
@@ -77,6 +87,7 @@ require 'editar.php';
               
         <?php endif ?>
       </div>
+    </div>
     </div>
 
 <?php if ($_SESSION['id_rol'] == 0 || $_SESSION['id_rol'] == 1) : ?>
@@ -316,7 +327,6 @@ require 'editar.php';
         </div>
       </div>
 
-
       <div class="card text-white bg-secondary mb-3">
         <div class="card-header"><?php echo $data[16]['name']; ?> <?php echo $data[16]['btn']; ?>
           <button type="button" class="btn btn-secondary btn-sm" data-container="body" data-toggle="popover" data-placement="top" title="<i class='fas fa-gamepad'></i> <?php echo $data[0]['spain']; ?>" data-content="<i class='fas fa-language'></i> es_ES: <?php echo $lines2[2312]; ?><br><i class='fas fa-language'></i> es_MX: <?php echo $lines3[2312]; ?>">
@@ -335,6 +345,40 @@ require 'editar.php';
               </div>
               <div class="col">
                 <button name="accion" value="btnTelegram" type="submit" class="btn btn-outline-light btn-sm" data-toggle="tooltip" data-placement="top" title="Guardar"><i class="fas fa-save"></i></button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+
+      <div class="card text-white bg-secondary mb-3">
+        <div class="card-header"><?php echo $data[24]['name']; ?> <i class='fas fa-hdd'></i> <?php echo convert_filesize($df) ; ?> <?php //echo $df; ?>
+        
+          <a href="../respaldos/" type="button" class="btn btn-dark btn-sm" data-container="body" data-toggle="popover" data-placement="top" 
+          title="<i class='fas fa-archive'></i> Almacenamiento" 
+          data-content="<i class='fas fa-hdd'></i> Total Disco: <?php echo convert_filesize($ds); ?><br><i class='far fa-hdd'></i> Espacio Disco: <?php echo convert_filesize($df); ?><br><i class='fas fa-folder'></i> Respaldo: <?php echo convert_filesize($sizef); ?><br><i class='fas fa-archive' style='color: #<?php echo $colorIcono; ?>'></i> De: <?php echo convert_filesize($almacenamiento) ; ?><br><i class='fas fa-percentage'></i> Porcentaje: <?php echo $porcentaje; ?>%">
+            Respaldos
+          </a>
+
+
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Espacio de Respaldo: <i class='fas fa-archive' style='color: #<?php echo $colorIcono; ?>'></i> <?php echo convert_filesize($almacenamiento) ; ?></h5>
+          <div class="progress">
+        <div class="progress-bar bg-<?php echo $colorPorcentaje; ?>" role="progressbar" style="width: <?php echo $porcentaje; ?>%;" aria-valuenow="<?php echo $ocupado; ?>" aria-valuemin="0" aria-valuemax="<?php echo $almacenamiento; ?>"><?php echo $porcentaje; ?>%</div>
+        </div>
+
+        <p class="card-text">Configurar los GB de almacenamiento para los respaldos.</p>
+        </div>
+        <div class="card-footer">
+          <form action="index.php" method="POST" role="form" enctype="multipart/form-data">
+            <div class="form-row">
+              <div class="col">
+                <input type="number" name="Espacio" class="form-control form-control-sm" id="Espacio" placeholder="<?php echo convert_filesize($almacenamiento) ; ?>">
+              </div>
+              <div class="col">
+                <button name="accion" value="btnEspacio" type="submit" class="btn btn-outline-light btn-sm" data-toggle="tooltip" data-placement="top" title="Guardar"><i class="fas fa-save"></i></button>
               </div>
             </div>
           </form>
