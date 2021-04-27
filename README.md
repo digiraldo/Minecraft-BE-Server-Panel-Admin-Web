@@ -58,7 +58,6 @@ chmod +x SetupMinecraft.sh
 ```
 
 Ver Instalación completa en: [Instalar Panel Web](https://gorobeta.blogspot.com/2021/04/instalar-minecraft-bedrock-edition-panel-admin.html)
-
 #
 #
 #
