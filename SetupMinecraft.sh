@@ -252,11 +252,17 @@ echo "========================================================================="
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/propiedades/index.php
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/propiedades/editar.php
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/tablero/shell.php
+  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/tablero/sto.sh
+  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/tablero/sta.sh
+  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/tablero/res.sh
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/mundo/subido.php
   sudo sed -i "s:dirnameusr:$DirName:g" $DirName/minecraftbe/panel/mundo/select.php
   sudo sed -i "s:dirname:$DirName:g" /etc/nginx/sites-available/misitio.conf
   sudo sed -i "s:username:$UserName:g" $DirName/minecraftbe/panel/respaldos/editar.php
   sudo sed -i "s:username:$UserName:g" $DirName/minecraftbe/panel/respaldos/eliminar.php
+  sudo sed -i "s:username:$UserName:g" $DirName/minecraftbe/panel/tablero/sto.sh
+  sudo sed -i "s:username:$UserName:g" $DirName/minecraftbe/panel/tablero/sta.sh
+  sudo sed -i "s:username:$UserName:g" $DirName/minecraftbe/panel/tablero/res.sh
 
 echo "========================================================================="
 echo "Configuranfo iniciao del servidor automáticamente"
@@ -296,6 +302,7 @@ cd $ServerName
 mkdir downloads
 mkdir backups
 mkdir logs
+
 
 # Verifique la arquitectura de la CPU para ver si necesitamos hacer algo especial para la plataforma en la que se ejecuta el servidor
 echo "Obteniendo la arquitectura de la CPU del sistema..."
@@ -478,11 +485,17 @@ sudo systemctl daemon-reload
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/propiedades/index.php
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/propiedades/editar.php
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/tablero/shell.php
+  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/tablero/sto.sh
+  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/tablero/sta.sh
+  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/tablero/res.sh
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/mundo/subido.php
-  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/mundo/select.php
+  sudo sed -i "s:dirnameusr:$DirName:g" $DirName/minecraftbe/panel/mundo/select.php
   sudo sed -i "s:dirname:$DirName:g" /etc/nginx/sites-available/misitio.conf
   sudo sed -i "s:username:$UserName:g" $DirName/minecraftbe/panel/respaldos/editar.php
   sudo sed -i "s:username:$UserName:g" $DirName/minecraftbe/panel/respaldos/eliminar.php
+  sudo sed -i "s:username:$UserName:g" $DirName/minecraftbe/panel/tablero/sto.sh
+  sudo sed -i "s:username:$UserName:g" $DirName/minecraftbe/panel/tablero/sta.sh
+  sudo sed -i "s:username:$UserName:g" $DirName/minecraftbe/panel/tablero/res.sh
 
   # Reinicio automático a las 4 am
   TimeZone=$(cat /etc/timezone)

@@ -1,16 +1,16 @@
 <?php
-session_start();
-if ($_SESSION['id_rol'] != 0 && $_SESSION['id_rol'] != 1 && $_SESSION['id_rol'] != 2 && $_SESSION['id_rol'] != 3)
-{
-  header("location: ../../");
-}
+//session_start();
+//if ($_SESSION['id_rol'] != 0 && $_SESSION['id_rol'] != 1 && $_SESSION['id_rol'] != 2 && $_SESSION['id_rol'] != 3)
+//{
+//  header("location: ../../");
+//}
 
 include "../includes/footer.php";
 ?>
 <!--
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
--->
+ -->
 
 <div class="container">
   <div class="card card text-center text-white bg-dark">

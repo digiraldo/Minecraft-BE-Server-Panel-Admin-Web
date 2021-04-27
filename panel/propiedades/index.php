@@ -61,7 +61,7 @@ require 'editar.php';
 
     <div class="card-deck">
       <div class="card text-center border-info mb-3">
-        <div class="card-header"><b><?php echo $data[12]['name']; ?></b> <i><?php echo $data[13]['spain']; ?></i> <?php echo $data[12]['spain']; ?> Puerto:<?php echo $data[8]['spain']; ?></div>
+      <div class="card-header"><i><?php echo $data[12]['name']; ?> <?php echo $data[13]['spain']; ?>: </i> <b><?php echo $data[12]['spain']; ?></b> Puerto: <b><?php echo $data[8]['spain']; ?></b><br />
         <?php if ($_SESSION['id_rol'] == 0 || $_SESSION['id_rol'] == 1 || $_SESSION['id_rol'] == 2) : ?>
         <div class="card-body text-info">
           <h5 class="card-title">Propiedades del Servidor</h5>

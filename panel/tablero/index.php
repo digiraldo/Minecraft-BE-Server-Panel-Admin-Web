@@ -156,12 +156,13 @@ $mostrarModal='';
           <button value="btnReiniciar" class="btn btn-primary" type="submit" name="accion"><i class="fas fa-redo-alt"></i> Reiniciar</button>
 
         </div>
-        <div class="card-footer text-muted">
+        <div class="card-footer text-white">
           <?php
           echo "<pre>";
           echo $txtDetener;
           echo $txtIniciar;
           echo $txtReiniciar;
+          echo 'Prueba: Servidor reiniciado exitosamente :)';
           echo "</pre>";
           ?>
 
@@ -174,10 +175,6 @@ $mostrarModal='';
 <i class="fas fa-tasks"></i>  Ver: <?php echo $data[18]['name'] ?>
 </button>
 <?php endif ?> 
-
-
-
-
 
 </div>
         <?php elseif ($_SESSION['id_rol'] == 2) : ?>

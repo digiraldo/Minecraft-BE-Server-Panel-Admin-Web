@@ -14,7 +14,7 @@ for ($i=2; $i<count($logsb); $i++)
 }
 
 $filesize = $carpeta.'/'.filesize($logsb[$i]).' bytes';
-echo $filesize;
+//echo $filesize;
 
 /**
 $size = filesize($archivos[$key]);

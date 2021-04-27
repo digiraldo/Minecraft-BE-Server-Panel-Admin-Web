@@ -97,7 +97,7 @@
     },
     {
         "id": 13,
-        "name": "Ingreso al Servidor:",
+        "name": "Ingreso al Servidor",
         "spain": "MiIPV4",
         "btn": "",
         "icon": "<i class=\"fas fa-database\"><\/i>",

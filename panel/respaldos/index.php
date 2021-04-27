@@ -125,7 +125,7 @@ if ($porcentaje < 30) {
     <!-- Inicio Tarjeta respaldo mundo -->
     <div class="card text-center card text-white bg-dark border-info mb-3">
       <div class="card-header">
-        <div class="card-header"><b><?php echo $data[12]['name']; ?></b> <i><?php echo $data[13]['spain']; ?></i> <?php echo $data[12]['spain']; ?> Puerto:<?php echo $data[8]['spain']; ?><br />
+      <div class="card-header"><i><?php echo $data[12]['name']; ?> <?php echo $data[13]['spain']; ?>: </i> <b><?php echo $data[12]['spain']; ?></b> Puerto: <b><?php echo $data[8]['spain']; ?></b><br />
         </div>
         <div class="card-body">
 
@@ -188,7 +188,7 @@ if ($porcentaje < 30) {
       <!-- Inicio Tarjeta respaldo mundo -->
       <div class="card text-center card text-white bg-dark border-info mb-3">
       <div class="card-header">
-        <div class="card-header"><b><?php echo $data[12]['name']; ?></b> <i><?php echo $data[13]['spain']; ?></i> <?php echo $data[12]['spain']; ?> Puerto:<?php echo $data[8]['spain']; ?><br />
+      <div class="card-header"><i><?php echo $data[12]['name']; ?> <?php echo $data[13]['spain']; ?>: </i> <b><?php echo $data[12]['spain']; ?></b> Puerto: <b><?php echo $data[8]['spain']; ?></b><br />
         </div>
         <div class="card-body">
 

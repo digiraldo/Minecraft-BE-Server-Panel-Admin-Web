@@ -65,7 +65,7 @@ if (isset($_POST['zip_file']))
       $ruta = $_POST['zip_file'];
       $tipo = 'zip'; 
 
-      shell_exec("sudo zip -r dirnameusr/minecraftbe/servername/backups/$(date +%d.%m.%Y_%H\:%M\:%S_Wo_servername).zip dirname/minecraftbe/servername/worlds");
+      shell_exec("sudo zip -r dirnameusr/minecraftbe/servername/backups/$(date +%Y.%m.%d_%H\:%M\:%S_Wo_servername).zip dirname/minecraftbe/servername/worlds");
 
       $rut = "../../servername/backups/"."$nombre";
       $name = explode("../../servername/backups/", $nombre);

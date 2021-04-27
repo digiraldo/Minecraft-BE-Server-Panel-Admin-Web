@@ -62,7 +62,7 @@ $subdirectorios = scandir($directorio . $rutaw);
     <!-- Inicio Tarjeta subir mundo -->
     <div class="card text-center card text-white bg-dark border-info mb-3">
       <div class="card-header">
-        <b><?php echo $data[12]['name']; ?></b> <i><?php echo $data[13]['spain']; ?></i> <?php echo $data[12]['spain']; ?> Puerto:<?php echo $data[8]['spain']; ?>
+      <div class="card-header"><i><?php echo $data[12]['name']; ?> <?php echo $data[13]['spain']; ?>: </i> <b><?php echo $data[12]['spain']; ?></b> Puerto: <b><?php echo $data[8]['spain']; ?></b><br />
       </div>
 
       <?php if ($_SESSION['id_rol'] == 0 || $_SESSION['id_rol'] == 1 || $_SESSION['id_rol'] == 2) : ?>
@@ -74,7 +74,7 @@ $subdirectorios = scandir($directorio . $rutaw);
 
         <form method="POST" action="subido.php" enctype="multipart/form-data">
           <div class="form-group">
-            <small id="emailHelp" class="form-text text-muted">Ejemplo de ruta de los directorios del archivo comprimido zip para subir: worlds/Bedrock level/db.</small>
+            <small id="emailHelp" class="form-text text-muted">Ejemplo de ruta de los directorios del archivo comprimido zip para subir: <b>worlds/Bedrock level/db.</b></small>
             <label class="btn btn-outline-secondary" for="my-file-selector">Subir archivo ZIP:
               <input required="" type="file" name="zip_file" id="">
               <button class="btn btn-info" name="submit" type="submit"><i class="fas fa-upload"></i> Cargar Fichero</button>

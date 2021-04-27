@@ -71,16 +71,3 @@ request.send();
 
 
 
-var Datos={
-    "DatosPersonales": {
-      "dni": 70798811,
-      "nombre": "Pajaroman",
-      "edad": 20,
-    }
-  };
-
-
-  $("#dni").html(Datos.DatosPersonales.dni);
-  $("#nombre").html(Datos.DatosPersonales.nombre);       $("#edad").html(Datos.DatosPersonales.edad);
-  //O de esta foma tambien
-  console.log(Datos);
