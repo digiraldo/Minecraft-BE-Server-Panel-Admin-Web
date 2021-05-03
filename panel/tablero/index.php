@@ -404,7 +404,6 @@ Inserar tíulo y esablecer las normas del juego o mundo en Editar.
         </div>
 
 
-
 </div>
 <br>
 <div class="card text-center card text-white bg-dark border-info mb-3">
@@ -497,7 +496,6 @@ Inserar tíulo y esablecer las normas del juego o mundo en Editar.
 )
 </script> 
 <?php } ?>
-
 
 
       <?php include '../includes/footer.php' ?>

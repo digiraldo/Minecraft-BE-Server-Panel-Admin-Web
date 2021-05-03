@@ -438,6 +438,7 @@ $ds = disk_total_space("/");
         </div>
       </div>
 
+<!--
       <div class="card text-white bg-success mb-3">
         <div class="card-header"><?php echo $lines[12]; ?></div>
         <div class="card-body">
@@ -458,6 +459,8 @@ $ds = disk_total_space("/");
           </form>
         </div>
       </div>
+-->
+
     </div>
 
   <?php else : ?>
