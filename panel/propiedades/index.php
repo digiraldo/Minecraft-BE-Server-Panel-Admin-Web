@@ -25,8 +25,8 @@ require 'editar.php';
 require '../respaldos/size.php';
 
 // $df contiene el número de bytes disponibles en "/"
-$df = disk_free_space("/");
-$ds = disk_total_space("/");
+//$df = disk_free_space("/");
+//$ds = disk_total_space("/");
 
 // En Windows:
 //$df_c = disk_free_space("C:");

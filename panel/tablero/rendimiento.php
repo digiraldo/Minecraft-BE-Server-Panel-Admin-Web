@@ -1,86 +1,4 @@
-<?php 
-
-# dirname
-# servername
-# usuario
-
-/*
-$ln = "0 4 * * * dirname/minecraftbe/servername/restart.sh";
-$new_ln = "* * * * * dirname/minecraftbe/servername/restart.sh";
-$output = shell_exec('sudo crontab -u usuario -l');
-$output = str_replace($ln,$new_ln,$output);
-file_put_contents('/tmp/crontab.txt', $output.PHP_EOL);
-echo exec('crontab /tmp/crontab.txt'); 
-
-$output = shell_exec('sudo crontab -u www-data -l');
-$find="0 4 * * * dirname/minecraftbe/servername/restart.sh";
-$replace="* * * * * dirname/minecraftbe/servername/restart.sh";
-$output =str_replace($find, $replace,$output);
-$file="/tmp/crontab.txt";
-file_put_contents($file, $output);
-#Luego escribe el nuevo contenido en crontab:
-shell_exec("crontab ".$file); 
-
-$outputb = shell_exec('sudo cat /tmp/crontab.txt');
-echo "<pre>";
-print_r($outputb);
-echo "</pre>";
-
-*/
-
-
-echo "Datos de: sudo crontab -u www-data -l <br/>";
-$output = shell_exec('sudo crontab -u www-data -l');
-echo "<pre>";
-print_r($output);
-echo "</pre>";
-echo "<br/>";
-echo "<br/>";
-
-echo "Datos de: sudo crontab -u usr -l <br/>";
-$outputb = shell_exec('sudo crontab -u usr -l');
-echo "<pre>";
-print_r($outputb);
-echo "</pre>";
-echo "<br/>";
-echo "<br/>";
-
-echo "Datos de: sudo crontab -u root -l <br/>";
-$outputc = shell_exec('sudo crontab -u root -l');
-echo "<pre>";
-print_r($outputc);
-echo "</pre>";
-echo "<br/>";
-echo "<br/>";
-
-echo "Datos de: sudo crontab -l <br/>";
-$outputa = shell_exec('sudo crontab -l');
-echo "<pre>";
-print_r($outputa);
-echo "</pre>";
-echo "<br/>";
-echo "<br/>";
-
-
-
-
-// Este es sólo un ejemplo, los siguientes números
-// serán diferentes dependiendo de su sistema
-
-echo memory_get_usage() . "</br>"; // 36640
-
-$a = str_repeat("Hello", 4242);
-
-echo memory_get_usage() . "</br>  "; // 57960
-
-unset($a);
-
-echo memory_get_usage() . "</br>  "; // 36744
-
-
-echo "</br>";
-echo "</br>";
-
+<?php
 
     // Returns used memory (either in percent (without percent sign) or free and overall in bytes)
     function getServerMemoryUsage($getPercentage=true)
@@ -181,23 +99,18 @@ echo "</br>";
         }
     }
 
-    // Memory usage: 4.55 GiB / 23.91 GiB (19.013557664178%)
     $memUsage = getServerMemoryUsage(false);
-    echo sprintf("Memory usage: %s / %s (%s%%)" . "</br>",
+    sprintf("Memory usage: %s / %s (%s%%)" . "</br>",
         getNiceFileSize($memUsage["total"] - $memUsage["free"]),
         getNiceFileSize($memUsage["total"]),
         getServerMemoryUsage(true)
     );
 
-    echo "</br>";
-    echo "</br>";
+$usadoram = $memUsage["total"] - $memUsage["free"]; // 6659776512
+$totalram = $memUsage["total"]; // 8346107904
+$libreram = $memUsage["free"]; // 1686331392
 
-
-$ramusado = $memUsage["total"] - $memUsage["free"];
-$ramtotal = $memUsage["total"];
-$ramlibre = $memUsage["free"];
-
-    $ramporcentaje = round($ramusado/$ramtotal*100);
+$ramporcentaje = round($usadoram/$totalram*100); // 80 %
 
     if ($ramporcentaje < 30) {
         $ramcolorPorcentaje = 'success';
@@ -213,25 +126,27 @@ $ramlibre = $memUsage["free"];
         $ramcolorIcono = 'FFCDCD';
       }
       
-echo "Usado: ".$ramusado . "</br>";
-echo "De: ".$ramtotal . "</br>";
+// echo "Usado: ".$usadoram . "</br>";
+// echo "De: ".$totalram . "</br>";
 
-echo $ramlibre . "</br>";
+// echo $libreram . "</br>";
 
-echo $ramporcentaje . " %" . "</br>";
+// echo $ramporcentaje . " %" . "</br>";
 
-echo "</br>";
-echo "</br>";
+// echo "</br>";
+// echo "</br>";
 
-$usadoram = getNiceFileSize($ramusado);
-$totalram = getNiceFileSize($ramtotal);
-$libreram = getNiceFileSize($ramlibre);
-echo "Usado: ".$usadoram . "</br>";
-echo "De: ".$totalram . "</br>";
+$ramusado = getNiceFileSize($usadoram); // 6.2 GiB
+$ramtotal = getNiceFileSize($totalram); // 7.77 GiB
+$ramlibre = getNiceFileSize($libreram); // 1.57 GiB
 
-echo $libreram . "</br>";
 
-echo $ramporcentaje . " %" . "</br>";
 
+// echo "Usado: ".$ramusado . "</br>";
+// echo "De: ".$ramtotal . "</br>";
+
+// echo $ramlibre . "</br>";
+
+// echo $ramporcentaje . " %" . "</br>";
 
 ?>

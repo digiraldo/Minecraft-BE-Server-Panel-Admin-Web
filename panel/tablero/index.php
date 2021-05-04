@@ -17,6 +17,8 @@ $active_logs = "";
 $title = "Minecraft SRV | Simple Invoice";
 
 require 'shell.php';
+require 'rendimiento.php';
+require '../respaldos/size.php';
 $mostrarModal='';
 // echo "<pre>$controlsrv</pre>";
 
@@ -343,6 +345,42 @@ Inserar tíulo y esablecer las normas del juego o mundo en Editar.
         </div>
 
         <?php else : ?>
+        
+        <div class="bg-secondary col-sm-4 card text-white">
+          <div class="card-header font-weight-bold">Disco Duro</div>
+          <div class="card-body">
+            <!-- <h3 class="card-title font-italic">EN LÍNEA</h3> -->
+            <span class="fas fa-hdd fa-4x" style="color: <?php echo $hddcolorIcono ?>;"></span>
+            <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark"><?php echo $hddporcentaje." %"; ?></span></h4>
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped bg-<?php echo $hddcolorPorcentaje; ?>" role="progressbar" style="width: <?php echo $hddporcentaje."%"; ?>" aria-valuenow="<?php echo $do; ?>" aria-valuemin="0" aria-valuemax="<?php echo $ds; ?>"><?php echo $hddporcentaje." %"; ?></div>
+              </div>
+          </div>
+          <a class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="Espacio Servidor">HDD Usado: <?php echo $hddusado; ?> / <?php echo $hddtotal; ?> <span class="badge badge-<?php echo $hddcolorPorcentaje; ?>"><?php echo $hddporcentaje."%"; ?></span></a>
+        </div>
+        <div class="bg-secondary col-sm-4 card text-white">
+          <div class="card-header font-weight-bold">Memoria Ram</div>
+          <div class="card-body">
+            <!-- <h3 class="card-title font-italic">AGREGADOS</h3> -->
+            <i class="fas fa-memory fa-4x" style="color: <?php echo $ramcolorIcono ?>;"></i>
+            <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark"><?php echo $ramporcentaje . " %"; ?></span></h4>
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped bg-<?php echo $ramcolorPorcentaje; ?>" role="progressbar" style="width: <?php echo $ramporcentaje."%"; ?>" aria-valuenow="<?php echo $usadoram; ?>" aria-valuemin="0" aria-valuemax="<?php echo $totalram; ?>"><?php echo $ramporcentaje." %"; ?></div>
+              </div>
+          </div>
+          <a class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="Memoria del Servidor">RAM Usado: <?php echo $ramusado; ?> / <?php echo $ramtotal; ?> <span class="badge badge-<?php echo $ramcolorPorcentaje; ?>"><?php echo $ramporcentaje."%"; ?></span></a>
+        </div>
+
+        <div class="bg-secondary col-sm-4 card text-white">
+          <div class="card-header font-weight-bold">Procesador</div>
+          <div class="card-body">
+            <!-- <h3 class="card-title font-italic">OPERADORES</h3> -->
+            <i class="fas fa-microchip fa-4x"></i>
+            <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark badge-10x"><?php echo count($permisos); ?></span></h4>
+          </div>
+        </div>
+
+
         <div class="bg-danger col-sm-4 card text-white">
           <div class="card-header font-weight-bold">Jugadores</div>
           <div class="card-body">
