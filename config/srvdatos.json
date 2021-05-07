@@ -98,7 +98,7 @@
     {
         "id": 13,
         "name": "Ingreso al Servidor",
-        "spain": "MiIPV4",
+        "spain": "parce.duckdns.org",
         "btn": "",
         "icon": "<i class=\"fas fa-database\"><\/i>",
         "data": "MiIPV4"

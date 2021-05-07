@@ -53,7 +53,7 @@ Panel
 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
 <li class="<?php echo $active_tablero;?>">
-<a class="nav-link" aria-current="page" href="../tablero" data-toggle="tooltip" data-placement="bottom" title="<?php echo $srvdat[6]['spain']; ?> Jugadores Max."><i class="fas fa-tachometer-alt"></i> Tablero<span class="badge badge-pill badge-danger"><?php echo $srvdat[6]['spain']; ?></span></a>
+<a class="nav-link" aria-current="page" href="../tablero" data-toggle="tooltip" data-placement="bottom" title="<?php echo $Informacion['Players']; ?>/<?php echo $srvdat[6]['spain']; ?> Jugadores."><i class="fas fa-tachometer-alt"></i> Tablero<span class="badge badge-pill badge-danger"><?php echo $Informacion['Players']; ?>/<?php echo $srvdat[6]['spain']; ?></span></a>
 </li>
 
 <?php if ($_SESSION['id_rol'] == 4) : ?>

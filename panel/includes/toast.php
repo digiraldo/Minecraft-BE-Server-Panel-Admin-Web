@@ -87,3 +87,31 @@ toastr.error('Insertar título y establecer las normas del juego o mundo en Edit
 <?php else : ?>
 
 <?php endif ?>
+
+
+
+
+<?php if (empty($Informacion['Players'])) : ?>
+
+<?php else : ?>
+<script>
+toastr.info('<a type="button" class="btn btn-dark btn-lg"><i class="fas fa-users"></i> En Línea: <span class="badge badge-light"><?php echo $Informacion['Players']; ?></span></a>', '¡Alerta de Jugadores!', {
+"closeButton": true,
+"debug": false,
+"newestOnTop": true,
+"progressBar": true,
+"positionClass": "toast-top-right",
+"preventDuplicates": false,
+"onclick": null,
+"showDuration": "500",
+"hideDuration": "1000",
+"timeOut": "26000",
+"extendedTimeOut": "26000",
+"showEasing": "swing",
+"hideEasing": "linear",
+"showMethod": "slideDown",
+"hideMethod": "slideUp"
+}
+)
+</script> 
+<?php endif ?>

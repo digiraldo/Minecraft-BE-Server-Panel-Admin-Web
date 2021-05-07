@@ -47,6 +47,7 @@ $mostrarModal='';
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="../tablero">Inicio</a></li>
       <li class="breadcrumb-item active" aria-current="page"><?php echo fechaC(); ?> </li>
+      <a class="btn btn-dark btn-sm" href="../includes/salir.php" role="button" alt="Salir del sistema" data-toggle="tooltip" data-placement="bottom" title="Cerrar Sesión"><i class="fas fa-sign-out-alt"></i> Salir</a>
     </ol>
   </nav>
 
@@ -274,7 +275,7 @@ Inserar tíulo y esablecer las normas del juego o mundo en Editar.
       <div class="row">
       <?php if ($_SESSION['id_rol'] == 4) : ?>
         <div class="bg-danger col-sm-6 card text-white">
-          <div class="card-header font-weight-bold">Jugadores</div>
+          <div class="card-header font-weight-bold">Jugadores Online</div>
           <div class="card-body">
             <!-- <h3 class="card-title font-italic">EN LÍNEA</h3> -->
             <span class="fas fa-server fa-4x"></span>
@@ -307,7 +308,7 @@ Inserar tíulo y esablecer las normas del juego o mundo en Editar.
           <?php elseif ($_SESSION['id_rol'] == 3) : ?>
 
         <div class="bg-danger col-sm-6 card text-white">
-          <div class="card-header font-weight-bold">Jugadores</div>
+          <div class="card-header font-weight-bold">Jugadores Online</div>
           <div class="card-body">
             <!-- <h3 class="card-title font-italic">EN LÍNEA</h3> -->
             <span class="fas fa-server fa-4x"></span>
@@ -384,7 +385,7 @@ Inserar tíulo y esablecer las normas del juego o mundo en Editar.
 
 
         <div class="bg-danger col-sm-4 card text-white">
-          <div class="card-header font-weight-bold">Jugadores</div>
+          <div class="card-header font-weight-bold">Jugadores Online</div>
           <div class="card-body">
             <!-- <h3 class="card-title font-italic">EN LÍNEA</h3> -->
             <span class="fas fa-server fa-4x"></span>
