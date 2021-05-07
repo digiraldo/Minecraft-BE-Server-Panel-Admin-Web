@@ -115,13 +115,13 @@ $ramporcentaje = round($usadoram/$totalram*100); // 80 %
     if ($ramporcentaje < 30) {
         $ramcolorPorcentaje = 'success';
         $ramcolorIcono = 'CEFFCD';
-      } elseif ($ramporcentaje > 31 && $ramporcentaje < 70) {
+      } elseif ($ramporcentaje > 30 && $ramporcentaje < 70) {
         $ramcolorPorcentaje = 'info';
         $ramcolorIcono = 'CDF5FF';
-      } elseif ($ramporcentaje > 71 && $ramporcentaje < 94) {
+      } elseif ($ramporcentaje > 70 && $ramporcentaje < 94) {
         $ramcolorPorcentaje = 'warning';
         $ramcolorIcono = 'FFFDCD';
-      } elseif ($ramporcentaje > 95) {
+      } elseif ($ramporcentaje > 94) {
         $ramcolorPorcentaje = 'danger';
         $ramcolorIcono = 'FFCDCD';
       }
@@ -148,5 +148,8 @@ $ramlibre = getNiceFileSize($libreram); // 1.57 GiB
 // echo $ramlibre . "</br>";
 
 // echo $ramporcentaje . " %" . "</br>";
+
+
+
 
 ?>

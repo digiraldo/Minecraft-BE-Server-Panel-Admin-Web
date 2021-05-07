@@ -68,13 +68,13 @@ $porcentaje = round($ocupado/$almacenamiento*100);
 if ($porcentaje < 30) {
   $colorPorcentaje = 'success';
   $colorIcono = 'CEFFCD';
-} elseif ($porcentaje > 31 && $porcentaje < 70) {
+} elseif ($porcentaje > 30 && $porcentaje < 70) {
   $colorPorcentaje = 'info';
   $colorIcono = 'CDF5FF';
-} elseif ($porcentaje > 71 && $porcentaje < 94) {
+} elseif ($porcentaje > 70 && $porcentaje < 94) {
   $colorPorcentaje = 'warning';
   $colorIcono = 'FFFDCD';
-} elseif ($porcentaje > 95) {
+} elseif ($porcentaje > 94) {
   $colorPorcentaje = 'danger';
   $colorIcono = 'FFCDCD';
 }
@@ -82,13 +82,13 @@ if ($porcentaje < 30) {
 if ($hddporcentaje < 30) {
   $hddcolorPorcentaje = 'success';
   $hddcolorIcono = 'CEFFCD';
-} elseif ($hddporcentaje > 31 && $hddporcentaje < 70) {
+} elseif ($hddporcentaje > 30 && $hddporcentaje < 70) {
   $hddcolorPorcentaje = 'info';
   $hddcolorIcono = 'CDF5FF';
-} elseif ($hddporcentaje > 71 && $hddporcentaje < 94) {
+} elseif ($hddporcentaje > 70 && $hddporcentaje < 94) {
   $hddcolorPorcentaje = 'warning';
   $hddcolorIcono = 'FFFDCD';
-} elseif ($hddporcentaje > 95) {
+} elseif ($hddporcentaje > 94) {
   $hddcolorPorcentaje = 'danger';
   $hddcolorIcono = 'FFCDCD';
 }

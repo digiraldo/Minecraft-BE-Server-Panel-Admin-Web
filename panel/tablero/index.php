@@ -18,6 +18,7 @@ $title = "Minecraft SRV | Simple Invoice";
 
 require 'shell.php';
 require 'rendimiento.php';
+require 'info.php';
 require '../respaldos/size.php';
 $mostrarModal='';
 // echo "<pre>$controlsrv</pre>";
@@ -146,7 +147,8 @@ $mostrarModal='';
       <div class="card text-center card text-white bg-dark border-info mb-3">
         <div class="card-header">
           <b>Panel Principal</b><br>
-          Ingreso al Servidor: <?php echo $data[12]['spain']; ?> Puerto:<?php echo $data[8]['spain']; ?>
+          Ingreso al Servidor: <?php echo $data[12]['spain']; ?> Puerto:<?php echo $data[8]['spain']; ?></br>
+          Versión Minecraft: <?php echo $Informacion['Version']; ?> Consultado en: <?php echo $Timer; ?>s
         </div>
         <?php if ($_SESSION['id_rol'] == 0 || $_SESSION['id_rol'] == 1) : ?>
         <div class="card-body">
@@ -182,7 +184,7 @@ $mostrarModal='';
         <?php elseif ($_SESSION['id_rol'] == 2) : ?>
 
           <div class="card-body">
-          <h5 class="card-title">Control del Servidor: servername</h5>
+          <h5 class="card-title">Control del Servidor: <?php echo $data[0]['spain']; ?></h5>
           <p class="card-text">Aqui puede detener, iniciar y/o reiniciar el servidor, se recomienda reiniciar cada vez que realicen cambios en Whitelist, Permisos y/o Propiedades.</p>
 
           <button value="btnIniciar" class="btn btn-success" type="submit" name="accion"><i class="fas fa-play"></i> Iniciar</button>
@@ -252,7 +254,7 @@ Inserar tíulo y esablecer las normas del juego o mundo en Editar.
           <?php endif ?>
         </div>
         <div class="card-footer text-muted">
-        Solicitud Ingreso al Servidor: servername <br>
+        Solicitud Ingreso al Servidor: <?php echo $data[0]['spain']; ?> <br>
 
 
 <?php if (!empty($data[18]['name'])) { ?>
@@ -276,9 +278,9 @@ Inserar tíulo y esablecer las normas del juego o mundo en Editar.
           <div class="card-body">
             <!-- <h3 class="card-title font-italic">EN LÍNEA</h3> -->
             <span class="fas fa-server fa-4x"></span>
-            <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark"><?php echo $data[6]['btn']; ?></span></h4>
+            <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark"><?php echo $Informacion['Players']; ?>/<?php echo $data[6]['spain']; ?></span></h4>
           </div>
-          <a href="ver_pro.php" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="0/<?php echo $data[6]['spain']; ?> Jugadores Max.">Ver Propiedades <span class="badge badge-light"><?php echo $data[6]['spain']; ?></span></a>
+          <a href="ver_pro.php" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="<?php echo $Informacion['Players']; ?>/<?php echo $data[6]['spain']; ?> Jugadores Max.">Ver Propiedades <span class="badge badge-light"><?php echo $Informacion['Players']; ?>/<?php echo $data[6]['spain']; ?></span></a>
         </div>
 <!--
         <div class="bg-primary col-sm-4 card text-white">
@@ -309,9 +311,9 @@ Inserar tíulo y esablecer las normas del juego o mundo en Editar.
           <div class="card-body">
             <!-- <h3 class="card-title font-italic">EN LÍNEA</h3> -->
             <span class="fas fa-server fa-4x"></span>
-            <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark"><?php echo $data[6]['btn']; ?></span></h4>
+            <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark"><?php echo $Informacion['Players']; ?>/<?php echo $data[6]['spain']; ?></span></h4>
           </div>
-          <a href="ver_pro.php" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="0/<?php echo $data[6]['spain']; ?> Jugadores Max.">Ver Propiedades <span class="badge badge-light"><?php echo $data[6]['spain']; ?></span></a>
+          <a href="ver_pro.php" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="<?php echo $Informacion['Players']; ?>/<?php echo $data[6]['spain']; ?> Jugadores Max.">Ver Propiedades <span class="badge badge-light"><?php echo $Informacion['Players']; ?>/<?php echo $data[6]['spain']; ?></span></a>
         </div>
 
         <div class="bg-primary col-sm-6 card text-white">
@@ -356,7 +358,7 @@ Inserar tíulo y esablecer las normas del juego o mundo en Editar.
                 <div class="progress-bar progress-bar-striped bg-<?php echo $hddcolorPorcentaje; ?>" role="progressbar" style="width: <?php echo $hddporcentaje."%"; ?>" aria-valuenow="<?php echo $do; ?>" aria-valuemin="0" aria-valuemax="<?php echo $ds; ?>"><?php echo $hddporcentaje." %"; ?></div>
               </div>
           </div>
-          <a class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="Espacio Servidor">HDD Usado: <?php echo $hddusado; ?> / <?php echo $hddtotal; ?> <span class="badge badge-<?php echo $hddcolorPorcentaje; ?>"><?php echo $hddporcentaje."%"; ?></span></a>
+          <a class="btn btn-dark" data-toggle="tooltip" data-placement="top" title="Espacio Servidor">HDD Usado: <?php echo $hddusado; ?> / <?php echo $hddtotal; ?> <span class="badge badge-<?php echo $hddcolorPorcentaje; ?>"><?php echo $hddporcentaje."%"; ?></span></a>
         </div>
         <div class="bg-secondary col-sm-4 card text-white">
           <div class="card-header font-weight-bold">Memoria Ram</div>
@@ -368,7 +370,7 @@ Inserar tíulo y esablecer las normas del juego o mundo en Editar.
                 <div class="progress-bar progress-bar-striped bg-<?php echo $ramcolorPorcentaje; ?>" role="progressbar" style="width: <?php echo $ramporcentaje."%"; ?>" aria-valuenow="<?php echo $usadoram; ?>" aria-valuemin="0" aria-valuemax="<?php echo $totalram; ?>"><?php echo $ramporcentaje." %"; ?></div>
               </div>
           </div>
-          <a class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="Memoria del Servidor">RAM Usado: <?php echo $ramusado; ?> / <?php echo $ramtotal; ?> <span class="badge badge-<?php echo $ramcolorPorcentaje; ?>"><?php echo $ramporcentaje."%"; ?></span></a>
+          <a class="btn btn-dark" data-toggle="tooltip" data-placement="top" title="Memoria del Servidor">RAM Usado: <?php echo $ramusado; ?> / <?php echo $ramtotal; ?> <span class="badge badge-<?php echo $ramcolorPorcentaje; ?>"><?php echo $ramporcentaje."%"; ?></span></a>
         </div>
 
         <div class="bg-secondary col-sm-4 card text-white">
@@ -386,9 +388,9 @@ Inserar tíulo y esablecer las normas del juego o mundo en Editar.
           <div class="card-body">
             <!-- <h3 class="card-title font-italic">EN LÍNEA</h3> -->
             <span class="fas fa-server fa-4x"></span>
-            <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark"><?php echo $data[6]['btn']; ?></span></h4>
+            <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark"><?php echo $Informacion['Players']; ?>/<?php echo $data[6]['spain']; ?></span></h4>
           </div>
-          <a href="ver_pro.php" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="0/<?php echo $data[6]['spain']; ?> Jugando Ahora">Ver Propiedades <span class="badge badge-light"><?php echo $data[6]['spain']; ?></span></a>
+          <a href="ver_pro.php" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="<?php echo $Informacion['Players']; ?>/<?php echo $data[6]['spain']; ?> Jugando Ahora">Ver Propiedades <span class="badge badge-light"><?php echo $Informacion['Players']; ?>/<?php echo $data[6]['spain']; ?></span></a>
         </div>
 
         <div class="bg-primary col-sm-4 card text-white">
