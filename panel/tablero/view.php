@@ -12,8 +12,8 @@
 	Error_Reporting( E_ALL | E_STRICT );
 	Ini_Set( 'display_errors', true );
 
-	require __DIR__ . '../../../src/MinecraftQuery.php';
-	require __DIR__ . '../../../src/MinecraftQueryException.php';
+	require __DIR__ . '../../src/MinecraftQuery.php';
+	require __DIR__ . '../../src/MinecraftQueryException.php';
 
 	$Timer = MicroTime( true );
 
