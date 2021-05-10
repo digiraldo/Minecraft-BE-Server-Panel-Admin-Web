@@ -1,9 +1,15 @@
 <?php
+
 session_start();
 if ($_SESSION['id_rol'] != 0 && $_SESSION['id_rol'] != 1 && $_SESSION['id_rol'] != 2 && $_SESSION['id_rol'] != 3 && $_SESSION['id_rol'] != 4)
 {
   header("location: ../../");
 }
+
+
+if (empty($_SESSION['active'])) {
+  header('location: ../../');
+  }
 
 
 $active_tablero = "active";
@@ -25,7 +31,7 @@ $mostrarModal='';
 
 ?>
 
-
+<?php //echo $online; ?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -47,7 +53,7 @@ $mostrarModal='';
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="../tablero">Inicio</a></li>
       <li class="breadcrumb-item active" aria-current="page"><?php echo fechaC(); ?> </li>
-      <a class="btn btn-dark btn-sm" href="../includes/salir.php" role="button" alt="Salir del sistema" data-toggle="tooltip" data-placement="bottom" title="Cerrar Sesión"><i class="fas fa-sign-out-alt"></i> Salir</a>
+      <!--<a class="btn btn-dark btn-sm" href="../includes/salir.php" role="button" alt="Salir del sistema" data-toggle="tooltip" data-placement="bottom" title="Cerrar Sesión"><i class="fas fa-sign-out-alt"></i> Salir</a>-->
     </ol>
   </nav>
 
@@ -149,7 +155,8 @@ $mostrarModal='';
         <div class="card-header">
           <b>Panel Principal</b><br>
           Ingreso al Servidor: <?php echo $data[12]['spain']; ?> Puerto:<?php echo $data[8]['spain']; ?></br>
-          Versión Minecraft: <?php echo $Informacion['Version']; ?> Consultado en: <?php echo $Timer; ?>s
+          Versión Minecraft: <?php echo $Informacion['Version']; ?></br>
+          Consultado en: <?php echo $Timer; ?>s
         </div>
         <?php if ($_SESSION['id_rol'] == 0 || $_SESSION['id_rol'] == 1) : ?>
         <div class="card-body">
@@ -279,9 +286,9 @@ Inserar tíulo y esablecer las normas del juego o mundo en Editar.
           <div class="card-body">
             <!-- <h3 class="card-title font-italic">EN LÍNEA</h3> -->
             <span class="fas fa-server fa-4x"></span>
-            <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark"><?php echo $Informacion['Players']; ?>/<?php echo $data[6]['spain']; ?></span></h4>
+            <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark"><?php echo $online; ?>/<?php echo $data[6]['spain']; ?></span></h4>
           </div>
-          <a href="ver_pro.php" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="<?php echo $Informacion['Players']; ?>/<?php echo $data[6]['spain']; ?> Jugadores Max.">Ver Propiedades <span class="badge badge-light"><?php echo $Informacion['Players']; ?>/<?php echo $data[6]['spain']; ?></span></a>
+          <a href="ver_pro.php" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="<?php echo $online; ?>/<?php echo $data[6]['spain']; ?> Jugadores Max.">Ver Propiedades <span class="badge badge-light"><?php echo $online; ?>/<?php echo $data[6]['spain']; ?></span></a>
         </div>
 <!--
         <div class="bg-primary col-sm-4 card text-white">
@@ -312,9 +319,9 @@ Inserar tíulo y esablecer las normas del juego o mundo en Editar.
           <div class="card-body">
             <!-- <h3 class="card-title font-italic">EN LÍNEA</h3> -->
             <span class="fas fa-server fa-4x"></span>
-            <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark"><?php echo $Informacion['Players']; ?>/<?php echo $data[6]['spain']; ?></span></h4>
+            <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark"><?php echo $online; ?>/<?php echo $data[6]['spain']; ?></span></h4>
           </div>
-          <a href="ver_pro.php" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="<?php echo $Informacion['Players']; ?>/<?php echo $data[6]['spain']; ?> Jugadores Max.">Ver Propiedades <span class="badge badge-light"><?php echo $Informacion['Players']; ?>/<?php echo $data[6]['spain']; ?></span></a>
+          <a href="ver_pro.php" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="<?php echo $online; ?>/<?php echo $data[6]['spain']; ?> Jugadores Max.">Ver Propiedades <span class="badge badge-light"><?php echo $online; ?>/<?php echo $data[6]['spain']; ?></span></a>
         </div>
 
         <div class="bg-primary col-sm-6 card text-white">
@@ -389,9 +396,9 @@ Inserar tíulo y esablecer las normas del juego o mundo en Editar.
           <div class="card-body">
             <!-- <h3 class="card-title font-italic">EN LÍNEA</h3> -->
             <span class="fas fa-server fa-4x"></span>
-            <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark"><?php echo $Informacion['Players']; ?>/<?php echo $data[6]['spain']; ?></span></h4>
+            <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark"><?php echo $online; ?>/<?php echo $data[6]['spain']; ?></span></h4>
           </div>
-          <a href="ver_pro.php" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="<?php echo $Informacion['Players']; ?>/<?php echo $data[6]['spain']; ?> Jugando Ahora">Ver Propiedades <span class="badge badge-light"><?php echo $Informacion['Players']; ?>/<?php echo $data[6]['spain']; ?></span></a>
+          <a href="ver_pro.php" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="<?php echo $online; ?>/<?php echo $data[6]['spain']; ?> Jugando Ahora">Ver Propiedades <span class="badge badge-light"><?php echo $online; ?>/<?php echo $data[6]['spain']; ?></span></a>
         </div>
 
         <div class="bg-primary col-sm-4 card text-white">

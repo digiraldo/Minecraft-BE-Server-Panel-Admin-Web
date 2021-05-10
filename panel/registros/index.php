@@ -78,6 +78,8 @@ function folderSize ($dir)
 $sizef = folderSize($carpeta);
 //echo convert_filesize($sizef);
 
+require '../tablero/info.php';
+
 ?>
 
 <!doctype html>

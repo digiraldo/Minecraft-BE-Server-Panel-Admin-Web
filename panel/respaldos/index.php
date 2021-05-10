@@ -25,6 +25,7 @@ require 'editar.php';
 //  shell_exec($respaldo);  
 
 require 'size.php';
+require '../tablero/info.php';
 
 //include "";
 

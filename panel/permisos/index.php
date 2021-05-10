@@ -15,6 +15,8 @@ $active_propiedades = "";
 $active_logs = "";
 $title = "Minecraft SRV | Simple Invoice";
 
+require '../tablero/info.php';
+
 
 ?>
 

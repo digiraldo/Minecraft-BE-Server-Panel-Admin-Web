@@ -1,9 +1,11 @@
 <?php
+
+
 	use xPaw\MinecraftQuery;
 	use xPaw\MinecraftQueryException;
 
 	// Edit this ->
-	define( 'MQ_SERVER_ADDR', '54.39.34.171' );
+	define( 'MQ_SERVER_ADDR', 'parce.duckdns.org' );
 	define( 'MQ_SERVER_PORT', 19132 );
 	define( 'MQ_TIMEOUT', 1 );
 	// Edit this <-
@@ -24,7 +26,8 @@
 		$Query->ConnectBedrock( MQ_SERVER_ADDR, MQ_SERVER_PORT, MQ_TIMEOUT );
 
 		//print_r( $Query->GetInfo() );
-		print_r( $Query->GetPlayers( ) );
+		//print_r( $Query->GetPlayers( ) );
+		//print_r( $Query->GetInfo( ) );
 	}
 	catch( MinecraftQueryException $e )
 	{
@@ -40,9 +43,10 @@
 //echo $Query;
 //print_r( $Query->GetInfo( ) );
 
+
 $Informacion = $Query->GetInfo();
 
-print_r($Informacion);
+//print_r($Informacion);
 //echo $Informacion;
 
 ?>
@@ -86,7 +90,7 @@ print_r($Informacion);
 					</thead>
 					<tbody>
 <?php if( ( $Info = $Query->GetInfo( ) ) !== false ): ?>
-<?php echo $Info['Players']; ?>
+<?php //echo $Info['Players']; ?>
 <?php foreach( $Info as $InfoKey => $InfoValue ): ?>
 						<tr>
 							<td><?php echo htmlspecialchars( $InfoKey ); ?></td>
@@ -99,7 +103,7 @@ print_r($Informacion);
 	}
 	else
 	{
-		echo htmlspecialchars( $InfoValue );
+		echo htmlspecialchars($InfoValue);
 	}
 ?></td>
 						</tr>
@@ -122,11 +126,15 @@ print_r($Informacion);
 						</tr>
 					</thead>
 					<tbody>
-<?php if( ( $Players = $Query->GetPlayers( ) ) !== false ): ?>
-<?php foreach( $Players as $Player ): ?>
+<?php if(($Players = $Query->GetPlayers()) !== false): ?>
+<?php foreach($Players as $Player): ?>
 						<tr>
 							<td><?php echo htmlspecialchars( $Player ); ?></td>
 						</tr>
+
+<?php echo $Players; ?>
+<?php print_r($Query->GetPlayers()); ?>
+
 <?php endforeach; ?>
 <?php else: ?>
 						<tr>

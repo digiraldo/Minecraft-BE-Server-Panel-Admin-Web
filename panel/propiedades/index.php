@@ -23,6 +23,7 @@ $title = "Minecraft SRV | Simple Invoice";
 
 require 'editar.php';
 require '../respaldos/size.php';
+require '../tablero/info.php';
 
 // $df contiene el número de bytes disponibles en "/"
 //$df = disk_free_space("/");

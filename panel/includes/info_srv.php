@@ -2,7 +2,6 @@
 	use xPaw\MinecraftQuery;
 	use xPaw\MinecraftQueryException;
 
-	require 'shell.php';
 	// Edit this  $data[12]['spain'];  Puerto:$data[8]['spain'];  ->
 	define( 'MQ_SERVER_ADDR', $data[12]['spain'] );
 	define( 'MQ_SERVER_PORT', $data[8]['spain'] );
@@ -16,7 +15,7 @@
 	require __DIR__ . '../../src/MinecraftQuery.php';
 	require __DIR__ . '../../src/MinecraftQueryException.php';
 
-	$Timer = MicroTime( true );
+	$Timer = MicroTimesrv( true );
 
 	$Query = new MinecraftQuery( );
 
@@ -33,7 +32,7 @@
 		//echo $e->getMessage( );
 	}
 
-	$Timer = Number_Format( MicroTime( true ) - $Timer, 4, '.', '' );
+	$Timer = Number_Format( MicroTimesrv( true ) - $Timer, 4, '.', '' );
 
 //echo $Data[4];
 //print_r($Data[4]);
@@ -41,19 +40,12 @@
 //echo $Query;
 //print_r( $Query->GetInfo( ) );
 
-$Informacion = $Query->GetInfo();
-$PlayersInfo = $Query->GetPlayers();
+$Informacionsrv = $Query->GetInfo();
+$PlayersInfosrv = $Query->GetPlayers();
 
 //print_r($Informacion);
 //echo $Informacion;
 
-
-
-if ($Informacion['Players'] == 0 || $Informacion['Players'] == ''){
-	$online = 0;
-} else {
-	$online = $Informacion['Players'];
-}
 
 ?>
 

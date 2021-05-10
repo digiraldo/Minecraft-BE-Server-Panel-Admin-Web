@@ -30,6 +30,8 @@ $ficheros  = scandir($directorio);
 $rutaw = ($ficheros[2]);
 $subdirectorios = scandir($directorio . $rutaw);
 
+require '../tablero/info.php';
+
 ?>
 
 <!doctype html>

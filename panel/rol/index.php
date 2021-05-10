@@ -36,7 +36,9 @@ $active_logs = "";
 $title = "Minecraft SRV | Simple Invoice";
 
 require 'roles.php';
+require '../tablero/info.php';
 $roles = obtenerRol();
+
 
 /*
 //valor existe en dos json
