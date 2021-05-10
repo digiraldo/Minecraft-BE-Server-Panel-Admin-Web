@@ -355,8 +355,8 @@ Inserar tíulo y esablecer las normas del juego o mundo en Editar.
         </div>
 
         <?php else : ?>
-        
-        <div class="bg-secondary col-sm-4 card text-white">
+        <!-- CONFIGURAR div class="bg-danger col-sm-6 card text-white">   A 4 -->
+        <div class="bg-secondary col-sm-6 card text-white">
           <div class="card-header font-weight-bold">Disco Duro</div>
           <div class="card-body">
             <!-- <h3 class="card-title font-italic">EN LÍNEA</h3> -->
@@ -368,7 +368,7 @@ Inserar tíulo y esablecer las normas del juego o mundo en Editar.
           </div>
           <a class="btn btn-dark" data-toggle="tooltip" data-placement="top" title="Espacio Servidor">HDD Usado: <?php echo $hddusado; ?> / <?php echo $hddtotal; ?> <span class="badge badge-<?php echo $hddcolorPorcentaje; ?>"><?php echo $hddporcentaje."%"; ?></span></a>
         </div>
-        <div class="bg-secondary col-sm-4 card text-white">
+        <div class="bg-secondary col-sm-6 card text-white">
           <div class="card-header font-weight-bold">Memoria Ram</div>
           <div class="card-body">
             <!-- <h3 class="card-title font-italic">AGREGADOS</h3> -->
@@ -380,16 +380,16 @@ Inserar tíulo y esablecer las normas del juego o mundo en Editar.
           </div>
           <a class="btn btn-dark" data-toggle="tooltip" data-placement="top" title="Memoria del Servidor">RAM Usado: <?php echo $ramusado; ?> / <?php echo $ramtotal; ?> <span class="badge badge-<?php echo $ramcolorPorcentaje; ?>"><?php echo $ramporcentaje."%"; ?></span></a>
         </div>
-
+<!--
         <div class="bg-secondary col-sm-4 card text-white">
           <div class="card-header font-weight-bold">Procesador</div>
           <div class="card-body">
-            <!-- <h3 class="card-title font-italic">OPERADORES</h3> -->
+              
             <i class="fas fa-microchip fa-4x"></i>
             <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark badge-10x"><?php echo count($permisos); ?></span></h4>
           </div>
         </div>
-
+-->
 
         <div class="bg-danger col-sm-4 card text-white">
           <div class="card-header font-weight-bold">Jugadores Online</div>
