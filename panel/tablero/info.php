@@ -2,10 +2,13 @@
 	use xPaw\MinecraftQuery;
 	use xPaw\MinecraftQueryException;
 
-	require 'shell.php';
+
+	$jsonStrings = file_get_contents(__DIR__ . '../../../config/srvdatos.json');
+	$datas = json_decode($jsonStrings, true);
+
 	// Edit this  $data[12]['spain'];  Puerto:$data[8]['spain'];  ->
-	define( 'MQ_SERVER_ADDR', $data[12]['spain'] );
-	define( 'MQ_SERVER_PORT', $data[8]['spain'] );
+	define( 'MQ_SERVER_ADDR', $datas[12]['spain'] );
+	define( 'MQ_SERVER_PORT', $datas[8]['spain'] );
 	define( 'MQ_TIMEOUT', 1 );
 	// Edit this <-
 
@@ -47,12 +50,12 @@ $PlayersInfo = $Query->GetPlayers();
 //print_r($Informacion);
 //echo $Informacion;
 
-
-
 if ($Informacion['Players'] == 0 || $Informacion['Players'] == ''){
 	$online = 0;
+	$versionsrv = 'Bedrock';
 } else {
 	$online = $Informacion['Players'];
+	$versionsrv = $Informacion['Version'];
 }
 
 ?>
@@ -60,6 +63,3 @@ if ($Informacion['Players'] == 0 || $Informacion['Players'] == ''){
 <?php //echo $Informacion['Players']; ?>
 <?php //echo $Informacion['MaxPlayers']; ?>
 <?php //echo $Informacion['Version']; ?>
-
-
-

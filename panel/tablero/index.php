@@ -155,7 +155,7 @@ $mostrarModal='';
         <div class="card-header">
           <b>Panel Principal</b><br>
           Ingreso al Servidor: <?php echo $data[12]['spain']; ?> Puerto:<?php echo $data[8]['spain']; ?></br>
-          Versión Minecraft: <?php echo $Informacion['Version']; ?></br>
+          Versión Minecraft: <?php echo $versionsrv; ?></br>
           Consultado en: <?php echo $Timer; ?>s
         </div>
         <?php if ($_SESSION['id_rol'] == 0 || $_SESSION['id_rol'] == 1) : ?>

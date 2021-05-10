@@ -1,9 +1,23 @@
 <?php
-
 namespace xPaw;
+
+$jsonStringsrv = file_get_contents(__DIR__ . '../../../config/srvdatos.json');
+$datasrv = json_decode($jsonStringsrv, true);
+$IpSrv = $datasrv[12]['spain'];
+$PortSrv = $datasrv[8]['spain'];
+
+// Edit this ->
+	define( 'MQ_SERVER_ADDR_SRV', $IpSrv );
+	define( 'MQ_SERVER_PORT_SRV', $PortSrv );
+// Edit this <-
+
+//echo MQ_SERVER_ADDR_SRV;
+//echo MQ_SERVER_PORT_SRV;
 
 class MinecraftQuery
 {
+
+	
 	/*
 	 * Class written by xPaw
 	 *
@@ -22,7 +36,12 @@ class MinecraftQuery
 	//$Port = 19132;
 	//$Timeout = 3;
 
-	public function ConnectBedrock( $Ip = "parce.duckdns.org", $Port = 19132, $Timeout = 3, $ResolveSRV = true )
+
+
+//require 'datos.php';
+
+	
+	public function ConnectBedrock( $Ip = MQ_SERVER_ADDR_SRV, $Port = MQ_SERVER_PORT_SRV, $Timeout = 3, $ResolveSRV = true )
 	{
 		if( !is_int( $Timeout ) || $Timeout < 0 )
 		{
