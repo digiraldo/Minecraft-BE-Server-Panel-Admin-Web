@@ -60,10 +60,10 @@ $mostrarModal='';
 <!-- Modal -->
 <div class="modal fade" id="modalReglas" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="modalReglasLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content">
+    <div class="modal-content border-white text-white bg-dark">
       <div class="modal-header">
         <h5 class="modal-title" id="modalReglasLabel"><i class="fas fa-tasks"></i> <?php echo $data[18]['name'] ?></h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -141,7 +141,7 @@ $mostrarModal='';
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">cerrar</button>
+        <button type="button" class="btn btn-info" data-dismiss="modal"><i class="fas fa-times"></i> cerrar</button>
       </div>
     </div>
   </div>
@@ -156,7 +156,12 @@ $mostrarModal='';
           <b>Panel Principal</b><br>
           Ingreso al Servidor: <?php echo $data[12]['spain']; ?> Puerto:<?php echo $data[8]['spain']; ?></br>
           Versión Minecraft: <?php echo $versionsrv; ?></br>
-          Consultado en: <?php echo $Timer; ?>s
+          Consultado en: <?php echo $Timer; ?>s</br>
+          Servidor <?php echo $StartSrv; ?>: <?php echo $StartSrvBtn; ?>
+
+
+
+
         </div>
         <?php if ($_SESSION['id_rol'] == 0 || $_SESSION['id_rol'] == 1) : ?>
         <div class="card-body">
@@ -193,7 +198,9 @@ $mostrarModal='';
 
           <div class="card-body">
           <h5 class="card-title">Control del Servidor: <?php echo $data[0]['spain']; ?></h5>
-          <p class="card-text">Aqui puede detener, iniciar y/o reiniciar el servidor, se recomienda reiniciar cada vez que realicen cambios en Whitelist, Permisos y/o Propiedades.</p>
+          <p class="card-text">Aqui puede detener, iniciar y/o reiniciar el servidor, se recomienda reiniciar cada vez que realicen cambios en Whitelist, Permisos y/o Propiedades.</p></br>
+          Consultado en: <?php echo $Timer; ?>s</br>
+          Servidor <?php echo $StartSrv; ?>: <?php echo $StartSrvBtn; ?>
 
           <button value="btnIniciar" class="btn btn-success" type="submit" name="accion"><i class="fas fa-play"></i> Iniciar</button>
           <button value="btnReiniciar" class="btn btn-primary" type="submit" name="accion"><i class="fas fa-redo-alt"></i> Reiniciar</button>
@@ -215,41 +222,13 @@ $mostrarModal='';
 <i class="fas fa-tasks"></i> Ver: <?php echo $data[18]['name'] ?>
 </button>
 <?php endif ?> 
-
-<?php if (empty($data[18]['name'])):  ?>
-<?php $mostrarToast=true; ?>
-
-<div id="toast" class="toast text-white bg-danger" role="alert" aria-live="assertive" aria-atomic="true" data-delay="10000" style="position: absolute; top: 0; right: 0;">
-  <div class="toast-header">
-    <svg class="bd-placeholder-img rounded mr-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
-      <rect width="100%" height="100%" fill="#ff0000"></rect>
-    </svg>
-    <strong class="mr-auto">Alerta</strong>
-    <small>Inserar Título</small>
-    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-      <span aria-hidden="true">×</span>
-    </button>
-  </div>
-  <div class="toast-body">
-<strong><?php echo strtoupper('Inserar Título') ?></strong> <br>
-Inserar tíulo y esablecer las normas del juego o mundo en Editar.
-  </div>
-  <div class="mt-2 pt-2 border-top">
-      <a href="../propiedades/reglas.php" type="button" class="btn btn-info btn-sm"><i class="fas fa-edit"></i> Editar</a href="">
-    </div>
-</div>
-<?php else : ?>
-
-<?php endif ?>
-        
+  
         </div>
 
-        <?php else : ?>
-          <?php if ($_SESSION['id_rol'] == 3) : ?>
+        <?php elseif ($_SESSION['id_rol'] == 3) : ?>
+
           <div class="card-body">Para comunicarse con los jugadores y/o administradores, lo puede hacer en:</h5>
-          <?php else : ?>
-          <div class="card-body">Una vez inscrito, soliciar acceso al servidor tomando contacto con los administradores en:</h5>
-          <?php endif ?>
+
           <p class="card-text"></p>
           <?php if ($data[16]['btn'] == ""):  ?>
             <?php else : ?>
@@ -274,7 +253,39 @@ Inserar tíulo y esablecer las normas del juego o mundo en Editar.
 
         </div>
         </div>
+        <?php elseif ($_SESSION['id_rol'] == 4) : ?>
+
+          <div class="card-body">Una vez inscrito, soliciar acceso al servidor tomando contacto con los administradores en:</h5>
+
+          <p class="card-text"></p>
+          <?php if ($data[16]['btn'] == ""):  ?>
+            <?php else : ?>
+          <a href="<?php echo $data[16]['btn']; ?>" class="btn btn-primary btn-lg"><?php echo $data[16]['icon']; ?> <?php echo $data[16]['spain']; ?></a>
           <?php endif ?>
+         
+          <?php if ($data[10]['btn'] == ""):  ?>
+            <?php else : ?>
+              <a href="<?php echo $data[10]['btn']; ?>" class="btn btn-info btn-lg"><?php echo $data[10]['icon']; ?> <?php echo $data[10]['spain']; ?></a>
+          <?php endif ?>
+        </div>
+        <div class="card-footer text-muted">
+        Solicitud Ingreso al Servidor: <?php echo $data[0]['spain']; ?> <br>
+
+<?php if (!empty($data[18]['name'])) { ?>
+  <!-- Button trigger modal -->
+<button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modalReglas">
+<i class="fas fa-tasks"></i>  Ver: <?php echo $data[18]['name'] ?>
+</button>
+  <?php } ?>
+
+        </div>
+        </div>
+
+
+        <?php else : ?>
+        <?php endif ?>
+
+
       </div>
 
       <br>
@@ -480,70 +491,6 @@ Inserar tíulo y esablecer las normas del juego o mundo en Editar.
 </form>
       </div>
 
-
-      <?php if ($_SESSION['id_rol'] == 4 && !empty($data[18]['name']) && $data[19]['data'] == 'true'){  ?>
-  <script>
-  toastr.info('<?php if (!empty($data[18]['data'])) { ?>
-  <?php echo $data[18]['icon']; echo " ".$data[18]['data']."<br>"; ?>
-  <?php } ?>
-  <?php if (!empty($data[18]['data0'])) { ?>
-  <?php echo $data[18]['icon']; echo " ".$data[18]['data0']."<br>"; ?>
-  <?php } ?>
-  <?php if (!empty($data[18]['data1'])) { ?>
-  <?php echo $data[18]['icon']; echo " ".$data[18]['data1']."<br>"; ?>
-  <?php } ?>
-  <?php if (!empty($data[18]['data2'])) { ?>
-  <?php echo $data[18]['icon']; echo " ".$data[18]['data2']."<br>"; ?>
-  <?php } ?>
-  <?php if (!empty($data[18]['data3'])) { ?>
-  <?php echo $data[18]['icon']; echo " ".$data[18]['data3']."<br>"; ?>
-  <?php } ?>
-  <?php if (!empty($data[18]['data4'])) { ?>
-  <?php echo $data[18]['icon']; echo " ".$data[18]['data4']."<br>"; ?>
-  <?php } ?>
-  <?php if (!empty($data[18]['data5'])) { ?>
-  <?php echo $data[18]['icon']; echo " ".$data[18]['data5']."<br>"; ?>
-  <?php } ?>
-  <?php if (!empty($data[18]['data6'])) { ?>
-  <?php echo $data[18]['icon']; echo " ".$data[18]['data6']."<br>"; ?>
-  <?php } ?>
-  <?php if (!empty($data[18]['data7'])) { ?>
-  <?php echo $data[18]['icon']; echo " ".$data[18]['data7']."<br>"; ?>
-  <?php } ?>
-  <?php if (!empty($data[18]['data8'])) { ?>
-  <?php echo $data[18]['icon']; echo " ".$data[18]['data8']."<br>"; ?>
-  <?php } ?>
-  <?php if (!empty($data[18]['data9'])) { ?>
-  <?php echo $data[18]['icon']; echo " ".$data[18]['data9']."<br>"; ?>
-  <?php } ?>
-  <?php if (!empty($data[18]['data10'])) { ?>
-  <?php echo $data[18]['icon']; echo " ".$data[18]['data10']."<br>"; ?>
-  <?php } ?>
-  <?php if (!empty($data[18]['data11'])) { ?>
-  <?php echo $data[18]['icon']; echo " ".$data[18]['data11']."<br>"; ?>
-  <?php } ?>
-  <?php if (!empty($data[18]['data12'])) { ?>
-  <?php echo $data[18]['icon']; echo " ".$data[18]['data12']."<br>"; ?>
-  <?php } ?>', '<i class="fas fa-edit" style="color: #DAF7A6;"></i> <?php echo strtoupper($data[18]['name'])."<br>"; ?>', {
-  "closeButton": true,
-  "debug": false,
-  "newestOnTop": true,
-  "progressBar": true,
-  "positionClass": "toast-top-full-width",
-  "preventDuplicates": false,
-  "onclick": null,
-  "showDuration": "600",
-  "hideDuration": "1000",
-  "timeOut": "50000",
-  "extendedTimeOut": "20000",
-  "showEasing": "swing",
-  "hideEasing": "linear",
-  "showMethod": "slideDown",
-  "hideMethod": "slideUp"
-}
-)
-</script> 
-<?php } ?>
 
 
       <?php include '../includes/footer.php' ?>

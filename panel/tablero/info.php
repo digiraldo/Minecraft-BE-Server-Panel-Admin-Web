@@ -52,11 +52,25 @@ $PlayersInfo = $Query->GetPlayers();
 
 if ($Informacion['Players'] == 0 || $Informacion['Players'] == ''){
 	$online = 0;
-	$versionsrv = 'Bedrock';
+	$versionsrv = $Informacion['Version'];
 } else {
 	$online = $Informacion['Players'];
 	$versionsrv = $Informacion['Version'];
 }
+
+
+if (empty($Informacion['Version'])) {
+	$StartSrv = 'Apagado';
+	$StartSrvBtn = '<i class="fas fa-times-circle" style="color: #F51720;"></i>';
+	$StartSrvColor = 'danger'; 
+	$StartSrvStColor = '#F51720';
+} else {
+	$StartSrv = 'Encendido';
+	$StartSrvBtn = '<i class="fas fa-check-circle" style="color: #70E000;"></i>';
+	$StartSrvColor = 'success';
+	$StartSrvStColor = '#59981A';
+}
+
 
 ?>
 

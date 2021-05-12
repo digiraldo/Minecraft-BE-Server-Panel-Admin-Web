@@ -1,1 +1,53 @@
-[]
+[
+    {
+        "usuario": "Admin",
+        "clave": "751cb3f4aa17c36186f4856c8982bf27",
+        "numero": 1,
+        "id": 1600680,
+        "nombre": "servername",
+        "pais": "No Aplica",
+        "ciudad": "No Aplica",
+        "gamertag": "======",
+        "id_rol": 0,
+        "rol": "Propietario",
+        "contacto": "GitHub: digiraldo",
+        "fecha": "09\/05\/2021",
+        "img": "admin_minecraft.png",
+        "n_img": "Admin",
+        "id_img": 9999
+    },
+    {
+        "usuario": "Didier",
+        "clave": "45c48cce2e2d7fbdea1afc51c7c6ad26",
+        "nombre": "Didier Andrés",
+        "contacto": "Telegram: @digiraldo",
+        "pais": "Colombia",
+        "gamertag": "disaned",
+        "img": "lobo.png",
+        "id": 1043172,
+        "numero": 2,
+        "ciudad": false,
+        "id_rol": 4,
+        "rol": "Inscrito",
+        "fecha": "09\/05\/2021",
+        "n_img": "Lobo",
+        "id_img": 7
+    },
+    {
+        "usuario": "Edier",
+        "clave": "45c48cce2e2d7fbdea1afc51c7c6ad26",
+        "nombre": "Edier A",
+        "contacto": "@edier",
+        "pais": "Colombia",
+        "gamertag": "edierrr",
+        "img": "zombie.png",
+        "id": 1091523,
+        "numero": 3,
+        "ciudad": "",
+        "id_rol": 3,
+        "rol": "Usuario",
+        "fecha": "12\/05\/2021",
+        "n_img": "Zombie",
+        "id_img": 12
+    }
+]

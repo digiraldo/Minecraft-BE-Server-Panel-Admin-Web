@@ -74,12 +74,11 @@ require '../tablero/info.php';
           <?php foreach ($usuarios as $usuario) : ?>
             <tr>
 
-              <td>
-              <a href="# " data-toggle="tooltip" data-placement="left" title="<i class='fab fa-xbox'></i>  <?php echo $usuario['name']; ?>"
-                  <?php if ($usuario['xuid']) : ?>                   
-                   type="button" class="btn btn-success"><?php echo $usuario['xuid'] ?></a> 
+            <td>
+              <?php if (!empty($usuario['xuid'])) : ?>
+                <a href="# " data-toggle="tooltip" data-placement="left" title="<i class='fab fa-xbox'></i>  <?php echo $usuario['name']; ?>" type="button" class="btn btn-success"><?php echo $usuario['xuid'] ?></a>                    
                   <?php else : ?>
-                   type="button" class="btn btn-danger">No Ingreso al Mundo</a>     
+                <a href="# " data-toggle="tooltip" data-placement="left" title="<i class='fab fa-xbox'></i>  <?php echo $usuario['name']; ?>" type="button" class="btn btn-danger">No Ingresó al Mundo</a>     
                   <?php endif ?>
               </td>
 
@@ -131,11 +130,10 @@ require '../tablero/info.php';
             <tr>
 
               <td>
-                <a href="# " data-toggle="tooltip" data-placement="left" title="<i class='fab fa-xbox'></i>  <?php echo $usuario['name']; ?>"
-                  <?php if ($usuario['xuid']) : ?>                   
-                   type="button" class="btn btn-success"><?php echo $usuario['xuid'] ?></a> 
+              <?php if (!empty($usuario['xuid'])) : ?>
+                <a href="# " data-toggle="tooltip" data-placement="left" title="<i class='fab fa-xbox'></i>  <?php echo $usuario['name']; ?>" type="button" class="btn btn-success"><?php echo $usuario['xuid'] ?></a>                    
                   <?php else : ?>
-                   type="button" class="btn btn-danger">No Ingreso al Mundo</a>     
+                <a href="# " data-toggle="tooltip" data-placement="left" title="<i class='fab fa-xbox'></i>  <?php echo $usuario['name']; ?>" type="button" class="btn btn-danger">No Ingresó al Mundo</a>     
                   <?php endif ?>
               </td>
 
@@ -204,8 +202,6 @@ require '../tablero/info.php';
 
   <?php include '../includes/footer.php' ?>
   <!-- php include '../includes/modal.php'?> -->
-
-
 
 
 </body>

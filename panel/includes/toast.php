@@ -115,3 +115,68 @@ toastr.info('<a type="button" class="btn btn-dark btn-lg"><i class="fas fa-users
 )
 </script> 
 <?php endif ?>
+
+
+<?php if ($_SESSION['id_rol'] == 4 && !empty($data[18]['name']) && $data[19]['data'] == 'true'){  ?>
+  <script>
+  toastr.info('<?php if (!empty($data[18]['data'])) { ?>
+  <?php echo $data[18]['icon']; echo " ".$data[18]['data']."<br>"; ?>
+  <?php } ?>
+  <?php if (!empty($data[18]['data0'])) { ?>
+  <?php echo $data[18]['icon']; echo " ".$data[18]['data0']."<br>"; ?>
+  <?php } ?>
+  <?php if (!empty($data[18]['data1'])) { ?>
+  <?php echo $data[18]['icon']; echo " ".$data[18]['data1']."<br>"; ?>
+  <?php } ?>
+  <?php if (!empty($data[18]['data2'])) { ?>
+  <?php echo $data[18]['icon']; echo " ".$data[18]['data2']."<br>"; ?>
+  <?php } ?>
+  <?php if (!empty($data[18]['data3'])) { ?>
+  <?php echo $data[18]['icon']; echo " ".$data[18]['data3']."<br>"; ?>
+  <?php } ?>
+  <?php if (!empty($data[18]['data4'])) { ?>
+  <?php echo $data[18]['icon']; echo " ".$data[18]['data4']."<br>"; ?>
+  <?php } ?>
+  <?php if (!empty($data[18]['data5'])) { ?>
+  <?php echo $data[18]['icon']; echo " ".$data[18]['data5']."<br>"; ?>
+  <?php } ?>
+  <?php if (!empty($data[18]['data6'])) { ?>
+  <?php echo $data[18]['icon']; echo " ".$data[18]['data6']."<br>"; ?>
+  <?php } ?>
+  <?php if (!empty($data[18]['data7'])) { ?>
+  <?php echo $data[18]['icon']; echo " ".$data[18]['data7']."<br>"; ?>
+  <?php } ?>
+  <?php if (!empty($data[18]['data8'])) { ?>
+  <?php echo $data[18]['icon']; echo " ".$data[18]['data8']."<br>"; ?>
+  <?php } ?>
+  <?php if (!empty($data[18]['data9'])) { ?>
+  <?php echo $data[18]['icon']; echo " ".$data[18]['data9']."<br>"; ?>
+  <?php } ?>
+  <?php if (!empty($data[18]['data10'])) { ?>
+  <?php echo $data[18]['icon']; echo " ".$data[18]['data10']."<br>"; ?>
+  <?php } ?>
+  <?php if (!empty($data[18]['data11'])) { ?>
+  <?php echo $data[18]['icon']; echo " ".$data[18]['data11']."<br>"; ?>
+  <?php } ?>
+  <?php if (!empty($data[18]['data12'])) { ?>
+  <?php echo $data[18]['icon']; echo " ".$data[18]['data12']."<br>"; ?>
+  <?php } ?>', '<i class="fas fa-edit" style="color: #DAF7A6;"></i> <?php echo strtoupper($data[18]['name'])."<br>"; ?>', {
+  "closeButton": true,
+  "debug": false,
+  "newestOnTop": true,
+  "progressBar": true,
+  "positionClass": "toast-top-full-width",
+  "preventDuplicates": false,
+  "onclick": null,
+  "showDuration": "600",
+  "hideDuration": "1000",
+  "timeOut": "50000",
+  "extendedTimeOut": "20000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "slideDown",
+  "hideMethod": "slideUp"
+}
+)
+</script> 
+<?php } ?>
