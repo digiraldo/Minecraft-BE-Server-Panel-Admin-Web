@@ -150,6 +150,4 @@ $ramlibre = getNiceFileSize($libreram); // 1.57 GiB
 // echo $ramporcentaje . " %" . "</br>";
 
 
-
-
 ?>

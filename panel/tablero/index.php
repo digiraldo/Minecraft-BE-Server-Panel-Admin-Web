@@ -24,6 +24,7 @@ $title = "Minecraft SRV | Simple Invoice";
 
 require 'shell.php';
 require 'rendimiento.php';
+require 'procesamiento.php';
 require 'info.php';
 require '../respaldos/size.php';
 $mostrarModal='';
@@ -367,7 +368,7 @@ $mostrarModal='';
 
         <?php else : ?>
         <!-- CONFIGURAR div class="bg-danger col-sm-6 card text-white">   A 4 -->
-        <div class="bg-secondary col-sm-6 card text-white">
+        <div class="bg-secondary col-sm-4 card text-white">
           <div class="card-header font-weight-bold">Disco Duro</div>
           <div class="card-body">
             <!-- <h3 class="card-title font-italic">EN LÍNEA</h3> -->
@@ -379,7 +380,7 @@ $mostrarModal='';
           </div>
           <a class="btn btn-dark" data-toggle="tooltip" data-placement="top" title="Espacio Servidor">HDD Usado: <?php echo $hddusado; ?> / <?php echo $hddtotal; ?> <span class="badge badge-<?php echo $hddcolorPorcentaje; ?>"><?php echo $hddporcentaje."%"; ?></span></a>
         </div>
-        <div class="bg-secondary col-sm-6 card text-white">
+        <div class="bg-secondary col-sm-4 card text-white">
           <div class="card-header font-weight-bold">Memoria Ram</div>
           <div class="card-body">
             <!-- <h3 class="card-title font-italic">AGREGADOS</h3> -->
@@ -391,16 +392,20 @@ $mostrarModal='';
           </div>
           <a class="btn btn-dark" data-toggle="tooltip" data-placement="top" title="Memoria del Servidor">RAM Usado: <?php echo $ramusado; ?> / <?php echo $ramtotal; ?> <span class="badge badge-<?php echo $ramcolorPorcentaje; ?>"><?php echo $ramporcentaje."%"; ?></span></a>
         </div>
-<!--
+<!---->
         <div class="bg-secondary col-sm-4 card text-white">
           <div class="card-header font-weight-bold">Procesador</div>
           <div class="card-body">
               
             <i class="fas fa-microchip fa-4x"></i>
-            <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark badge-10x"><?php echo count($permisos); ?></span></h4>
+            <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark badge-10x"><?php echo $cpu; ?></span></h4>
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped bg-<?php echo $cpucolorPorcentaje; ?>" role="progressbar" style="width: <?php echo $cpu; ?>" aria-valuenow="<?php echo $cpuLoad; ?>" aria-valuemin="0" aria-valuemax="100"><?php echo $cpu; ?></div>
+              </div>
           </div>
+          <a class="btn btn-dark" data-toggle="tooltip" data-placement="top" title="Procesamiento del Servidor">CPU Usado: <?php echo $cpu; ?> / 100% <span class="badge badge-<?php echo $cpucolorPorcentaje; ?>"><?php echo $cpu; ?></span></a>
         </div>
--->
+
 
         <div class="bg-danger col-sm-4 card text-white">
           <div class="card-header font-weight-bold">Jugadores Online</div>

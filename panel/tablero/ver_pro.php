@@ -10,6 +10,7 @@ include "../includes/footer.php";
 
     //require __DIR__.'../propiedades/editar.php';
     include "../propiedades/editar.php";
+    include "info.php";
 ?>
 
 
@@ -34,6 +35,10 @@ include "../includes/footer.php";
         <div class="section">
         <table id="tablaUsuarios" class="table table-striped table-bordered" style="width:100%">
         <tbody>
+            <tr>
+                <th scope="col">Versión:</th>
+                <td>Minecraft Bedrock <?php echo $versionsrv; ?></td>
+            </tr>
             <tr>
                 <th scope="col"><?php echo $data[0]['name']; ?></th>
                 <td><?php echo $data[0]['spain'] ?></td>
@@ -60,7 +65,7 @@ include "../includes/footer.php";
             </tr>
             <tr>
                 <th scope="col"><?php echo $data[6]['name']; ?></th>
-                <td><?php echo $data[6]['spain'] ?></td>
+                <td><?php echo $online; ?> de <?php echo $data[6]['spain']; ?></td>
             </tr>
             <tr>
                 <th scope="col"><?php echo $data[7]['name']; ?></th>

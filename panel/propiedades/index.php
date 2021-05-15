@@ -468,10 +468,10 @@ require '../tablero/info.php';
 
     <div class="container-fluid">
 <div class="card">
-    <div class="card-body">
+    <div class="card-body text-white bg-dark">
         <h5 class="card-title"><?php echo $data[12]['icon']; ?> <?php echo $data[13]['name']; ?> <b><?php echo $data[13]['spain']; ?></b></h5>
         <div class="section">
-        <table id="tablaUsuarios" class="table table-striped table-bordered" style="width:100%">
+        <table id="tablaUsuarios" class="table table-striped table-bordered text-white" style="width:100%">
         <tbody>
             <tr>
                 <th scope="col"><?php echo $data[0]['name']; ?></th>
