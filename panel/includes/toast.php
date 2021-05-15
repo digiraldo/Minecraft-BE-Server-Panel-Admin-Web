@@ -117,6 +117,32 @@ toastr.info('<a type="button" class="btn btn-dark btn-lg"><i class="fas fa-users
 <?php endif ?>
 
 
+<?php if (empty($Informacion['Version'])) : ?>
+  <script>
+toastr.error('<a type="button" class="btn btn-dark btn-lg"><i class="fas fa-server"></i> Servidor: <span class="badge badge-light">Apagado</span></a>', '¡Alerta de Servidor!', {
+"closeButton": true,
+"debug": false,
+"newestOnTop": true,
+"progressBar": true,
+"positionClass": "toast-top-right",
+"preventDuplicates": false,
+"onclick": null,
+"showDuration": "500",
+"hideDuration": "1000",
+"timeOut": "26000",
+"extendedTimeOut": "26000",
+"showEasing": "swing",
+"hideEasing": "linear",
+"showMethod": "slideDown",
+"hideMethod": "slideUp"
+}
+)
+  </script> 
+<?php else : ?>
+
+<?php endif ?>
+
+
 <?php if ($_SESSION['id_rol'] == 4 && !empty($data[18]['name']) && $data[19]['data'] == 'true'){  ?>
   <script>
   toastr.info('<?php if (!empty($data[18]['data'])) { ?>
@@ -179,4 +205,24 @@ toastr.info('<a type="button" class="btn btn-dark btn-lg"><i class="fas fa-users
 }
 )
 </script> 
+
+
+
+
+
+
+
 <?php } ?>
+
+
+
+
+if (empty($Data [0])) {
+			
+		} else {
+			
+			if( $Data[ 0 ] !== "\x1C" ) // DefaultMessageIDTypes::ID_UNCONNECTED_PONG
+        	{
+        	        throw new MinecraftQueryException( "First byte is not ID_UNCONNECTED_PONG." );
+        	}
+		}

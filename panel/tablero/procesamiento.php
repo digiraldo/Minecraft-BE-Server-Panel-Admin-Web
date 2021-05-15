@@ -110,7 +110,16 @@
         $cpu = $cpuLoad . "%";
     }
 
-    //echo "CPU Load: ".$cpuLoad."</br>";
+    $cpuformat = number_format($cpuLoad, 0, '.', '');
+
+    if ($cpuformat < 0) {
+        $cpuformat = 1;
+    }
+
+    // echo "CPU Load: ".$cpuLoad."</br>";
+    // echo "CPU Load: ".$cpu."</br>";
+    // echo "CPU Load: ".$cpuformat."</br>";
+    // echo "CPU Load: ".$cpuformat . "%"."</br>";
 
 
     if ($cpuLoad < 30) {

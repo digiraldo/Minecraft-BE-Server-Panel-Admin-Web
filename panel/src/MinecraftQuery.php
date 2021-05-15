@@ -126,7 +126,6 @@ class MinecraftQuery
         	}
 		}
 				
-
                 if( \substr( $Data, 17, 16 ) !== $OFFLINE_MESSAGE_DATA_ID )
                 {
                         throw new MinecraftQueryException( "Magic bytes do not match." );

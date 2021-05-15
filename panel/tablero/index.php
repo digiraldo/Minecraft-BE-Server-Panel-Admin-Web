@@ -398,12 +398,12 @@ $mostrarModal='';
           <div class="card-body">
               
             <i class="fas fa-microchip fa-4x"></i>
-            <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark badge-10x"><?php echo $cpu; ?></span></h4>
+            <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark badge-10x"><?php echo $cpuformat . "%"; ?></span></h4>
             <div class="progress">
-                <div class="progress-bar progress-bar-striped bg-<?php echo $cpucolorPorcentaje; ?>" role="progressbar" style="width: <?php echo $cpu; ?>" aria-valuenow="<?php echo $cpuLoad; ?>" aria-valuemin="0" aria-valuemax="100"><?php echo $cpu; ?></div>
+                <div class="progress-bar progress-bar-striped bg-<?php echo $cpucolorPorcentaje; ?>" role="progressbar" style="width: <?php echo $cpuformat . '%'; ?>" aria-valuenow="<?php echo $cpuformat; ?>" aria-valuemin="0" aria-valuemax="100"><?php echo $cpuformat . "%"; ?></div>
               </div>
           </div>
-          <a class="btn btn-dark" data-toggle="tooltip" data-placement="top" title="Procesamiento del Servidor">CPU Usado: <?php echo $cpu; ?> / 100% <span class="badge badge-<?php echo $cpucolorPorcentaje; ?>"><?php echo $cpu; ?></span></a>
+          <a class="btn btn-dark" data-toggle="tooltip" data-placement="top" title="Procesamiento del Servidor">CPU Usado: <?php echo $cpuformat . '%'; ?> / 100% <span class="badge badge-<?php echo $cpucolorPorcentaje; ?>"><?php echo $cpuformat . "%"; ?></span></a>
         </div>
 
 
