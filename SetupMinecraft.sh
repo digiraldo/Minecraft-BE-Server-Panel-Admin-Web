@@ -232,6 +232,7 @@ echo "========================================================================="
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/cronoff.sh
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/rol/index.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/index.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/info.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/shell.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/sto.sh
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/sta.sh
@@ -466,6 +467,7 @@ sudo systemctl daemon-reload
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/cronoff.sh
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/rol/index.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/index.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/info.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/shell.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/sto.sh
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/sta.sh
@@ -517,7 +519,7 @@ sudo systemctl daemon-reload
 
 
 echo "========================================================================="
-echo "Configuranfo iniciao del servidor automáticamente"
+echo "Configurando inicio del servidor automáticamente"
 #Iniciar el servidor de Minecraft automáticamente
   sudo systemctl enable $ServerName.service
 echo "========================================================================="
