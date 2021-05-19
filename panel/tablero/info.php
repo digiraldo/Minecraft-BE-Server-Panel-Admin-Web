@@ -124,13 +124,23 @@ $oporcentaje = $onlineporcentaje."%";
 
 
 // JUGADORES EN WHITELIST
-$userId = "";
+$XuId = "";
 
 $countWhitelist = count($dataWhieU); // total Whitelist
-$countEmptyXuid = array_count_values(array_column($dataWhieU, 'xuid'))[$userId]; // Xuid Vacio no ingreso al servidor
+$countEmptyXuid = array_count_values(array_column($dataWhieU, 'xuid'))[$XuId]; // Xuid Vacio no ingreso al servidor
+$countEmptyXuid2 = array_count_values(array_column($dataWhieU, 'xuid'))['']; // Xuid Vacio no ingreso al servidor
 $countWhitXuid = $countWhitelist - $countEmptyXuid; // Xuid con ingreso al servidor
+
+$list = array_search($XuId, array_column($dataWhieU, 'xuid'));
+$countEmptyXuid3 = $list + 1;
+
 // echo $countWhitelist."</br>";
-// echo $countEmptyXuid."</br>";
+  //  echo "Versión 1 = ".$countEmptyXuid."</br>";
+  //  echo "Versión 2 = ".$countEmptyXuid2."</br>";
+  //  echo "Versión 3 = ".$countEmptyXuid3."</br>";
+  //  echo "Versión 4 = ".$list."</br>";
+  //  echo "Creditos final pagina";
+
 // echo $countWhitXuid."</br>";
 
 
@@ -163,6 +173,73 @@ $wporcentaje = $whiteporcentaje."%";
  // echo $wrporcentaje."</br>";
  // echo $wporcentaje."</br>";
  // echo $whiterestporcentaje + $whiteporcentaje." %"."</br>";
+
+
+// JUGADORES ROLES O PERMISOS
+$jsonStringUsrA = file_get_contents(__DIR__ . '../../../config/usradmin.json');
+$datosUsrA = json_decode($jsonStringUsrA, true);
+
+$Rol0 = 0;
+$Rol1 = 1;
+$Rol2 = 2;
+$Rol3 = 3;
+$Rol4 = 4;
+
+$countRol = count($datosUsrA); // total Whitelist
+if (empty(array_count_values(array_column($datosUsrA, 'id_rol'))[0])) {
+	$countRol0 = 0;
+} else {
+	$countRol0 = array_count_values(array_column($datosUsrA, 'id_rol'))[0];
+}
+if (empty(array_count_values(array_column($datosUsrA, 'id_rol'))[1])) {
+	$countRol1 = 0;
+} else {
+	$countRol1 = array_count_values(array_column($datosUsrA, 'id_rol'))[1];
+}
+if (empty(array_count_values(array_column($datosUsrA, 'id_rol'))[2])) {
+	$countRol2 = 0;
+} else {
+	$countRol2 = array_count_values(array_column($datosUsrA, 'id_rol'))[2];
+}
+if (empty(array_count_values(array_column($datosUsrA, 'id_rol'))[3])) {
+	$countRol3 = 0;
+} else {
+	$countRol3 = array_count_values(array_column($datosUsrA, 'id_rol'))[3];
+}
+if (empty(array_count_values(array_column($datosUsrA, 'id_rol'))[4])) {
+	$countRol4 = 0;
+} else {
+	$countRol4 = array_count_values(array_column($datosUsrA, 'id_rol'))[4];
+}
+
+
+$porcentajeR0 = round($countRol0/$countRol*100);
+$porcentajeR1 = round($countRol1/$countRol*100);
+$porcentajeR2 = round($countRol2/$countRol*100);
+$porcentajeR3 = round($countRol3/$countRol*100);
+$porcentajeR4 = round($countRol4/$countRol*100);
+
+$porcentRol0 = $porcentajeR0."%";
+$porcentRol1 = $porcentajeR1."%";
+$porcentRol2 = $porcentajeR2."%";
+$porcentRol3 = $porcentajeR3."%";
+$porcentRol4 = $porcentajeR4."%";
+$porcentRol = $porcentajeR0+$porcentajeR1+$porcentajeR2+$porcentajeR3+$porcentajeR4."%";
+
+
+// echo "Propietario: ".$countRol0."</br>";
+// echo "Administrador: ".$countRol1."</br>";
+// echo "Editor: ".$countRol2."</br>";
+// echo "Usuario: ".$countRol3."</br>";
+// echo "Inscrito: ".$countRol4."</br>";
+// echo "Total: ".$countRol."</br>";
+// echo "</br>";
+// echo "Propietario: ".$porcentRol0."</br>";
+// echo "Administrador: ".$porcentRol1."</br>";
+// echo "Editor: ".$porcentRol2."</br>";
+// echo "Usuario: ".$porcentRol3."</br>";
+// echo "Inscrito: ".$porcentRol4."</br>";
+// echo "Total: ".$porcentRol."</br>";
 
 ?>
 

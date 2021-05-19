@@ -401,7 +401,7 @@ $mostrarModal='';
               <div class="progress">
                 <div class="progress-bar progress-bar-striped bg-<?php echo $cpucolorPorcentaje; ?>" role="progressbar" style="width: <?php echo $cpuformat . '%'; ?>" aria-valuenow="<?php echo $cpuformat; ?>" aria-valuemin="0" aria-valuemax="100"><?php echo $cpuformat . "%"; ?></div>
               </div>     
-            <i class="fas fa-microchip fa-4x"></i>
+            <i class="fas fa-microchip fa-4x style="color: <?php echo $cpucolorIcono ?>;"></i>
             <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark badge-10x"><?php echo $cpuformat . "%"; ?></span></h4>
 
           </div>
@@ -428,8 +428,8 @@ $mostrarModal='';
           <div class="card-header font-weight-bold">Whitelist Gamertag</div>
           <div class="card-body">
 <div class="progress">
-  <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: <?php echo $wrporcentaje; ?>" aria-valuenow="<?php echo $countWhitXuid; ?>" aria-valuemin="0" aria-valuemax="<?php echo $countWhitelist; ?>" data-toggle="tooltip" data-placement="top" title="<?php echo $countWhitXuid; ?> Ingresaron"><?php echo $countWhitXuid; ?></div>
-  <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style="width: <?php echo $wporcentaje; ?>" aria-valuenow="<?php echo $countEmptyXuid; ?>" aria-valuemin="0" aria-valuemax="<?php echo $countWhitelist; ?>" data-toggle="tooltip" data-placement="top" title="<?php echo $countEmptyXuid; ?> Sin Ingresar"><?php echo $countEmptyXuid; ?></div>
+  <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: <?php echo $wrporcentaje; ?>" aria-valuenow="<?php echo $countWhitXuid; ?>" aria-valuemin="0" aria-valuemax="<?php echo $countWhitelist; ?>" data-toggle="tooltip" data-placement="top" title="<?php echo $countWhitXuid; ?> Ingresaron - <?php echo $wrporcentaje; ?>"><?php echo $countWhitXuid; ?></div>
+  <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style="width: <?php echo $wporcentaje; ?>" aria-valuenow="<?php echo $countEmptyXuid; ?>" aria-valuemin="0" aria-valuemax="<?php echo $countWhitelist; ?>" data-toggle="tooltip" data-placement="top" title="<?php echo $countEmptyXuid; ?> Sin Ingresar - <?php echo $wporcentaje; ?>"><?php echo $countEmptyXuid; ?></div>
 </div>  
             <!-- <h3 class="card-title font-italic">AGREGADOS</h3> -->
             <i class="fas fa-user fa-4x"></i>
@@ -451,6 +451,13 @@ $mostrarModal='';
         <div class="bg-info col-sm-4 card text-white">
           <div class="card-header font-weight-bold">Rol Admin Web</div>
           <div class="card-body">
+<div class="progress">
+  <div class="progress-bar progress-bar-striped progress-bar-animated bg-secondary" role="progressbar" style="width: <?php echo $porcentRol0; ?>" aria-valuenow="<?php echo $countRol0; ?>" aria-valuemin="0" aria-valuemax="<?php echo $countRol; ?>" data-toggle="tooltip" data-placement="top" title="<?php echo $countRol0; ?> Propietario - <?php echo $porcentRol0; ?>"><?php echo $countRol0; ?></div>
+  <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" role="progressbar" style="width: <?php echo $porcentRol1; ?>" aria-valuenow="<?php echo $countRol1; ?>" aria-valuemin="0" aria-valuemax="<?php echo $countRol; ?>" data-toggle="tooltip" data-placement="top" title="<?php echo $countRol1; ?> Administrador - <?php echo $porcentRol1; ?>"><?php echo $countRol1; ?></div>
+  <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: <?php echo $porcentRol2; ?>" aria-valuenow="<?php echo $countRol2; ?>" aria-valuemin="0" aria-valuemax="<?php echo $countRol; ?>" data-toggle="tooltip" data-placement="top" title="<?php echo $countRol2; ?> Editor - <?php echo $porcentRol2; ?>"><?php echo $countRol2; ?></div>
+  <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style="width: <?php echo $porcentRol3; ?>" aria-valuenow="<?php echo $countRol3; ?>" aria-valuemin="0" aria-valuemax="<?php echo $countRol; ?>" data-toggle="tooltip" data-placement="top" title="<?php echo $countRol3; ?> Usuario - <?php echo $porcentRol3; ?>"><?php echo $countRol3; ?></div>
+  <div class="progress-bar progress-bar-striped progress-bar-animated bg-Warning" role="progressbar" style="width: <?php echo $porcentRol4; ?>" aria-valuenow="<?php echo $countRol4; ?>" aria-valuemin="0" aria-valuemax="<?php echo $countRol; ?>" data-toggle="tooltip" data-placement="top" title="<?php echo $countRol4; ?> Inscrito - <?php echo $porcentRol4; ?>"><?php echo $countRol4; ?></div>
+</div> 
             <!-- <h3 class="card-title font-italic">USUARIOS</h3> -->
             <i class="fas fa-user-cog fa-4x"></i>
             <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark"><?php echo count($rolesJ); ?></span></h4>

@@ -53,5 +53,15 @@
         "name": "litron",
         "xuid": "384650264957",
         "ignoresPlayerLimit": false
+    },
+    {
+        "name": "jjrena",
+        "xuid": "3849843264957",
+        "ignoresPlayerLimit": false
+    },
+    {
+        "name": "cocoliso",
+        "xuid": "",
+        "ignoresPlayerLimit": false
     }
 ]

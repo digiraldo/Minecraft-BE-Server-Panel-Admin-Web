@@ -136,5 +136,4 @@
         $cpucolorIcono = 'FFCDCD';
       }
 
-
 ?>

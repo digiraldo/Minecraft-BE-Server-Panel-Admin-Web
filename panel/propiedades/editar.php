@@ -502,13 +502,13 @@ switch ($accion) {
     case 'btnTelegram':
 
         foreach ($data as $key) {
-            if ($data[17]['id'] == '18') {
+            if ($data[16]['id'] == '17') {
 
-                $data[17]['btn'] = $txtTelegram;
-                if ($data[17]['btn'] == "") {
-                    $data[17]['spain'] = '';
+                $data[16]['btn'] = $txtTelegram;
+                if ($data[16]['btn'] == "") {
+                    $data[16]['spain'] = '';
                 } else {
-                    $data[17]['spain'] = 'Telegram';
+                    $data[16]['spain'] = 'Telegram';
                 }
             }
         }
