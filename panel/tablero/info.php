@@ -74,6 +74,96 @@ if (empty($Informacion['Version'])) {
 }
 
 
+
+
+
+// JUGADORES ONLINE
+$jsonStringss = file_get_contents(__DIR__ . '../../../config/srvdatos.json');
+$srvdatoss = json_decode($jsonStringss, true);
+
+//echo $srvdatoss[6]['spain']."</br>";
+
+$urlWhie = "../../servername/whitelist.json";
+$dataWhieU = json_decode(file_get_contents($urlWhie), true);
+asort($dataWhieU);
+
+
+$whitelistJug = $srvdatoss[6]['spain'];
+$onlinerest = $whitelistJug - $online;
+// echo $onlinerest."</br>";
+
+$onlineLoad = $onlinerest;
+
+
+// Color barra jugadores online
+if ($onlineLoad < 30) {
+	$onlinecolorPorcentaje = 'success';
+	$onlinecolorIcono = 'CEFFCD';
+  } elseif ($onlineLoad > 30 && $onlineLoad < 70) {
+	$onlinecolorPorcentaje = 'info';
+	$onlinecolorIcono = 'CDF5FF';
+  } elseif ($onlineLoad > 70 && $onlineLoad < 94) {
+	$onlinecolorPorcentaje = 'warning';
+	$onlinecolorIcono = 'FFFDCD';
+  } elseif ($onlineLoad > 94) {
+	$onlinecolorPorcentaje = 'danger';
+	$onlinecolorIcono = 'FFCDCD';
+  }
+
+
+$onlinerestporcentaje = round($onlinerest/$whitelistJug*100);
+$onlineporcentaje = round($online/$whitelistJug*100);
+
+$orporcentaje = $onlinerestporcentaje."%";
+$oporcentaje = $onlineporcentaje."%";
+
+// echo $orporcentaje."</br>";
+// echo $oporcentaje."</br>";
+// echo $onlinerestporcentaje + $onlineporcentaje." %"."</br>";
+
+
+
+// JUGADORES EN WHITELIST
+$userId = "";
+
+$countWhitelist = count($dataWhieU); // total Whitelist
+$countEmptyXuid = array_count_values(array_column($dataWhieU, 'xuid'))[$userId]; // Xuid Vacio no ingreso al servidor
+$countWhitXuid = $countWhitelist - $countEmptyXuid; // Xuid con ingreso al servidor
+// echo $countWhitelist."</br>";
+// echo $countEmptyXuid."</br>";
+// echo $countWhitXuid."</br>";
+
+
+$whitelistJug = $srvdatoss[6]['spain'];
+$whiteLoad = $countWhitXuid;
+
+
+// Color barra jugadores whitelist
+if ($whiteLoad < 30) {
+	$whitecolorPorcentaje = 'success';
+	$whitecolorIcono = 'CEFFCD';
+  } elseif ($whiteLoad > 30 && $whiteLoad < 70) {
+	$whitecolorPorcentaje = 'info';
+	$whitecolorIcono = 'CDF5FF';
+  } elseif ($whiteLoad > 70 && $whiteLoad < 94) {
+	$whitecolorPorcentaje = 'warning';
+	$whitecolorIcono = 'FFFDCD';
+  } elseif ($whiteLoad > 94) {
+	$whitecolorPorcentaje = 'danger';
+	$whitecolorIcono = 'FFCDCD';
+  }
+
+
+$whiterestporcentaje = round($countWhitXuid/$countWhitelist*100);
+$whiteporcentaje = round($countEmptyXuid/$countWhitelist*100);
+
+$wrporcentaje = $whiterestporcentaje."%";
+$wporcentaje = $whiteporcentaje."%";
+
+ // echo $wrporcentaje."</br>";
+ // echo $wporcentaje."</br>";
+ // echo $whiterestporcentaje + $whiteporcentaje." %"."</br>";
+
 ?>
 
 <?php //echo $Informacion['Players']; ?>

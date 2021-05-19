@@ -214,15 +214,3 @@ toastr.error('<a type="button" class="btn btn-dark btn-lg"><i class="fas fa-serv
 
 <?php } ?>
 
-
-
-
-if (empty($Data [0])) {
-			
-		} else {
-			
-			if( $Data[ 0 ] !== "\x1C" ) // DefaultMessageIDTypes::ID_UNCONNECTED_PONG
-        	{
-        	        throw new MinecraftQueryException( "First byte is not ID_UNCONNECTED_PONG." );
-        	}
-		}

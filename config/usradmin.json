@@ -49,5 +49,22 @@
         "fecha": "12\/05\/2021",
         "n_img": "Zombie",
         "id_img": 12
+    },
+    {
+        "usuario": "Sandy",
+        "clave": "45c48cce2e2d7fbdea1afc51c7c6ad26",
+        "nombre": "Sandy San",
+        "gamertag": "sandy123",
+        "rol": "Editor",
+        "contacto": "Telegram: @sandy",
+        "pais": "Colombia",
+        "ciudad": "Mi Ciudad",
+        "img": "vaca.png",
+        "numero": 4,
+        "id": 1183179,
+        "fecha": "18\/05\/2021",
+        "id_rol": 2,
+        "n_img": "Vaca",
+        "id_img": 11
     }
 ]

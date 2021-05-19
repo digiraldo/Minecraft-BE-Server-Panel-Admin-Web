@@ -26,6 +26,8 @@ $title = "Minecraft SRV | Simple Invoice";
 //$usuarios = obtenerUsuarios();
 require '../tablero/info.php';
 
+
+
 ?>
 
 <!doctype html>

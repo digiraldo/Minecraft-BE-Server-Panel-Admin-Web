@@ -30,6 +30,8 @@ require '../respaldos/size.php';
 $mostrarModal='';
 // echo "<pre>$controlsrv</pre>";
 
+
+
 ?>
 
 <?php //echo $online; ?>
@@ -200,8 +202,6 @@ $mostrarModal='';
           <div class="card-body">
           <h5 class="card-title">Control del Servidor: <?php echo $data[0]['spain']; ?></h5>
           <p class="card-text">Aqui puede detener, iniciar y/o reiniciar el servidor, se recomienda reiniciar cada vez que realicen cambios en Whitelist, Permisos y/o Propiedades.</p></br>
-          Consultado en: <?php echo $Timer; ?>s</br>
-          Servidor <?php echo $StartSrv; ?>: <?php echo $StartSrvBtn; ?>
 
           <button value="btnIniciar" class="btn btn-success" type="submit" name="accion"><i class="fas fa-play"></i> Iniciar</button>
           <button value="btnReiniciar" class="btn btn-primary" type="submit" name="accion"><i class="fas fa-redo-alt"></i> Reiniciar</button>
@@ -371,24 +371,26 @@ $mostrarModal='';
         <div class="bg-secondary col-sm-4 card text-white">
           <div class="card-header font-weight-bold">Disco Duro</div>
           <div class="card-body">
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped bg-<?php echo $hddcolorPorcentaje; ?>" role="progressbar" style="width: <?php echo $hddporcentaje."%"; ?>" aria-valuenow="<?php echo $do; ?>" aria-valuemin="0" aria-valuemax="<?php echo $ds; ?>"><?php echo $hddporcentaje." %"; ?></div>
+              </div>             
             <!-- <h3 class="card-title font-italic">EN LÍNEA</h3> -->
             <span class="fas fa-hdd fa-4x" style="color: <?php echo $hddcolorIcono ?>;"></span>
             <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark"><?php echo $hddporcentaje." %"; ?></span></h4>
-            <div class="progress">
-                <div class="progress-bar progress-bar-striped bg-<?php echo $hddcolorPorcentaje; ?>" role="progressbar" style="width: <?php echo $hddporcentaje."%"; ?>" aria-valuenow="<?php echo $do; ?>" aria-valuemin="0" aria-valuemax="<?php echo $ds; ?>"><?php echo $hddporcentaje." %"; ?></div>
-              </div>
+
           </div>
           <a class="btn btn-dark" data-toggle="tooltip" data-placement="top" title="Espacio Servidor">HDD Usado: <?php echo $hddusado; ?> / <?php echo $hddtotal; ?> <span class="badge badge-<?php echo $hddcolorPorcentaje; ?>"><?php echo $hddporcentaje."%"; ?></span></a>
         </div>
         <div class="bg-secondary col-sm-4 card text-white">
           <div class="card-header font-weight-bold">Memoria Ram</div>
           <div class="card-body">
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped bg-<?php echo $ramcolorPorcentaje; ?>" role="progressbar" style="width: <?php echo $ramporcentaje."%"; ?>" aria-valuenow="<?php echo $usadoram; ?>" aria-valuemin="0" aria-valuemax="<?php echo $totalram; ?>"><?php echo $ramporcentaje." %"; ?></div>
+              </div>    
             <!-- <h3 class="card-title font-italic">AGREGADOS</h3> -->
             <i class="fas fa-memory fa-4x" style="color: <?php echo $ramcolorIcono ?>;"></i>
             <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark"><?php echo $ramporcentaje . " %"; ?></span></h4>
-              <div class="progress">
-                <div class="progress-bar progress-bar-striped bg-<?php echo $ramcolorPorcentaje; ?>" role="progressbar" style="width: <?php echo $ramporcentaje."%"; ?>" aria-valuenow="<?php echo $usadoram; ?>" aria-valuemin="0" aria-valuemax="<?php echo $totalram; ?>"><?php echo $ramporcentaje." %"; ?></div>
-              </div>
+
           </div>
           <a class="btn btn-dark" data-toggle="tooltip" data-placement="top" title="Memoria del Servidor">RAM Usado: <?php echo $ramusado; ?> / <?php echo $ramtotal; ?> <span class="badge badge-<?php echo $ramcolorPorcentaje; ?>"><?php echo $ramporcentaje."%"; ?></span></a>
         </div>
@@ -396,12 +398,12 @@ $mostrarModal='';
         <div class="bg-secondary col-sm-4 card text-white">
           <div class="card-header font-weight-bold">Procesador</div>
           <div class="card-body">
-              
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped bg-<?php echo $cpucolorPorcentaje; ?>" role="progressbar" style="width: <?php echo $cpuformat . '%'; ?>" aria-valuenow="<?php echo $cpuformat; ?>" aria-valuemin="0" aria-valuemax="100"><?php echo $cpuformat . "%"; ?></div>
+              </div>     
             <i class="fas fa-microchip fa-4x"></i>
             <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark badge-10x"><?php echo $cpuformat . "%"; ?></span></h4>
-            <div class="progress">
-                <div class="progress-bar progress-bar-striped bg-<?php echo $cpucolorPorcentaje; ?>" role="progressbar" style="width: <?php echo $cpuformat . '%'; ?>" aria-valuenow="<?php echo $cpuformat; ?>" aria-valuemin="0" aria-valuemax="100"><?php echo $cpuformat . "%"; ?></div>
-              </div>
+
           </div>
           <a class="btn btn-dark" data-toggle="tooltip" data-placement="top" title="Procesamiento del Servidor">CPU Usado: <?php echo $cpuformat . '%'; ?> / 100% <span class="badge badge-<?php echo $cpucolorPorcentaje; ?>"><?php echo $cpuformat . "%"; ?></span></a>
         </div>
@@ -410,9 +412,14 @@ $mostrarModal='';
         <div class="bg-danger col-sm-4 card text-white">
           <div class="card-header font-weight-bold">Jugadores Online</div>
           <div class="card-body">
+<div class="progress">
+  <div class="progress-bar progress-bar-striped progress-bar-animated bg-<?php echo $onlinecolorPorcentaje; ?>" role="progressbar" style="width: <?php echo $oporcentaje; ?> " aria-valuenow="<?php echo $online; ?>" aria-valuemin="0" aria-valuemax="<?php echo $data[6]['spain']; ?>" data-toggle="tooltip" data-placement="top" title="<?php echo $online; ?> En Línea"><?php echo $online; ?></div>
+  <div class="progress-bar progress-bar-striped progress-bar-animated bg-secondary" role="progressbar" style="width: <?php echo $orporcentaje; ?>" aria-valuenow="<?php echo $onlinerest; ?>" aria-valuemin="0" aria-valuemax="<?php echo $data[6]['spain']; ?>" data-toggle="tooltip" data-placement="top" title="<?php echo $onlinerest; ?> Libres"><?php echo $onlinerest; ?></div>
+</div>           
             <!-- <h3 class="card-title font-italic">EN LÍNEA</h3> -->
-            <span class="fas fa-server fa-4x"></span>
+            <span class="fas fa-server fa-4x"></span>       
             <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark"><?php echo $online; ?>/<?php echo $data[6]['spain']; ?></span></h4>
+         
           </div>
           <a href="ver_pro.php" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="<?php echo $online; ?>/<?php echo $data[6]['spain']; ?> Jugando Ahora">Ver Propiedades <span class="badge badge-light"><?php echo $online; ?>/<?php echo $data[6]['spain']; ?></span></a>
         </div>
@@ -420,11 +427,15 @@ $mostrarModal='';
         <div class="bg-primary col-sm-4 card text-white">
           <div class="card-header font-weight-bold">Whitelist Gamertag</div>
           <div class="card-body">
+<div class="progress">
+  <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: <?php echo $wrporcentaje; ?>" aria-valuenow="<?php echo $countWhitXuid; ?>" aria-valuemin="0" aria-valuemax="<?php echo $countWhitelist; ?>" data-toggle="tooltip" data-placement="top" title="<?php echo $countWhitXuid; ?> Ingresaron"><?php echo $countWhitXuid; ?></div>
+  <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style="width: <?php echo $wporcentaje; ?>" aria-valuenow="<?php echo $countEmptyXuid; ?>" aria-valuemin="0" aria-valuemax="<?php echo $countWhitelist; ?>" data-toggle="tooltip" data-placement="top" title="<?php echo $countEmptyXuid; ?> Sin Ingresar"><?php echo $countEmptyXuid; ?></div>
+</div>  
             <!-- <h3 class="card-title font-italic">AGREGADOS</h3> -->
             <i class="fas fa-user fa-4x"></i>
             <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark"><?php echo count($usuarios); ?></span></h4>
           </div>
-          <a href="../usuarios" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="<?php echo count($usuarios); ?> Jugadores Agregados">Ver Whitelist <span class="badge badge-light"><?php echo count($usuarios); ?></span></a>
+          <a href="../usuarios" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="<?php echo $countWhitXuid; ?> Ingresaron - <?php echo $countEmptyXuid; ?> Sin Ingresar">Ver Whitelist <span class="badge badge-light"><?php echo count($usuarios); ?></span></a>
         </div>
 
         <div class="bg-warning col-sm-4 card text-white">
