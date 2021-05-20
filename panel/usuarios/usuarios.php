@@ -95,3 +95,28 @@ print_r(obtenerUsuarioPorName('disaned', $usuarios));
 // End Of validation
 return $esValido;
 }
+
+$jsonRoles = file_get_contents(__DIR__ . '../../../config/usradmin.json');
+$rolesJ = json_decode($jsonRoles, true);
+
+require '../rol/roles.php';
+$roles = obtenerRol();
+
+$usuarios = obtenerUsuarios();
+// $count = count(array_intersect($usuarios, $rolesJ));
+$arrayOfArrays = [$usuarios, $roles];
+
+//$arrayinter = array_intersect(...$arrayOfArrays);
+$arrayinter = $roles;
+
+$count = count($arrayinter);
+
+$countusradmin = count($roles);
+// $countusradmin = count($roles)-1;
+$newcont1 = $countusradmin - $count;
+
+if (empty($newcont1)) {
+    $newcont = false;
+}else {
+    $newcont = $countusradmin - $count;
+}

@@ -394,14 +394,14 @@ $mostrarModal='';
           </div>
           <a class="btn btn-dark" data-toggle="tooltip" data-placement="top" title="Memoria del Servidor">RAM Usado: <?php echo $ramusado; ?> / <?php echo $ramtotal; ?> <span class="badge badge-<?php echo $ramcolorPorcentaje; ?>"><?php echo $ramporcentaje."%"; ?></span></a>
         </div>
-<!---->
+
         <div class="bg-secondary col-sm-4 card text-white">
           <div class="card-header font-weight-bold">Procesador</div>
           <div class="card-body">
               <div class="progress">
                 <div class="progress-bar progress-bar-striped bg-<?php echo $cpucolorPorcentaje; ?>" role="progressbar" style="width: <?php echo $cpuformat . '%'; ?>" aria-valuenow="<?php echo $cpuformat; ?>" aria-valuemin="0" aria-valuemax="100"><?php echo $cpuformat . "%"; ?></div>
               </div>     
-            <i class="fas fa-microchip fa-4x style="color: <?php echo $cpucolorIcono ?>;"></i>
+            <i class="fas fa-microchip fa-4x" style="color: <?php echo $cpucolorIcono ?>;"></i>
             <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark badge-10x"><?php echo $cpuformat . "%"; ?></span></h4>
 
           </div>

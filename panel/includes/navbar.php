@@ -19,8 +19,7 @@ $permisos = obtenerPermisos();
 // $jsonwhi = file_get_contents(__DIR__ . '../../../servername/whitelist.json');
 // $usrwhi = json_decode($jsonwhi, true);
 
-$jsonRoles = file_get_contents(__DIR__ . '../../../config/usradmin.json');
-$rolesJ = json_decode($jsonRoles, true);
+
 
 $jsonString = file_get_contents(__DIR__ . '../../../config/srvdatos.json');
 $srvdat = json_decode($jsonString, true);
@@ -39,14 +38,11 @@ for ($i=2; $i<count($logs); $i++)
 $registros = $numr;
 }
 
-$count = count(array_intersect($usuarios, $rolesJ)); 
-
-$countusradmin = count($rolesJ)-1;
-
-$newcont = $countusradmin - $count;
 
 // echo $count."</br>";
 // print_r($count);
+
+
 
 ?>
 
@@ -55,9 +51,9 @@ $newcont = $countusradmin - $count;
 <div class="container-fluid">
 <a class="navbar-brand" href="../includes/index.php"><img src="https://www.minecraft.net/etc.clientlibs/minecraft/clientlibs/main/resources/img/menu/menu-buy.gif" alt="" width="30" height="24" class="d-inline-block align-top" data-toggle="tooltip" data-placement="bottom" title="<i class='fas fa-home'></i> Panel Minecraft Bedrock<br/><i class='fas fa-globe'></i> Servidor: <?php echo $srvdat[0]['spain']; ?>">
 Panel 
-<a class="nav-link" data-toggle="dropdown" href="../registros">
-          <i class="far fa-bell"></i>
-          <span class="badge badge-warning navbar-badge"><?php echo $newcont; ?></span>
+<a href="../registros" class="nav-link" data-toggle="dropdown">
+    <i class="far fa-bell"></i>
+    <span class="badge badge-warning navbar-badge"><?php echo $newcont; ?></span>
 </a>
 
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
