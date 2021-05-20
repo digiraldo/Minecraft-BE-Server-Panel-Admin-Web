@@ -1,3 +1,17 @@
+
+<!-- Footer -->
+<footer class="text-center text-white bg-dark">
+  <a class="up-arrow" href="#myPage" data-toggle="tooltip" title="TO TOP">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a><br>
+  <p>Panel Realizado Por <a href="https://gorobeta.blogspot.com/2021/04/instalar-minecraft-bedrock-edition-panel-admin.html" data-toggle="tooltip" title="Ver Tutorial Instalación">digiraldo</a>
+  | Repositorio <i class="fab fa-github"></i><a href="https://github.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web
+" data-toggle="tooltip" title="Ver Repositorio">digiraldo</a>
+  </p> <br>
+</footer>
+
+
+
 <script>
 
  function Confirmar(Mensaje) {

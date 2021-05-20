@@ -21,6 +21,8 @@ function obtenerUsuPorName($nam)
     return null;
 }
 
+
+
 $url = "../../servername/whitelist.json";
 $dataU = json_decode(file_get_contents($url), true);
 asort($dataU);

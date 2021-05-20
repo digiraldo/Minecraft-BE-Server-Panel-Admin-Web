@@ -127,9 +127,16 @@ $oporcentaje = $onlineporcentaje."%";
 $XuId = "";
 
 $countWhitelist = count($dataWhieU); // total Whitelist
-$countEmptyXuid = array_count_values(array_column($dataWhieU, 'xuid'))[$XuId]; // Xuid Vacio no ingreso al servidor
-$countEmptyXuid2 = array_count_values(array_column($dataWhieU, 'xuid'))['']; // Xuid Vacio no ingreso al servidor
-$countWhitXuid = $countWhitelist - $countEmptyXuid; // Xuid con ingreso al servidor
+// echo $countWhitelist;
+
+if ($countWhitelist == 0) {
+	$countEmptyXuid = 0;
+	$countWhitXuid = 0;
+} else {
+	$countEmptyXuid = array_count_values(array_column($dataWhieU, 'xuid'))['']; // Xuid Vacio no ingreso al servidor
+	$countWhitXuid = $countWhitelist - $countEmptyXuid; // Xuid con ingreso al servidor
+}
+
 
 $list = array_search($XuId, array_column($dataWhieU, 'xuid'));
 $countEmptyXuid3 = $list + 1;
@@ -163,9 +170,17 @@ if ($whiteLoad < 30) {
 	$whitecolorIcono = 'FFCDCD';
   }
 
+if ($countWhitelist == 0) {
+	$whiterestporcentaje = 0;
+	$whiteporcentaje = 0;
+} else {
+	$whiterestporcentaje = round($countWhitXuid/$countWhitelist*100);
+	$whiteporcentaje = round($countEmptyXuid/$countWhitelist*100);
+}
 
-$whiterestporcentaje = round($countWhitXuid/$countWhitelist*100);
-$whiteporcentaje = round($countEmptyXuid/$countWhitelist*100);
+
+
+
 
 $wrporcentaje = $whiterestporcentaje."%";
 $wporcentaje = $whiteporcentaje."%";
