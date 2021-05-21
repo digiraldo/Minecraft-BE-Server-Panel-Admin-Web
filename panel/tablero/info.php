@@ -76,12 +76,11 @@ if (empty($Informacion['Version'])) {
 
 
 
-
 // JUGADORES ONLINE
 $jsonStringss = file_get_contents(__DIR__ . '../../../config/srvdatos.json');
 $srvdatoss = json_decode($jsonStringss, true);
 
-//echo $srvdatoss[6]['spain']."</br>";
+
 
 $urlWhie = "../../servername/whitelist.json";
 $dataWhieU = json_decode(file_get_contents($urlWhie), true);
@@ -90,10 +89,11 @@ asort($dataWhieU);
 
 $whitelistJug = $srvdatoss[6]['spain'];
 $onlinerest = $whitelistJug - $online;
-// echo $onlinerest."</br>";
+
+// echo $srvdatoss[6]['spain']."</br>";
+// echo $onlineLoad."</br>";
 
 $onlineLoad = $onlinerest;
-
 
 // Color barra jugadores online
 if ($onlineLoad < 30) {
@@ -111,7 +111,7 @@ if ($onlineLoad < 30) {
   }
 
 
-$onlinerestporcentaje = round($onlinerest/$whitelistJug*100);
+$onlinerestporcentaje = round($onlineLoad/$whitelistJug*100);
 $onlineporcentaje = round($online/$whitelistJug*100);
 
 $orporcentaje = $onlinerestporcentaje."%";
@@ -125,123 +125,112 @@ $oporcentaje = $onlineporcentaje."%";
 
 // JUGADORES EN WHITELIST
 $XuId = "";
-
+ 
 $countWhitelist = count($dataWhieU); // total Whitelist
-// echo $countWhitelist;
+$whitelistXuid = array_column($dataWhieU, 'xuid'); // array xuid
+$countXuid = count($whitelistXuid); // total xuid en Whitelist
 
 if ($countWhitelist == 0) {
-	$countEmptyXuid = 0;
-	$countWhitXuid = 0;
+    $countEmptyXuid = 0;
+    $countWhitXuid = 0;
 } else {
-	$countEmptyXuid = array_count_values(array_column($dataWhieU, 'xuid'))['']; // Xuid Vacio no ingreso al servidor
-	$countWhitXuid = $countWhitelist - $countEmptyXuid; // Xuid con ingreso al servidor
+    // $countEmptyXuid = array_search($XuId, array_column($dataWhieU, 'xuid')); // Xuid Vacio no ingreso al servidor
+    // $countWhitXuid = $countXuid - $countEmptyXuid; // Xuid con ingreso al servidor
+	
+	$countWhitXuid = array_search($XuId, array_column($dataWhieU, 'xuid')); // Xuid con ingreso al servidor
+	$countEmptyXuid = $countXuid - $countWhitXuid; // Xuid sin ingreso al servidor
 }
 
+/*
+echo "Array xuid: ".print_r($whitelistXuid)."</br>";
+echo "Usuarios: ".$countWhitelist."</br>";
+echo "Sin xuid: ".$countEmptyXuid."</br>";
+echo "Con xuid: ".$countXuid-$countEmptyXuid."</br>";
+echo "</br>";
+*/
 
-$list = array_search($XuId, array_column($dataWhieU, 'xuid'));
-$countEmptyXuid3 = $list + 1;
-
-// echo $countWhitelist."</br>";
-  //  echo "Versión 1 = ".$countEmptyXuid."</br>";
-  //  echo "Versión 2 = ".$countEmptyXuid2."</br>";
-  //  echo "Versión 3 = ".$countEmptyXuid3."</br>";
-  //  echo "Versión 4 = ".$list."</br>";
-  //  echo "Creditos final pagina";
-
-// echo $countWhitXuid."</br>";
-
-
-$whitelistJug = $srvdatoss[6]['spain'];
 $whiteLoad = $countWhitXuid;
-
 
 // Color barra jugadores whitelist
 if ($whiteLoad < 30) {
-	$whitecolorPorcentaje = 'success';
-	$whitecolorIcono = 'CEFFCD';
+    $whitecolorPorcentaje = 'success';
+    $whitecolorIcono = 'CEFFCD';
   } elseif ($whiteLoad > 30 && $whiteLoad < 70) {
-	$whitecolorPorcentaje = 'info';
-	$whitecolorIcono = 'CDF5FF';
+    $whitecolorPorcentaje = 'info';
+    $whitecolorIcono = 'CDF5FF';
   } elseif ($whiteLoad > 70 && $whiteLoad < 94) {
-	$whitecolorPorcentaje = 'warning';
-	$whitecolorIcono = 'FFFDCD';
+    $whitecolorPorcentaje = 'warning';
+    $whitecolorIcono = 'FFFDCD';
   } elseif ($whiteLoad > 94) {
-	$whitecolorPorcentaje = 'danger';
-	$whitecolorIcono = 'FFCDCD';
+    $whitecolorPorcentaje = 'danger';
+    $whitecolorIcono = 'FFCDCD';
   }
-
+ 
 if ($countWhitelist == 0) {
-	$whiterestporcentaje = 0;
-	$whiteporcentaje = 0;
+    $whiterestporcentaje = 0;
+    $whiteporcentaje = 0;
 } else {
-	$whiterestporcentaje = round($countWhitXuid/$countWhitelist*100);
-	$whiteporcentaje = round($countEmptyXuid/$countWhitelist*100);
+    $whiterestporcentaje = round($countWhitXuid/$countXuid*100);
+    $whiteporcentaje = round($countEmptyXuid/$countXuid*100);
 }
-
-
-
-
-
+ 
 $wrporcentaje = $whiterestporcentaje."%";
 $wporcentaje = $whiteporcentaje."%";
-
+ 
  // echo $wrporcentaje."</br>";
  // echo $wporcentaje."</br>";
  // echo $whiterestporcentaje + $whiteporcentaje." %"."</br>";
 
 
+
+
 // JUGADORES ROLES O PERMISOS
 $jsonStringUsrA = file_get_contents(__DIR__ . '../../../config/usradmin.json');
 $datosUsrA = json_decode($jsonStringUsrA, true);
-
-$Rol0 = 0;
-$Rol1 = 1;
-$Rol2 = 2;
-$Rol3 = 3;
-$Rol4 = 4;
-
+ 
+ 
 $countRol = count($datosUsrA); // total Whitelist
 if (empty(array_count_values(array_column($datosUsrA, 'id_rol'))[0])) {
-	$countRol0 = 0;
+    $countRol0 = 0;
 } else {
-	$countRol0 = array_count_values(array_column($datosUsrA, 'id_rol'))[0];
+    $countRol0 = array_count_values(array_column($datosUsrA, 'id_rol'))[0];
 }
 if (empty(array_count_values(array_column($datosUsrA, 'id_rol'))[1])) {
-	$countRol1 = 0;
+    $countRol1 = 0;
 } else {
-	$countRol1 = array_count_values(array_column($datosUsrA, 'id_rol'))[1];
+    $countRol1 = array_count_values(array_column($datosUsrA, 'id_rol'))[1];
 }
 if (empty(array_count_values(array_column($datosUsrA, 'id_rol'))[2])) {
-	$countRol2 = 0;
+    $countRol2 = 0;
 } else {
-	$countRol2 = array_count_values(array_column($datosUsrA, 'id_rol'))[2];
+    $countRol2 = array_count_values(array_column($datosUsrA, 'id_rol'))[2];
 }
 if (empty(array_count_values(array_column($datosUsrA, 'id_rol'))[3])) {
-	$countRol3 = 0;
+    $countRol3 = 0;
 } else {
-	$countRol3 = array_count_values(array_column($datosUsrA, 'id_rol'))[3];
+    $countRol3 = array_count_values(array_column($datosUsrA, 'id_rol'))[3];
 }
 if (empty(array_count_values(array_column($datosUsrA, 'id_rol'))[4])) {
-	$countRol4 = 0;
+    $countRol4 = 0;
 } else {
-	$countRol4 = array_count_values(array_column($datosUsrA, 'id_rol'))[4];
+    $countRol4 = array_count_values(array_column($datosUsrA, 'id_rol'))[4];
 }
-
-
+ 
+ 
 $porcentajeR0 = round($countRol0/$countRol*100);
 $porcentajeR1 = round($countRol1/$countRol*100);
 $porcentajeR2 = round($countRol2/$countRol*100);
 $porcentajeR3 = round($countRol3/$countRol*100);
 $porcentajeR4 = round($countRol4/$countRol*100);
-
+ 
 $porcentRol0 = $porcentajeR0."%";
 $porcentRol1 = $porcentajeR1."%";
 $porcentRol2 = $porcentajeR2."%";
 $porcentRol3 = $porcentajeR3."%";
 $porcentRol4 = $porcentajeR4."%";
 $porcentRol = $porcentajeR0+$porcentajeR1+$porcentajeR2+$porcentajeR3+$porcentajeR4."%";
-
-
+ 
+ 
 // echo "Propietario: ".$countRol0."</br>";
 // echo "Administrador: ".$countRol1."</br>";
 // echo "Editor: ".$countRol2."</br>";
@@ -255,6 +244,7 @@ $porcentRol = $porcentajeR0+$porcentajeR1+$porcentajeR2+$porcentajeR3+$porcentaj
 // echo "Usuario: ".$porcentRol3."</br>";
 // echo "Inscrito: ".$porcentRol4."</br>";
 // echo "Total: ".$porcentRol."</br>";
+
 
 ?>
 

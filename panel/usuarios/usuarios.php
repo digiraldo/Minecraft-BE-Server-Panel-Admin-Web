@@ -96,27 +96,56 @@ print_r(obtenerUsuarioPorName('disaned', $usuarios));
 return $esValido;
 }
 
-$jsonRoles = file_get_contents(__DIR__ . '../../../config/usradmin.json');
-$rolesJ = json_decode($jsonRoles, true);
+$jsonRolesJ = file_get_contents(__DIR__ . '../../../config/usradmin.json');
+$rolesJ = json_decode($jsonRolesJ, true);
 
-require '../rol/roles.php';
-$roles = obtenerRol();
+$jsonRoles = file_get_contents(__DIR__ . '../../../config/usradmin.json');
+$roles = json_decode($jsonRoles, true);
 
 $usuarios = obtenerUsuarios();
-// $count = count(array_intersect($usuarios, $rolesJ));
-$arrayOfArrays = [$usuarios, $roles];
 
-//$arrayinter = array_intersect(...$arrayOfArrays);
-$arrayinter = $roles;
 
-$count = count($arrayinter);
-
-$countusradmin = count($roles);
-// $countusradmin = count($roles)-1;
-$newcont1 = $countusradmin - $count;
-
-if (empty($newcont1)) {
-    $newcont = false;
-}else {
-    $newcont = $countusradmin - $count;
+if (empty($usuarios)) {
+    $coname = false;
+    $countArrname = 0;
+} else {
+    $coname = array_column($usuarios, 'name');
+    $countArrname = count($coname);//array with all count
 }
+
+
+
+if (empty($roles)) {
+    $cogamertag = false;
+    $countArrgamertag = -1; // no se cuenta propietario
+} else {
+    $cogamertag = array_column($roles, 'gamertag');
+    $countArrgamertag = count($cogamertag)-1;//array with all count
+}
+
+
+/*
+echo print_r($coname)."</br>";
+echo print_r($cogamertag)."</br>";
+
+echo $countArrgamertag."</br>";
+echo $countArrname."</br>"; 
+*/
+// $countArrgamertag = array_count_values($cogamertag);//array with all count
+// $countArrname = array_count_values($coname);//array with all count
+
+$newcontzero = $countArrgamertag - $countArrname;
+
+if (empty($usuarios) && count($roles) == 1) {
+    $newcont = false;
+} elseif (!empty($usuarios) && count($roles) == 1) {
+    $newcont = false;
+} elseif ($newcontzero == 0) {
+    $newcont = false;
+} else {
+    $newcont = $countArrgamertag - $countArrname;
+}
+
+
+
+
