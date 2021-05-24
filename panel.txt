@@ -1,9 +1,9 @@
  # Attach to screen
  # screen -r $ServerName
 
-cd ~
-cd $DirName
-cd $ServerName
+  cd ~
+  cd minecraftbe
+  cd $ServerName
 # Descargar panel.sh desde el repositorio
 echo "========================================================================="
 echo "Tomando panel.sh del repositorio..."
