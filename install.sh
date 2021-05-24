@@ -65,6 +65,25 @@ wget https://raw.githubusercontent.com/TheRemote/MinecraftBedrockServer/master/S
 chmod +x SetupMinecraft.sh
 fi
 
+
+# Descargar panel.sh desde el repositorio
+echo "========================================================================="
+echo "Tomando panel.txt del repositorio..."
+wget -O panel.txt https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/panel.txt
+sudo chmod +x panel.txt
+
+cd ~
+#### busca la linea de la palabra: # Rotate backups -- keep most recent 10
+#### y la reemplaza con el contenido del documento: panel.txt
+#### en el archivo de texto: start.sh
+echo "========================================================================="
+Print_Style "Configurando SetupMinecraft.sh para integrar el Panel" "$YELLOW"
+sudo sed -i '/screen -r $ServerName/ {
+r panel.txt
+d}' SetupMinecraft.sh
+echo "========================================================================="
+sleep 2s
+
 # No especiales $, *, ., [, y \
 
 # Cambio Preguntas a Español
@@ -81,22 +100,12 @@ sleep 2s
 echo "========================================================================="
 
 # Cambio para ejecutar panel.sh en vez del screen
-echo "========================================================================="
-Print_Style "Configurando SetupMinecraft.sh para integrar el Panel" "$YELLOW"
-sudo sed -i "s/screen -r \$ServerName/bin\/bash panel.sh/g" SetupMinecraft.sh
-sleep 2s
-echo "========================================================================="
+   # echo "========================================================================="
+   # Print_Style "Configurando SetupMinecraft.sh para integrar el Panel" "$YELLOW"
+   # sudo sed -i "s/screen -r \$ServerName/bin\/bash panel.sh/g" SetupMinecraft.sh
+   # sleep 2s
+   # echo "========================================================================="
 
-  # Descargar panel.sh desde el repositorio
-  echo "========================================================================="
-  echo "Tomando panel.sh del repositorio..."
-  wget -O panel.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/panel.sh
-  sudo chmod +x panel.sh
-  sudo sed -i "s:dirname:$DirName:g" panel.sh
-  sudo sed -i "s:username:$UserName:g" panel.sh
-  sudo sed -i "s:servername:$ServerName:g" panel.sh
-
-  sudo mv panel.sh $DirName/minecraftbe/$ServerName/
 
 # Ejecutar SetupMinecraft.sh Modificado
 echo "========================================================================="
