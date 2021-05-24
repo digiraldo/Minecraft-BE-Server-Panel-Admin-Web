@@ -134,14 +134,6 @@ cd ~
 cd minecraftbe
 cd $ServerName
 
-  # Descargar panel.sh desde el repositorio
-  echo "========================================================================="
-  echo "Tomando panel.sh del repositorio..."
-  wget -O panel.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/panel.sh
-  sudo chmod +x panel.sh
-  sudo sed -i "s:dirname:$DirName:g" panel.sh
-  sudo sed -i "s:username:$UserName:g" panel.sh
-  sudo sed -i "s:servername:$ServerName:g" panel.sh
 
   # Descargar cloud.sh desde el repositorio
   echo "Tomando cloud.sh del repositorio..."

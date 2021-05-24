@@ -87,6 +87,14 @@ sudo sed -i "s/screen -r \$ServerName/bin\/bash panel.sh/g" SetupMinecraft.sh
 sleep 2s
 echo "========================================================================="
 
+  # Descargar panel.sh desde el repositorio
+  echo "========================================================================="
+  echo "Tomando panel.sh del repositorio..."
+  wget -O panel.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/panel.sh
+  sudo chmod +x panel.sh
+  sudo sed -i "s:dirname:$DirName:g" panel.sh
+  sudo sed -i "s:username:$UserName:g" panel.sh
+  sudo sed -i "s:servername:$ServerName:g" panel.sh
 
 # Ejecutar SetupMinecraft.sh Modificado
 echo "========================================================================="
