@@ -66,13 +66,22 @@ chmod +x SetupMinecraft.sh
 fi
 
 
-# Descargar panel.sh desde el repositorio
+# Descargar panel.txt desde el repositorio
 echo "========================================================================="
 echo "Tomando panel.txt del repositorio..."
 wget -O panel.txt https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/panel.txt
 sudo chmod +x panel.txt
 
 cd ~
+
+# Cambio Preguntas a Español
+echo "========================================================================="
+Print_Style "Traduciendo Inicio screen" "$YELLOW"
+sudo sed -i "s/Minecraft server has started.  Type screen -r \$ServerName to view the running server/El servidor de Minecraft se ha iniciado. Escriba screen -r servername para ver el servidor en ejecución/g" SetupMinecraft.sh
+sleep 2s
+echo "========================================================================="
+
+
 #### busca la linea de la palabra: # Rotate backups -- keep most recent 10
 #### y la reemplaza con el contenido del documento: panel.txt
 #### en el archivo de texto: start.sh
