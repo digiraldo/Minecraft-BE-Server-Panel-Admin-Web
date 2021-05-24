@@ -65,12 +65,116 @@ sudo apt install git -y
 sudo apt-get install php-zip -y
 sudo apt install vim -y
 
-# Busca nginx istalado
+
+##### NOTA, Verificar si actualizó los Servername = servername, Dirname = dirname, Username = username
+##### NOTA, Verificar si actualizó los Servername = $ServerName, Dirname = $DirName, Username = $UserName
+
+
+# Compruebe si el servidor se está ejecutando
+if ! screen -list | grep -q "\.$ServerName"; then
+  echo "¡El servidor no se está ejecutando actualmente!"
+  exit 1
+else
+  sudo systemctl stop $ServerName
+  screen -S $ServerName -X quit
+fi
+echo "Servidor Minecraft $ServerName detenido."
+
+# Cambio start.sh
+echo "========================================================================="
+Print_Style "Cambiando copia de seguridad a zip" "$YELLOW"
+sudo sed -i "s/tar -pzvcf/zip -r/g" $DirName/minecraftbe/$ServerName/start.sh
+sudo sed -i "s/.tar.gz/.zip/g" $DirName/minecraftbe/$ServerName/start.sh
+sleep 2s
+echo "========================================================================="
+
+# Cambio stop.sh
+echo "========================================================================="
+Print_Style "Traduciendo mensajes al detener el servidor" "$YELLOW"
+sudo sed -i "s/Stopping server in/Deteniendo el Servidor en/g" $DirName/minecraftbe/$ServerName/stop.sh
+sudo sed -i "s/seconds/segundos/g" $DirName/minecraftbe/$ServerName/stop.sh
+sudo sed -i "s/Stopping server/Servidor detenido o cerrado/g" $DirName/minecraftbe/$ServerName/stop.sh
+sleep 2s
+echo "========================================================================="
+
+# Cambio restart.sh
+echo "========================================================================="
+Print_Style "Traduciendo mensajes de reinicio en el servidor" "$YELLOW"
+sudo sed -i "s/Server is restarting in/Reiniciando en/g" $DirName/minecraftbe/$ServerName/restart.sh
+sudo sed -i "s/seconds/segundos/g" $DirName/minecraftbe/$ServerName/restart.sh
+sudo sed -i "s/Closing server/Reiniciando servidor/g" $DirName/minecraftbe/$ServerName/restart.sh
+sleep 2s
+echo "========================================================================="
+
+
+  # Eliminar scripts existentes
+  sudo rm -rf cloud.sh back.sh panel.sh config.sh prop.sh
+  sleep 2s
+  cd ~
+  cd minecraftbe
+  sudo chmod -R 777 $DirName/minecraftbe
+  sudo rm -rf panel
+  sudo rm -rf Minecraft-BE-Server-Panel-Admin-Web
+  sudo rm -rf index.php
+  sudo rm -rf shell.php
+  sudo rm -rf location
+  sudo rm -rf misitio.conf
+  sudo rm -rf web.sh
+  
+  Print_Style "==========================SERVIDORES MONTADOS============================" "$CYAN"
+  sleep 2s
+  ls -l
+  Print_Style "=========================================================================" "$CYAN"
+  sleep 3s
+
+
 
 
 cd ~
 cd minecraftbe
-cd servername
+cd $ServerName
+
+  # Descargar panel.sh desde el repositorio
+  echo "========================================================================="
+  echo "Tomando panel.sh del repositorio..."
+  wget -O panel.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/panel.sh
+  sudo chmod +x panel.sh
+  sudo sed -i "s:dirname:$DirName:g" panel.sh
+  sudo sed -i "s:username:$UserName:g" panel.sh
+  sudo sed -i "s:servername:$ServerName:g" panel.sh
+
+  # Descargar cloud.sh desde el repositorio
+  echo "Tomando cloud.sh del repositorio..."
+  wget -O cloud.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server/main/cloud.sh
+  chmod +x cloud.sh
+  sudo sed -i "s:dirname:$DirName:g" cloud.sh
+  sudo sed -i "s:servername:$ServerName:g" cloud.sh
+  
+  # Descargar back.sh desde el repositorio
+  echo "Tomando back.sh del repositorio..."
+  wget -O back.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server/main/back.sh
+  chmod +x back.sh
+  sudo sed -i "s:dirname:$DirName:g" back.sh
+  sudo sed -i "s:servername:$ServerName:g" back.sh
+  
+  # Descargar config.sh desde el repositorio
+  echo "Tomando config.sh del repositorio..."
+  wget -O config.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server/main/config.sh
+  chmod +x config.sh
+  sudo sed -i "s:dirname:$DirName:g" config.sh
+  sudo sed -i "s:servername:$ServerName:g" config.sh
+
+  # Descargar prop.sh desde el repositorio
+  echo "Tomando prop.sh del repositorio..."
+  wget -O prop.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/prop.sh
+  chmod +x prop.sh
+  sudo sed -i "s:dirname:$DirName:g" prop.sh
+  sudo sed -i "s:servername:$ServerName:g" prop.sh
+
+
+cd ~
+cd minecraftbe
+cd $ServerName
 
   # Descarga web.sh desde el repositorio
   echo "Tomando web.sh del repositorio..."
@@ -88,15 +192,19 @@ cd Minecraft-BE-Server-Panel-Admin-Web
 
 echo "======================================================================================="
 Print_Style "Creando directorios y archivos del panel..." "$CYAN"
-sudo mv panel dirname/minecraftbe/
-sudo mv index.php dirname/minecraftbe/
-sudo mv shell.php dirname/minecraftbe/
+sudo mv panel $DirName/minecraftbe/
+sudo mv index.php $DirName/minecraftbe/
+sudo mv shell.php $DirName/minecraftbe/
 
+
+#  sudo mv /root/minecraftbe/parceros/backups /root/drive/minecraftbe/back_23_05_2021
+# sudo mv /home/home /root/drive/minecraftbe
+## sudo rsync -avz $DirName/minecraftbe/$ServerName/backups/ $DirName/cloudname/foldername
 cd ~
 cd minecraftbe
 if [ ! -d "config" ]; then
   Print_Style "Instalando Repositorios de Configuración..." "$YELLOW"
-  sudo mv Minecraft-BE-Server-Panel-Admin-Web/config dirname/minecraftbe/
+  sudo mv Minecraft-BE-Server-Panel-Admin-Web/config $DirName/minecraftbe/
   sleep 1s  
 else  
 cd config
@@ -109,7 +217,7 @@ fi
 cd ~
 cd minecraftbe
 #Permisos del servidor
-sudo chmod -R 775 dirname/minecraftbe
+sudo chmod -R 775 $DirName/minecraftbe
 
 
 echo "========================================================================="
@@ -145,10 +253,24 @@ Print_Style "Creando archivos del Servidor web..." "$CYAN"
 cd ~
 cd minecraftbe
 cd Minecraft-BE-Server-Panel-Admin-Web
-sudo mv location dirname/minecraftbe/
-sudo mv ngnixsize dirname/minecraftbe/
-sudo mv misitio.conf dirname/minecraftbe/
+sudo mv location $DirName/minecraftbe/
+sudo mv ngnixsize $DirName/minecraftbe/
+sudo mv start.txt $DirName/minecraftbe/
+sudo mv misitio.conf $DirName/minecraftbe/
+ 
+sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/start.txt
+sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/start.txt
 
+#### busca la linea de la palabra: # Rotate backups -- keep most recent 10
+#### y la reemplaza con el contenido del documento: start.txt
+#### en el archivo de texto: start.sh
+echo "========================================================================="
+Print_Style "Configurando start.sh para copias de seguridad en la nube" "$YELLOW"
+sudo sed -i '/# Rotate backups -- keep most recent 10/ {
+r start.txt
+d}' $DirName/minecraftbe/start.sh
+echo "========================================================================="
+sleep 2s
 
 cd ~
 cd minecraftbe
@@ -186,8 +308,9 @@ sleep 2s
 echo "========================================================================="
 sleep 2s
 
-sudo rm -rf dirname/minecraftbe/location
-sudo rm -rf dirname/minecraftbe/ngnixsize
+sudo rm -rf $DirName/minecraftbe/location
+sudo rm -rf $DirName/minecraftbe/ngnixsize
+sudo rm -rf $DirName/minecraftbe/start
 
 echo "======================================================================================="
 Print_Style "Obteniendo Resultados..." "$MAGENTA"
@@ -218,7 +341,7 @@ sudo rm -rf /etc/nginx/sites-enabled/misitio.conf
 sleep 1s
 echo "======================================================================================="
 sleep 1s
-sudo mv dirname/minecraftbe/misitio.conf /etc/nginx/sites-available
+sudo mv $DirName/minecraftbe/misitio.conf /etc/nginx/sites-available
 
 echo "======================================================================================="
 Print_Style "Mostrando la versión php instalada..." "$CYAN"
@@ -251,9 +374,9 @@ read_with_prompt Port "Numero del Puerto" 80
 echo "========================================================================="
 
 Print_Style "Configurando la pagina web $IPV4:$Port/index.php..." "$YELLOW"
-sudo sed -i "s/MiIPV4/$IPV4/g" dirname/minecraftbe/config/srvdatos.json
+sudo sed -i "s/MiIPV4/$IPV4/g" $DirName/minecraftbe/config/srvdatos.json
 sudo sed -i "s/MiIPV4/$IPV4/g" /etc/nginx/sites-available/misitio.conf
-sudo sed -i "s/80/$Port/g" dirname/minecraftbe/config/srvdatos.json
+sudo sed -i "s/80/$Port/g" $DirName/minecraftbe/config/srvdatos.json
 sudo sed -i "s/80/$Port/g" /etc/nginx/sites-available/misitio.conf
 sudo sed -i "s/versionphp/$VePHP/g" /etc/nginx/sites-available/misitio.conf
 sudo sed -i "s/versionphp/$VePHP/g" /etc/nginx/sites-available/default
@@ -279,7 +402,7 @@ cd ~
 sudo crontab -r -i
 sudo useradd www-data
 sudo addgroup www-data
-sudo usermod username -aG www-data
+sudo usermod $UserName -aG www-data
 sudo usermod www-data -aG sudo
 echo "========================================================================="
 echo "Se ha creado el usuario y el grupo www-data"
@@ -287,13 +410,13 @@ Print_Style "Por Favor digite la contraseña para el usuario www-data dos veces:
 sudo smbpasswd -a www-data
 echo "========================================================================="
 
-sudo chown -hR username:www-data minecraftbe
+sudo chown -hR $UserName:www-data minecraftbe
 sudo sed -i '/www-data ALL=(ALL) NOPASSWD: ALL/d' /etc/sudoers
 sudo sed -i '$a www-data ALL=(ALL) NOPASSWD: ALL' /etc/sudoers
 sudo sed -n "/www-data ALL=(ALL) NOPASSWD: ALL/p" /etc/sudoers
-sudo sed -i '/username ALL=(ALL) NOPASSWD: ALL/d' /etc/sudoers
-sudo sed -i '$a username ALL=(ALL) NOPASSWD: ALL' /etc/sudoers
-sudo sed -n "/username ALL=(ALL) NOPASSWD: ALL/p" /etc/sudoers
+sudo sed -i '/$UserName ALL=(ALL) NOPASSWD: ALL/d' /etc/sudoers
+sudo sed -i '$a $UserName ALL=(ALL) NOPASSWD: ALL' /etc/sudoers
+sudo sed -n "/$UserName ALL=(ALL) NOPASSWD: ALL/p" /etc/sudoers
 sudo sed -i '/\%developers ALL=(www-data)NOPASSWD:\/usr\/bin\/crontab/d' /etc/sudoers
 sudo sed -i '$a \%developers ALL=(www-data)NOPASSWD:\/usr\/bin\/crontab' /etc/sudoers
 sudo sed -n "/\%developers ALL=(www-data)NOPASSWD:\/usr\/bin\/crontab/p" /etc/sudoers
@@ -328,6 +451,67 @@ cd ~
 cd minecraftbe
 sleep 1s
 sudo rm -rf Minecraft-BE-Server-Panel-Admin-Web
+
+
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/includes/js/logs.js
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/permisos/index.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/permisos/permisos.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/propiedades/propiedades.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/propiedades/index.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/propiedades/editar.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/propiedades/ver_propiedades.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/propiedades/ver_archivo_srv.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/registros/index.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/registros/logs.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/registros/ver_log.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/index.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/editar.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/CargarFicheros.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/size.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/cronon.sh
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/cronoff.sh
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/rol/index.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/index.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/info.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/shell.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/sto.sh
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/sta.sh
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/res.sh
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/index.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/usuarios.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/_formulario.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/includes/navbar.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/includes/signup.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/mundo/index.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/mundo/subido.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/mundo/select.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/mundo/eliminar.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/mundo/CargarFicheros.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/config/srvdatos.json
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/$ServerName/web.sh
+  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/includes/index.php
+  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/respaldos/editar.php
+  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/respaldos/cronon.sh
+  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/respaldos/cronoff.sh
+  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/$ServerName/web.sh
+  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/propiedades/index.php
+  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/propiedades/editar.php
+  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/tablero/shell.php
+  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/tablero/sto.sh
+  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/tablero/sta.sh
+  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/tablero/res.sh
+  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/mundo/subido.php
+  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/mundo/eliminar.php
+  sudo sed -i "s:dirnameusr:$DirName:g" $DirName/minecraftbe/panel/mundo/select.php
+  sudo sed -i "s:dirname:$DirName:g" /etc/nginx/sites-available/misitio.conf
+  sudo sed -i "s:username:$UserName:g" $DirName/minecraftbe/panel/respaldos/editar.php
+  sudo sed -i "s:username:$UserName:g" $DirName/minecraftbe/panel/respaldos/eliminar.php
+  sudo sed -i "s:username:$UserName:g" $DirName/minecraftbe/panel/tablero/sto.sh
+  sudo sed -i "s:username:$UserName:g" $DirName/minecraftbe/panel/tablero/sta.sh
+  sudo sed -i "s:username:$UserName:g" $DirName/minecraftbe/panel/tablero/res.sh
+  sudo sed -i "s:PuertoIPV4:$PortIPV4:g" $DirName/minecraftbe/config/srvdatos.json
+  sudo sed -i "s:PuertoIPV6:$PortIPV6:g" $DirName/minecraftbe/config/srvdatos.json
+
 echo ""
 echo ""
 echo ""
@@ -353,3 +537,23 @@ echo ""
 echo ""
 sleep 3s
 echo ""
+cd ~
+cd minecraftbe
+cd $ServerName
+echo "========================================================================="
+echo "========================================================================="
+Print_Style  "================CONFIGURACIÓN PREDETERMINADA DEL SERVIDOR================" "$REVERSE"
+echo "========================================================================="
+sudo sed -n "/server-name=/p" server.properties | sed 's/server-name=/Nombre del Servidor: .... /'
+sudo sed -n "/level-name=/p" server.properties | sed 's/level-name=/Nombre del Nivel: ....... /'
+sudo sed -n "/gamemode=/p" server.properties | sed 's/gamemode=/Modo del Juego: ......... /'
+sudo sed -n "/difficulty=/p" server.properties | sed 's/difficulty=/Dificultad del Mundo: ... /'
+sudo sed -n "/allow-cheats=/p" server.properties | sed 's/allow-cheats=/Usar Trucos: ............ /'
+sudo sed -n "/max-players=/p" server.properties | sed 's/max-players=/Jugadores Máximos: ...... /'
+sudo sed -n "/white-list=/p" server.properties | sed 's/white-list=/Permiso de Jugadores: ... /'
+sudo sed -n "/level-seed=/p" server.properties | sed 's/level-seed=/Número de Semilla: ...... /'
+sudo sed -n "/server-port=/p" server.properties | sed 's/server-port=/Puerto IPV4: ............ /'
+sudo sed -n "/server-portv6=/p" server.properties | sed 's/server-portv6=/Puerto IPV6: ............ /'
+echo "========================================================================="
+sleep 3s
+sudo systemctl restart nginx

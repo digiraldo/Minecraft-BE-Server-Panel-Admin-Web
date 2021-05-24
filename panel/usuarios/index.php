@@ -26,6 +26,11 @@ $title = "Minecraft SRV | Simple Invoice";
 //$usuarios = obtenerUsuarios();
 require '../tablero/info.php';
 
+if ($usuario['xuid'] == null) {
+  $usuarioxuid = 'Sin xuid';
+} else {
+  $usuarioxuid = $usuario['xuid'];
+}
 
 
 ?>

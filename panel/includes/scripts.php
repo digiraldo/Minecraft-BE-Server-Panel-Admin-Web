@@ -51,4 +51,4 @@
  
  
 <!-- Fecha -->
-<?php include "../includes/functions.php"; ?>
+<?php include "functions.php"; ?>

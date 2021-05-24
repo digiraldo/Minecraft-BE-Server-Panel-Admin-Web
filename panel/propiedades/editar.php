@@ -122,7 +122,7 @@ switch ($accion) {
         // Agregar Nombre del Nivel (Predeterminado: Bedrock level)
     case 'btnLevelName':
 
-        $lineb = $lines[54];
+        $lineb = $lines[64];
         $inputb = $txtLevelName . "\n";
         // Reemplazar la cadena inicial (de la matriz $lines) con $update en $content
         $linetextb = "level-name=";
@@ -149,7 +149,7 @@ switch ($accion) {
 
         // Habilitar Usar Trucos en el Servidor
     case 'btnUsarTruco':
-        $lineb = $lines[12];
+        $lineb = $lines[22];
         // Reemplazar la cadena inicial (de la matriz $lines) con $update en $content
         $linetextb = "allow-cheats=";
         $trueb = $linetextb . "true" . "\n";
@@ -237,7 +237,7 @@ switch ($accion) {
             echo "Dificultad requerido";
             exit;
         }
-        $line = $lines[8];
+        $line = $lines[18];
         $input = $txtDificultad . "\n";
         // Reemplazar la cadena inicial (de la matriz $lines) con $update en $content
         $linetext = "difficulty=";
@@ -278,7 +278,7 @@ switch ($accion) {
 
         // Habilitar permiso a jugadores en el Servidor sel Servidor
     case 'btnWhitelist':
-        $line = $lines[26];
+        $line = $lines[36];
         $ltext = "white-list=";
         $true = $ltext . 'true' . "\n";
         $false = $ltext . 'false' . "\n";
@@ -320,7 +320,7 @@ switch ($accion) {
         // Maximo de Jugadores en el Servidor sel Servidor
     case 'btnGamerMax':
 
-        $line = $lines[16];
+        $line = $lines[26];
         $input = $txtGamerMax . "\n";
         // Reemplazar la cadena inicial (de la matriz $lines) con $update en $content
         $linetext = "max-players=";
@@ -355,7 +355,7 @@ switch ($accion) {
         // Maximo de Jugadores en el Servidor sel Servidor
     case 'btnSemilla':
 
-        $line = $lines[57];
+        $line = $lines[67];
         $input = $txtSemilla . "\n";
         // Reemplazar la cadena inicial (de la matriz $lines) con $update en $content
         $linetext = "level-seed=";
@@ -395,7 +395,7 @@ switch ($accion) {
         // Puerto Ipv4 del Servidor sel Servidor
     case 'btnIpv4':
 
-        $line = $lines[30];
+        $line = $lines[40];
         $input = $txtIpv4 . "\n";
         // Reemplazar la cadena inicial (de la matriz $lines) con $update en $content
         $linetext = "server-port=";
@@ -424,10 +424,10 @@ switch ($accion) {
         // Puerto Ipv6 del Servidor sel Servidor
     case 'btnIpv6':
 
-        $line = $lines[34];
+        $line = $lines[44];
         $input = $txtIpv6 . "\n";
         // Reemplazar la cadena inicial (de la matriz $lines) con $update en $content
-        $linetext = "server-port6=";
+        $linetext = "server-portv6=";
         $output = "$linetext$input";
         $newcontent = str_replace($line, $output, $content);
         file_put_contents($myFile, $newcontent);

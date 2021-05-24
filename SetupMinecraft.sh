@@ -1,41 +1,28 @@
 #!/bin/bash
-# Este Script es el mismo del autor James A. Chambers a diferencia que fue traducido al español (This Script is the same as that of the author James A. Chambers, unlike that it was translated into Spanish.)
-# Script de instalación del servidor de Minecraft - James A. Chambers - https://jamesachambers.com
+# Minecraft Server Installation Script - James A. Chambers - https://jamesachambers.com
 #
-# Instrucciones: https://jamesachambers.com/minecraft-bedrock-edition-ubuntu-dedicated-server-guide/
-# Para ejecutar el script de configuración, use:
+# Instructions: https://jamesachambers.com/minecraft-bedrock-edition-ubuntu-dedicated-server-guide/
+# To run the setup script use:
 # wget https://raw.githubusercontent.com/TheRemote/MinecraftBedrockServer/master/SetupMinecraft.sh
 # chmod +x SetupMinecraft.sh
 # ./SetupMinecraft.sh
 #
-# Repositorio de GitHub: https://github.com/TheRemote/MinecraftBedrockServer
+# GitHub Repository: https://github.com/TheRemote/MinecraftBedrockServer
 
-echo "Script de instalación de Minecraft Bedrock Server por James Chambers - 24 de julio de 2019"
-echo "La última versión siempre en https://github.com/TheRemote/MinecraftBedrockServer"
-echo "¡No olvide configurar el reenvío de puertos en su enrutador! El puerto predeterminado es 19132"
+echo "Minecraft Bedrock Server installation script by James Chambers"
+echo "Latest version always at https://github.com/TheRemote/MinecraftBedrockServer"
+echo "Don't forget to set up port forwarding on your router!  The default port is 19132"
 
-# Colores del terminal
-BLACK=$(tput setaf 0)
-RED=$(tput setaf 1)
-GREEN=$(tput setaf 2)
-YELLOW=$(tput setaf 3)
-LIME_YELLOW=$(tput setaf 190)
-BLUE=$(tput setaf 4)
-MAGENTA=$(tput setaf 5)
-CYAN=$(tput setaf 6)
-WHITE=$(tput setaf 7)
-BRIGHT=$(tput bold)
-NORMAL=$(tput sgr0)
-BLINK=$(tput blink)
-REVERSE=$(tput smso)
-UNDERLINE=$(tput smul)
+# Check for updates
+if [[ $(find "SetupMinecraft.sh" -mtime +7 -print) ]]; then
+  echo "Performing self update..."
+  wget -O SetupMinecraft.sh https://raw.githubusercontent.com/TheRemote/MinecraftBedrockServer/master/SetupMinecraft.sh
+  chmod +x SetupMinecraft.sh
+  /bin/bash SetupMinecraft.sh
+  exit 0
+fi
 
-# Imprime una línea con color usando códigos de terminal
-Print_Style() {
-  printf "%s\n" "${2}$1${NORMAL}"
-}
-
-# Función para leer la entrada del usuario con un mensaje
+# Function to read input from user with a prompt
 function read_with_prompt {
   variable_name="$1"
   prompt="$2"
@@ -50,7 +37,7 @@ function read_with_prompt {
     if [[ -z ${!variable_name} ]] && [[ -n "$default" ]] ; then
       declare -g $variable_name=$default
     fi
-    echo -n "$prompt : ${!variable_name} -- aceptar? (y/n)"
+    echo -n "$prompt : ${!variable_name} -- accept (y/n)?"
     read answer < /dev/tty
     if [ "$answer" == "${answer#[Yy]}" ]; then
       unset $variable_name
@@ -60,19 +47,31 @@ function read_with_prompt {
   done
 }
 
-# Instale las dependencias necesarias para ejecutar el servidor de Minecraft en segundo plano
-echo "Instalando screen, unzip, sudo, net-tools, wget..."
+# Check to make sure we aren't being ran as root
+if [ $(id -u) = 0 ]; then
+   echo "This script is not meant to be ran as root or sudo.  Please run normally with ./SetupMinecraft.sh.  If you know what you are doing and want to override this edit this check out of SetupMinecraft.sh.  Exiting..."
+   exit 1
+fi
+
+# Install dependencies required to run Minecraft server in the background
+echo "Installing screen, unzip, sudo, net-tools, wget.."
 if [ ! -n "`which sudo`" ]; then
   apt-get update && apt-get install sudo -y
 fi
 sudo apt-get update
 sudo apt-get install screen unzip wget -y
 sudo apt-get install net-tools -y
+echo "Installing curl and libcurl.."
+sudo apt-get install curl -y
 sudo apt-get install libcurl4 -y
+# Install libcurl3 for backwards compatibility in case libcurl4 isn't available
+sudo apt-get install libcurl3 -y
+echo "Installing openssl, libc6 and libcrypt1.."
 sudo apt-get install openssl -y
-sudo apt-get install zip gzip tar -y
+sudo apt-get install libc6 -y
+sudo apt-get install libcrypt1 -y
 
-# Verifique si el directorio principal del servidor de Minecraft ya existe
+# Check to see if Minecraft server main directory already exists
 cd ~
 if [ ! -d "minecraftbe" ]; then
   mkdir minecraftbe
@@ -80,224 +79,122 @@ if [ ! -d "minecraftbe" ]; then
 else
   cd minecraftbe
   if [ -f "bedrock_server" ]; then
-    echo "Migración del antiguo servidor Bedrock a minecraftpe/old"
+    echo "Migrating old Bedrock server to minecraftbe/old"
     cd ~
     mv minecraftbe old
     mkdir minecraftbe
     mv old minecraftbe/old
     cd minecraftbe
-    echo "Migración completa a minecraftbe/old"
+    echo "Migration complete to minecraftbe/old"
   fi
 fi
 
-# Configuración del nombre del servidor
-Print_Style "==================DIRECTORIOS Y ARCHIVOS MONTADOS========================" "$BLUE"
-ls -l
-Print_Style "=========================================================================" "$BLUE"
-echo "Ingrese un nombre corto para el servidor nuevo o existente..."
-echo "Se utilizará como nombre de la carpeta y el nombre del servidor..."
-echo "========================================================================="
-read_with_prompt ServerName "Nombre de Servidor"
+# Server name configuration
+echo "Enter a short one word label for a new or existing server (don't use minecraftbe)..."
+echo "It will be used in the folder name and service name..."
 
-echo "========================================================================="
+read_with_prompt ServerName "Server Label"
+
+if [[ "$ServerName" == *"minecraftbe"* ]]; then
+  echo "Server label of minecraftbe is not allowed.  Please choose a different server label!"
+  exit 1
+fi
+
+echo "Enter server IPV4 port (default 19132): "
+read_with_prompt PortIPV4 "Server IPV4 Port" 19132
+
+echo "Enter server IPV6 port (default 19133): "
+read_with_prompt PortIPV6 "Server IPV6 Port" 19133
+
 if [ -d "$ServerName" ]; then
-  echo "¡El directorio minecraftbe/$ServerName ya existe!  Actualizando scripts y configurando el servicio..."
-echo "========================================================================="
-sleep 4s
-  # Obtener la ruta del directorio de inicio y el nombre de usuario
+  echo "Directory minecraftbe/$ServerName already exists!  Updating scripts and configuring service ..."
+
+  # Get Home directory path and username
   DirName=$(readlink -e ~)
   UserName=$(whoami)
-  UserNow=$(users)
   cd ~
   cd minecraftbe
   cd $ServerName
-  echo "El directorio del servidor es: $DirName/minecraftbe/$ServerName"
-echo "========================================================================="
-  # Eliminar scripts existentes
-  sudo rm -rf start.sh stop.sh restart.sh cloud.sh back.sh panel.sh config.sh prop.sh fixpermissions.sh
-  sleep 2s
-  cd ~
-  cd minecraftbe
-  sudo chmod -R 777 $DirName/minecraftbe
-  sudo rm -rf panel
-  sudo rm -rf Minecraft-BE-Server-Panel-Admin-Web
-  sudo rm -rf index.php
-  sudo rm -rf shell.php
-  sudo rm -rf location
-  sudo rm -rf misitio.conf
-  sudo rm -rf web.sh
-  
-  Print_Style "==========================SERVIDORES MONTADOS============================" "$CYAN"
-  sleep 2s
-  ls -l
-  Print_Style "=========================================================================" "$CYAN"
-  sleep 3s
-  cd ~
-  cd minecraftbe
-  cd $ServerName
+  echo "Server directory is: $DirName/minecraftbe/$ServerName"
 
-  # Descargar panel.sh desde el repositorio
- echo "========================================================================="
-  echo "Tomando panel.sh del repositorio..."
-  wget -O panel.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/panel.sh
-  sudo chmod +x panel.sh
-  sudo sed -i "s:dirname:$DirName:g" panel.sh
-  sudo sed -i "s:username:$UserName:g" panel.sh
-  sudo sed -i "s:servername:$ServerName:g" panel.sh
+  # Remove existing scripts
+  rm start.sh stop.sh restart.sh fixpermissions.sh
 
-  # Descarga start.sh desde el repositorio
-  echo "Tomando start.sh del repositorio..."
-  wget -O start.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server/main/start.sh
+  # Download start.sh from repository
+  echo "Grabbing start.sh from repository..."
+  wget -O start.sh https://raw.githubusercontent.com/TheRemote/MinecraftBedrockServer/master/start.sh
   chmod +x start.sh
   sed -i "s:dirname:$DirName:g" start.sh
   sed -i "s:servername:$ServerName:g" start.sh
-  
-  # Descargar stop.sh desde el repositorio
-  echo "Tomando stop.sh del repositorio..."
-  wget -O stop.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server/main/stop.sh
+  sed -i "s:userxname:$UserName:g" start.sh
+  sed -i "s<pathvariable<$PATH<g" start.sh
+
+  # Download stop.sh from repository
+  echo "Grabbing stop.sh from repository..."
+  wget -O stop.sh https://raw.githubusercontent.com/TheRemote/MinecraftBedrockServer/master/stop.sh
   chmod +x stop.sh
   sed -i "s:dirname:$DirName:g" stop.sh
   sed -i "s:servername:$ServerName:g" stop.sh
-  
-  # Descargar restart.sh desde el repositorio
-  echo "Tomando restart.sh del repositorio..."
-  wget -O restart.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server/main/restart.sh
+  sed -i "s:userxname:$UserName:g" stop.sh
+  sed -i "s<pathvariable<$PATH<g" stop.sh
+
+  # Download restart.sh from repository
+  echo "Grabbing restart.sh from repository..."
+  wget -O restart.sh https://raw.githubusercontent.com/TheRemote/MinecraftBedrockServer/master/restart.sh
   chmod +x restart.sh
   sed -i "s:dirname:$DirName:g" restart.sh
   sed -i "s:servername:$ServerName:g" restart.sh
+  sed -i "s:userxname:$UserName:g" restart.sh
+  sed -i "s<pathvariable<$PATH<g" restart.sh
 
-  # Descarga fixpermissions.sh desde el repositorio
-  echo "Tomando fixpermissions.sh del repositorio .."
-  wget -O fixpermissions.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/fixpermissions.sh
+  # Download fixpermissions.sh from repository
+  echo "Grabbing fixpermissions.sh from repository..."
+  wget -O fixpermissions.sh https://raw.githubusercontent.com/TheRemote/MinecraftBedrockServer/master/fixpermissions.sh
   chmod +x fixpermissions.sh
   sed -i "s:dirname:$DirName:g" fixpermissions.sh
   sed -i "s:servername:$ServerName:g" fixpermissions.sh
   sed -i "s:userxname:$UserName:g" fixpermissions.sh
-  
-  # Descargar cloud.sh desde el repositorio
-  echo "Tomando cloud.sh del repositorio..."
-  wget -O cloud.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server/main/cloud.sh
-  chmod +x cloud.sh
-  sudo sed -i "s:dirname:$DirName:g" cloud.sh
-  sudo sed -i "s:servername:$ServerName:g" cloud.sh
-  
-  # Descargar back.sh desde el repositorio
-  echo "Tomando back.sh del repositorio..."
-  wget -O back.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server/main/back.sh
-  chmod +x back.sh
-  sudo sed -i "s:dirname:$DirName:g" back.sh
-  sudo sed -i "s:servername:$ServerName:g" back.sh
-  
-  # Descargar config.sh desde el repositorio
-  echo "Tomando config.sh del repositorio..."
-  wget -O config.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server/main/config.sh
-  chmod +x config.sh
-  sudo sed -i "s:dirname:$DirName:g" config.sh
-  sudo sed -i "s:servername:$ServerName:g" config.sh
 
-  # Descargar prop.sh desde el repositorio
-  echo "Tomando prop.sh del repositorio..."
-  wget -O prop.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/prop.sh
-  chmod +x prop.sh
-  sudo sed -i "s:dirname:$DirName:g" prop.sh
-  sudo sed -i "s:servername:$ServerName:g" prop.sh
-  
-  # Actualizar el servicio del servidor de Minecraft
-  echo "Configurando el servicio $ServerName ..."
+  # Update minecraft server service
+  echo "Configuring Minecraft $ServerName service..."
   sudo wget -O /etc/systemd/system/$ServerName.service https://raw.githubusercontent.com/TheRemote/MinecraftBedrockServer/master/minecraftbe.service
   sudo chmod +x /etc/systemd/system/$ServerName.service
-  sudo sed -i "s/userxname/$UserName/g" /etc/systemd/system/$ServerName.service
+  sudo sed -i "s:userxname:$UserName:g" /etc/systemd/system/$ServerName.service
   sudo sed -i "s:dirname:$DirName:g" /etc/systemd/system/$ServerName.service
   sudo sed -i "s:servername:$ServerName:g" /etc/systemd/system/$ServerName.service
-  sudo sed -i "/server-name=/c\server-name=$ServerName" server.properties
+  sed -i "/server-port=/c\server-port=$PortIPV4" server.properties
+  sed -i "/server-portv6=/c\server-portv6=$PortIPV6" server.properties
   sudo systemctl daemon-reload
+  echo -n "Start Minecraft server at startup automatically (y/n)?"
+  read answer < /dev/tty
+  if [ "$answer" != "${answer#[Yy]}" ]; then
+    sudo systemctl enable $ServerName.service
 
-  /bin/bash $DirName/minecraftbe/$ServerName/panel.sh
-
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/includes/js/logs.js
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/permisos/index.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/permisos/permisos.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/propiedades/propiedades.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/propiedades/index.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/propiedades/editar.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/propiedades/ver_propiedades.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/registros/index.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/registros/logs.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/registros/ver_log.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/index.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/editar.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/CargarFicheros.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/size.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/cronon.sh
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/cronoff.sh
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/rol/index.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/index.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/info.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/shell.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/sto.sh
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/sta.sh
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/res.sh
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/index.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/usuarios.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/_formulario.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/includes/navbar.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/includes/signup.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/mundo/index.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/mundo/subido.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/mundo/select.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/config/srvdatos.json
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/$ServerName/web.sh
-  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/includes/index.php
-  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/respaldos/editar.php
-  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/respaldos/cronon.sh
-  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/respaldos/cronoff.sh
-  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/$ServerName/web.sh
-  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/propiedades/index.php
-  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/propiedades/editar.php
-  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/tablero/shell.php
-  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/tablero/sto.sh
-  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/tablero/sta.sh
-  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/tablero/res.sh
-  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/mundo/subido.php
-  sudo sed -i "s:dirnameusr:$DirName:g" $DirName/minecraftbe/panel/mundo/select.php
-  sudo sed -i "s:dirname:$DirName:g" /etc/nginx/sites-available/misitio.conf
-  sudo sed -i "s:username:$UserName:g" $DirName/minecraftbe/panel/respaldos/editar.php
-  sudo sed -i "s:username:$UserName:g" $DirName/minecraftbe/panel/respaldos/eliminar.php
-  sudo sed -i "s:username:$UserName:g" $DirName/minecraftbe/panel/tablero/sto.sh
-  sudo sed -i "s:username:$UserName:g" $DirName/minecraftbe/panel/tablero/sta.sh
-  sudo sed -i "s:username:$UserName:g" $DirName/minecraftbe/panel/tablero/res.sh
-
-echo "========================================================================="
-echo "Configuranfo iniciao del servidor automáticamente"
-#Iniciar el servidor de Minecraft automáticamente
-  sudo systemctl enable $ServerName.service
-echo "========================================================================="
-  
-
-      # Reinicio automático configurado a las 4 am
-    echo "========================================================================="
+    # Automatic reboot at 4am configuration
+    echo -n "Automatically restart and backup server at 4am daily (y/n)?"
+    read answer < /dev/tty
+    if [ "$answer" != "${answer#[Yy]}" ]; then
       croncmd="$DirName/minecraftbe/$ServerName/restart.sh"
-      cronjob="0 0 1 1 * $croncmd"
-      ( sudo crontab -u www-data -l | grep -v -F "$croncmd" ; echo "$cronjob" ) | crontab -
-      echo "Reinicio programado. Para cambiar la hora o eliminar el reinicio automático, escriba crontab -e"
-    echo "========================================================================="
+      cronjob="0 4 * * * $croncmd"
+      ( crontab -l | grep -v -F "$croncmd" ; echo "$cronjob" ) | crontab -
+      echo "Daily restart scheduled.  To change time or remove automatic restart type crontab -e"
+    fi
+  fi
 
-
-  # Configuración completada
-  echo "========================================================================="
-  echo "La configuración está completa. Iniciando el servidor Minecraft $ServerName ..."
+  # Setup completed
+  echo "Setup is complete.  Starting Minecraft $ServerName server..."
   sudo systemctl start $ServerName.service
-  # Duerme durante 5 segundos para que el servidor tenga tiempo de comenzar
-  sleep 2s
-  sudo systemctl restart nginx
+
+  # Sleep for 4 seconds to give the server time to start
+  sleep 4s
 
   screen -r $ServerName
 
   exit 0
 fi
 
-# Crear directorio de servidor
-echo "Creando directorio del servidor de Minecraft (~/minecraftbe/$ServerName)..."
+# Create server directory
+echo "Creating minecraft server directory (~/minecraftbe/$ServerName)..."
 cd ~
 cd minecraftbe
 mkdir $ServerName
@@ -306,292 +203,172 @@ mkdir downloads
 mkdir backups
 mkdir logs
 
-
-# Verifique la arquitectura de la CPU para ver si necesitamos hacer algo especial para la plataforma en la que se ejecuta el servidor
-echo "Obteniendo la arquitectura de la CPU del sistema..."
+# Check CPU archtecture to see if we need to do anything special for the platform the server is running on
+echo "Getting system CPU architecture..."
 CPUArch=$(uname -m)
-echo "Arquitectura del sistema: $CPUArch"
+echo "System Architecture: $CPUArch"
+
+# Check for ARM architecture
 if [[ "$CPUArch" == *"aarch"* || "$CPUArch" == *"arm"* ]]; then
-  # Arquitectura ARM detectada - descargar QEMU y bibliotecas de dependencia
-  echo "Plataforma ARM detectada - instalando dependencias..."
-  # Compruebe si la última versión de QEMU disponible es al menos 3.0 o superior
+  # ARM architecture detected -- download QEMU and dependency libraries
+  echo "ARM platform detected -- installing dependencies..."
+  # Check if latest available QEMU version is at least 3.0 or higher
   QEMUVer=$(apt-cache show qemu-user-static | grep Version | awk 'NR==1{ print $2 }' | cut -c3-3)
   if [[ "$QEMUVer" -lt "3" ]]; then
-    echo "La versión de QEMU disponible no es lo suficientemente alta para emular x86_64. Descargando alternativa..."
-    if [[ "$CPUArch" == *"armv7"* || "$CPUArch" == *"armhf"* ]]; then
-      wget http://ftp.us.debian.org/debian/pool/main/q/qemu/qemu-user-static_3.1+dfsg-8_armhf.deb
-      wget http://ftp.us.debian.org/debian/pool/main/b/binfmt-support/binfmt-support_2.2.0-2_armhf.deb
-      sudo dpkg --install binfmt*.deb
-      sudo dpkg --install qemu-user*.deb
-    elif [[ "$CPUArch" == *"aarch64"* || "$CPUArch" == *"arm64"* ]]; then
-      wget http://ftp.us.debian.org/debian/pool/main/q/qemu/qemu-user-static_3.1+dfsg-8_arm64.deb
-      wget http://ftp.us.debian.org/debian/pool/main/b/binfmt-support/binfmt-support_2.2.0-2_arm64.deb
-      sudo dpkg --install binfmt*.deb
-      sudo dpkg --install qemu-user*.deb
-    fi
+    echo "Available QEMU version is not high enough to emulate x86_64.  Please update your QEMU version."
+    exit
   else
     sudo apt-get install qemu-user-static binfmt-support -y
   fi
 
   if [ -n "`which qemu-x86_64-static`" ]; then
-    echo "QEMU-x86_64-static instalada satisfactoriamente"
+    echo "QEMU-x86_64-static installed successfully"
   else
-    echo "QEMU-x86_64-static no se instaló correctamente; verifique el resultado anterior para ver qué salió mal."
+    echo "QEMU-x86_64-static did not install successfully -- please check the above output to see what went wrong."
     exit 1
   fi
   
-  # Recuperar depende.zip del repositorio de GitHub
+  # Retrieve depends.zip from GitHub repository
   wget -O depends.zip https://raw.githubusercontent.com/TheRemote/MinecraftBedrockServer/master/depends.zip
   unzip depends.zip
   sudo mkdir /lib64
-  # Cree un enlace flexible ld-linux-x86-64.so.2 mapeado a ld-2.28.so
-  sudo ln -s ~/minecraftbe/$ServerName/ld-2.28.so /lib64/ld-linux-x86-64.so.2
+  # Create soft link ld-linux-x86-64.so.2 mapped to ld-2.31.so
+  sudo ln -s ~/minecraftbe/$ServerName/ld-2.31.so /lib64/ld-linux-x86-64.so.2
 fi
 
-# Recupere la última versión del servidor dedicado Minecraft Bedrock
-echo "Buscando la última versión del servidor Minecraft Bedrock..."
-wget -O downloads/version.html https://minecraft.net/en-us/download/server/bedrock/
+# Check for x86 (32 bit) architecture
+if [[ "$CPUArch" == *"i386"* || "$CPUArch" == *"i686"* ]]; then
+  # ARM architecture detected -- download QEMU and dependency libraries
+  #echo "32 bit platform detected -- installing dependencies..."
+  # Check if latest available QEMU version is at least 3.0 or higher
+  #QEMUVer=$(apt-cache show qemu-user-static | grep Version | awk 'NR==1{ print $2 }' | cut -c3-3)
+  #if [[ "$QEMUVer" -lt "3" ]]; then
+  #  echo "Available QEMU version is not high enough to emulate x86_64.  Please update your QEMU version."
+  #  exit
+  #else
+  #  sudo apt-get install qemu-user-static binfmt-support -y
+  #fi
+
+  #if [ -n "`which qemu-x86_64-static`" ]; then
+  #  echo "QEMU-x86_64-static installed successfully"
+  #else
+  #  echo "QEMU-x86_64-static did not install successfully -- please check the above output to see what went wrong."
+  #  exit 1
+  #fi
+  
+  # Retrieve depends.zip from GitHub repository
+  #wget -O depends.zip https://raw.githubusercontent.com/TheRemote/MinecraftBedrockServer/master/depends.zip
+  #unzip depends.zip
+  #sudo mkdir /lib64
+  # Create soft link ld-linux-x86-64.so.2 mapped to ld-2.31.so
+  #sudo ln -s ~/minecraftbe/$ServerName/ld-2.31.so /lib64/ld-linux-x86-64.so.2
+
+  # 32 bit attempts have not been successful -- notify user to install 64 bit OS
+  echo "You are running a 32 bit operating system (i386 or i686) and the Bedrock Dedicated Server has only been released for 64 bit (x86_64).  If you have a 64 bit processor please install a 64 bit operating system to run the Bedrock dedicated server!"
+  exit 1
+fi
+
+# Retrieve latest version of Minecraft Bedrock dedicated server
+echo "Checking for the latest version of Minecraft Bedrock server..."
+wget -U "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36" -O downloads/version.html https://minecraft.net/en-us/download/server/bedrock/
 DownloadURL=$(grep -o 'https://minecraft.azureedge.net/bin-linux/[^"]*' downloads/version.html)
 DownloadFile=$(echo "$DownloadURL" | sed 's#.*/##')
 echo "$DownloadURL"
 echo "$DownloadFile"
 
-# Descargue la última versión del servidor dedicado Minecraft Bedrock
-echo "========================================================================="
-echo "Descargando la última versión del servidor Minecraft Bedrock..."
+# Download latest version of Minecraft Bedrock dedicated server
+echo "Downloading the latest version of Minecraft Bedrock server..."
 UserName=$(whoami)
 DirName=$(readlink -e ~)
-wget -O "downloads/$DownloadFile" "$DownloadURL"
+wget -U "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36" -O "downloads/$DownloadFile" "$DownloadURL"
 unzip -o "downloads/$DownloadFile"
 
-  # Descargar panel.sh desde el repositorio
- echo "========================================================================="
-  echo "Tomando panel.sh del repositorio..."
-  wget -O panel.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/panel.sh
-  sudo chmod +x panel.sh
-  sudo sed -i "s:dirname:$DirName:g" panel.sh
-  sudo sed -i "s:username:$UserName:g" panel.sh
-  sudo sed -i "s:servername:$ServerName:g" panel.sh
-  
-# Descarga start.sh desde el repositorio
-echo "========================================================================="
-echo "Tomando start.sh del repositorio..."
-wget -O start.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server/main/start.sh
+# Download start.sh from repository
+echo "Grabbing start.sh from repository..."
+wget -O start.sh https://raw.githubusercontent.com/TheRemote/MinecraftBedrockServer/master/start.sh
 chmod +x start.sh
 sed -i "s:dirname:$DirName:g" start.sh
 sed -i "s:servername:$ServerName:g" start.sh
-#sed -i "s:cloudname:$CloudName:g" start.sh
+sed -i "s:userxname:$UserName:g" start.sh
+sed -i "s<pathvariable<$PATH<g" start.sh
 
-# Descargar stop.sh desde el repositorio
-echo "========================================================================="
-echo "Tomando stop.sh del repositorio..."
-wget -O stop.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server/main/stop.sh
+# Download stop.sh from repository
+echo "Grabbing stop.sh from repository..."
+wget -O stop.sh https://raw.githubusercontent.com/TheRemote/MinecraftBedrockServer/master/stop.sh
 chmod +x stop.sh
 sed -i "s:dirname:$DirName:g" stop.sh
 sed -i "s:servername:$ServerName:g" stop.sh
+sed -i "s:userxname:$UserName:g" stop.sh
+sed -i "s<pathvariable<$PATH<g" stop.sh
 
-# Descargar restart.sh desde el repositorio
-echo "========================================================================="
-echo "Tomando restart.sh del repositorio..."
-wget -O restart.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server/main/restart.sh
+# Download restart.sh from repository
+echo "Grabbing restart.sh from repository..."
+wget -O restart.sh https://raw.githubusercontent.com/TheRemote/MinecraftBedrockServer/master/restart.sh
 chmod +x restart.sh
 sed -i "s:dirname:$DirName:g" restart.sh
 sed -i "s:servername:$ServerName:g" restart.sh
+sed -i "s:userxname:$UserName:g" restart.sh
+sed -i "s<pathvariable<$PATH<g" restart.sh
 
-# Descarga fixpermissions.sh desde el repositorio
-echo "Tomando fixpermissions.sh del repositorio .."
-wget -O fixpermissions.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/fixpermissions.sh
+# Download fixpermissions.sh from repository
+echo "Grabbing fixpermissions.sh from repository..."
+wget -O fixpermissions.sh https://raw.githubusercontent.com/TheRemote/MinecraftBedrockServer/master/fixpermissions.sh
 chmod +x fixpermissions.sh
 sed -i "s:dirname:$DirName:g" fixpermissions.sh
 sed -i "s:servername:$ServerName:g" fixpermissions.sh
 sed -i "s:userxname:$UserName:g" fixpermissions.sh
 
-# Descargar cloud.sh desde el repositorio
-echo "========================================================================="
-echo "Tomando restart.sh del repositorio..."
-wget -O cloud.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server/main/cloud.sh
-chmod +x cloud.sh
-sudo sed -i "s:dirname:$DirName:g" cloud.sh
-sudo sed -i "s/servername/$ServerName/g" cloud.sh
-
-# Descargar back.sh desde el repositorio
-echo "========================================================================="
-  echo "Tomando back.sh del repositorio..."
-  wget -O back.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server/main/back.sh
-  chmod +x back.sh
-  sudo sed -i "s:dirname:$DirName:g" back.sh
-  sudo sed -i "s:servername:$ServerName:g" back.sh
-  
-  # Descargar config.sh desde el repositorio
- echo "========================================================================="
-  echo "Tomando config.sh del repositorio..."
-  wget -O config.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server/main/config.sh
-  chmod +x config.sh
-  sudo sed -i "s:dirname:$DirName:g" config.sh
-  sudo sed -i "s:servername:$ServerName:g" config.sh
-
-  # Descargar prop.sh desde el repositorio
-  echo "Tomando prop.sh del repositorio..."
-  wget -O prop.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/prop.sh
-  chmod +x prop.sh
-  sudo sed -i "s:dirname:$DirName:g" prop.sh
-  sudo sed -i "s:servername:$ServerName:g" prop.sh
-
-# Configuración del servicio
-echo "========================================================================="
-echo "Configurando el servicio Minecraft $ServerName ..."
+# Service configuration
+echo "Configuring Minecraft $ServerName service..."
 sudo wget -O /etc/systemd/system/$ServerName.service https://raw.githubusercontent.com/TheRemote/MinecraftBedrockServer/master/minecraftbe.service
 sudo chmod +x /etc/systemd/system/$ServerName.service
-sudo sed -i "s/userxname/$UserName/g" /etc/systemd/system/$ServerName.service
+sudo sed -i "s:userxname:$UserName:g" /etc/systemd/system/$ServerName.service
 sudo sed -i "s:dirname:$DirName:g" /etc/systemd/system/$ServerName.service
 sudo sed -i "s:servername:$ServerName:g" /etc/systemd/system/$ServerName.service
-sudo sed -i "/server-name=/c\server-name=$ServerName" server.properties
+sed -i "/server-port=/c\server-port=$PortIPV4" server.properties
+sed -i "/server-portv6=/c\server-portv6=$PortIPV6" server.properties
 sudo systemctl daemon-reload
 
- /bin/bash $DirName/minecraftbe/$ServerName/panel.sh
+echo -n "Start Minecraft server at startup automatically (y/n)?"
+read answer < /dev/tty
+if [ "$answer" != "${answer#[Yy]}" ]; then
+  sudo systemctl enable $ServerName.service
 
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/includes/js/logs.js
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/permisos/index.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/permisos/permisos.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/propiedades/propiedades.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/propiedades/index.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/propiedades/editar.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/propiedades/ver_propiedades.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/registros/index.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/registros/logs.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/registros/ver_log.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/index.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/editar.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/CargarFicheros.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/size.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/cronon.sh
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/respaldos/cronoff.sh
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/rol/index.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/index.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/info.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/shell.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/sto.sh
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/sta.sh
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/tablero/res.sh
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/index.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/usuarios.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/_formulario.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/includes/navbar.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/includes/signup.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/mundo/index.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/mundo/subido.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/mundo/select.php
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/config/srvdatos.json
-  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/$ServerName/web.sh
-  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/includes/index.php
-  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/respaldos/editar.php
-  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/respaldos/cronon.sh
-  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/respaldos/cronoff.sh
-  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/$ServerName/web.sh
-  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/propiedades/index.php
-  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/propiedades/editar.php
-  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/tablero/shell.php
-  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/tablero/sto.sh
-  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/tablero/sta.sh
-  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/tablero/res.sh
-  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/mundo/subido.php
-  sudo sed -i "s:dirnameusr:$DirName:g" $DirName/minecraftbe/panel/mundo/select.php
-  sudo sed -i "s:dirname:$DirName:g" /etc/nginx/sites-available/misitio.conf
-  sudo sed -i "s:username:$UserName:g" $DirName/minecraftbe/panel/respaldos/editar.php
-  sudo sed -i "s:username:$UserName:g" $DirName/minecraftbe/panel/respaldos/eliminar.php
-  sudo sed -i "s:username:$UserName:g" $DirName/minecraftbe/panel/tablero/sto.sh
-  sudo sed -i "s:username:$UserName:g" $DirName/minecraftbe/panel/tablero/sta.sh
-  sudo sed -i "s:username:$UserName:g" $DirName/minecraftbe/panel/tablero/res.sh
-
-  # Reinicio automático a las 4 am
+  # Automatic reboot at 4am configuration
   TimeZone=$(cat /etc/timezone)
   CurrentTime=$(date)
-  echo "========================================================================="
-  echo "Zona horaria actual del sistema: $TimeZone"
-  echo "Hora actual del sistema: $CurrentTime"
-  echo "========================================================================="
-  sleep 2s
-  echo "Puede ajustar / eliminar el tiempo de reinicio seleccionado más tarde escribiendo crontab -e o ejecutando SetupMinecraft.sh nuevamente"
-  echo "========================================================================="
+  echo "Your time zone is currently set to $TimeZone.  Current system time: $CurrentTime"
+  echo "You can adjust/remove the selected reboot time later by typing crontab -e or running SetupMinecraft.sh again."
+  echo -n "Automatically restart and backup server at 4am daily (y/n)?"
+  read answer < /dev/tty
+  if [ "$answer" != "${answer#[Yy]}" ]; then    
     croncmd="$DirName/minecraftbe/$ServerName/restart.sh"
-    cronjob="0 0 1 1 * $croncmd"
-    ( sudo crontab -u www-data -l | grep -v -F "$croncmd" ; echo "$cronjob" ) | crontab -
-    echo "Reinicio programado. Para cambiar la hora o eliminar el reinicio automático, escriba crontab -e"
-  echo "========================================================================="
+    cronjob="0 4 * * * $croncmd"
+    ( crontab -l | grep -v -F "$croncmd" ; echo "$cronjob" ) | crontab -
+    echo "Daily restart scheduled.  To change time or remove automatic restart type crontab -e"
+  fi
+fi
 
-
-echo "========================================================================="
-echo "Configurando inicio del servidor automáticamente"
-#Iniciar el servidor de Minecraft automáticamente
-  sudo systemctl enable $ServerName.service
-echo "========================================================================="
-
-
-# ¡Terminado!
-echo "========================================================================="
-echo "========================================================================="
-echo "La configuración está completa. Iniciando el servidor de Minecraft..."
+# Finished!
+echo "Setup is complete.  Starting Minecraft server..."
 sudo systemctl start $ServerName.service
-echo "========================================================================="
-sleep 4s
 
-# Espere hasta 20 segundos para que se inicie el servidor
+# Wait up to 20 seconds for server to start
 StartChecks=0
 while [ $StartChecks -lt 20 ]; do
-  if screen -list | grep -q "$ServerName"; then
+  if screen -list | grep -q "\.$ServerName"; then
     break
   fi
   sleep 1;
   StartChecks=$((StartChecks+1))
 done
 
-# Forzar el cierre si el servidor aún está iniciado
-echo "========================================================================="
-if ! screen -list | grep -q "$ServerName"; then
-  echo "El servidor de Minecraft no pudo iniciarse después de 20 segundos."
+# Force quit if server is still open
+if ! screen -list | grep -q "\.$ServerName"; then
+  echo "Minecraft server failed to start after 20 seconds."
 else
-  echo "El servidor de Minecraft se ha iniciado.  Escribe (screen -r $ServerName) para ver el servidor en ejecución!"
+  echo "Minecraft server has started.  Type screen -r $ServerName to view the running server!"
 fi
 
-cd ~
-cd minecraftbe
-cd $ServerName
-echo "========================================================================="
-echo "========================================================================="
-Print_Style  "================CONFIGURACIÓN PREDETERMINADA DEL SERVIDOR================" "$REVERSE"
-echo "========================================================================="
-sudo sed -n "/server-name=/p" server.properties | sed 's/server-name=/Nombre del Servidor: .... /'
-sudo sed -n "/level-name=/p" server.properties | sed 's/level-name=/Nombre del Nivel: ....... /'
-sudo sed -n "/gamemode=/p" server.properties | sed 's/gamemode=/Modo del Juego: ......... /'
-sudo sed -n "/difficulty=/p" server.properties | sed 's/difficulty=/Dificultad del Mundo: ... /'
-sudo sed -n "/allow-cheats=/p" server.properties | sed 's/allow-cheats=/Usar Trucos: ............ /'
-sudo sed -n "/max-players=/p" server.properties | sed 's/max-players=/Jugadores Máximos: ...... /'
-sudo sed -n "/white-list=/p" server.properties | sed 's/white-list=/Permiso de Jugadores: ... /'
-sudo sed -n "/level-seed=/p" server.properties | sed 's/level-seed=/Número de Semilla: ...... /'
-sudo sed -n "/server-port=/p" server.properties | sed 's/server-port=/Puerto IPV4: ............ /'
-sudo sed -n "/server-portv6=/p" server.properties | sed 's/server-portv6=/Puerto IPV6: ............ /'
-echo "========================================================================="
-sleep 3s
-sudo systemctl restart nginx
-
-#echo "========================================================================="
- #   echo -n "¿Iniciar Configuración del Servidor: $ServerName? (y/n)"
-  #  read answer < /dev/tty
-   # if [ "$answer" != "${answer#[Yy]}" ]; then
-    #  # Crear copia de seguridad en la nube cloudname
-     #   echo "========================================================================="
-      #  echo "Iniciando Configuración con config.sh"
-       # echo "========================================================================="
-        #sleep 3s
-        #/bin/bash $DirName/minecraftbe/$ServerName/config.sh
-    #fi
-
-# Adjuntar a la pantalla
-echo ""
-sleep 1s
-echo ""
-sleep 1s
-Print_Style "screen -r $ServerName" "$REVERSE"
-echo ""
-#sleep 8s
-#screen -r $ServerName
+# Attach to screen
+screen -r $ServerName

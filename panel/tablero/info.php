@@ -131,25 +131,32 @@ $whitelistXuid = array_column($dataWhieU, 'xuid'); // array xuid
 $countXuid = count($whitelistXuid); // total xuid en Whitelist
 
 if ($countWhitelist == 0) {
-    $countEmptyXuid = 0;
-    $countWhitXuid = 0;
+    $sinXuid = 0;
+    $conXuid = 0;
 } else {
-    // $countEmptyXuid = array_search($XuId, array_column($dataWhieU, 'xuid')); // Xuid Vacio no ingreso al servidor
-    // $countWhitXuid = $countXuid - $countEmptyXuid; // Xuid con ingreso al servidor
+    //  $sinXuid = array_search($XuId, array_column($dataWhieU, 'xuid')); // Xuid Vacio no ingreso al servidor
+    //  $conXuid = $countXuid - $sinXuid; // Xuid con ingreso al servidor
 	
-	$countWhitXuid = array_search($XuId, array_column($dataWhieU, 'xuid')); // Xuid con ingreso al servidor
-	$countEmptyXuid = $countXuid - $countWhitXuid; // Xuid sin ingreso al servidor
+	 //$conXuid = array_search($XuId, array_column($dataWhieU, 'xuid')); // Xuid con ingreso al servidor
+
+	// $sinXuid = count(array_intersect($whitelistXuid, [''])); // Xuid sin ingreso al servidor
+	// $conXuid = $countXuid - $sinXuid; // Xuid con ingreso al servidor
+
+	$conXuid = $countXuid; // Xuid con ingreso al servidor
+	$sinXuid = $countWhitelist - $countXuid; // Xuid sin ingreso al servidor
+
+	
 }
 
 /*
 echo "Array xuid: ".print_r($whitelistXuid)."</br>";
-echo "Usuarios: ".$countWhitelist."</br>";
-echo "Sin xuid: ".$countEmptyXuid."</br>";
-echo "Con xuid: ".$countXuid-$countEmptyXuid."</br>";
+echo "Con xuid: ".$conXuid."</br>";
+echo "Sin xuid: ".$sinXuid."</br>";
+echo "Usr xuid: ".$countXuid."</br>";
 echo "</br>";
 */
 
-$whiteLoad = $countWhitXuid;
+$whiteLoad = $conXuid;
 
 // Color barra jugadores whitelist
 if ($whiteLoad < 30) {
@@ -167,22 +174,22 @@ if ($whiteLoad < 30) {
   }
  
 if ($countWhitelist == 0) {
-    $whiterestporcentaje = 0;
-    $whiteporcentaje = 0;
+    $conXuidPorcentaje = 0;
+    $sinXuidPorcentaje = 0;
 } else {
-    $whiterestporcentaje = round($countWhitXuid/$countXuid*100);
-    $whiteporcentaje = round($countEmptyXuid/$countXuid*100);
+    $conXuidPorcentaje = round($conXuid/$countWhitelist*100);
+    $sinXuidPorcentaje = round($sinXuid/$countWhitelist*100);
 }
  
-$wrporcentaje = $whiterestporcentaje."%";
-$wporcentaje = $whiteporcentaje."%";
+$conXuPorcentaje = $conXuidPorcentaje."%";
+$sinXuPorcentaje = $sinXuidPorcentaje."%";
  
- // echo $wrporcentaje."</br>";
- // echo $wporcentaje."</br>";
- // echo $whiterestporcentaje + $whiteporcentaje." %"."</br>";
-
-
-
+/*
+  echo "Con xuid: ".$conXuid." - ".$conXuPorcentaje."</br>";
+  echo "Sin xuid: ".$sinXuid." - ".$sinXuPorcentaje."</br>";
+  echo "Tot xuid: ".$countWhitelist." - ".$conXuidPorcentaje + $sinXuidPorcentaje." %"."</br>";
+  echo "</br>";
+*/
 
 // JUGADORES ROLES O PERMISOS
 $jsonStringUsrA = file_get_contents(__DIR__ . '../../../config/usradmin.json');

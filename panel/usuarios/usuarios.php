@@ -20,7 +20,7 @@ function obtenerUsuarioPorName($nam)
 }
 
 function crearUsuario($dat){
-    $dat['xuid'] = '';
+ // $dat['xuid'] = '';
     $dat['ignoresPlayerLimit'] = false;
     $usuarios = obtenerUsuarios();
     $usuarios[] = $dat;

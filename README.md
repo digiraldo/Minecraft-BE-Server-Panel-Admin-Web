@@ -52,9 +52,9 @@ chmod +x SetupMinecraft.sh
 INSTALACION DE MINECRAFT BEDROCK EDITION SERVER CON PANEL DE ADMINISTRACIÓN (Beta)
 
 ```
-wget https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/SetupMinecraft.sh
-chmod +x SetupMinecraft.sh
-./SetupMinecraft.sh
+wget https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/Install.sh
+chmod +x Install.sh
+./Install.sh
 ```
 
 Ver Instalación completa en: [Instalar Panel Web](https://gorobeta.blogspot.com/2021/04/instalar-minecraft-bedrock-edition-panel-admin.html)

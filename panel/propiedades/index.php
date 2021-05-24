@@ -115,7 +115,7 @@ require '../tablero/info.php';
       </div>
 
       <div class="card text-white bg-secondary mb-3">
-        <div class="card-header"><?php echo $lines[54]; ?></div>
+        <div class="card-header"><?php echo $lines[64]; ?></div>
         <div class="card-body">
           <h5 class="card-title">Nombre del Nivel: <?php echo $data[1]['btn']; ?> <?php echo $data[1]['spain']; ?></h5>
           <p class="card-text">El valor de "nombre de nivel" se utiliza como el nombre del mundo y su nombre de carpeta.</p>
@@ -135,7 +135,7 @@ require '../tablero/info.php';
       </div>
 
       <div class="card text-white bg-success mb-3">
-        <div class="card-header"><?php echo $lines[12]; ?></div>
+        <div class="card-header"><?php echo $lines[22]; ?></div>
         <div class="card-body">
           <h5 class="card-title">Usar Trucos: <?php echo $data[2]['icon']; ?></h5>
           <p class="card-text">Si es verdadero, entonces se pueden usar trucos como comandos.</p>
@@ -184,7 +184,7 @@ require '../tablero/info.php';
       </div>
 
       <div class="card text-white bg-info mb-3">
-        <div class="card-header"><?php echo $lines[8]; ?></div>
+        <div class="card-header"><?php echo $lines[18]; ?></div>
         <div class="card-body">
           <h5 class="card-title">Difucultad: <?php echo $data[4]['spain']; ?></h5>
           <p class="card-text">Establece la dificultad del mundo.</p>
@@ -210,7 +210,7 @@ require '../tablero/info.php';
       </div>
 
       <div class="card text-white bg-warning mb-3">
-        <div class="card-header"><?php echo $lines[26]; ?></div>
+        <div class="card-header"><?php echo $lines[36]; ?></div>
         <div class="card-body">
           <h5 class="card-title">Permiso Jugadores: <?php echo $data[5]['icon']; ?></h5>
           <p class="card-text">Si es verdadero, Los Jugadores deben aparecer en whitelist para ingresar al servidor.</p>
@@ -235,7 +235,7 @@ require '../tablero/info.php';
 
     <div class="card-deck">
       <div class="card text-white bg-success mb-3">
-        <div class="card-header"><?php echo $lines[16]; ?></div>
+        <div class="card-header"><?php echo $lines[26]; ?></div>
         <div class="card-body">
           <h5 class="card-title">Jugadores Máximos: <?php echo $data[6]['icon']; ?></h5>
           <p class="card-text">El número máximo de jugadores que pueden jugar en el servidor.</p>
@@ -255,7 +255,7 @@ require '../tablero/info.php';
       </div>
 
       <div class="card text-white bg-dark mb-3">
-        <div class="card-header"><?php echo $lines[57]; ?></div>
+        <div class="card-header"><?php echo $lines[67]; ?></div>
         <div class="card-body">
           <h5 class="card-title">Número de Semilla: <?php echo $data[7]['btn']; ?> <?php echo $data[7]['spain']; ?></h5>
           <p class="card-text">Semilla o Número del Mundo, Si se deja vacío, se elige una semilla al azar.</p>
@@ -275,7 +275,7 @@ require '../tablero/info.php';
       </div>
 
       <div class="card text-white bg-primary mb-3">
-        <div class="card-header"><?php echo $lines[30]; ?> - <?php echo $lines[34]; ?></div>
+        <div class="card-header"><?php echo $lines[40]; ?> - <?php echo $lines[44]; ?></div>
         <div class="card-body">
           <h5 class="card-title">Pueros: IpV4: <?php echo $data[8]['spain']; ?> - IpV6: <?php echo $data[9]['spain']; ?></h5>
           <p class="card-text">Configurar los puertos IpV4 e IpV6. Pedeterminado(IpV4=19132 - IpV6=19133)</p>
@@ -414,7 +414,7 @@ require '../tablero/info.php';
       </div>
 
       <div class="card text-white bg-warning mb-3">
-        <div class="card-header"><?php echo $lines[8]; ?></div>
+        <div class="card-header"><?php echo $lines[18]; ?></div>
         <div class="card-body">
           <h5 class="card-title">Difucultad: <?php echo $data[4]['spain']; ?></h5>
           <p class="card-text">Establece la dificultad del mundo.</p>
@@ -441,7 +441,7 @@ require '../tablero/info.php';
 
 <!--
       <div class="card text-white bg-success mb-3">
-        <div class="card-header"><?php echo $lines[12]; ?></div>
+        <div class="card-header"><?php echo $lines[22]; ?></div>
         <div class="card-body">
           <h5 class="card-title">Usar Trucos: <?php echo $data[2]['icon']; ?></h5>
           <p class="card-text">Si es verdadero, entonces se pueden usar trucos como comandos.</p>

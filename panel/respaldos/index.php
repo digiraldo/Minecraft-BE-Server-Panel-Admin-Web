@@ -108,7 +108,7 @@ require '../tablero/info.php';
                 </div>
                 <div class="col-md-auto">
                   Respaldos:
-                  <span class="badge badge-info badge-pill"> <?php echo $respaldos; ?></span>
+                  <span class="badge badge-info badge-pill"> <?php echo $num; ?></span>
                 </div>
               </div>
               <!-- Fin Respaldos Automaticos mundo -->
@@ -138,7 +138,7 @@ require '../tablero/info.php';
               <div class="row justify-content-md-center">
                 <div class="col-md-auto">
                   <form method="POST" action="" enctype="multipart/form-data">
-                    <button class="btn btn-secondary"><i class="fas fa-folder-plus"></i> Respaldos: <span class="badge badge-info badge-pill"> <?php echo $respaldos; ?></span></button>
+                    <button class="btn btn-secondary"><i class="fas fa-folder-plus"></i> Respaldos: <span class="badge badge-info badge-pill"> <?php echo $num; ?></span></button>
                     
                   </form>
                 </div>

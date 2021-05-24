@@ -1,0 +1,42 @@
+# Rotate backups -- keep most recent 10
+Rotate=$(pushd dirname/minecraftbe/servername/backups; ls -1tr | head -n -10 | xargs -d '\n' rm -f --; popd)
+
+# Cambiar directorio al directorio del servidor
+cd dirname/minecraftbe/servername
+
+# Crear copia de seguridad
+if [ -d "worlds" ]; then
+    echo "Copia de seguridad del servidor (en la carpeta minecraftbe/servername/backups)"
+    #sudo tar -pzvcf backups/$(date +%d.%m.%Y_%H.%M.%S_servername).tar.gz worlds
+    sudo zip -r backups/$(date +%d.%m.%Y_%H\:%M\:%S_servername).zip worlds
+fi
+
+# Iniciar o comprobar inicio de Fuse en RClone
+echo "========================================================================="
+if [ -d dirname/cloudname/foldername/ ];
+then
+echo "La carpeta cloudname/foldername esta montada..."
+else
+sudo rclone mount rclonname: dirname/cloudname --allow-other &
+echo "Montando RClone con Fuse..."
+fi
+echo "========================================================================="
+sleep 4s
+
+# Cambiar directorio al directorio de drive
+#cd ~
+#Crear Copia de seguridad en la nube (predeterminado Google Drive con RClone)  
+#Tutorial de instalación de RClone y fuse https://github.com/digiraldo/Minecraft-BE-Server/blob/main/Copias%20de%20seguridad%20en%20la%20nube.md  
+echo "========================================================================="
+if [ -d dirname/cloudname/foldername/ ];
+then
+#cd ~
+#cd minecraftbe
+#cd servername
+sudo rsync -avz dirname/minecraftbe/servername/backups/ dirname/cloudname/foldername
+echo "Creando copia de seguridad en la nube ..."
+else
+echo "No se encuentra habilitado copia de seguridad en la nube..."
+fi
+echo "========================================================================="
+sleep 4s

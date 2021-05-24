@@ -26,16 +26,19 @@ $srvdat = json_decode($jsonString, true);
 
 $archivos = scandir("../../servername/backups");
 $num=0;
-for ($i=2; $i<count($archivos); $i++)
-{$num++;
-$respaldos = $num;
+for ($i=2; $i<count($archivos); $i++) {
+    $num++;
+// $respaldos = $num; 
 }
+
+echo $num;
+
 
 $logs = scandir("../../servername/logs");
 $numr=0;
 for ($i=2; $i<count($logs); $i++)
 {$numr++;
-$registros = $numr;
+// $registros = $numr;
 }
 
 
@@ -86,11 +89,11 @@ Panel
 <?php endif ?>
 
 <li class="<?php echo $active_backups;?>">
-<a class="nav-link" aria-current="page" href="../respaldos" data-toggle="tooltip" data-placement="bottom" title="<?php echo $respaldos; ?> Respaldos"><i class="fas fa-archive"></i> Respaldos<span class="badge badge-pill badge-success"><?php echo $respaldos; ?></span></a>
+<a class="nav-link" aria-current="page" href="../respaldos" data-toggle="tooltip" data-placement="bottom" title="<?php echo $num; ?> Respaldos"><i class="fas fa-archive"></i> Respaldos<span class="badge badge-pill badge-success"><?php echo $num; ?></span></a>
 </li>
 
 <li class="<?php echo $active_logs;?>">
-<a class="nav-link" aria-current="page" href="../registros" data-toggle="tooltip" data-placement="bottom" title="<?php echo $registros; ?> Registros"><i class="fas fa-history"></i> Registros<span class="badge badge-pill badge-secondary"><?php echo $registros; ?></span></a>
+<a class="nav-link" aria-current="page" href="../registros" data-toggle="tooltip" data-placement="bottom" title="<?php echo $numr; ?> Registros"><i class="fas fa-history"></i> Registros<span class="badge badge-pill badge-secondary"><?php echo $numr; ?></span></a>
 </li>
 
 <li class="<?php echo $active_mundo;?>">

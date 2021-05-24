@@ -66,18 +66,18 @@
     {
         "id": 9,
         "name": "Puerto IpV4:",
-        "spain": "19132",
+        "spain": "PuertoIPV4",
         "btn": "",
         "icon": "<i class=\"fas fa-ethernet\"><\/i>",
-        "data": "19132"
+        "data": "PuertoIPV4"
     },
     {
         "id": 10,
         "name": "Puerto IpV6:",
-        "spain": "19133",
+        "spain": "PuertoIPV6",
         "btn": "",
         "icon": "<i class=\"fas fa-ethernet\"><\/i>",
-        "data": "19133"
+        "data": "PuertoIPV6"
     },
     {
         "id": 11,
