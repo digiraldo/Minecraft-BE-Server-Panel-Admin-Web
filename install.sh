@@ -94,6 +94,3 @@ Print_Style "Ejecutando SetupMinecraft.sh" "$MAGENTA"
 sleep 2s
 /bin/bash SetupMinecraft.sh 
 echo "========================================================================="
-
-
-zip -r
