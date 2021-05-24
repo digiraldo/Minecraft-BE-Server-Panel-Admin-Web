@@ -96,6 +96,8 @@ echo "========================================================================="
   sudo sed -i "s:username:$UserName:g" panel.sh
   sudo sed -i "s:servername:$ServerName:g" panel.sh
 
+  sudo mv panel.sh $DirName/minecraftbe/$ServerName/
+
 # Ejecutar SetupMinecraft.sh Modificado
 echo "========================================================================="
 Print_Style "Ejecutando SetupMinecraft.sh" "$MAGENTA"
