@@ -83,7 +83,7 @@ echo "========================================================================="
 # Cambio para ejecutar panel.sh en vez del screen
 echo "========================================================================="
 Print_Style "Configurando SetupMinecraft.sh para integrar el Panel" "$YELLOW"
-sudo sed -i "s/screen -r $ServerName/bin\/bash panel.sh/g" SetupMinecraft.sh
+sudo sed -i "s/screen -r \$ServerName/bin\/bash panel.sh/g" SetupMinecraft.sh
 sleep 2s
 echo "========================================================================="
 
