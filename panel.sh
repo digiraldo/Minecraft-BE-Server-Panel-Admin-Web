@@ -553,3 +553,12 @@ sudo sed -n "/server-portv6=/p" server.properties | sed 's/server-portv6=/Puerto
 echo "========================================================================="
 sleep 3s
 sudo systemctl restart nginx
+
+# Configuración Completada
+Print_Style  "================Iniciando Servidor: $ServerName================" "$MAGENTA"
+sleep 2s
+sudo systemctl start $ServerName.service
+
+# Dormir por 6 segundos para que el servidor inicie
+sleep 6s
+screen -r $ServerName
