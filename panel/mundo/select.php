@@ -64,9 +64,9 @@ if (isset($_POST['zip_file']))
       $nombre = $_POST['zip_file'];
       $ruta = $_POST['zip_file'];
       $tipo = 'zip'; 
-
+      $cmdPermisoDir = "sudo chmod -R 775 dirname/minecraftbe";
+      shell_exec($cmdPermisoDir);
       shell_exec("sudo zip -r dirnameusr/minecraftbe/servername/backups/$(date +%Y.%m.%d_%H\:%M\:%S_Wo_servername).zip dirname/minecraftbe/servername/worlds");
-
       $rut = "../../servername/backups/"."$nombre";
       $name = explode("../../servername/backups/", $nombre);
       $accepted_types = array('application/zip', 'application/x-zip-compressed', 'multipart/x-zip', 'application/x-compressed');
@@ -102,7 +102,7 @@ if (isset($_POST['zip_file']))
         // desvincular ($ targetzip);
         echo "Su archivo .zip fue cargado y desempaquetado.";
     
-$line = $lines[57];
+$line = $lines[67];
 $input = "" . "\n";
 // Reemplazar la cadena inicial (de la matriz $lines) con $update en $content
 $linetext = "level-seed=";
@@ -145,5 +145,6 @@ exit();
     <?php include '../includes/footer.php'?>
 <!-- php include '../includes/modal.php'?> -->
     
+
   </body>
 </html>

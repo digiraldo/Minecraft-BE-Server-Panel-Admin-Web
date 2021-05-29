@@ -31,7 +31,7 @@ for ($i=2; $i<count($archivos); $i++) {
 // $respaldos = $num; 
 }
 
-echo $num;
+//echo $num;
 
 
 $logs = scandir("../../servername/logs");

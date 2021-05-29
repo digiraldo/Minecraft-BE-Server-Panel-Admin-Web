@@ -1,4 +1,8 @@
 <?php
+session_start();
+if ($_SESSION['id_rol'] != 0) {
+header("location: ../../");
+}
 
 // echo $_SERVER['SCRIPT_FILENAME'];
 // echo $_REQUEST['file'];

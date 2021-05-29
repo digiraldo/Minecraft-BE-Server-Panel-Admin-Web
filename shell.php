@@ -70,15 +70,6 @@ function listadoDirectorio($directorio){
 		    $(this).next( "ul.dropdown" ).toggleClass('d-none');
 		  });
 		});
-
-
-    // test 1
-$("#actionToggle").dropdown("toggle");
-
-// test 2
-$("#open").on("click", function() {
-  $(".dropdown-menu").toggle();
-});
 	</script>
 </head>
 

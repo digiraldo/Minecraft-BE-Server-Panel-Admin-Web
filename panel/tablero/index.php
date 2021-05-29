@@ -30,7 +30,13 @@ require '../respaldos/size.php';
 $mostrarModal='';
 // echo "<pre>$controlsrv</pre>";
 
+if (empty($online)) {
+  $progbar = '';
+} else {
+  $progbar = 'progress-bar-striped progress-bar-animated';
+}
 
+//echo 'srvdatos.json: id:9 id:13';
 
 ?>
 
@@ -414,7 +420,7 @@ $mostrarModal='';
           <div class="card-body">
 <div class="progress">
   <div class="progress-bar progress-bar-striped progress-bar-animated bg-<?php echo $onlinecolorPorcentaje; ?>" role="progressbar" style="width: <?php echo $oporcentaje; ?> " aria-valuenow="<?php echo $online; ?>" aria-valuemin="0" aria-valuemax="<?php echo $data[6]['spain']; ?>" data-toggle="tooltip" data-placement="top" title="<?php echo $online; ?> En Línea"><?php echo $online; ?></div>
-  <div class="progress-bar progress-bar-striped progress-bar-animated bg-secondary" role="progressbar" style="width: <?php echo $orporcentaje; ?>" aria-valuenow="<?php echo $onlinerest; ?>" aria-valuemin="0" aria-valuemax="<?php echo $data[6]['spain']; ?>" data-toggle="tooltip" data-placement="top" title="<?php echo $onlinerest; ?> Libres"><?php echo $onlinerest; ?></div>
+  <div class="progress-bar <?php echo $progbar; ?> bg-secondary" role="progressbar" style="width: <?php echo $orporcentaje; ?>" aria-valuenow="<?php echo $onlinerest; ?>" aria-valuemin="0" aria-valuemax="<?php echo $data[6]['spain']; ?>" data-toggle="tooltip" data-placement="top" title="<?php echo $onlinerest; ?> Libres"><?php echo $onlinerest; ?></div>
 </div>           
             <!-- <h3 class="card-title font-italic">EN LÍNEA</h3> -->
             <span class="fas fa-server fa-4x"></span>       
@@ -452,11 +458,11 @@ $mostrarModal='';
           <div class="card-header font-weight-bold">Rol Admin Web</div>
           <div class="card-body">
 <div class="progress">
-  <div class="progress-bar progress-bar-striped progress-bar-animated bg-secondary" role="progressbar" style="width: <?php echo $porcentRol0; ?>" aria-valuenow="<?php echo $countRol0; ?>" aria-valuemin="0" aria-valuemax="<?php echo $countRol; ?>" data-toggle="tooltip" data-placement="top" title="<?php echo $countRol0; ?> Propietarios - <?php echo $porcentRol0; ?>"><?php echo $countRol0; ?></div>
-  <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" role="progressbar" style="width: <?php echo $porcentRol1; ?>" aria-valuenow="<?php echo $countRol1; ?>" aria-valuemin="0" aria-valuemax="<?php echo $countRol; ?>" data-toggle="tooltip" data-placement="top" title="<?php echo $countRol1; ?> Administradores - <?php echo $porcentRol1; ?>"><?php echo $countRol1; ?></div>
-  <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: <?php echo $porcentRol2; ?>" aria-valuenow="<?php echo $countRol2; ?>" aria-valuemin="0" aria-valuemax="<?php echo $countRol; ?>" data-toggle="tooltip" data-placement="top" title="<?php echo $countRol2; ?> Editores - <?php echo $porcentRol2; ?>"><?php echo $countRol2; ?></div>
-  <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style="width: <?php echo $porcentRol3; ?>" aria-valuenow="<?php echo $countRol3; ?>" aria-valuemin="0" aria-valuemax="<?php echo $countRol; ?>" data-toggle="tooltip" data-placement="top" title="<?php echo $countRol3; ?> Usuarios - <?php echo $porcentRol3; ?>"><?php echo $countRol3; ?></div>
-  <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" style="width: <?php echo $porcentRol4; ?>" aria-valuenow="<?php echo $countRol4; ?>" aria-valuemin="0" aria-valuemax="<?php echo $countRol; ?>" data-toggle="tooltip" data-placement="top" title="<?php echo $countRol4; ?> Inscritos - <?php echo $porcentRol4; ?>"><?php echo $countRol4; ?></div>
+  <div class="progress-bar progress-bar-striped progress-bar-animated bg-secondary" role="progressbar" style="width: <?php echo $porcentRol0; ?>" aria-valuenow="<?php echo $countRol0; ?>" aria-valuemin="0" aria-valuemax="<?php echo $countRol; ?>" data-toggle="tooltip" data-placement="top" title="<?php echo $countRol0; ?> <?php echo $propietarioCont; ?> - <?php echo $porcentRol0; ?>"><?php echo $countRol0; ?></div>
+  <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" role="progressbar" style="width: <?php echo $porcentRol1; ?>" aria-valuenow="<?php echo $countRol1; ?>" aria-valuemin="0" aria-valuemax="<?php echo $countRol; ?>" data-toggle="tooltip" data-placement="top" title="<?php echo $countRol1; ?> <?php echo $administardorCont; ?> - <?php echo $porcentRol1; ?>"><?php echo $countRol1; ?></div>
+  <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: <?php echo $porcentRol2; ?>" aria-valuenow="<?php echo $countRol2; ?>" aria-valuemin="0" aria-valuemax="<?php echo $countRol; ?>" data-toggle="tooltip" data-placement="top" title="<?php echo $countRol2; ?> <?php echo $editorCont; ?> - <?php echo $porcentRol2; ?>"><?php echo $countRol2; ?></div>
+  <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style="width: <?php echo $porcentRol3; ?>" aria-valuenow="<?php echo $countRol3; ?>" aria-valuemin="0" aria-valuemax="<?php echo $countRol; ?>" data-toggle="tooltip" data-placement="top" title="<?php echo $countRol3; ?> <?php echo $usuarioCont; ?> - <?php echo $porcentRol3; ?>"><?php echo $countRol3; ?></div>
+  <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" style="width: <?php echo $porcentRol4; ?>" aria-valuenow="<?php echo $countRol4; ?>" aria-valuemin="0" aria-valuemax="<?php echo $countRol; ?>" data-toggle="tooltip" data-placement="top" title="<?php echo $countRol4; ?> <?php echo $inscritoCont; ?> - <?php echo $porcentRol4; ?>"><?php echo $countRol4; ?></div>
 </div> 
             <!-- <h3 class="card-title font-italic">USUARIOS</h3> -->
             <i class="fas fa-user-cog fa-4x"></i>

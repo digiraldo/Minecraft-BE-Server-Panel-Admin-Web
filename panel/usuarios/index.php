@@ -26,12 +26,6 @@ $title = "Minecraft SRV | Simple Invoice";
 //$usuarios = obtenerUsuarios();
 require '../tablero/info.php';
 
-if ($usuario['xuid'] == null) {
-  $usuarioxuid = 'Sin xuid';
-} else {
-  $usuarioxuid = $usuario['xuid'];
-}
-
 
 ?>
 
@@ -78,19 +72,28 @@ if ($usuario['xuid'] == null) {
           </tr>
         </thead>
         <tbody>
-          <?php foreach ($usuarios as $usuario) : ?>
+          <?php 
+          foreach ($usuarios as $usuario) : ?>
+            
+          <?php if (empty($usuario['xuid'])) {
+              $usuarioxuid = 'Sin Ingresar al Mundo';
+            } else {
+              $usuarioxuid = $usuario['xuid'];
+            }
+           ?>
+
             <tr>
 
             <td>
               <?php if (!empty($usuario['xuid'])) : ?>
                 <a href="# " data-toggle="tooltip" data-placement="left" title="<i class='fab fa-xbox'></i>  <?php echo $usuario['name']; ?>" type="button" class="btn btn-success"><?php echo $usuario['xuid'] ?></a>                    
                   <?php else : ?>
-                <a href="# " data-toggle="tooltip" data-placement="left" title="<i class='fab fa-xbox'></i>  <?php echo $usuario['name']; ?>" type="button" class="btn btn-danger">No Ingresó al Mundo</a>     
+                <a href="# " data-toggle="tooltip" data-placement="left" title="<i class='fab fa-xbox'></i>  <?php echo $usuario['name']; ?>" type="button" class="btn btn-danger">Sin Ingresar</a>     
                   <?php endif ?>
               </td>
 
               <td>
-                <a href="# " data-toggle="tooltip" data-placement="right" title="<i class='fas fa-id-card'></i>  <?php echo $usuario['xuid']; ?>">
+                <a href="# " data-toggle="tooltip" data-placement="right" title="<i class='fas fa-id-card'></i>  <?php echo $usuarioxuid; ?>">
                   <?php echo $usuario['name']; ?></a>
               </td>
               <!--<td><?php echo $usuario['permission'] ?></td> -->
@@ -134,18 +137,25 @@ if ($usuario['xuid'] == null) {
         </thead>
         <tbody>
           <?php foreach ($usuarios as $usuario) : ?>
+            <?php if (empty($usuario['xuid'])) {
+              $usuarioxuid = 'Sin Ingresar al Mundo';
+            } else {
+              $usuarioxuid = $usuario['xuid'];
+            }
+           ?>
+
             <tr>
 
               <td>
               <?php if (!empty($usuario['xuid'])) : ?>
                 <a href="# " data-toggle="tooltip" data-placement="left" title="<i class='fab fa-xbox'></i>  <?php echo $usuario['name']; ?>" type="button" class="btn btn-success"><?php echo $usuario['xuid'] ?></a>                    
                   <?php else : ?>
-                <a href="# " data-toggle="tooltip" data-placement="left" title="<i class='fab fa-xbox'></i>  <?php echo $usuario['name']; ?>" type="button" class="btn btn-danger">No Ingresó al Mundo</a>     
+                <a href="# " data-toggle="tooltip" data-placement="left" title="<i class='fab fa-xbox'></i>  <?php echo $usuario['name']; ?>" type="button" class="btn btn-danger">Sin Ingresar</a>     
                   <?php endif ?>
               </td>
 
               <td>
-                <a href="# " data-toggle="tooltip" data-placement="right" title="<i class='fas fa-id-card'></i>  <?php echo $usuario['xuid']; ?>">
+                <a href="# " data-toggle="tooltip" data-placement="right" title="<i class='fas fa-id-card'></i>  <?php echo $usuarioxuid; ?>">
                   <?php echo $usuario['name']; ?></a>
               </td>
               <!--<td><?php echo $usuario['permission'] ?></td> -->
@@ -189,7 +199,7 @@ if ($usuario['xuid'] == null) {
               <?php if ($usuario['xuid']) : ?>                   
                 <a href="#" type="button" class="btn btn-success" data-toggle="tooltip" data-placement="right" title="Jugador Activo"><i class="fab fa-xbox"></i></a>   
                   <?php else : ?>
-                <a href="#" type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="right" title="No ha ingresado al Mundo"><i class="fab fa-xbox"></i></a>      
+                <a href="#" type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="right" title="Sin Ingresar"><i class="fab fa-xbox"></i></a>      
                   <?php endif ?>                     
               </td>
               <td>

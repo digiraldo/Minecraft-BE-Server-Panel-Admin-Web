@@ -1,4 +1,9 @@
 <?php
+session_start();
+if ($_SESSION['id_rol'] != 0 && $_SESSION['id_rol'] != 1 && $_SESSION['id_rol'] != 2 && $_SESSION['id_rol'] != 3)
+{
+  header("location: ../../");
+}
 
     $active_tablero="";
     $active_whitelist="";
@@ -20,13 +25,25 @@
     $content = file_get_contents($myFile);
 
     $directorio = '../../servername/worlds/';
-    $ficheros  = scandir($directorio);
-    $rutaw = ($ficheros[2]);
-    $subdirectorios = scandir($directorio . $rutaw);
+    if (!file_exists($directorio)) {
+      $ficheros  = '';
+      $rutaw = 'Directorio no Encontrado';
+      $subdirectorios = '';
+    } else {
+      $ficheros  = scandir($directorio);
+      if (!empty($ficheros[2])) {
+        $rutaw = ($ficheros[2]);
+        $subdirectorios = scandir($directorio . $rutaw);
+      }else {
+        $rutaw = 'Directorio no Encontrado';
+      }
+    }
 
     // Obtener el contenido del archivo de propiedades como una matriz de líneas
     $myFiletxt = "../../servername/worlds/"."$rutaw"."/levelname.txt";
     $linestxt = file($myFiletxt);
+
+    require '../tablero/info.php';
 
 ?>
 
@@ -56,9 +73,13 @@
 
 
 <div class="card-body">
-
+  <!-- Button trigger modal
+  <a type="button" class="btn btn-primary" href="index.php" data-target="#modalAdmin">
+    <i class="fas fa-globe"></i> Volver
+  </a> -->
 <div class="card-deck">
 <div class="card text-center card text-white bg-dark border-info mb-3" >
+
   <div class="card-header"><b><?php echo $data[12]['name']; ?></b> <i><?php echo $data[13]['spain']; ?></i> <?php echo $data[12]['spain']; ?> Puerto:<?php echo $data[8]['spain']; ?>
   <br/>
   <b><i>DIRECTORIOS DEL MUNDO</i></b>
@@ -87,14 +108,17 @@ while ($archivo = readdir($directorio)) //obtenemos un archivo y luego otro suce
 echo'<p>';
 echo'</div>';
 echo'<div class="card-footer text-white text-muted">';
-echo "Mundo cargado correctamente, reinicia el servidor";
+echo "Mundo cargado correctamente, reinicia el servidor</br>";
+echo '<a type="button" class="btn btn-primary" href="index.php" data-target="#modalAdmin">';
+echo '<i class="fas fa-globe"></i> Volver';
+echo '</a>';
 echo'</div>';
 echo'</div>';
 echo'</div>';
 echo'</div>';
 
     $linestxt = $linestxt[0];
-    $lineb = $lines[54];
+    $lineb = $lines[64];
     $inputb = $linestxt . "\n";
     $linetextb = "level-name=";
     $outputb = "$linetextb$inputb";
@@ -116,14 +140,10 @@ echo'</div>';
 }
 ?>
 
-  
 
 
-<!-- Button trigger modal -->
 
-<a type="button" class="btn btn-primary" href="index.php" data-target="#modalAdmin">
-<i class="fas fa-globe"></i> Volver
-</a>
+
 </p>
 
     <?php include '../includes/footer.php'?>

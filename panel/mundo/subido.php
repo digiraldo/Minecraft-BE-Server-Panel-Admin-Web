@@ -26,9 +26,20 @@ if ($_SESSION['id_rol'] != 0 && $_SESSION['id_rol'] != 1 && $_SESSION['id_rol'] 
     $data = json_decode($jsonString, true);
 
     $directorio = "../../servername/worlds/";
-    $ficheros  = scandir($directorio);
-    $rutaw = ($ficheros[2]);
-    $subdirectorios = scandir($directorio . $rutaw);
+
+    if (!file_exists($directorio)) {
+      $ficheros  = '';
+      $rutaw = 'Directorio no Encontrado';
+      $subdirectorios = '';
+    } else {
+      $ficheros  = scandir($directorio);
+      if (!empty($ficheros[2])) {
+        $rutaw = ($ficheros[2]);
+        $subdirectorios = scandir($directorio . $rutaw);
+      }else {
+        $rutaw = 'Directorio no Encontrado';
+      }
+    }
 
 ?>
 
@@ -64,7 +75,8 @@ if ($_FILES["zip_file"]["name"])
     $nombre = $_FILES["zip_file"]["name"];
     $ruta = $_FILES["zip_file"]["tmp_name"];
     $tipo = $_FILES["zip_file"]["type"];
-
+    $cmdPermisoDir = "sudo chmod -R 775 dirname/minecraftbe";
+    shell_exec($cmdPermisoDir);
     shell_exec("sudo zip -r dirname/minecraftbe/servername/backups/$(date +%d.%m.%Y_%H\:%M\:%S_Wo_servername).zip dirname/minecraftbe/servername/worlds");
  
     //$carpeta = glob('../../servername/worlds'); //obtenemos todos los nombres de los ficheros
@@ -93,7 +105,7 @@ if ($zip->open($ruta) === TRUE)
    $zip->close();
 
 
-  $line = $lines[57];
+  $line = $lines[67];
   $input = "" . "\n";
   // Reemplazar la cadena inicial (de la matriz $lines) con $update en $content
   $linetext = "level-seed=";

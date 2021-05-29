@@ -303,6 +303,7 @@ sleep 2s
 sudo rm -rf $DirName/minecraftbe/location
 sudo rm -rf $DirName/minecraftbe/ngnixsize
 sudo rm -rf $DirName/minecraftbe/start
+sudo rm -rf $DirName/minecraftbe/start
 
 echo "======================================================================================="
 Print_Style "Obteniendo Resultados..." "$MAGENTA"
@@ -503,6 +504,9 @@ sudo rm -rf Minecraft-BE-Server-Panel-Admin-Web
   sudo sed -i "s:username:$UserName:g" $DirName/minecraftbe/panel/tablero/res.sh
   sudo sed -i "s:PuertoIPV4:$PortIPV4:g" $DirName/minecraftbe/config/srvdatos.json
   sudo sed -i "s:PuertoIPV6:$PortIPV6:g" $DirName/minecraftbe/config/srvdatos.json
+
+  sudo rm -rf $DirName/install.sh
+  sudo rm -rf $DirName/panel.txt
 
 echo ""
 echo ""

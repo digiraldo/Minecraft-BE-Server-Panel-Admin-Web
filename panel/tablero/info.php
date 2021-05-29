@@ -52,9 +52,9 @@ $PlayersInfo = $Query->GetPlayers();
 //print_r($Informacion);
 //echo $Informacion;
 
-if ($Informacion['Players'] == 0 || $Informacion['Players'] == ''){
+if ($Informacion === false){
 	$online = 0;
-	$versionsrv = $Informacion['Version'];
+	$versionsrv = 'Bedrock';
 } else {
 	$online = $Informacion['Players'];
 	$versionsrv = $Informacion['Version'];
@@ -223,6 +223,33 @@ if (empty(array_count_values(array_column($datosUsrA, 'id_rol'))[4])) {
     $countRol4 = array_count_values(array_column($datosUsrA, 'id_rol'))[4];
 }
  
+if ($countRol0 === 1){
+	$propietarioCont = 'Propietario';
+} else {
+	$propietarioCont = 'Propietarios';
+}
+if ($countRol1 === 1){
+	$administardorCont = 'Administardor';
+} else {
+	$administardorCont = 'Administardores';
+}
+if ($countRol2 === 1){
+	$editorCont = 'Editor';
+} else {
+	$editorCont = 'Editores';
+}
+if ($countRol3 === 1){
+	$usuarioCont = 'Usuario';
+} else {
+	$usuarioCont = 'Usuarios';
+}
+if ($countRol4 === 1){
+	$inscritoCont = 'Inscrito';
+} else {
+	$inscritoCont = 'Inscritos';
+}
+
+
  
 $porcentajeR0 = round($countRol0/$countRol*100);
 $porcentajeR1 = round($countRol1/$countRol*100);

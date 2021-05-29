@@ -25,12 +25,48 @@ $lines = file($myFile);
 // Obtener el contenido del archivo como cadena
 $content = file_get_contents($myFile);
 
-$directorio = '../../servername/worlds/';
-$ficheros  = scandir($directorio);
-$rutaw = ($ficheros[2]);
-$subdirectorios = scandir($directorio . $rutaw);
+$directorioW = '../../servername/worlds/';
+$directorioM = '../../servername/worlds';
+
+if (!file_exists($directorioW)) {
+  $ficheros  = '';
+  $rutaw = 'Directorio no Encontrado';
+  $subdirectorios = '';
+} else {
+  $ficheros  = scandir($directorioW);
+  if (!empty($ficheros[2])) {
+    $rutaw = ($ficheros[2]);
+    $subdirectorios = scandir($directorioW . $rutaw);
+  }else {
+    $rutaw = 'Directorio no Encontrado';
+  }
+}
+
+
 
 require '../tablero/info.php';
+
+function directorioMundo($directorio){
+  $listado = scandir($directorio);
+  unset($listado[array_search('.', $listado, true)]);
+  unset($listado[array_search('..', $listado, true)]);
+  if (count($listado) < 1) {
+      return;
+  }
+  foreach($listado as $elemento){
+    if(!is_dir($directorio.'/'.$elemento)) {
+        echo "<li><i class='fas fa-file-alt'></i> <a href='$directorio/$elemento'>$elemento</a></li>";
+      }
+      if(is_dir($directorio.'/'.$elemento)) {
+        echo '<li class="open-dropdown"><i class="fas fa-folder-open"></i> '.$elemento.'</li>';
+      echo '<ul class="dropdown d-none">';
+      echo '<ul>';
+          directorioMundo($directorio.'/'.$elemento);
+      echo '</ul>';
+      echo '</ul>';
+      }
+  }
+}
 
 ?>
 
@@ -44,7 +80,13 @@ require '../tablero/info.php';
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Mundo</title>
   <?php include "../includes/scripts.php" ?>
-
+	<script>
+		$(document).ready(function(){
+		  $(".open-dropdown").click(function(){
+		    $(this).next( "ul.dropdown" ).toggleClass('d-none');
+		  });
+		});
+	</script>
 </head>
 
 <body>
@@ -126,43 +168,22 @@ require '../tablero/info.php';
         <b><i>DIRECTORIOS DEL MUNDO</i></b>
       </div>
       <div class="card-body text-info">
-        <h5 class="card-title">
-          <?php print_r("<i class='fas fa-folder-open'></i> <b>$rutaw</b><br>"); ?>
-        </h5>
         <p class="card-text text-success">
           <?php
-          if ($subdirectorios[2] == '') {
+          if (empty($ficheros)) {
             echo "<b>MUNDO NO DETECTADO</b><br/>";
-          } else {
-            print_r("<i class='fas fa-folder'></i> $subdirectorios[2]<br>");
-          }
-          if ($subdirectorios[3] == '') {
             echo "No existen los directorios del Mundo<br/>";
-          } else {
-            print_r("<i class='fas fa-database'></i> $subdirectorios[3]<br>");
-          }
-          if ($subdirectorios[4] == '') {
             echo "Seleccione uno de Respaldo<br/>";
+            echo "o Suba uno comprimido Zip<br/>";
           } else {
-            print_r("<i class='fas fa-database'></i> $subdirectorios[4]<br>");
-          }
-          if ($subdirectorios[5] == '') {
-            echo "o Suba uno compimido Zip<br/>";
-          } else {
-            print_r("<i class='fas fa-file-alt'></i> $subdirectorios[5]<br>");
-          }
-          if ($subdirectorios[6] == '') {
-          } else {
-            print_r("<i class='fas fa-file-invoice'></i> $subdirectorios[5]<br>");
-          }
-          if ($subdirectorios[7] == '') {
-          } else {
-            print_r("$subdirectorios[5]<br>");
+            echo '<h4 class="card-title">';
+            echo directorioMundo($directorioM);
+            echo '</h4>';
           }
           ?>
         </p>
         <?php if ($_SESSION['id_rol'] == 0 || $_SESSION['id_rol'] == 1 || $_SESSION['id_rol'] == 2) : ?>
-        <a href="../respaldos/index.php" class="btn btn-primary">Ir a Respaldos <span class="badge badge-light"><?php echo $respaldos; ?></span></a>
+        <a href="../respaldos/index.php" class="btn btn-primary">Ir a Respaldos <span class="badge badge-light"><?php echo $num; ?></span></a>
         <?php else : ?>
               
         <?php endif ?>
