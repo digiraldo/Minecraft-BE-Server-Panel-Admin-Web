@@ -562,3 +562,5 @@ sudo systemctl start $ServerName.service
 # Dormir por 6 segundos para que el servidor inicie
 sleep 6s
 screen -r $ServerName
+
+## Server Label:

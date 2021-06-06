@@ -61,6 +61,14 @@ echo "</pre>";
 echo "<br/>";
 echo "<br/>";
 
+echo "Datos de: sudo crontab -u parce -l <br/>";
+$outputc = shell_exec('sudo crontab -u parce -l');
+echo "<pre>";
+print_r($outputc);
+echo "</pre>";
+echo "<br/>";
+echo "<br/>";
+
 
 
 

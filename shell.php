@@ -51,8 +51,25 @@ function listadoDirectorio($directorio){
   }
 }
 
+if ($_GET['stop']) {
+  # This code will run if ?run=true is set.
+  exec("dirname/minecraftbe/servername/stop.sh");
+}
 
+if ($_GET['run']) {
+  # This code will run if ?run=true is set.
+  exec("dirname/minecraftbe/servername/start.sh");
+}
+
+if ($_GET['restart']) {
+  # This code will run if ?run=true is set.
+  exec("dirname/minecraftbe/servername/restart.sh");
+}
 ?>
+
+
+
+
 
 <!doctype html>
 <html lang="es">
@@ -111,7 +128,17 @@ function listadoDirectorio($directorio){
         </div>
         <div class="card-footer text-muted">
           <a href="panel/mundo/" value="btnCerrar" class="btn btn-danger" type="submit" name="accion"><i class="fas fa-close"></i> Cerrar Consola</a>
-
+          <a href="servername/archivos.php" value="btnCerrar" class="btn btn-warning" type="submit" name="accion"><i class="fas fa-close"></i> Gestión Archivos</a>
+         </div>
+        <div class="card-footer text-muted">
+           
+           
+          <a href="?stop=true" class="btn btn-danger" type="submit" name="stop"><i class="fas fa-stop"></i> Detener</a>
+          <a href="?run=true" class="btn btn-success" type="submit" name="run"><i class="fas fa-play"></i> Iniciar</a>
+           <a href="?restart=true" class="btn btn-info" type="submit" name="restart"><i class="fas fa-redo-alt"></i> Reiniciar</a>
+        <!-- This link will add ?run=true to your URL, myfilename.php?run=true
+        <a href="">Reiniciar</a>
+         -->
         </div>
       </div>
     </form>
