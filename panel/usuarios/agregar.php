@@ -24,11 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $esValido = validarUsuario($usuarioN, $errors);
 
     if ($esValido) {
-
         $usuarioN = crearUsuario($_POST);
-        $reload = 'screen -Rd servername -X stuff "whitelist reload$(printf "\r")"';
-        shell_exec($reload);
-                
+        shell_exec("sudo sh reload.sh");
         header("Location: index.php");
     }
 }
