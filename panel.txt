@@ -5,13 +5,13 @@
   cd minecraftbe
   cd $ServerName
 # Descargar panel.sh desde el repositorio
-echo "========================================================================="
-echo "Tomando panel.sh del repositorio..."
-wget -O panel.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/panel.sh
-sudo chmod +x panel.sh
-sudo sed -i "s:dirname:$DirName:g" panel.sh
-sudo sed -i "s:username:$UserName:g" panel.sh
-sudo sed -i "s:servername:$ServerName:g" panel.sh
+#     echo "========================================================================="
+#     echo "Tomando panel.sh del repositorio..."
+#     wget -O panel.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/panel.sh
+#     sudo chmod +x panel.sh
+#     sudo sed -i "s:dirname:$DirName:g" panel.sh
+#     sudo sed -i "s:username:$UserName:g" panel.sh
+#     sudo sed -i "s:servername:$ServerName:g" panel.sh
 
 
 # 
@@ -61,14 +61,14 @@ sudo apt install vim -y
 
 
 # Compruebe si el servidor se está ejecutando
-if ! screen -list | grep -q "\.$ServerName"; then
-  echo "¡El servidor no se está ejecutando actualmente!"
-  exit 1
-else
-  sudo systemctl stop $ServerName
-  screen -S $ServerName -X quit
-fi
-echo "Servidor Minecraft $ServerName detenido."
+#      if ! screen -list | grep -q "\.$ServerName"; then
+#        echo "¡El servidor no se está ejecutando actualmente!"
+#        exit 1
+#      else
+#        sudo systemctl stop $ServerName
+#        screen -S $ServerName -X quit
+#      fi
+#      echo "Servidor Minecraft $ServerName detenido."
 
 # Cambio start.sh
 echo "========================================================================="
@@ -188,7 +188,10 @@ if [ ! -d "config" ]; then
   Print_Style "Instalando Repositorios de Configuración..." "$YELLOW"
   sudo mv Minecraft-BE-Server-Panel-Admin-Web/config $DirName/minecraftbe/
   sleep 1s  
-else  
+else
+Print_Style "Sincronizando y haciendo respaldo a los archivos de configuración..." "$YELLOW"
+sudo rsync --filter '- *.json' -avz $DirName/minecraftbe/$ServerName/ $DirName/minecraftbe/config
+sudo zip -r $DirName/minecraftbe/config/backub_config/$(date +%Y.%m.%d_%H\:%M\:%S_Config_servername).zip $DirName/minecraftbe/config
 cd config
   Print_Style "=========================  DIRECTORIO CONFIG  ===========================" "$CYAN"
   ls -l
@@ -548,6 +551,6 @@ Print_Style  "================Iniciando Servidor: $ServerName================" "
 sleep 2s
 sudo systemctl start $ServerName.service
 
-# Dormir por 6 segundos para que el servidor inicie
-sleep 6s
+# Dormir por 20 segundos para que el servidor inicie
+sleep 20s
 screen -r $ServerName

@@ -66,7 +66,7 @@
     {
         "id": 9,
         "name": "Puerto IpV4:",
-        "spain": "PuertoIPV4",
+        "spain": "19132",
         "btn": "",
         "icon": "<i class=\"fas fa-ethernet\"><\/i>",
         "data": "PuertoIPV4"
@@ -98,7 +98,7 @@
     {
         "id": 13,
         "name": "Ingreso al Servidor",
-        "spain": "MiIPV4",
+        "spain": "parce.duckdns.org",
         "btn": "",
         "icon": "<i class=\"fas fa-database\"><\/i>",
         "data": "MiIPV4"

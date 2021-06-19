@@ -128,7 +128,7 @@ if ($_GET['restart']) {
         </div>
         <div class="card-footer text-muted">
           <a href="panel/mundo/" value="btnCerrar" class="btn btn-danger" type="submit" name="accion"><i class="fas fa-close"></i> Cerrar Consola</a>
-          <a href="servername/archivos.php" value="btnCerrar" class="btn btn-warning" type="submit" name="accion"><i class="fas fa-close"></i> Gestión Archivos</a>
+          <a href="archivos.php" value="btnCerrar" class="btn btn-warning" type="submit" name="accion"><i class="fas fa-close"></i> Gestión Archivos</a>
          </div>
         <div class="card-footer text-muted">
            

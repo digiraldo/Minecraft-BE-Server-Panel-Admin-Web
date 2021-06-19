@@ -74,7 +74,7 @@ require '../tablero/info.php';
           <h5 class="card-title">
 
             <form method="POST" action="CargarFicheros.php" enctype="multipart/form-data">
-              <div class="form-group">
+              <div class="form-group">Respaldos Automáticos: 
                 <label class="btn btn-outline-secondary" for="my-file-selector">
                   <input required="" type="file" name="file" id="exampleInputFile">
                   <button class="btn btn-info" type="submit"><i class="fas fa-upload"></i> Cargar Fichero</button>
@@ -87,16 +87,19 @@ require '../tablero/info.php';
               <div class="row justify-content-md-center">
                 <div class="col-md-auto">
                   <form method="POST" action="" enctype="multipart/form-data">
-                    <button value="btnCopia" class="btn btn-secondary" type="submit" name="accion"><i class="fas fa-folder-plus"></i> Realizar Respaldo</button>
+                    <button value="btnCopia" class="btn btn-secondary" type="submit" name="accion"><i class="fas fa-folder-plus"></i> Realizar Respaldo <span class="badge badge-light"><?php echo $num; ?></span></button>
                     <?php
-                    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                      echo $btnaccion;
-                    } else {
-                      echo $data[14]['data'];
-                    }
+                    # MUESTR TEXTO DE RESPALDOS ACTIVADOS O DESACTIVADOS
+                    # if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                    #   echo $btnaccion;
+                    # } else {
+                    #   echo $data[14]['data'];
+                    # }
                     ?>
                   </form>
                 </div>
+
+                    <!-- ACTIVAR O DESACTIVAR RESPALDOS UTOMATICOS
                 <div class="col-md-auto">
                   <form method="POST" action="" enctype="multipart/form-data">
                     <div class="custom-control custom-switch custom-switch-md">
@@ -106,18 +109,23 @@ require '../tablero/info.php';
                     </div>
                   </form>
                 </div>
+
                 <div class="col-md-auto">
                   Respaldos:
                   <span class="badge badge-info badge-pill"> <?php echo $num; ?></span>
                 </div>
+                    -->  
+
               </div>
               <!-- Fin Respaldos Automaticos mundo -->
             </div>
 
         </div>
+<!--  Muestra si esta activado o desactivado los respaldo automaticos
         <div class="card-footer text-muted">
           <b><?php echo $data[14]['name']; ?></b> <i><?php echo $data[14]['icon']; ?></i> <?php echo $data[14]['spain']; ?>
         </div>
+ -->
         <!-- Fin Tarjeta respaldo mundo -->
       </div>
 
@@ -147,9 +155,11 @@ require '../tablero/info.php';
             </div>
 
         </div>
+        <!-- Muestra si esta activado o desactivado los respaldo automaticos
         <div class="card-footer text-muted">
           <b><?php echo $data[14]['name']; ?></b> <i><?php echo $data[14]['icon']; ?></i> <?php echo $data[14]['spain']; ?>
         </div>
+         -->
         <!-- Fin Tarjeta respaldo mundo -->
       </div>
 

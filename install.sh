@@ -52,15 +52,17 @@ function read_with_prompt {
 }
 
 cd ~
-
 # Descargar SetupMinecraft.sh desde el repositorio de James A. Chambers - https://jamesachambers.com
 # Repositorio de GitHub: https://github.com/TheRemote/MinecraftBedrockServer
 echo "========================================================================="
 if [ -e "SetupMinecraft.sh" ]; then
-Print_Style "¡El Instalador ya existe! Ejecutandolo..." "$YELLOW"
+Print_Style "¡El Instalador ya existe! Actualizandolo..." "$YELLOW"
+sudo rm -rf SetupMinecraft.sh
+wget https://raw.githubusercontent.com/TheRemote/MinecraftBedrockServer/master/SetupMinecraft.sh
+chmod +x SetupMinecraft.sh
 echo "========================================================================="
 else
-  echo "Tomando SetupMinecraft.sh del repositorio..."
+echo "Tomando SetupMinecraft.sh del repositorio..."
 wget https://raw.githubusercontent.com/TheRemote/MinecraftBedrockServer/master/SetupMinecraft.sh
 chmod +x SetupMinecraft.sh
 fi
