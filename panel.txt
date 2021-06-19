@@ -475,6 +475,7 @@ sudo rm -rf Minecraft-BE-Server-Panel-Admin-Web
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/mundo/CargarFicheros.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/config/srvdatos.json
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/$ServerName/web.sh
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/shell.php
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/includes/index.php
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/respaldos/editar.php
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/respaldos/cronon.sh
@@ -491,12 +492,14 @@ sudo rm -rf Minecraft-BE-Server-Panel-Admin-Web
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/mundo/eliminar.php
   sudo sed -i "s:dirnameusr:$DirName:g" $DirName/minecraftbe/panel/mundo/select.php
   sudo sed -i "s:dirname:$DirName:g" /etc/nginx/sites-available/misitio.conf
+  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/shell.php
   sudo sed -i "s:username:$UserName:g" $DirName/minecraftbe/panel/respaldos/editar.php
   sudo sed -i "s:username:$UserName:g" $DirName/minecraftbe/panel/respaldos/eliminar.php
   sudo sed -i "s:username:$UserName:g" $DirName/minecraftbe/panel/tablero/sto.sh
   sudo sed -i "s:username:$UserName:g" $DirName/minecraftbe/panel/tablero/sta.sh
   sudo sed -i "s:username:$UserName:g" $DirName/minecraftbe/panel/tablero/res.sh
   sudo sed -i "s:username:$UserName:g" $DirName/minecraftbe/panel/usuarios/reload.sh
+  sudo sed -i "s:username:$UserName:g" /etc/sudoers
   sudo sed -i "s:PuertoIPV4:$PortIPV4:g" $DirName/minecraftbe/config/srvdatos.json
   sudo sed -i "s:PuertoIPV6:$PortIPV6:g" $DirName/minecraftbe/config/srvdatos.json
 
@@ -554,6 +557,6 @@ Print_Style  "================Iniciando Servidor: $ServerName================" "
 sleep 2s
 sudo systemctl start $ServerName.service
 
-# Dormir por 20 segundos para que el servidor inicie
-sleep 20s
+# Dormir por 8 segundos para que el servidor inicie
+sleep 8s
 screen -r $ServerName
