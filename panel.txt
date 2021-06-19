@@ -486,6 +486,7 @@ sudo rm -rf Minecraft-BE-Server-Panel-Admin-Web
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/tablero/sto.sh
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/tablero/sta.sh
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/tablero/res.sh
+  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/usuarios/reload.sh
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/mundo/subido.php
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/mundo/eliminar.php
   sudo sed -i "s:dirnameusr:$DirName:g" $DirName/minecraftbe/panel/mundo/select.php
@@ -495,6 +496,7 @@ sudo rm -rf Minecraft-BE-Server-Panel-Admin-Web
   sudo sed -i "s:username:$UserName:g" $DirName/minecraftbe/panel/tablero/sto.sh
   sudo sed -i "s:username:$UserName:g" $DirName/minecraftbe/panel/tablero/sta.sh
   sudo sed -i "s:username:$UserName:g" $DirName/minecraftbe/panel/tablero/res.sh
+  sudo sed -i "s:username:$UserName:g" $DirName/minecraftbe/panel/usuarios/reload.sh
   sudo sed -i "s:PuertoIPV4:$PortIPV4:g" $DirName/minecraftbe/config/srvdatos.json
   sudo sed -i "s:PuertoIPV6:$PortIPV6:g" $DirName/minecraftbe/config/srvdatos.json
 
