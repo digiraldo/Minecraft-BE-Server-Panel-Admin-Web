@@ -36,7 +36,7 @@ if (empty($online)) {
   $progbar = 'progress-bar-striped progress-bar-animated';
 }
 
-echo 'srvdatos.json: id:9 id:13 y linea 39 tablero/index.php';
+//echo 'srvdatos.json: id:9 id:13, borrar usuarios usradmin.json y linea 39 tablero/index.php';
 
 ?>
 
