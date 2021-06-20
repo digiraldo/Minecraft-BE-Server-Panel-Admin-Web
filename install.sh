@@ -59,13 +59,16 @@ cd ~
 DIRECTORIO=minecraftbe
 if [ -d "$DIRECTORIO" ]
 then
-echo "El directorio ${DIRECTORIO} no existe"
-else
+echo "El directorio ${DIRECTORIO} existe"
+sleep 2s
   cd minecraftbe
   Print_Style "==========================SERVIDORES MONTADOS============================" "$CYAN"
   ls -l
   Print_Style "=========================================================================" "$CYAN"
   sleep 6s
+else
+echo "El directorio ${DIRECTORIO} no existe"
+
 fi
 
 echo "$DIRECTORIO"
