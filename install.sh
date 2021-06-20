@@ -56,7 +56,7 @@ function read_with_prompt {
 cd ~
 
 # Verifica los servidores montados
-DIRECTORIO=/minecraftbe
+DIRECTORIO=minecraftbe
 if [ -d "$DIRECTORIO" ]
 then
 echo "El directorio ${DIRECTORIO} no existe"
@@ -67,6 +67,8 @@ else
   Print_Style "=========================================================================" "$CYAN"
   sleep 6s
 fi
+
+echo "$DIRECTORIO"
 
 cd ~
 
