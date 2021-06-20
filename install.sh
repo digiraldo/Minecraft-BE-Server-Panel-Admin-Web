@@ -68,7 +68,7 @@ else
    echo "El directorio ${DIRECTORIO} no existe"
 fi
 
-
+cd ~
 
 # Descargar SetupMinecraft.sh desde el repositorio de James A. Chambers - https://jamesachambers.com
 # Repositorio de GitHub: https://github.com/TheRemote/MinecraftBedrockServer
