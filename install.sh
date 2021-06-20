@@ -51,7 +51,21 @@ function read_with_prompt {
   done
 }
 
+
+
 cd ~
+
+# Verifica los servidores montados
+if [ ! -d "minecraftbe" ]; then
+
+else
+  cd minecraftbe
+  Print_Style "==========================SERVIDORES MONTADOS============================" "$CYAN"
+  ls -l
+  Print_Style "=========================================================================" "$CYAN"
+  sleep 6s
+fi
+
 # Descargar SetupMinecraft.sh desde el repositorio de James A. Chambers - https://jamesachambers.com
 # Repositorio de GitHub: https://github.com/TheRemote/MinecraftBedrockServer
 echo "========================================================================="
@@ -61,6 +75,8 @@ sudo rm -rf SetupMinecraft.sh
 wget https://raw.githubusercontent.com/TheRemote/MinecraftBedrockServer/master/SetupMinecraft.sh
 chmod +x SetupMinecraft.sh
 echo "========================================================================="
+  
+
 else
 echo "Tomando SetupMinecraft.sh del repositorio..."
 wget https://raw.githubusercontent.com/TheRemote/MinecraftBedrockServer/master/SetupMinecraft.sh
