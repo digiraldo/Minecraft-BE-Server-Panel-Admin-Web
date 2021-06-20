@@ -56,18 +56,20 @@ function read_with_prompt {
 cd ~
 
 # Verifica los servidores montados
-cd ~
-if [ ! -d "minecraftbe" ]; then
-
-else
+DIRECTORIO=/minecraftbe
+if [ -d "$DIRECTORIO" ]
+then
   cd minecraftbe
   Print_Style "==========================SERVIDORES MONTADOS============================" "$CYAN"
   ls -l
   Print_Style "=========================================================================" "$CYAN"
   sleep 6s
+else
+   echo "El directorio ${DIRECTORIO} no existe"
 fi
 
-cd ~
+
+
 # Descargar SetupMinecraft.sh desde el repositorio de James A. Chambers - https://jamesachambers.com
 # Repositorio de GitHub: https://github.com/TheRemote/MinecraftBedrockServer
 echo "========================================================================="
