@@ -56,6 +56,7 @@ function read_with_prompt {
 cd ~
 
 # Verifica los servidores montados
+cd ~
 if [ ! -d "minecraftbe" ]; then
 
 else
@@ -66,6 +67,7 @@ else
   sleep 6s
 fi
 
+cd ~
 # Descargar SetupMinecraft.sh desde el repositorio de James A. Chambers - https://jamesachambers.com
 # Repositorio de GitHub: https://github.com/TheRemote/MinecraftBedrockServer
 echo "========================================================================="
