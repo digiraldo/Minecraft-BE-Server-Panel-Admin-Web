@@ -49,6 +49,32 @@ function read_with_prompt {
   done
 }
 
+
+
+  BackConfig=backub_config
+
+cd ~
+if [ ! -d "backub_config" ]; then
+echo "El directorio ${BackConfig} no existe"
+sudo mkdir backub_config
+else
+  cd backub_config
+echo "El directorio ${BackConfig} existe"
+sleep 2s
+  Print_Style "===================SERVIDORES MONTADOS EN $BackConfig====================" "$CYAN"
+  ls -l
+  Print_Style "=========================================================================" "$CYAN"
+  sleep 6s
+  echo "========================================================================="
+    Print_Style "Sincronizando y haciendo respaldo a los archivos de configuración..." "$RED"
+    sudo rsync -avz --include='*.json' --include='*/' --exclude='*' $DirName/minecraftbe/$ServerName/ $DirName/backub_config
+    sudo zip -r $DirName/backub_config/$(date +%Y.%m.%d_%H\:%M\:%S_Config_servername).zip $DirName/minecraftbe/config
+    echo "========================================================================="
+    sleep 3s
+fi
+
+
+
 cd ~
 echo "========================================================================="
 Print_Style "Eliminando Servidor Minecraft" "$YELLOW"

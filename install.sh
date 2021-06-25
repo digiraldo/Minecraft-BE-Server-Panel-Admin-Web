@@ -54,8 +54,22 @@ function read_with_prompt {
   DirName=$(readlink -e ~)
   UserName=$(whoami)
   Directorio=minecraftbe
+  BackConfig=backub_config
 
 cd ~
+if [ ! -d "backub_config" ]; then
+echo "El directorio ${BackConfig} no existe"
+  sudo mkdir backub_config
+else
+  cd backub_config
+echo "El directorio ${BackConfig} existe"
+sleep 2s
+  Print_Style "===================SERVIDORES MONTADOS EN $BackConfig====================" "$CYAN"
+  ls -l
+  Print_Style "=========================================================================" "$CYAN"
+  sleep 6s
+fi
+
 if [ ! -d "minecraftbe" ]; then
 echo "El directorio ${Directorio} no existe"
 else
