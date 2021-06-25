@@ -153,6 +153,14 @@ cd $ServerName
   sudo sed -i "s:dirname:$DirName:g" prop.sh
   sudo sed -i "s:servername:$ServerName:g" prop.sh
 
+  cd ~
+  # Descargar uninstall.sh desde el repositorio
+  echo "Tomando uninstall.sh del repositorio..."
+  wget -O uninstall.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/uninstall.sh
+  chmod +x uninstall.sh
+  sudo sed -i "s:dirname:$DirName:g" uninstall.sh
+  sudo sed -i "s:servername:$ServerName:g" uninstall.sh
+
 
 cd ~
 cd minecraftbe
@@ -177,7 +185,7 @@ Print_Style "Creando directorios y archivos del panel..." "$CYAN"
 sudo mv panel $DirName/minecraftbe/
 sudo mv index.php $DirName/minecraftbe/
 sudo mv shell.php $DirName/minecraftbe/
-sudo mv uninstall.sh $DirName/
+#  sudo mv uninstall.sh $DirName/
 
 
 #  sudo mv /root/minecraftbe/parceros/backups /root/drive/minecraftbe/back_23_05_2021

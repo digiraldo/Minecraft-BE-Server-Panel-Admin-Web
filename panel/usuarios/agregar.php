@@ -26,6 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($esValido) {
         $usuarioN = crearUsuario($_POST);
         shell_exec("sh reload.sh");
+        sleep(5);
         header("Location: index.php");
     }
 }

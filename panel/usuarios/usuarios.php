@@ -25,6 +25,7 @@ function crearUsuario($dat){
     $usuarios = obtenerUsuarios();
     $usuarios[] = $dat;
     ponerJson($usuarios);
+    shell_exec("sh reload.sh");
     }
 
 
