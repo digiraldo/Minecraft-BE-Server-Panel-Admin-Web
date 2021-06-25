@@ -62,6 +62,7 @@ echo "El directorio ${BackConfig} no existe"
   sudo mkdir backub_config
 else
 echo "El directorio ${BackConfig} existe"
+cd backub_config
 sleep 2s
   Print_Style "===================SERVIDORES MONTADOS EN $BackConfig ====================" "$CYAN"
   ls -l
@@ -71,12 +72,12 @@ sleep 2s
     sleep 3s
 fi
 
-
+cd ~
 if [ ! -d "minecraftbe" ]; then
 echo "El directorio ${Directorio} no existe"
 else
-  cd minecraftbe
 echo "El directorio ${Directorio} existe"
+cd minecraftbe
 sleep 2s
   Print_Style "===================SERVIDORES MONTADOS EN $Directorio ====================" "$CYAN"
   ls -l
