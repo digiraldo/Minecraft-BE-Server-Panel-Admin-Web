@@ -53,7 +53,7 @@ sudo add-apt-repository universe -y
 sudo apt-get install ssh -y
 sudo apt install git -y
 sudo apt-get install php-zip -y
-sudo apt install vim -y
+#  sudo apt install vim -y
 
 
 ##### NOTA, Verificar si actualizó los Servername = servername, Dirname = dirname, Username = username
@@ -177,6 +177,7 @@ Print_Style "Creando directorios y archivos del panel..." "$CYAN"
 sudo mv panel $DirName/minecraftbe/
 sudo mv index.php $DirName/minecraftbe/
 sudo mv shell.php $DirName/minecraftbe/
+sudo mv uninstall.sh $DirName/
 
 
 #  sudo mv /root/minecraftbe/parceros/backups /root/drive/minecraftbe/back_23_05_2021
