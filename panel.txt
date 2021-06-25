@@ -198,14 +198,19 @@ if [ ! -d "config" ]; then
   sudo mv Minecraft-BE-Server-Panel-Admin-Web/config $DirName/minecraftbe/
   sleep 1s  
 else
-Print_Style "Sincronizando y haciendo respaldo a los archivos de configuración..." "$YELLOW"
-sudo rsync --filter '- *.json' -avz $DirName/minecraftbe/$ServerName/ $DirName/minecraftbe/config
-sudo zip -r $DirName/minecraftbe/config/backub_config/$(date +%Y.%m.%d_%H\:%M\:%S_Config_servername).zip $DirName/minecraftbe/config
+Print_Style "Directorio Config" "$YELLOW"
+
 cd config
   Print_Style "=========================  DIRECTORIO CONFIG  ===========================" "$CYAN"
   ls -l
   Print_Style "=========================================================================" "$CYAN"
   sleep 3s
+    echo "========================================================================="
+    Print_Style "Sincronizando y haciendo respaldo a los archivos de configuración..." "$RED"
+    sudo rsync -avz --include='*.json' --include='*/' --exclude='*' $DirName/minecraftbe/$ServerName/ $DirName/backub_config
+    sudo zip -r $DirName/backub_config/$(date +%Y.%m.%d_%H\:%M\:%S_Config_servername).zip $DirName/minecraftbe/config
+    echo "========================================================================="
+    sleep 3s
 fi
 
 cd ~
