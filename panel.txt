@@ -101,6 +101,7 @@ echo "========================================================================="
   sudo rm -rf cloud.sh back.sh panel.sh config.sh prop.sh
   sleep 2s
   cd ~
+  sudo rm -rf uninstall.sh
   cd minecraftbe
   sudo chmod -R 777 $DirName/minecraftbe
   sudo rm -rf panel
