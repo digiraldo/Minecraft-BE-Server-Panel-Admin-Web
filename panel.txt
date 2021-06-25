@@ -262,7 +262,7 @@ echo "========================================================================="
 Print_Style "Configurando start.sh para copias de seguridad en la nube" "$YELLOW"
 sudo sed -i '/# Rotate backups -- keep most recent 10/ {
 r start.txt
-d}' $DirName/minecraftbe/start.sh
+d}' $DirName/minecraftbe/$ServerName/start.sh
 echo "========================================================================="
 sleep 2s
 

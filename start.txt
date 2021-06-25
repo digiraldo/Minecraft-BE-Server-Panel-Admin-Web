@@ -1,5 +1,5 @@
 # Rotate backups -- keep most recent 10
-Rotate=$(pushd dirname/minecraftbe/servername/backups; ls -1tr | head -n -10 | xargs -d '\n' rm -f --; popd)
+Rotate=$(pushd dirname/minecraftbe/servername/backups; ls -1tr | head -n -20 | xargs -d '\n' rm -f --; popd)
 
 # Cambiar directorio al directorio del servidor
 cd dirname/minecraftbe/servername
