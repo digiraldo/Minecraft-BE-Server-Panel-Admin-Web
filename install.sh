@@ -63,7 +63,7 @@ echo "El directorio ${BackConfig} no existe"
 else
 echo "El directorio ${BackConfig} existe"
 sleep 2s
-  Print_Style "===================SERVIDORES MONTADOS EN $BackConfig====================" "$CYAN"
+  Print_Style "===================SERVIDORES MONTADOS EN $BackConfig ====================" "$CYAN"
   ls -l
   Print_Style "=========================================================================" "$CYAN"
   sleep 6s
@@ -78,7 +78,7 @@ else
   cd minecraftbe
 echo "El directorio ${Directorio} existe"
 sleep 2s
-  Print_Style "===================SERVIDORES MONTADOS EN $Directorio====================" "$CYAN"
+  Print_Style "===================SERVIDORES MONTADOS EN $Directorio ====================" "$CYAN"
   ls -l
   Print_Style "=========================================================================" "$CYAN"
   sleep 6s

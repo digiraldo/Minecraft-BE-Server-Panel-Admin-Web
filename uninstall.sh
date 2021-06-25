@@ -50,7 +50,6 @@ function read_with_prompt {
 }
 
 
-
   BackConfig=backub_config
 
 cd ~
@@ -67,12 +66,14 @@ sleep 2s
   sleep 6s
   echo "========================================================================="
     Print_Style "Sincronizando y haciendo respaldo a los archivos de configuración..." "$RED"
-    sudo rsync -avz --include='*.json' --include='*/' --exclude='*' $DirName/minecraftbe/$ServerName/ $DirName/backub_config
-    sudo zip -r $DirName/backub_config/$(date +%Y.%m.%d_%H\:%M\:%S_Config_servername).zip $DirName/minecraftbe/config
+    sleep 2s
+    sudo rsync -avz --include='*.json' --include='*/' --exclude='*' dirname/minecraftbe/servername/ dirname/backub_config
+    Print_Style "comprimiendo archivos de config..." "$RED"
+    sleep 2s
+    sudo zip -r dirname/backub_config/$(date +%Y.%m.%d_%H\:%M\:%S_Config_servername).zip dirname/minecraftbe/config
     echo "========================================================================="
     sleep 3s
 fi
-
 
 
 cd ~
