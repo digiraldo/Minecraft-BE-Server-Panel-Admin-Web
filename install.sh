@@ -54,7 +54,7 @@ function read_with_prompt {
   DirName=$(readlink -e ~)
   UserName=$(whoami)
   Directorio=minecraftbe
-  
+
 cd ~
 if [ ! -d "minecraftbe" ]; then
 echo "El directorio ${Directorio} no existe"
@@ -66,6 +66,9 @@ sleep 2s
   ls -l
   Print_Style "=========================================================================" "$CYAN"
   sleep 6s
+else
+echo "El directorio ${DIRECTORIO} no existe"
+
 fi
 
 
