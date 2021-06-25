@@ -66,9 +66,6 @@ sleep 2s
   ls -l
   Print_Style "=========================================================================" "$CYAN"
   sleep 6s
-else
-echo "El directorio ${DIRECTORIO} no existe"
-
 fi
 
 
