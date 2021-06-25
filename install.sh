@@ -51,24 +51,23 @@ function read_with_prompt {
   done
 }
 
-
-
+  DirName=$(readlink -e ~)
+  UserName=$(whoami)
+  Directorio=minecraftbe
+  
 cd ~
-
-# Verifica los servidores montados
-DIRECTORIO=minecraftbe
-if [ -d "$DIRECTORIO" ]
-then
-echo "El directorio ${DIRECTORIO} no existe"
+if [ ! -d "minecraftbe" ]; then
+echo "El directorio ${Directorio} no existe"
 else
   cd minecraftbe
-  Print_Style "==========================SERVIDORES MONTADOS============================" "$CYAN"
+echo "El directorio ${Directorio} existe"
+sleep 2s
+  Print_Style "===================SERVIDORES MONTADOS EN $Directorio====================" "$CYAN"
   ls -l
   Print_Style "=========================================================================" "$CYAN"
   sleep 6s
 fi
 
-echo "$DIRECTORIO"
 
 cd ~
 
