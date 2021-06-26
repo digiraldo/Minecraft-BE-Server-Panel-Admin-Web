@@ -45,7 +45,11 @@ for ($i=2; $i<count($logs); $i++)
 // echo $count."</br>";
 // print_r($count);
 
-
+// if (empty($permi)) {
+//     $permisos = 0;
+// } else {
+//     $permisos = obtenerPermisos(); 
+// }
 
 ?>
 

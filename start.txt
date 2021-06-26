@@ -19,14 +19,14 @@ echo "Comprimiendo todas las configuraciones"
 sudo zip -r dirname/backub_config/all_backub/$(date +%Y.%m.%d_%H\:%M\:%S_Config_servername).zip dirname/backub_config
 
 # Cambiar directorio al directorio del servidor
-cd dirname/minecraftbe/servername
+# cd dirname/minecraftbe/servername
 
 # Crear copia de seguridad
-if [ -d "worlds" ]; then
-    echo "Copia de seguridad del servidor (en la carpeta minecraftbe/servername/backups)"
-    #sudo tar -pzvcf backups/$(date +%d.%m.%Y_%H.%M.%S_servername).tar.gz worlds
-    sudo zip -r backups/$(date +%d.%m.%Y_%H\:%M\:%S_servername).zip worlds
-fi
+#   if [ -d "worlds" ]; then
+#       echo "Copia de seguridad del servidor (en la carpeta minecraftbe/servername/backups)"
+#       #sudo tar -pzvcf backups/$(date +%d.%m.%Y_%H.%M.%S_servername).tar.gz worlds
+#       sudo zip -r backups/$(date +%d.%m.%Y_%H\:%M\:%S_servername).zip worlds
+#   fi
 
 # Iniciar o comprobar inicio de Fuse en RClone
 echo "========================================================================="
