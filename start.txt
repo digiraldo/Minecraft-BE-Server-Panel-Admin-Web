@@ -1,6 +1,20 @@
 # Rotate backups -- keep most recent 10
 Rotate=$(pushd dirname/minecraftbe/servername/backups; ls -1tr | head -n -20 | xargs -d '\n' rm -f --; popd)
 
+echo "Realizando Copias de seguridad de cofiguracion y whitelist"
+sudo mkdir dirname/backub_config/config
+sudo mkdir dirname/backub_config/whitelist
+sudo mkdir dirname/backub_config/all_backub
+
+echo "Comprimiendo directorio de archivos config"
+sudo zip -r dirname/backub_config/config/$(date +%Y.%m.%d_%H\:%M\:%S_Config_servername).zip dirname/minecraftbe/config
+
+echo "Sincronizando whitelist.json"
+sudo rsync -avz --include='*.json' --include='*.properties' --exclude='*' dirname/minecraftbe/servername/ dirname/backub_config/whitelist
+
+echo "Comprimiendo todas las configuraciones"
+sudo zip -r dirname/backub_config/all_backub/$(date +%Y.%m.%d_%H\:%M\:%S_Config_servername).zip dirname/backub_config
+
 # Cambiar directorio al directorio del servidor
 cd dirname/minecraftbe/servername
 
@@ -34,6 +48,8 @@ then
 #cd minecraftbe
 #cd servername
 sudo rsync -avz dirname/minecraftbe/servername/backups/ dirname/cloudname/foldername
+echo "Sincronizando Tods las configuraciones en la nube"
+sudo rsync -avz dirname/backub_config/config/ dirname/cloudname/foldername
 echo "Creando copia de seguridad en la nube ..."
 else
 echo "No se encuentra habilitado copia de seguridad en la nube..."

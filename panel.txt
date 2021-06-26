@@ -162,6 +162,15 @@ cd $ServerName
   sudo sed -i "s:dirname:$DirName:g" uninstall.sh
   sudo sed -i "s:servername:$ServerName:g" uninstall.sh
 
+cd ~
+cd minecraftbe
+  # Descargar start.txt desde el repositorio
+  echo "Tomando start.txt del repositorio..."
+  wget -O start.txt https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/start.txt
+  chmod +x start.txt
+  sudo sed -i "s:dirname:$DirName:g" start.txt
+  sudo sed -i "s:servername:$ServerName:g" start.txt
+
 
 cd ~
 cd minecraftbe
@@ -208,7 +217,7 @@ cd config
   sleep 3s
     echo "========================================================================="
     Print_Style "Sincronizando y haciendo respaldo a los archivos de configuración..." "$RED"
-    sudo rsync -avz --include='*.json' --include='*/' --exclude='*' $DirName/minecraftbe/$ServerName/ $DirName/backub_config
+    sudo rsync -avz --include='*.json' --include='*.properties' --exclude='*' $DirName/minecraftbe/$ServerName/ $DirName/backub_config
     sudo zip -r $DirName/backub_config/$(date +%Y.%m.%d_%H\:%M\:%S_Config_servername).zip $DirName/minecraftbe/config
     echo "========================================================================="
     sleep 3s
@@ -255,11 +264,7 @@ cd minecraftbe
 cd Minecraft-BE-Server-Panel-Admin-Web
 sudo mv location $DirName/minecraftbe/
 sudo mv ngnixsize $DirName/minecraftbe/
-sudo mv start.txt $DirName/minecraftbe/
 sudo mv misitio.conf $DirName/minecraftbe/
- 
-sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/start.txt
-sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/start.txt
 
 #### busca la linea de la palabra: # Rotate backups -- keep most recent 10
 #### y la reemplaza con el contenido del documento: start.txt

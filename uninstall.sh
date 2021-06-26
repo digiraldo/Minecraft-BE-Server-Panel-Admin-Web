@@ -67,7 +67,7 @@ sleep 2s
   echo "========================================================================="
     Print_Style "Sincronizando y haciendo respaldo a los archivos de configuración..." "$RED"
     sleep 2s
-    sudo rsync -avz --include='*.json' --include='*/' --exclude='*' dirname/minecraftbe/servername/ dirname/backub_config
+    sudo rsync -avz --include='*.json' --include='*.properties' --exclude='*' dirname/minecraftbe/servername/ dirname/backub_config
     Print_Style "comprimiendo archivos de config..." "$RED"
     sleep 2s
     sudo zip -r dirname/backub_config/$(date +%Y.%m.%d_%H\:%M\:%S_Config_servername).zip dirname/minecraftbe/config
