@@ -78,6 +78,12 @@ sudo sed -i "s/.tar.gz/.zip/g" $DirName/minecraftbe/$ServerName/start.sh
 sleep 2s
 echo "========================================================================="
 
+echo "========================================================================="
+Print_Style "Cambiando respaldos de seguridad de 10 a 20" "$YELLOW"
+sudo sed -i "s/-10/-20/g" $DirName/minecraftbe/$ServerName/start.sh
+sleep 2s
+echo "========================================================================="
+
 # Cambio stop.sh
 echo "========================================================================="
 Print_Style "Traduciendo mensajes al detener el servidor" "$YELLOW"
@@ -217,8 +223,23 @@ cd config
   sleep 3s
     echo "========================================================================="
     Print_Style "Sincronizando y haciendo respaldo a los archivos de configuración..." "$RED"
-    sudo rsync -avz --include='*.json' --include='*.properties' --exclude='*' $DirName/minecraftbe/$ServerName/ $DirName/backub_config
-    sudo zip -r $DirName/backub_config/$(date +%Y.%m.%d_%H\:%M\:%S_Config_servername).zip $DirName/minecraftbe/config
+
+# Crear directorios config/whitelist/all_backub si no existen
+if [ ! -d "backub_config" ]; then
+    sudo mkdir $DirName/backub_config/config
+    sudo mkdir $DirName/backub_config/whitelist
+    sudo mkdir $DirName/backub_config/all_backub
+fi
+
+echo "Comprimiendo directorio de archivos config"
+sudo zip -r $DirName/backub_config/config/$(date +%Y.%m.%d_%H\:%M\:%S_Config_$ServerName).zip $DirName/minecraftbe/config
+
+echo "Sincronizando whitelist.json"
+sudo rsync -avz --include='*.json' --include='*.properties' --exclude='*' $DirName/minecraftbe/$ServerName/ $DirName/backub_config/whitelist
+
+echo "Comprimiendo todas las configuraciones"
+sudo zip -r $DirName/backub_config/all_backub/$(date +%Y.%m.%d_%H\:%M\:%S_Backup_$ServerName).zip $DirName/backub_config
+
     echo "========================================================================="
     sleep 3s
 fi
@@ -526,6 +547,10 @@ sudo rm -rf Minecraft-BE-Server-Panel-Admin-Web
 
   sudo rm -rf $DirName/install.sh
   sudo rm -rf $DirName/panel.txt
+  sudo rm -rf $DirName/downloads
+  sudo rm -rf $DirName/backups
+  sudo rm -rf $DirName/logs
+
 
 echo ""
 echo ""
