@@ -120,10 +120,11 @@ echo "========================================================================="
 
 
 Print_Style "Asignando permisos root a $UserName" "$MAGENTA"
-sudo sed -i "/$UserName ALL=(ALL) NOPASSWD: ALL/d" /etc/sudoers
-sudo sed -i "$a $UserName ALL=(ALL) NOPASSWD: ALL" /etc/sudoers
-sudo sed -n "/$UserName ALL=(ALL) NOPASSWD: ALL/p" /etc/sudoers
+sudo sed -i "/Username ALL=(ALL) NOPASSWD: ALL/d" /etc/sudoers
+sudo sed -i "$a Username ALL=(ALL) NOPASSWD: ALL" /etc/sudoers
+sudo sed -n "/Username ALL=(ALL) NOPASSWD: ALL/p" /etc/sudoers
 
+sudo sed -i "s:Username:$UserName:g" /etc/sudoers
 
 sudo chmod 755 -R /home/$UserName
 
