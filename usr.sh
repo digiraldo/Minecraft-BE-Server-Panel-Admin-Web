@@ -83,6 +83,9 @@ echo "========================================================================="
 echo "========================================================================="
 Print_Style "Creando Grupo para el usuario $UserName"
 sudo chown $UserName:$UserName -R /home/$UserName
+sudo sed -i '/$UserName ALL=(ALL) NOPASSWD: ALL/d' /etc/sudoers
+sudo sed -i '$a $UserName ALL=(ALL) NOPASSWD: ALL' /etc/sudoers
+sudo sed -n "/$UserName ALL=(ALL) NOPASSWD: ALL/p" /etc/sudoers
 sleep 2s
 echo "========================================================================="
 
