@@ -61,7 +61,7 @@ echo "========================================================================="
 
 echo "========================================================================="
 Print_Style "Creando Usuario $UserName" "$GREEN"
-sudo useradd $UserName
+sudo adduser $UserName
 sleep 2s
 echo "========================================================================="
 
@@ -81,13 +81,6 @@ echo "========================================================================="
 
 
 echo "========================================================================="
-Print_Style "Creando Grupo para el usuario $UserName" "$GREEN"
-sudo chown $UserName:$UserName -R /home/$UserName
-sleep 2s
-echo "========================================================================="
-
-
-echo "========================================================================="
 Print_Style "Generando Permisos" "$GREEN"
 sudo chmod 775 -R /home/$UserName
 sleep 2s
@@ -102,31 +95,11 @@ echo "========================================================================="
 
 
 echo "========================================================================="
-Print_Style "Asignando Grupo: $UserName y root  a Usuario: $UserName" "$GREEN"
-sudo adduser $UserName $UserName
-sudo adduser $UserName root
-sleep 2s
-sudo addgroup $UserName
-sudo addgroup root
+Print_Style "Creando permisos root  a Usuario: $UserName" "$GREEN"
+sudo usermod -aG sudo $UserName
 sleep 2s
 echo "========================================================================="
 
-
-echo "========================================================================="
-Print_Style "Asignando shell: bash" "$GREEN"
-sudo usermod -s /bin/bash
-sleep 2s
-echo "========================================================================="
-
-
-Print_Style "Asignando permisos root a $UserName" "$MAGENTA"
-sudo sed -i "/Username ALL=(ALL) NOPASSWD: ALL/d" /etc/sudoers
-sudo sed -i "$a Username ALL=(ALL) NOPASSWD: ALL" /etc/sudoers
-sudo sed -n "/Username ALL=(ALL) NOPASSWD: ALL/p" /etc/sudoers
-
-sudo sed -i "s:Username:$UserName:g" /etc/sudoers
-
-sudo chmod 755 -R /home/$UserName
 
 
 #wget -O usr.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/usr.sh
