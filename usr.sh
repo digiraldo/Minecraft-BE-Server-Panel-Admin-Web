@@ -58,12 +58,6 @@ Print_Style "Valores permitidos: "Maysculas", "Minusculas": Sin Espacios " "$CYA
 read_with_prompt UserName "Nombre de Usuario" user
 echo "========================================================================="
 
-echo "========================================================================="
-echo "Crea el Nombre de grupo para el usuario (predeterminado usuario creado $UserName): "
-Print_Style "Valores permitidos: "Maysculas", "Minusculas": Sin Espacios ej: www-data" "$CYAN"
-read_with_prompt UserGrup "Nombre de Grupo" $UserName
-echo "========================================================================="
-
 
 echo "========================================================================="
 Print_Style "Creando Usuario $UserName" "$GREEN"
@@ -88,14 +82,14 @@ echo "========================================================================="
 
 echo "========================================================================="
 Print_Style "Creando Grupo para el usuario $UserName"
-sudo chown $UserName:$UserGrup -R /home/$UserName
+sudo chown $UserName:$UserName -R /home/$UserName
 sleep 2s
 echo "========================================================================="
 
 
 echo "========================================================================="
 Print_Style "Generando Permisos"
-sudo chmod 755 -R /home/$UserName
+sudo chmod 775 -R /home/$UserName
 sleep 2s
 echo "========================================================================="
 
@@ -108,9 +102,12 @@ echo "========================================================================="
 
 
 echo "========================================================================="
-Print_Style "Asignando Grupo: $UserGrup y root  a Usuario: $UserName"
-sudo adduser $UserName $UserGrup
+Print_Style "Asignando Grupo: $UserName y root  a Usuario: $UserName"
+sudo adduser $UserName $UserName
 sudo adduser $UserName root
+sleep 2s
+sudo addgroup $UserName
+sudo addgroup root
 sleep 2s
 echo "========================================================================="
 
@@ -121,6 +118,14 @@ sudo usermod -s /bin/bash
 sleep 2s
 echo "========================================================================="
 
+
+
+sudo chmod 755 -R /home/$UserName
+
+
+#wget -O usr.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/usr.sh
+#sudo chmod +x usr.sh
+#./usr.sh
 
 
 

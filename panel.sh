@@ -393,10 +393,10 @@ cd ~
 #Permisos de usuario:grupo y acceso sh desde la web
 #Creando grupo Samba
 sudo crontab -r -i
-sudo useradd www-data
+sudo usermod www-data -aG sudosudo useradd www-data
 sudo addgroup www-data
 sudo usermod $UserName -aG www-data
-sudo usermod www-data -aG sudo
+
 echo "========================================================================="
 echo "Se ha creado el usuario y el grupo www-data"
 Print_Style "Por Favor digite la contraseña para el usuario www-data dos veces: " "$MAGENTA"
