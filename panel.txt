@@ -1,5 +1,8 @@
- # Attach to screen
- # screen -r $ServerName
+sudo systemctl start $ServerName.service
+
+echo "========================================================================="
+echo "========================================================================="
+echo "========================================================================="
 
   cd ~
   cd minecraftbe
@@ -599,10 +602,10 @@ sleep 3s
 sudo systemctl restart nginx
 
 # Configuración Completada
-Print_Style  "================Iniciando Servidor: $ServerName================" "$MAGENTA"
-sleep 2s
-sudo systemctl start $ServerName.service
+  #  Print_Style  "================Iniciando Servidor: $ServerName ================" "$MAGENTA"
+  #  sleep 2s
+  #  sudo systemctl start $ServerName.service
 
 # Dormir por 8 segundos para que el servidor inicie
-sleep 8s
-screen -r $ServerName
+  #  sleep 8s
+  #  screen -r $ServerName

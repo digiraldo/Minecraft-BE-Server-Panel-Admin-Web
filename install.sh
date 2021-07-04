@@ -122,12 +122,12 @@ sleep 2s
 echo "========================================================================="
 
 
-#### busca la linea de la palabra: # Rotate backups -- keep most recent 10
+#### busca la linea de la palabra: sudo systemctl start $ServerName.service
 #### y la reemplaza con el contenido del documento: panel.txt
 #### en el archivo de texto: start.sh
 echo "========================================================================="
 Print_Style "Configurando SetupMinecraft.sh para integrar el Panel" "$YELLOW"
-sudo sed -i '/screen -r $ServerName/ {
+sudo sed -i '/sudo systemctl start $ServerName.service/ {
 r panel.txt
 d}' SetupMinecraft.sh
 echo "========================================================================="
