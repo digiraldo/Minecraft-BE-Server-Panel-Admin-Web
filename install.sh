@@ -125,20 +125,40 @@ fi
 
 
 # Descargar panel.txt desde el repositorio
-echo "========================================================================="
-echo "Tomando panel.txt del repositorio..."
-curl -H "Accept-Encoding: identity" -L -o panel.txt https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/panel.txt
-sudo chmod 777 panel.txt
+     # echo "========================================================================="
+     # echo "Tomando panel.txt del repositorio..."
+     # curl -H "Accept-Encoding: identity" -L -o panel.txt https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/panel.txt
+     # sudo chmod 777 panel.txt
 
-cd ~
+     # cd ~
 
 #### busca la linea de la palabra: sudo systemctl start $ServerName.service
 #### y la reemplaza con el contenido del documento: panel.txt
 #### en el archivo de texto: start.sh
+     # echo "========================================================================="
+     # Print_Style "Configurando SetupMinecraft.sh para integrar el Panel" "$YELLOW"
+     # sudo sed -i '/sudo systemctl start \$ServerName.service/ {
+     # r panel.txt
+     # d}' SetupMinecraft.sh
+     # echo "========================================================================="
+     # sleep 2s
+
+
+# Descargar panel.sh desde el repositorio
+echo "========================================================================="
+echo "Tomando panel.sh del repositorio..."
+curl -H "Accept-Encoding: identity" -L -o panel.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/panel.sh
+sudo chmod 777 panel.sh
+
+cd ~
+
+#### busca la linea de la palabra: sudo systemctl start $ServerName.service
+#### y la reemplaza con el contenido del documento: panel.sh
+#### en el archivo de texto: start.sh
 echo "========================================================================="
 Print_Style "Configurando SetupMinecraft.sh para integrar el Panel" "$YELLOW"
 sudo sed -i '/sudo systemctl start \$ServerName.service/ {
-r panel.txt
+r panel.sh
 d}' SetupMinecraft.sh
 echo "========================================================================="
 sleep 2s
