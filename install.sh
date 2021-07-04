@@ -154,6 +154,12 @@ echo "========================================================================="
 Print_Style "Traduciendo Configuracion del Servidor" "$YELLOW"
 echo "========================================================================="
 echo "========================================================================="
+Print_Style "Traduciendo Ingreso Ruta del Directorio" "$BLUE"
+sleep 2s
+sudo sed -i "s/Enter directory path to install Minecraft BE Server/Ingrese la ruta del directorio para instalar Minecraft BE Server/g" SetupMinecraft.sh
+sudo sed -i "s/default ~/predeterminado ~/g" SetupMinecraft.sh
+sudo sed -i "s/Directory Path/Ruta de Directorio/g" SetupMinecraft.sh
+
 Print_Style "Traduciendo Ingreso de nombre corto" "$BLUE"
 sleep 2s
 sudo sed -i "s/Enter a short one word label for a new or existing server/Ingrese una etiqueta corta de una palabra para un servidor nuevo o existente/g" SetupMinecraft.sh
