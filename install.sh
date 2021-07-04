@@ -95,14 +95,14 @@ if [ -e "SetupMinecraft.sh" ]; then
 Print_Style "¡El Instalador ya existe! Actualizandolo..." "$YELLOW"
 sudo rm -rf SetupMinecraft.sh
 curl -H "Accept-Encoding: identity" -L -o SetupMinecraft.sh https://raw.githubusercontent.com/TheRemote/MinecraftBedrockServer/master/SetupMinecraft.sh
-chmod +x SetupMinecraft.sh
+sudo chmod +x SetupMinecraft.sh
 echo "========================================================================="
   
 
 else
 echo "Tomando SetupMinecraft.sh del repositorio..."
 curl -H "Accept-Encoding: identity" -L -o SetupMinecraft.sh https://raw.githubusercontent.com/TheRemote/MinecraftBedrockServer/master/SetupMinecraft.sh
-chmod +x SetupMinecraft.sh
+sudo chmod +x SetupMinecraft.sh
 fi
 
 
