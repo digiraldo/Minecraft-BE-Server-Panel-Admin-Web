@@ -244,6 +244,9 @@ echo "================CONFIGURACIÓN DEL SERVIDOR WEB================"
 echo "========================================================================="
 sudo sed -n "/server_name/p" /etc/nginx/sites-available/misitio.conf | sed 's/server_name/Url o IP del Servidor Web: ..... /'
 sudo sed -n "/listen/p" /etc/nginx/sites-available/misitio.conf | sed 's/listen/Puerto del Servidor Web: ....... /'
+Print_Style "Verificando srvdatos.json" "$MAGENTA"
+jq ".[8].spain" srvdatos.json
+jq ".[12].spain" srvdatos.json
 sleep 3s
 
 echo "========================================================================="
