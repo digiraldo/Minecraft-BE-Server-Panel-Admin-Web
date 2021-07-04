@@ -233,9 +233,6 @@ fi
 
 cd ~
 cd minecraftbe
-#Permisos del servidor
-sudo chmod -R 775 $DirName/minecraftbe
-
 
 echo "========================================================================="
 if [ -e "/etc/nginx/sites-available/misitio.conf" ]; then
@@ -376,12 +373,15 @@ read_with_prompt Port "Numero del Puerto" 80
 echo "========================================================================="
 
 Print_Style "Configurando la pagina web $IPV4:$Port/index.php..." "$YELLOW"
-sudo sed -i "s/MiIPV4/$IPV4/g" $DirName/minecraftbe/config/srvdatos.json
-sudo sed -i "s/MiIPV4/$IPV4/g" /etc/nginx/sites-available/misitio.conf
+sudo sed -i "s:MiIPV4:$IPV4:g" $DirName/minecraftbe/config/srvdatos.json
+sudo sed -i "s:MiIPV4:$IPV4:g" /etc/nginx/sites-available/misitio.conf
+sudo sed -i "s:PuertoIPV4:$PortIPV4:g" $DirName/minecraftbe/config/srvdatos.json
+sudo sed -i "s:PuertoIPV6:$PortIPV6:g" $DirName/minecraftbe/config/srvdatos.json
 sudo sed -i "s/80/$Port/g" $DirName/minecraftbe/config/srvdatos.json
 sudo sed -i "s/80/$Port/g" /etc/nginx/sites-available/misitio.conf
 sudo sed -i "s/versionphp/$VePHP/g" /etc/nginx/sites-available/misitio.conf
 sudo sed -i "s/versionphp/$VePHP/g" /etc/nginx/sites-available/default
+sudo sed -i "s:Dedicated Server:$ServerName:g" $DirName/minecraftbe/parceros/server.properties
 echo "========================================================================="
 sleep 2s
 #sudo sh -c "echo '$IPV4' >> minecraftbe/server.ip"
@@ -411,8 +411,8 @@ sudo usermod $UserName -aG www-data
 sudo usermod www-data -aG sudo
 echo "========================================================================="
 echo "Se ha creado el usuario y el grupo www-data"
-Print_Style "Por Favor digite la contraseña para el usuario www-data dos veces: " "$MAGENTA"
-sudo smbpasswd -a www-data
+  # Print_Style "Por Favor digite la contraseña para el usuario www-data dos veces: " "$MAGENTA"
+  # sudo smbpasswd -a www-data
 echo "========================================================================="
 
 sudo chown -hR $UserName:www-data minecraftbe
@@ -497,6 +497,7 @@ sudo rm -rf Minecraft-BE-Server-Panel-Admin-Web
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/$ServerName/web.sh
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/shell.php
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/includes/index.php
+  sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/includes/signup.php
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/respaldos/editar.php
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/respaldos/cronon.sh
   sudo sed -i "s:dirname:$DirName:g" $DirName/minecraftbe/panel/respaldos/cronoff.sh
@@ -520,9 +521,8 @@ sudo rm -rf Minecraft-BE-Server-Panel-Admin-Web
   sudo sed -i "s:username:$UserName:g" $DirName/minecraftbe/panel/tablero/res.sh
   sudo sed -i "s:username:$UserName:g" $DirName/minecraftbe/panel/usuarios/reload.sh
   sudo sed -i "s:username:$UserName:g" $DirName/minecraftbe/panel/includes/index.php
+  sudo sed -i "s:username:$UserName:g" $DirName/minecraftbe/panel/includes/signup.php
   sudo sed -i "s:username:$UserName:g" /etc/sudoers
-  sudo sed -i "s:PuertoIPV4:$PortIPV4:g" $DirName/minecraftbe/config/srvdatos.json
-  sudo sed -i "s:PuertoIPV6:$PortIPV6:g" $DirName/minecraftbe/config/srvdatos.json
 
   sudo rm -rf $DirName/install.sh
   sudo rm -rf $DirName/start.txt
@@ -577,7 +577,14 @@ sudo sed -n "/server-port=/p" server.properties | sed 's/server-port=/Puerto IPV
 sudo sed -n "/server-portv6=/p" server.properties | sed 's/server-portv6=/Puerto IPV6: ............ /'
 echo "========================================================================="
 sleep 3s
+
+#Reinicio del servidor
 sudo systemctl restart nginx
+
+#Permisos del servidor
+sudo chmod -R 775 $DirName/minecraftbe
+sudo chown -hR $UserName:www-data minecraftbe
+
 
 # Configuración Completada
   #  Print_Style  "================Iniciando Servidor: $ServerName ================" "$MAGENTA"
