@@ -67,15 +67,15 @@ echo "========================================================================="
 
 
 echo "========================================================================="
-Print_Style "Configurando contraseña del usuario $UserName" "$GREEN"
-sudo passwd $UserName
+#Print_Style "Configurando contraseña del usuario $UserName" "$GREEN"
+#sudo passwd $UserName
 sleep 2s
 echo "========================================================================="
 
 
 echo "========================================================================="
 Print_Style "Creando directorio /home/$UserName" "$GREEN"
-sudo mkdir /home/$UserName
+#sudo mkdir /home/$UserName
 sleep 2s
 echo "========================================================================="
 
