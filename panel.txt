@@ -1,4 +1,4 @@
-sudo systemctl start $ServerName.service
+  sudo systemctl start $ServerName.service
 
 echo "========================================================================="
 echo "========================================================================="
@@ -10,7 +10,7 @@ echo "========================================================================="
 # Descargar panel.sh desde el repositorio
 #     echo "========================================================================="
 #     echo "Tomando panel.sh del repositorio..."
-#     wget -O panel.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/panel.sh
+#     curl -H "Accept-Encoding: identity" -L -o panel.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/panel.sh
 #     sudo chmod +x panel.sh
 #     sudo sed -i "s:dirname:$DirName:g" panel.sh
 #     sudo sed -i "s:username:$UserName:g" panel.sh
@@ -137,28 +137,28 @@ cd $ServerName
 
   # Descargar cloud.sh desde el repositorio
   echo "Tomando cloud.sh del repositorio..."
-  wget -O cloud.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server/main/cloud.sh
+  curl -H "Accept-Encoding: identity" -L -o cloud.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server/main/cloud.sh
   chmod +x cloud.sh
   sudo sed -i "s:dirname:$DirName:g" cloud.sh
   sudo sed -i "s:servername:$ServerName:g" cloud.sh
   
   # Descargar back.sh desde el repositorio
   echo "Tomando back.sh del repositorio..."
-  wget -O back.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server/main/back.sh
+  curl -H "Accept-Encoding: identity" -L -o back.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server/main/back.sh
   chmod +x back.sh
   sudo sed -i "s:dirname:$DirName:g" back.sh
   sudo sed -i "s:servername:$ServerName:g" back.sh
   
   # Descargar config.sh desde el repositorio
   echo "Tomando config.sh del repositorio..."
-  wget -O config.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server/main/config.sh
+  curl -H "Accept-Encoding: identity" -L -o config.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server/main/config.sh
   chmod +x config.sh
   sudo sed -i "s:dirname:$DirName:g" config.sh
   sudo sed -i "s:servername:$ServerName:g" config.sh
 
   # Descargar prop.sh desde el repositorio
   echo "Tomando prop.sh del repositorio..."
-  wget -O prop.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/prop.sh
+  curl -H "Accept-Encoding: identity" -L -o prop.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/prop.sh
   chmod +x prop.sh
   sudo sed -i "s:dirname:$DirName:g" prop.sh
   sudo sed -i "s:servername:$ServerName:g" prop.sh
@@ -166,7 +166,7 @@ cd $ServerName
   cd ~
   # Descargar uninstall.sh desde el repositorio
   echo "Tomando uninstall.sh del repositorio..."
-  wget -O uninstall.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/uninstall.sh
+  curl -H "Accept-Encoding: identity" -L -o uninstall.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/uninstall.sh
   chmod +x uninstall.sh
   sudo sed -i "s:dirname:$DirName:g" uninstall.sh
   sudo sed -i "s:servername:$ServerName:g" uninstall.sh
@@ -175,7 +175,7 @@ cd ~
 cd minecraftbe
   # Descargar start.txt desde el repositorio
   echo "Tomando start.txt del repositorio..."
-  wget -O start.txt https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/start.txt
+  curl -H "Accept-Encoding: identity" -L -o start.txt https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/start.txt
   chmod +x start.txt
   sudo sed -i "s:dirname:$DirName:g" start.txt
   sudo sed -i "s:servername:$ServerName:g" start.txt
@@ -187,7 +187,7 @@ cd $ServerName
 
   # Descarga web.sh desde el repositorio
   echo "Tomando web.sh del repositorio..."
-  wget -O web.sh https://github.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/raw/master/web.sh
+  curl -H "Accept-Encoding: identity" -L -o web.sh https://github.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/raw/master/web.sh
   chmod +x web.sh
 
 Print_Style "Configurando el Panel de Administración..." "$GREEN"

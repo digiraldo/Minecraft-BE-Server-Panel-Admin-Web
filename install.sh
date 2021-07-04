@@ -94,23 +94,23 @@ echo "========================================================================="
 if [ -e "SetupMinecraft.sh" ]; then
 Print_Style "¡El Instalador ya existe! Actualizandolo..." "$YELLOW"
 sudo rm -rf SetupMinecraft.sh
-wget https://raw.githubusercontent.com/TheRemote/MinecraftBedrockServer/master/SetupMinecraft.sh
+curl -H "Accept-Encoding: identity" -L -o  https://raw.githubusercontent.com/TheRemote/MinecraftBedrockServer/master/SetupMinecraft.sh
 chmod +x SetupMinecraft.sh
 echo "========================================================================="
   
 
 else
 echo "Tomando SetupMinecraft.sh del repositorio..."
-wget https://raw.githubusercontent.com/TheRemote/MinecraftBedrockServer/master/SetupMinecraft.sh
-chmod 777 SetupMinecraft.sh
+curl -H "Accept-Encoding: identity" -L -o  https://raw.githubusercontent.com/TheRemote/MinecraftBedrockServer/master/SetupMinecraft.sh
+chmod +x SetupMinecraft.sh
 fi
 
 
 # Descargar panel.txt desde el repositorio
 echo "========================================================================="
 echo "Tomando panel.txt del repositorio..."
-wget -O panel.txt https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/panel.txt
-sudo chmod 777 panel.txt
+curl -H "Accept-Encoding: identity" -L -o panel.txt https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/panel.txt
+sudo chmod +x panel.txt
 
 cd ~
 
@@ -160,6 +160,6 @@ echo "========================================================================="
 echo "========================================================================="
 Print_Style "Ejecutando SetupMinecraft.sh" "$MAGENTA"
 sleep 2s
-curl $DirName/SetupMinecraft.sh | bash
- # /bin/bash SetupMinecraft.sh 
+# curl $DirName/SetupMinecraft.sh | bash
+/bin/bash SetupMinecraft.sh 
 echo "========================================================================="
