@@ -49,53 +49,6 @@ Print_Style() {
 
 cd ~
 
-##### NOTA, Verificar si actualizó los Servername = servername, Dirname = dirname, Username = username
-##### NOTA, Verificar si actualizó los Servername = $ServerName, Dirname = $DirName, Username = $UserName
-
-
-# Compruebe si el servidor se está ejecutando
-#      if ! screen -list | grep -q "\.$ServerName"; then
-#        echo "¡El servidor no se está ejecutando actualmente!"
-#        exit 1
-#      else
-#        sudo systemctl stop $ServerName
-#        screen -S $ServerName -X quit
-#      fi
-#      echo "Servidor Minecraft $ServerName detenido."
-
-# Cambio start.sh
-echo "========================================================================="
-Print_Style "Cambiando copia de seguridad a zip" "$YELLOW"
-sudo sed -i "s/tar -pzvcf/zip -r/g" $DirName/minecraftbe/$ServerName/start.sh
-sudo sed -i "s/.tar.gz/.zip/g" $DirName/minecraftbe/$ServerName/start.sh
-sleep 2s
-echo "========================================================================="
-
-echo "========================================================================="
-Print_Style "Cambiando respaldos de seguridad de 10 a 20" "$YELLOW"
-sudo sed -i "s/-10/-20/g" $DirName/minecraftbe/$ServerName/start.sh
-sleep 2s
-echo "========================================================================="
-
-# Cambio stop.sh
-echo "========================================================================="
-Print_Style "Traduciendo mensajes al detener el servidor" "$YELLOW"
-sudo sed -i "s/Stopping server in/Deteniendo el Servidor en/g" $DirName/minecraftbe/$ServerName/stop.sh
-sudo sed -i "s/seconds/segundos/g" $DirName/minecraftbe/$ServerName/stop.sh
-sudo sed -i "s/Stopping server/Servidor detenido o cerrado/g" $DirName/minecraftbe/$ServerName/stop.sh
-sleep 2s
-echo "========================================================================="
-
-# Cambio restart.sh
-echo "========================================================================="
-Print_Style "Traduciendo mensajes de reinicio en el servidor" "$YELLOW"
-sudo sed -i "s/Server is restarting in/Reiniciando en/g" $DirName/minecraftbe/$ServerName/restart.sh
-sudo sed -i "s/seconds/segundos/g" $DirName/minecraftbe/$ServerName/restart.sh
-sudo sed -i "s/Closing server/Reiniciando servidor/g" $DirName/minecraftbe/$ServerName/restart.sh
-sleep 2s
-echo "========================================================================="
-
-
   # Eliminar scripts existentes
   sudo rm -rf cloud.sh back.sh panel.sh config.sh prop.sh
   sleep 2s
@@ -162,7 +115,6 @@ cd $ServerName
   sudo sed -i "s:servername:$ServerName:g" uninstall.sh
 
 cd ~
-cd minecraftbe
   # Descargar start.txt desde el repositorio
   echo "Tomando start.txt del repositorio..."
   curl -H "Accept-Encoding: identity" -L -o start.txt https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/start.txt
@@ -170,6 +122,48 @@ cd minecraftbe
   sudo sed -i "s:dirname:$DirName:g" start.txt
   sudo sed -i "s:servername:$ServerName:g" start.txt
 
+#### busca la linea de la palabra: # Retrieve latest version of Minecraft Bedrock dedicated server
+#### y la reemplaza con el contenido del documento: start.txt
+#### en el archivo de texto: start.sh
+echo "========================================================================="
+Print_Style "Configurando start.sh para copias de seguridad en la nube" "$YELLOW"
+sudo sed -i '/# Retrieve latest version of Minecraft Bedrock dedicated server/ {
+r start.txt
+d}' $DirName/minecraftbe/$ServerName/start.sh
+echo "========================================================================="
+sleep 2s
+
+# Cambio start.sh
+echo "========================================================================="
+Print_Style "Cambiando copia de seguridad a zip" "$YELLOW"
+sudo sed -i "s/tar -pzvcf/zip -r/g" $DirName/minecraftbe/$ServerName/start.sh
+sudo sed -i "s/.tar.gz/.zip/g" $DirName/minecraftbe/$ServerName/start.sh
+sleep 2s
+echo "========================================================================="
+
+echo "========================================================================="
+Print_Style "Cambiando respaldos de seguridad de 10 a 20" "$YELLOW"
+sudo sed -i "s/-10/-20/g" $DirName/minecraftbe/$ServerName/start.sh
+sleep 2s
+echo "========================================================================="
+
+# Cambio stop.sh
+echo "========================================================================="
+Print_Style "Traduciendo mensajes al detener el servidor" "$YELLOW"
+sudo sed -i "s/Stopping server in/Deteniendo el Servidor en/g" $DirName/minecraftbe/$ServerName/stop.sh
+sudo sed -i "s/seconds/segundos/g" $DirName/minecraftbe/$ServerName/stop.sh
+sudo sed -i "s/Stopping server/Servidor detenido o cerrado/g" $DirName/minecraftbe/$ServerName/stop.sh
+sleep 2s
+echo "========================================================================="
+
+# Cambio restart.sh
+echo "========================================================================="
+Print_Style "Traduciendo mensajes de reinicio en el servidor" "$YELLOW"
+sudo sed -i "s/Server is restarting in/Reiniciando en/g" $DirName/minecraftbe/$ServerName/restart.sh
+sudo sed -i "s/seconds/segundos/g" $DirName/minecraftbe/$ServerName/restart.sh
+sudo sed -i "s/Closing server/Reiniciando servidor/g" $DirName/minecraftbe/$ServerName/restart.sh
+sleep 2s
+echo "========================================================================="
 
 cd ~
 cd minecraftbe
@@ -279,17 +273,6 @@ cd Minecraft-BE-Server-Panel-Admin-Web
 sudo mv location $DirName/minecraftbe/
 sudo mv ngnixsize $DirName/minecraftbe/
 sudo mv misitio.conf $DirName/minecraftbe/
-
-#### busca la linea de la palabra: # Retrieve latest version of Minecraft Bedrock dedicated server
-#### y la reemplaza con el contenido del documento: start.txt
-#### en el archivo de texto: start.sh
-echo "========================================================================="
-Print_Style "Configurando start.sh para copias de seguridad en la nube" "$YELLOW"
-sudo sed -i '/# Retrieve latest version of Minecraft Bedrock dedicated server/ {
-r start.txt
-d}' $DirName/minecraftbe/$ServerName/start.sh
-echo "========================================================================="
-sleep 2s
 
 cd ~
 cd minecraftbe
@@ -542,6 +525,7 @@ sudo rm -rf Minecraft-BE-Server-Panel-Admin-Web
   sudo sed -i "s:PuertoIPV6:$PortIPV6:g" $DirName/minecraftbe/config/srvdatos.json
 
   sudo rm -rf $DirName/install.sh
+  sudo rm -rf $DirName/start.txt
   sudo rm -rf $DirName/panel.txt
   sudo rm -rf $DirName/panel.sh
   sudo rm -rf $DirName/downloads
@@ -603,3 +587,4 @@ sudo systemctl restart nginx
 # Dormir por 8 segundos para que el servidor inicie
   #  sleep 8s
   #  screen -r $ServerName
+
