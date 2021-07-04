@@ -118,7 +118,7 @@ cd ~
 # Cambio Preguntas a Español
 echo "========================================================================="
 Print_Style "Traduciendo Inicio screen" "$YELLOW"
-sudo sed -i "s/Minecraft server has started.  Type screen -r \$ServerName to view the running server/El servidor de Minecraft se ha iniciado. Escriba screen -r servername para ver el servidor en ejecución/g" SetupMinecraft.sh
+sudo sed -i "s/Minecraft server has started.  Type screen -r \$ServerName to view the running server/El servidor de Minecraft se ha iniciado. Escriba screen -r \$ServerName para ver el servidor en ejecución/g" SetupMinecraft.sh
 sleep 2s
 echo "========================================================================="
 
@@ -146,6 +146,13 @@ echo "========================================================================="
 echo "========================================================================="
 Print_Style "Traduciendo Copia de seguridad automatica" "$YELLOW"
 sudo sed -i "s/Automatically restart and backup server at 4am daily/Reiniciar y hacer copia del mundo a las 4am todos los dias/g" SetupMinecraft.sh
+sleep 2s
+echo "========================================================================="
+
+# Desactivando eliminacion de SetupMinecraft.sh para que no lo descargue de nuevo
+echo "========================================================================="
+Print_Style "Desactivando eliminacion de SetupMinecraft.sh" "$YELLOW"
+sudo sed -i "s/curl https/# curl https/g" SetupMinecraft.sh
 sleep 2s
 echo "========================================================================="
 
