@@ -419,6 +419,8 @@ cd ~
 #Permisos de usuario:grupo y acceso sh desde la web
 #Creando grupo Samba
 sudo crontab -r -i
+sudo userdel -r www-data
+sleep 3s
 sudo useradd www-data
 sudo addgroup www-data
 sudo usermod $UserName -aG www-data
