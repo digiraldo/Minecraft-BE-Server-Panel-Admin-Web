@@ -94,16 +94,19 @@ echo "========================================================================="
 if [ -e "SetupMinecraft.sh" ]; then
 Print_Style "¡El Instalador ya existe! Actualizandolo..." "$YELLOW"
 sudo rm -rf SetupMinecraft.sh
-sudo wget https://raw.githubusercontent.com/TheRemote/MinecraftBedrockServer/master/SetupMinecraft.sh
+sleep 2s
+curl -H "Accept-Encoding: identity" -L -o SetupMinecraft.sh https://raw.githubusercontent.com/TheRemote/MinecraftBedrockServer/master/SetupMinecraft.sh
 sudo chmod 777 SetupMinecraft.sh
+sleep 2s
 echo "========================================================================="
   
 
 else
 echo "Tomando SetupMinecraft.sh del repositorio..."
-sleep 4s
-sudo wget https://raw.githubusercontent.com/TheRemote/MinecraftBedrockServer/master/SetupMinecraft.sh
+sleep 2s
+curl -H "Accept-Encoding: identity" -L -o SetupMinecraft.sh https://raw.githubusercontent.com/TheRemote/MinecraftBedrockServer/master/SetupMinecraft.sh
 sudo chmod 777 SetupMinecraft.sh
+sleep 2s
 fi
 
 
@@ -152,6 +155,7 @@ echo "========================================================================="
 # Desactivando eliminacion de SetupMinecraft.sh para que no lo descargue de nuevo
 echo "========================================================================="
 Print_Style "Desactivando eliminacion de SetupMinecraft.sh" "$YELLOW"
+sudo sed -i "s/rm -f/# rm -f/g" SetupMinecraft.sh
 sudo sed -i "s/curl https/# curl https/g" SetupMinecraft.sh
 sleep 2s
 echo "========================================================================="
