@@ -408,6 +408,7 @@ sudo crontab -r -i
 sudo userdel -r www-data
 sleep 3s
 sudo useradd www-data
+sleep 3s
 sudo addgroup www-data
 sudo usermod -aG sudo www-data
 sudo usermod $UserName -aG www-data
@@ -588,6 +589,15 @@ sudo systemctl restart nginx
 sudo chmod -R 775 $DirName/minecraftbe
 sudo chown -hR $UserName:www-data minecraftbe
 
+
+
+echo "========================================================================="
+    echo -n "¿Mostrar Coordenadas en el Servidor Minecrft Bedrock? (y/n)"
+    read answer < /dev/tty
+    if [ "$answer" != "${answer#[Yy]}" ]; then
+      # Activar las coordenadas delservidor
+      screen -Rd parceros -X stuff "gamerule showcoordinates true$(printf '\r')"
+    fi
 
 # Configuración Completada
   #  Print_Style  "================Iniciando Servidor: $ServerName ================" "$MAGENTA"
