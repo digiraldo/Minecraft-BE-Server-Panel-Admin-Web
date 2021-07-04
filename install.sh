@@ -94,14 +94,15 @@ echo "========================================================================="
 if [ -e "SetupMinecraft.sh" ]; then
 Print_Style "¡El Instalador ya existe! Actualizandolo..." "$YELLOW"
 sudo rm -rf SetupMinecraft.sh
-wget https://raw.githubusercontent.com/TheRemote/MinecraftBedrockServer/master/SetupMinecraft.sh
+sudo wget https://raw.githubusercontent.com/TheRemote/MinecraftBedrockServer/master/SetupMinecraft.sh
 sudo chmod 777 SetupMinecraft.sh
 echo "========================================================================="
   
 
 else
 echo "Tomando SetupMinecraft.sh del repositorio..."
-wget https://raw.githubusercontent.com/TheRemote/MinecraftBedrockServer/master/SetupMinecraft.sh
+sleep 4s
+sudo wget https://raw.githubusercontent.com/TheRemote/MinecraftBedrockServer/master/SetupMinecraft.sh
 sudo chmod 777 SetupMinecraft.sh
 fi
 
@@ -159,7 +160,7 @@ echo "========================================================================="
 # Ejecutar SetupMinecraft.sh Modificado
 echo "========================================================================="
 Print_Style "Ejecutando SetupMinecraft.sh" "$MAGENTA"
-sleep 2s
+sleep 4s
 # curl $DirName/SetupMinecraft.sh | bash
 /bin/bash SetupMinecraft.sh 
 echo "========================================================================="
