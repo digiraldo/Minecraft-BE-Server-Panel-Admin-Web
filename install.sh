@@ -221,6 +221,8 @@ sudo sed -i "s/Grabbing/Agarrando/g" SetupMinecraft.sh
 sudo sed -i "s/from repository.../desde el repositorio .../g" SetupMinecraft.sh
 sudo sed -i "s/Setup is complete.  Starting Minecraft \$ServerName server.  To view the console use the command screen -r or check the logs folder if the server fails to start/La instalación está completa. Iniciando el servidor Minecraft \$ServerName. Para ver la consola, use el comando screen -r o verifique la carpeta de registros si el servidor no se inicia/g" SetupMinecraft.sh
 sudo sed -i "s/Minecraft server has started.  Type screen -r \$ServerName to view the running server/El servidor de Minecraft se ha iniciado. Escriba screen -r \$ServerName para ver el servidor en ejecución/g" SetupMinecraft.sh
+sudo sed -i "s/You can adjust\/remove the selected reboot time later by typing crontab -e or running SetupMinecraft.sh again/Puede ajustar\/eliminar el tiempo de reinicio seleccionado más tarde escribiendo crontab -e o ejecutando SetupMinecraft.sh nuevamente/g" SetupMinecraft.sh
+sudo sed -i "s/Don't forget to set up port forwarding on your router!  The default port is 19132/¡No olvide configurar el reenvío de puertos en su enrutador! El puerto predeterminado es 19132/g" SetupMinecraft.sh
 echo "========================================================================="
 
 
