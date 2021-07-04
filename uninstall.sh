@@ -93,6 +93,35 @@ Print_Style "Quitando PHP" "$MAGENTA"
 sleep 2s
 sudo apt-get purge --auto-remove php-fpm -y
 echo "========================================================================="
+echo "========================================================================="
+Print_Style "Buscando Version Apache" "$MAGENTA"
+sleep 2s
+sudo apache2 -v
+echo "========================================================================="
+sleep 3s
+sudo systemctl stop apache2
+Print_Style "Quitando Apache" "$MAGENTA"
+sleep 2s
+sudo apt remove apache2
+sudo apt purge apache2
+sudo apt-get --purge remove apache-common
+sudo apt-get --purge remove apache
+Print_Style "Eliminando Archivos de configuarcion de apache" "$BLUE"
+sudo find /etc -name "*apache*" |xargs  rm -rf 
+sudo rm -rf /var/www
+sudo rm -rf /etc/libapache2-mod-jk
+sudo rm -rf /etc/init.d/apache2
+sudo rm -rf /etc/apache2
+Print_Style "Eliminando Asociacion de apache" "$BLUE"
+dpkg -l |grep apache2|awk '{print $2}'|xargs dpkg -P
+Print_Style "Eliminando Svn" "$BLUE"
+sudo apt-get remove subversion
+sudo apt-get remove libapache2-svn
+Print_Style "verificar, si no hay retorno" "$YELLOW"
+dpkg -l | grep apache y dpkg -l | grep apache2
+echo "========================================================================="
+
+
 
 echo "========================================================================="
     echo -n "¿Instalar Servidor Minecrft Bedrock? (y/n)"
