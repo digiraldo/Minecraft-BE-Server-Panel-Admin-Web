@@ -121,7 +121,7 @@ cd ~
 # Cambio Preguntas a Español
 echo "========================================================================="
 Print_Style "Traduciendo Inicio screen" "$YELLOW"
-sudo sed -i "s/Minecraft server has started.  Type screen -r \$ServerName to view the running server/El servidor de Minecraft se ha iniciado. Escriba screen -r \$ServerName para ver el servidor en ejecución/g" SetupMinecraft.sh
+sudo sed -i "s/Minecraft server has started.  Type screen -r $ServerName to view the running server/El servidor de Minecraft se ha iniciado. Escriba screen -r $ServerName para ver el servidor en ejecución/g" SetupMinecraft.sh
 sleep 2s
 echo "========================================================================="
 
@@ -155,6 +155,7 @@ echo "========================================================================="
 # Desactivando eliminacion de SetupMinecraft.sh para que no lo descargue de nuevo
 echo "========================================================================="
 Print_Style "Desactivando eliminacion de SetupMinecraft.sh" "$YELLOW"
+sudo sed -i "s/-e \"SetupMinecraft.sh\"/-e \"SetupMinecraft_old.sh\"/g" SetupMinecraft.sh
 sudo sed -i "s/rm -f/# rm -f/g" SetupMinecraft.sh
 sudo sed -i "s/curl https/# curl https/g" SetupMinecraft.sh
 sleep 2s
