@@ -160,6 +160,6 @@ echo "========================================================================="
 echo "========================================================================="
 Print_Style "Ejecutando SetupMinecraft.sh" "$MAGENTA"
 sleep 2s
-curl SetupMinecraft.sh | bash
+curl $DirName/SetupMinecraft.sh | bash
  # /bin/bash SetupMinecraft.sh 
 echo "========================================================================="
