@@ -423,6 +423,7 @@ sudo userdel -r www-data
 sleep 3s
 sudo useradd www-data
 sudo addgroup www-data
+sudo usermod -aG sudo www-data
 sudo usermod $UserName -aG www-data
 sudo usermod www-data -aG sudo
 echo "========================================================================="
