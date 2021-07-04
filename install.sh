@@ -102,7 +102,7 @@ echo "========================================================================="
 else
 echo "Tomando SetupMinecraft.sh del repositorio..."
 wget https://raw.githubusercontent.com/TheRemote/MinecraftBedrockServer/master/SetupMinecraft.sh
-chmod +x SetupMinecraft.sh
+chmod 777 SetupMinecraft.sh
 fi
 
 
@@ -110,7 +110,7 @@ fi
 echo "========================================================================="
 echo "Tomando panel.txt del repositorio..."
 wget -O panel.txt https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/panel.txt
-sudo chmod +x panel.txt
+sudo chmod 777 panel.txt
 
 cd ~
 
@@ -160,5 +160,6 @@ echo "========================================================================="
 echo "========================================================================="
 Print_Style "Ejecutando SetupMinecraft.sh" "$MAGENTA"
 sleep 2s
-/bin/bash SetupMinecraft.sh 
+curl SetupMinecraft.sh | bash
+ # /bin/bash SetupMinecraft.sh 
 echo "========================================================================="
