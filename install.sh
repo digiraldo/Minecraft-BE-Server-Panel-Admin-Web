@@ -57,6 +57,20 @@ function read_with_prompt {
   BackConfig=backub_config
 
 cd ~
+# Instale las dependencias necesarias para ejecutar el servidor de Minecraft en segundo plano
+Print_Style "Instalando screen, unzip, sudo, net-tools, wget y otras dependencias..." "$CYAN"
+if [ ! -n "`which sudo`" ]; then
+  apt update && apt install sudo -y
+fi
+sudo apt update
+sudo apt-get install php-zip -y
+sudo apt-get install zip gzip tar -y
+sudo apt-get install curl -y
+  # sudo apt install -y software-properties-common
+  # sudo add-apt-repository universe -y
+  # sudo apt-get install ssh -y
+  # sudo apt install git -y
+cd ~
 if [ ! -d "backub_config" ]; then
 echo "El directorio ${BackConfig} no existe"
   sudo mkdir backub_config
@@ -118,14 +132,6 @@ sudo chmod 777 panel.txt
 
 cd ~
 
-# Cambio Preguntas a Español
-echo "========================================================================="
-Print_Style "Traduciendo Inicio screen" "$YELLOW"
-sudo sed -i "s/Minecraft server has started.  Type screen -r \$ServerName to view the running server/El servidor de Minecraft se ha iniciado. Escriba screen -r \$ServerName para ver el servidor en ejecución/g" SetupMinecraft.sh
-sleep 2s
-echo "========================================================================="
-
-
 #### busca la linea de la palabra: sudo systemctl start $ServerName.service
 #### y la reemplaza con el contenido del documento: panel.txt
 #### en el archivo de texto: start.sh
@@ -139,18 +145,58 @@ sleep 2s
 
 # No especiales $, *, ., [, y \
 
+#  Print_Style "Cambiando Traduciendo Palabras" "$BLUE"
+#  sleep 2s
+#  sudo sed -i "s/ingles/espanol/g" Ubicacion_Archivo_a_Modificar
+
 # Cambio Preguntas a Español
 echo "========================================================================="
-Print_Style "Traduciendo Inicio de Servidor Automático" "$YELLOW"
-sudo sed -i "s/Start Minecraft server at startup automatically/Iniciar el servidor de Minecraft al inicio automáticamente/g" SetupMinecraft.sh
+Print_Style "Traduciendo Configuracion del Servidor" "$YELLOW"
+echo "========================================================================="
+echo "========================================================================="
+Print_Style "Traduciendo Ingreso de nombre corto" "$BLUE"
 sleep 2s
-echo "========================================================================="
+sudo sed -i "s/Enter a short one word label for a new or existing server/Ingrese una etiqueta corta de una palabra para un servidor nuevo o existente/g" SetupMinecraft.sh
+sudo sed -i "s/don't use minecraftbe/no uses minecraftbe/g" SetupMinecraft.sh
+sudo sed -i "s/It will be used in the folder name and service name/Se utilizará en el nombre de la carpeta y el nombre del servicio./g" SetupMinecraft.sh
 
-echo "========================================================================="
-Print_Style "Traduciendo Copia de seguridad automatica" "$YELLOW"
+Print_Style "Traduciendo Etiqueta o apodo del Servidor" "$BLUE"
+sleep 2s
+sudo sed -i "s/Server Label/Etiqueta del Servidor/g" SetupMinecraft.sh
+
+Print_Style "Traduciendo Ingreso IPV4 e IPV&" "$BLUE"
+sleep 2s
+# IPV4
+sudo sed -i "s/Enter server IPV4 port/Ingrese el Puerto IPV4 del Servidor/g" SetupMinecraft.sh
+sudo sed -i "s/default 19132/por defecto 19132/g" SetupMinecraft.sh
+sudo sed -i "s/ingles/Puerto IPV4 del Servidor/g" SetupMinecraft.sh
+# IPV6
+sudo sed -i "s/Enter server IPV6 port/Ingrese el puerto IPV6 del Servidor/g" SetupMinecraft.sh
+sudo sed -i "s/default 19133/por defecto 19133/g" SetupMinecraft.sh
+sudo sed -i "s/Server IPV6 Port/Puerto IPV6 del Servidor/g" SetupMinecraft.sh
+
+Print_Style "Traduciendo Inicio del Servidor" "$BLUE"
+sleep 2s
+sudo sed -i "s/Start Minecraft server at startup automatically/Iniciar el servidor de Minecraft al inicio automáticamente/g" SetupMinecraft.sh
+
+Print_Style "Traduciendo Hacer copias de Seguridad" "$BLUE"
+sleep 2s
 sudo sed -i "s/Automatically restart and backup server at 4am daily/Reiniciar y hacer copia del mundo a las 4am todos los dias/g" SetupMinecraft.sh
 sleep 2s
+
+Print_Style "Traduciendo Configuración Reinicio" "$BLUE"
+sleep 2s
+sudo sed -i "s/Your time zone is currently set to/Su zona horaria está configurada actualmente en/g" SetupMinecraft.sh
+sudo sed -i "s/Current system time/Hora actual del sistema/g" SetupMinecraft.sh
+sudo sed -i "s/You can adjust\/remove the selected reboot time later by typing crontab -e or running SetupMinecraft.sh again./You can adjust\/remove the selected reboot time later by typing crontab -e or running SetupMinecraft.sh again./g" SetupMinecraft.sh
+sudo sed -i "s/Daily restart scheduled.  To change time or remove automatic restart type crontab -e/Reinicio diario programado. Para cambiar la hora o eliminar el reinicio automático, escriba crontab -e/g" SetupMinecraft.sh
+sudo sed -i "s/Setup is complete.  Starting Minecraft server. To view the console use the command screen -r or check the logs folder if the server fails to start/La instalación está completa. Iniciando el Servidor de Minecraft. Para ver la consola, use el comando screen -r o verifique la carpeta de registros si el Servidor no se inicia/g" SetupMinecraft.sh
+sudo sed -i "s/Grabbing/Agarrando/g" SetupMinecraft.sh
+sudo sed -i "s/from repository.../desde el repositorio .../g" SetupMinecraft.sh
+sudo sed -i "s/Setup is complete.  Starting Minecraft \$ServerName server.  To view the console use the command screen -r or check the logs folder if the server fails to start/La instalación está completa. Iniciando el servidor Minecraft \$ServerName. Para ver la consola, use el comando screen -r o verifique la carpeta de registros si el servidor no se inicia/g" SetupMinecraft.sh
+sudo sed -i "s/Minecraft server has started.  Type screen -r \$ServerName to view the running server/El servidor de Minecraft se ha iniciado. Escriba screen -r \$ServerName para ver el servidor en ejecución/g" SetupMinecraft.sh
 echo "========================================================================="
+
 
 # Desactivando eliminacion de SetupMinecraft.sh para que no lo descargue de nuevo
 echo "========================================================================="
@@ -167,7 +213,6 @@ echo "========================================================================="
    # sudo sed -i "s/screen -r \$ServerName/bin\/bash panel.sh/g" SetupMinecraft.sh
    # sleep 2s
    # echo "========================================================================="
-
 
 # Ejecutar SetupMinecraft.sh Modificado
 echo "========================================================================="

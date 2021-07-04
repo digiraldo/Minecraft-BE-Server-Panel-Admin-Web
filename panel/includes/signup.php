@@ -85,6 +85,9 @@ $esValido = true;
 //if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['permission'] == 'visitor')
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
+    shell_exec('sudo chmod -R 775 dirname/minecraftbe');
+    shell_exec('sudo chown -hR username:www-data dirname/minecraftbe');
+
     $registroN = array_merge($registroN, $_POST);
     $esValido = validarRegistro($registroN, $error);
     if ($esValido) {

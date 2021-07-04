@@ -45,20 +45,6 @@ Print_Style() {
 
 cd ~
 
-# Instale las dependencias necesarias para ejecutar el servidor de Minecraft en segundo plano
-Print_Style "Instalando screen, unzip, sudo, net-tools, wget y otras dependencias..." "$CYAN"
-if [ ! -n "`which sudo`" ]; then
-  apt update && apt install sudo -y
-fi
-sudo apt update
-sudo apt install -y software-properties-common
-sudo add-apt-repository universe -y
-sudo apt-get install ssh -y
-sudo apt install git -y
-sudo apt-get install php-zip -y
-#  sudo apt install vim -y
-
-
 ##### NOTA, Verificar si actualizó los Servername = servername, Dirname = dirname, Username = username
 ##### NOTA, Verificar si actualizó los Servername = $ServerName, Dirname = $DirName, Username = $UserName
 
@@ -290,12 +276,12 @@ sudo mv location $DirName/minecraftbe/
 sudo mv ngnixsize $DirName/minecraftbe/
 sudo mv misitio.conf $DirName/minecraftbe/
 
-#### busca la linea de la palabra: # Rotate backups -- keep most recent 10
+#### busca la linea de la palabra: # Retrieve latest version of Minecraft Bedrock dedicated server
 #### y la reemplaza con el contenido del documento: start.txt
 #### en el archivo de texto: start.sh
 echo "========================================================================="
 Print_Style "Configurando start.sh para copias de seguridad en la nube" "$YELLOW"
-sudo sed -i '/# Rotate backups -- keep most recent 10/ {
+sudo sed -i '/# Retrieve latest version of Minecraft Bedrock dedicated server/ {
 r start.txt
 d}' $DirName/minecraftbe/$ServerName/start.sh
 echo "========================================================================="

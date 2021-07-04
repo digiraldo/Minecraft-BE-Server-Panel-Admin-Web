@@ -1,5 +1,3 @@
-# Rotate backups -- keep most recent 10
-Rotate=$(pushd dirname/minecraftbe/servername/backups; ls -1tr | head -n -20 | xargs -d '\n' rm -f --; popd)
 
 echo "Realizando Copias de seguridad de cofiguracion y whitelist"
 # Crear directorios config/whitelist/all_backub si no existen
@@ -59,3 +57,6 @@ echo "No se encuentra habilitado copia de seguridad en la nube..."
 fi
 echo "========================================================================="
 sleep 4s
+
+
+# Retrieve latest version of Minecraft Bedrock dedicated server

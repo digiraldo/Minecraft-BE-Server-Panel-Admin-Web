@@ -39,11 +39,21 @@ switch ($accion) {
 
         // REalizar Copia de Serguridad
     case 'btnCopia':
-        $txtCopia = shell_exec("sudo zip -r dirname/minecraftbe/servername/backups/$(date +%Y.%m.%d_%H\:%M\:%S_servername).zip dirname/minecraftbe/servername/worlds");
-        $btnaccion = 'Respaldo o copia de seguridad manual realizado con exito';
-        unset($_POST);
-        unset($_REQUEST);
-        header("Location: " . $_SERVER['PHP_SELF']);
+        if ($_GET['copia']) {
+            # This code will run if ?run=true is set.
+            // exec("dirname/minecraftbe/servername/stop.sh");
+            shell_exec("sudo zip -r dirname/minecraftbe/servername/backups/$(date +%Y.%m.%d_%H\:%M\:%S_servername).zip dirname/minecraftbe/servername/worlds");
+            $btnaccion = 'Respaldo o copia de seguridad manual realizado con exito';
+            unset($_POST);
+            unset($_REQUEST);
+            header("Location: " . $_SERVER['PHP_SELF']);
+          }
+        
+        //$txtCopia = shell_exec("sudo zip -r dirname/minecraftbe/servername/backups/$(date +%Y.%m.%d_%H\:%M\:%S_servername).zip dirname/minecraftbe/servername/worlds");
+        //$btnaccion = 'Respaldo o copia de seguridad manual realizado con exito';
+        //unset($_POST);
+        //unset($_REQUEST);
+        //header("Location: " . $_SERVER['PHP_SELF']);
         break;
 
     case 'btnCopiaSw':
