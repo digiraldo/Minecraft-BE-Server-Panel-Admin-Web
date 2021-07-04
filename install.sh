@@ -127,7 +127,7 @@ echo "========================================================================="
 #### en el archivo de texto: start.sh
 echo "========================================================================="
 Print_Style "Configurando SetupMinecraft.sh para integrar el Panel" "$YELLOW"
-sudo sed -i '/sudo systemctl start $ServerName.service/ {
+sudo sed -i '/sudo systemctl start \$ServerName\.service/ {
 r panel.txt
 d}' SetupMinecraft.sh
 echo "========================================================================="
