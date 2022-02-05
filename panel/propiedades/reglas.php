@@ -31,9 +31,10 @@ require 'editar.php';
 <div class="card text-white bg-dark">
 <div class="card-body">
 <h5 class="card-title">
-<a href="#" data-toggle="tooltip" data-placement="right" title="<img class='rounded-lg' width='150px'  src='../includes/img/<?php echo $data[17]['btn'] ?>' />">
-<img class="rounded-circle" width="30px" height="30px" src="../includes/img/<?php echo $data[17]['btn'] ?>" /></a>
-Editar: <b><?php echo $data[18]['name']; ?></b>
+<!-- <a href="#" data-toggle="tooltip" data-placement="right" title="<img class='rounded-lg' width='150px'  src='../includes/img/<?php echo $data[17]['btn'] ?>' />"> -->
+<!-- <img class="rounded-circle" width="30px" height="30px" src="../includes/img/<?php echo $data[17]['btn'] ?>" /></a> -->
+<p><i class="fas fa-tasks fa-lg" style="color: #ff922b;"></i>  Editar: <b><?php echo $data[18]['name']; ?></b></p>
+
 
     <div class="custom-control custom-switch custom-switch-md">
         <form method="POST" role="form" enctype="multipart/form-data">

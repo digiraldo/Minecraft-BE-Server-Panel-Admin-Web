@@ -26,9 +26,10 @@ require 'editar.php';
 <div class="card text-white bg-dark">
 <div class="card-body">
 <h5 class="card-title">
-<a href="#" data-toggle="tooltip" data-placement="right" title="<img class='rounded-lg' width='150px'  src='../includes/img/<?php echo $data[17]['btn'] ?>' />">
-<img class="rounded-circle" width="30px" height="30px" src="../includes/img/<?php echo $data[17]['btn'] ?>" /></a>
-Editar: <b>Alertas</b>
+<!-- <a href="#" data-toggle="tooltip" data-placement="right" title="<img class='rounded-lg' width='150px'  src='../includes/img/<?php echo $data[17]['btn'] ?>' />">
+<img class="rounded-circle" width="30px" height="30px" src="../includes/img/<?php echo $data[17]['btn'] ?>" /></a> -->
+<p><i class="fas fa-tasks fa-lg" style="color: #ff922b;"></i>  Editar: <b>Alertas</b></p>
+
 <a href="index.php" type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
 <span aria-hidden="true"><i class="fas fa-window-close"></i></span>
 </a>

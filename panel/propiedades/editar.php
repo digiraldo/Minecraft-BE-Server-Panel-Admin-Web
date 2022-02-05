@@ -512,7 +512,7 @@ switch ($accion) {
                 }
             }
         }
-
+              
         $newJsonString = json_encode($data, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
         file_put_contents(__DIR__ . '../../../config/srvdatos.json', $newJsonString);
 
