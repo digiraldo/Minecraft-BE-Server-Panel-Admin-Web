@@ -384,7 +384,7 @@ sudo sed -i "s/80/$Port/g" $DirName/minecraftbe/config/srvdatos.json
 sudo sed -i "s/80/$Port/g" /etc/nginx/sites-available/misitio.conf
 sudo sed -i "s/versionphp/$VePHP/g" /etc/nginx/sites-available/misitio.conf
 sudo sed -i "s/versionphp/$VePHP/g" /etc/nginx/sites-available/default
-sudo sed -i "s:Dedicated Server:$ServerName:g" $DirName/minecraftbe/parceros/server.properties
+sudo sed -i "s:Dedicated Server:$ServerName:g" $DirName/minecraftbe/$ServerName/server.properties
 echo "========================================================================="
 sleep 2s
 #sudo sh -c "echo '$IPV4' >> minecraftbe/server.ip"
@@ -595,8 +595,8 @@ echo "========================================================================="
     echo -n "¿Mostrar Coordenadas en el Servidor Minecrft Bedrock? (y/n)"
     read answer < /dev/tty
     if [ "$answer" != "${answer#[Yy]}" ]; then
-      # Activar las coordenadas delservidor
-      screen -Rd parceros -X stuff "gamerule showcoordinates true$(printf '\r')"
+      # Activar las coordenadas del servidor
+      screen -Rd $ServerName -X stuff "gamerule showcoordinates true$(printf '\r')"
     fi
 
 # Configuración Completada
@@ -607,4 +607,3 @@ echo "========================================================================="
 # Dormir por 8 segundos para que el servidor inicie
   #  sleep 8s
   #  screen -r $ServerName
-
