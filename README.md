@@ -39,17 +39,14 @@ Antes de iniciar hay que aclarar que el Servidor dedicado de Minecraft Bedrock E
 Se recomienda usar Ubuntu Server para ejecutar el servidor dedicado de Minecraft. Está disponible aquí:
 [Ubuntu Server](https://ubuntu.com/download/server)   ó  [Ubuntu Server 18.04](http://cdimage.ubuntu.com/releases/18.04/release/)
 
-Una vez tenga su Computador o Servidor Virtual VPS, Inicie sesión en su servidor Linux usando SSH con un mouse y/o teclado copie y pegue el siguiente comando:
+Una vez tenga su Computador o Servidor Virtual VPS, Inicie sesión en su servidor Linux usando SSH con un mouse y/o teclado copie y pegue uno de los siguientes comandos:
 
-INSTALACION DE MINECRAFT BEDROCK EDITION SERVER SIN PANEL DE ADMINISTRACIÓN
-
+INSTALACION DE MINECRAFT BEDROCK EDITION SERVER SIN PANEL DE ADMINISTRACIÓN por: [James A. Chambers](https://jamesachambers.com/minecraft-bedrock-edition-ubuntu-dedicated-server-guide/), en su idioma original inglés.
 ```
-wget https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server/main/SetupMinecraft.sh
-chmod +x SetupMinecraft.sh
-./SetupMinecraft.sh
+curl https://raw.githubusercontent.com/TheRemote/MinecraftBedrockServer/master/SetupMinecraft.sh | bash
 ```
 
-INSTALACION DE MINECRAFT BEDROCK EDITION SERVER CON PANEL DE ADMINISTRACIÓN (Beta)
+INSTALACION DE MINECRAFT BEDROCK EDITION SERVER CON PANEL DE ADMINISTRACIÓN (Beta) Instala el repositorio de [James A. Chambers](https://github.com/TheRemote/MinecraftBedrockServer) y se añade código web para su administración online.
 
 ```
 wget https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/install.sh
@@ -58,6 +55,8 @@ chmod +x install.sh
 ```
 
 Ver Instalación completa en: [Instalar Panel Web](https://gorobeta.blogspot.com/2021/04/instalar-minecraft-bedrock-edition-panel-admin.html)
+
+Ver Demo OnLine (Solo el panel de Administración Web) en [Probar Panel Web](https://dipanel.herokuapp.com)
 #
 #
 #
@@ -71,4 +70,4 @@ Ver Instalación completa en: [Instalar Panel Web](https://gorobeta.blogspot.com
 *Aviso de Derechos `(copyright notice)`:*  
 Los archivos y/o documentación de instalacion del servidor minecraft **SetupMinecraft** asociados fueron realizados por:  
 Derechos de autor (c) 2019 James A. Chambers  
-Este tutorial fue realizado para ayudar a la comunidad en Español ya que hay poca información de instalación y configuracion en este idioma. Para más información y soporte, el repositorio de solo instalacion del servidor Minecraft sin panel web en su idioma original inglés: https://github.com/TheRemote/MinecraftBedrockServer
+Este tutorial fue realizado para ayudar a la comunidad en Español ya que hay poca información de instalación y configuración en este idioma. Para más información y soporte, el repositorio de solo instalacion del servidor Minecraft sin panel web en su idioma original inglés: https://github.com/TheRemote/MinecraftBedrockServer
