@@ -41,12 +41,14 @@ Se recomienda usar Ubuntu Server para ejecutar el servidor dedicado de Minecraft
 
 Una vez tenga su Computador o Servidor Virtual VPS, Inicie sesión en su servidor Linux usando SSH con un mouse y/o teclado copie y pegue uno de los siguientes comandos:
 
-INSTALACION DE MINECRAFT BEDROCK EDITION SERVER SIN PANEL DE ADMINISTRACIÓN por: [James A. Chambers](https://jamesachambers.com/minecraft-bedrock-edition-ubuntu-dedicated-server-guide/), en su idioma original inglés.
+## INSTALACION DE MINECRAFT BEDROCK EDITION SERVER SIN PANEL DE ADMINISTRACIÓN
+Por: [James A. Chambers](https://jamesachambers.com/minecraft-bedrock-edition-ubuntu-dedicated-server-guide/), en su idioma original inglés.
 ```
 curl https://raw.githubusercontent.com/TheRemote/MinecraftBedrockServer/master/SetupMinecraft.sh | bash
 ```
 
-INSTALACION DE MINECRAFT BEDROCK EDITION SERVER CON PANEL DE ADMINISTRACIÓN (Beta) Instala el repositorio de [James A. Chambers](https://github.com/TheRemote/MinecraftBedrockServer) y se añade código web para su administración online.
+## INSTALACION DE MINECRAFT BEDROCK EDITION SERVER CON PANEL DE ADMINISTRACIÓN (Beta)
+Instala el repositorio de [James A. Chambers](https://github.com/TheRemote/MinecraftBedrockServer) y se añade código web para su administración online.
 
 ```
 wget https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/install.sh
