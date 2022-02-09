@@ -279,7 +279,7 @@ switch ($accion) {
         // Habilitar permiso a jugadores en el Servidor sel Servidor
     case 'btnAllowlist':
         $line = $lines[36];
-        $ltext = "white-list=";
+        $ltext = "allow-list=";
         $true = $ltext . 'true' . "\n";
         $false = $ltext . 'false' . "\n";
 
