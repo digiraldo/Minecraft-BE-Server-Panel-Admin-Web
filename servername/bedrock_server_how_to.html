@@ -170,8 +170,8 @@
                 <td>true, false</td>
                 <td>false</td>
                 <td>Always</td>
-                <td>If true then all connected players must be listed in the separate <code>whitelist.json</code> file.
-                            See the <i>Whitelist</i> section.</td>
+                <td>If true then all connected players must be listed in the separate <code>allowlist.json</code> file.
+                            See the <i>Allowlist</i> section.</td>
             </tr>
             <tr>
                 <td>allow-cheats</td>
@@ -313,15 +313,15 @@
         </tbody>
     </table>
 
-    <h2>Whitelist</h2>
+    <h2>Allowlist</h2>
     <p>
-        If the <code>white-list</code> property is enabled in <code>server.properties</code> then the server will only allow selected users to connect. To allow a user to connect you need to know their Xbox Live Gamertag. The easiest way to add a user to the whitelist is to use the command <code>whitelist add &lt;Gamertag&gt;</code> (eg: <code>whitelist add ExampleName</code>). Note: If there is a white-space in the Gamertag you need to enclose it with double quotes: <code>whitelist add "Example Name"</code>
+        If the <code>white-list</code> property is enabled in <code>server.properties</code> then the server will only allow selected users to connect. To allow a user to connect you need to know their Xbox Live Gamertag. The easiest way to add a user to the allowlist is to use the command <code>allowlist add &lt;Gamertag&gt;</code> (eg: <code>allowlist add ExampleName</code>). Note: If there is a white-space in the Gamertag you need to enclose it with double quotes: <code>allowlist add "Example Name"</code>
     </p>
     <p>
-        If you later want to remove someone from the list you can use the command <code>whitelist remove &lt;Gamertag&gt;</code>.
+        If you later want to remove someone from the list you can use the command <code>allowlist remove &lt;Gamertag&gt;</code>.
     </p>
     <p>
-        The whitelist will be saved in a file called <code>whitelist.json</code>. If you want to automate the process of adding or removing players from it you can do so. After you've modified the file you need to run the command <code>whitelist reload</code> to make sure that the server knows about your new change.
+        The allowlist will be saved in a file called <code>allowlist.json</code>. If you want to automate the process of adding or removing players from it you can do so. After you've modified the file you need to run the command <code>allowlist reload</code> to make sure that the server knows about your new change.
     </p>
     <p>
         The file contains a JSON array with objects that contains the following key/values.
@@ -353,7 +353,7 @@
         </tbody>
     </table>
     <p>
-        Example <code>whitelist.json</code> file:
+        Example <code>allowlist.json</code> file:
     </p>
     <pre>
 [
@@ -424,25 +424,25 @@
                 <td>Used to make atomic backups while the server is running. See the backup section for more information.</td>
             </tr>
             <tr>
-                <td>whitelist &lt;on | off | list | reload&gt;</td>
+                <td>allowlist &lt;on | off | list | reload&gt;</td>
                 <td>
                     <p>
-                        <code>on</code> and <code>off</code> turns the whitelist on and off. Note that this does not change the value in the <code>server.properties</code> file!
+                        <code>on</code> and <code>off</code> turns the allowlist on and off. Note that this does not change the value in the <code>server.properties</code> file!
                     </p>
                     <p>
-                        <code>list</code> prints the current whitelist used by the server
+                        <code>list</code> prints the current allowlist used by the server
                     </p>
                     <p>
-                        <code>reload</code> makes the server reload the whitelist from the file.
+                        <code>reload</code> makes the server reload the allowlist from the file.
                     </p>
                     <p>
-                        See the Whitelist section for more information.
+                        See the Allowlist section for more information.
                     </p>
                 </td>
             </tr>
             <tr>
-                <td>whitelist &lt;add | remove&gt; &lt;name&gt;</td>
-                <td>Adds or removes a player from the whitelist file. The name parameter should be the Xbox Gamertag of the player you want to add or remove. You don't need to specify a XUID here, it will be resolved the first time the player connects.<br/><br/>See the Whitelist section for more information.</td>
+                <td>allowlist &lt;add | remove&gt; &lt;name&gt;</td>
+                <td>Adds or removes a player from the allowlist file. The name parameter should be the Xbox Gamertag of the player you want to add or remove. You don't need to specify a XUID here, it will be resolved the first time the player connects.<br/><br/>See the Allowlist section for more information.</td>
             </tr>
             <tr>
                 <td>permission &lt;list | reload&gt;</td>

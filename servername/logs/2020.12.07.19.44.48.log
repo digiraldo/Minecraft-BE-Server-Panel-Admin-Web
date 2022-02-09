@@ -11,12 +11,12 @@ NO LOG FILE! - setting up server logging...
 [INFO] IPv4 supported, port: 37914
 [INFO] IPv6 supported, port: 59321
 [INFO] Server started.
-whitelist add disaned       gorobeta
-Player added to whitelist
-whitelist add disaned
-Player added to whitelist
-whitelist add masdesandra
-Player added to whitelist
+allowlist add disaned       gorobeta
+Player added to allowlist
+allowlist add disaned
+Player added to allowlist
+allowlist add masdesandra
+Player added to allowlist
 ^P  [INFO] Player connected: disaned, xuid: 2533274867672998
 [INFO] Player disconnected: disaned, xuid: 2533274867672998
 say El Servidor se reinicia en 30 Segundos, GUARDA TU PARTIDA! 

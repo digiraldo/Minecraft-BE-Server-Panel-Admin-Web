@@ -13,17 +13,17 @@ NO LOG FILE! - setting up server logging...
 [INFO] Server started.
 [INFO] Player connected: disaned, xuid: 2533274867672998
 [INFO] Player disconnected: disaned, xuid: 2533274867672998
-whitelist add PredritoFEr  er
-Player added to whitelist
-whitelist add Carlos        "Carlos Garzon"
-Player added to whitelist
-whitelist remove PedritoFEr  er
-Player not in whitelist
-whitelist remove PredritoFer
-Player removed from whitelist
-whitelist remove "Caros Garzon"
-Player not in whitelist
-whitelist remove "Carlos Garzon"
-Player removed from whitelist
-whitelist reload
-Whitelist reloaded from file.
+allowlist add PredritoFEr  er
+Player added to allowlist
+allowlist add Carlos        "Carlos Garzon"
+Player added to allowlist
+allowlist remove PedritoFEr  er
+Player not in allowlist
+allowlist remove PredritoFer
+Player removed from allowlist
+allowlist remove "Caros Garzon"
+Player not in allowlist
+allowlist remove "Carlos Garzon"
+Player removed from allowlist
+allowlist reload
+Allowlist reloaded from file.

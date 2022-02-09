@@ -16,7 +16,7 @@ $permisos = obtenerPermisos();
 //require '../administradores/administradores.php';
 //$roles = obtenerRol();
 
-// $jsonwhi = file_get_contents(__DIR__ . '../../../servername/whitelist.json');
+// $jsonwhi = file_get_contents(__DIR__ . '../../../servername/allowlist.json');
 // $usrwhi = json_decode($jsonwhi, true);
 
 
@@ -77,8 +77,8 @@ Panel
 <?php if ($_SESSION['id_rol'] == 4) : ?>
 <?php else : ?>
 
-<li class="<?php echo $active_whitelist;?>">
-<a class="nav-link" aria-current="page" href="../usuarios" data-toggle="tooltip" data-placement="bottom" title="<?php echo count($usuarios); ?> Jugadores Agregados"><i class="fas fa-user"></i> Whitelist<span class="badge badge-pill badge-primary"><?php echo count($usuarios); ?></span></a>
+<li class="<?php echo $active_allowlist;?>">
+<a class="nav-link" aria-current="page" href="../usuarios" data-toggle="tooltip" data-placement="bottom" title="<?php echo count($usuarios); ?> Jugadores Agregados"><i class="fas fa-user"></i> Allowlist<span class="badge badge-pill badge-primary"><?php echo count($usuarios); ?></span></a>
 </li>
 
 <?php if ($_SESSION['id_rol'] == 3) : ?>

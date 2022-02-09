@@ -13,7 +13,7 @@ if (empty($_SESSION['active'])) {
 
 
 $active_tablero = "active";
-$active_whitelist = "";
+$active_allowlist = "";
 $active_permisos = "";
 $active_admin = "";
 $active_mundo = "";
@@ -175,7 +175,7 @@ if (empty($online)) {
         <?php if ($_SESSION['id_rol'] == 0 || $_SESSION['id_rol'] == 1) : ?>
         <div class="card-body">
           <h5 class="card-title">Control del Servidor: servername</h5>
-          <p class="card-text">Aqui puede detener, iniciar y/o reiniciar el servidor, se recomienda reiniciar cada vez que realicen cambios en Whitelist, Permisos y/o Propiedades.</p>
+          <p class="card-text">Aqui puede detener, iniciar y/o reiniciar el servidor, se recomienda reiniciar cada vez que realicen cambios en Allowlist, Permisos y/o Propiedades.</p>
 
           <button value="btnDetener" class="btn btn-danger" type="submit" name="accion"><i class="fas fa-stop"></i> Detener</button>
           <button value="btnIniciar" class="btn btn-success" type="submit" name="accion"><i class="fas fa-play"></i> Iniciar</button>
@@ -207,7 +207,7 @@ if (empty($online)) {
 
           <div class="card-body">
           <h5 class="card-title">Control del Servidor: <?php echo $data[0]['spain']; ?></h5>
-          <p class="card-text">Aqui puede detener, iniciar y/o reiniciar el servidor, se recomienda reiniciar cada vez que realicen cambios en Whitelist, Permisos y/o Propiedades.</p></br>
+          <p class="card-text">Aqui puede detener, iniciar y/o reiniciar el servidor, se recomienda reiniciar cada vez que realicen cambios en Allowlist, Permisos y/o Propiedades.</p></br>
 
           <button value="btnIniciar" class="btn btn-success" type="submit" name="accion"><i class="fas fa-play"></i> Iniciar</button>
           <button value="btnReiniciar" class="btn btn-primary" type="submit" name="accion"><i class="fas fa-redo-alt"></i> Reiniciar</button>
@@ -310,13 +310,13 @@ if (empty($online)) {
         </div>
 <!--
         <div class="bg-primary col-sm-4 card text-white">
-          <div class="card-header font-weight-bold">Whitelist Gamertag</div>
+          <div class="card-header font-weight-bold">Allowlist Gamertag</div>
           <div class="card-body">
             <!-- <h3 class="card-title font-italic">AGREGADOS</h3> -->
 <!--            <i class="fas fa-user fa-4x"></i>
             <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark"><?php echo count($usuarios); ?></span></h4>
           </div>
-          <a href="#" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="<?php echo count($usuarios); ?> Jugadores Agregados">Ver Whitelist <span class="badge badge-light"><?php echo count($usuarios); ?></span></a>
+          <a href="#" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="<?php echo count($usuarios); ?> Jugadores Agregados">Ver Allowlist <span class="badge badge-light"><?php echo count($usuarios); ?></span></a>
         </div>
 -->
         <div class="bg-info col-sm-6 card text-white">
@@ -343,13 +343,13 @@ if (empty($online)) {
         </div>
 
         <div class="bg-primary col-sm-6 card text-white">
-          <div class="card-header font-weight-bold">Whitelist Gamertag</div>
+          <div class="card-header font-weight-bold">Allowlist Gamertag</div>
           <div class="card-body">
             <!-- <h3 class="card-title font-italic">AGREGADOS</h3> -->
             <i class="fas fa-user fa-4x"></i>
             <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark"><?php echo count($usuarios); ?></span></h4>
           </div>
-          <a href="../usuarios" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="<?php echo count($usuarios); ?> Jugadores Agregados">Ver Whitelist <span class="badge badge-light"><?php echo count($usuarios); ?></span></a>
+          <a href="../usuarios" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="<?php echo count($usuarios); ?> Jugadores Agregados">Ver Allowlist <span class="badge badge-light"><?php echo count($usuarios); ?></span></a>
         </div>
 
         <div class="bg-success col-sm-6 card text-white">
@@ -431,7 +431,7 @@ if (empty($online)) {
         </div>
 
         <div class="bg-primary col-sm-4 card text-white">
-          <div class="card-header font-weight-bold">Whitelist Gamertag</div>
+          <div class="card-header font-weight-bold">Allowlist Gamertag</div>
           <div class="card-body">
 <div class="progress">
   <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: <?php echo $conXuPorcentaje; ?>" aria-valuenow="<?php echo $conXuid; ?>" aria-valuemin="0" aria-valuemax="<?php echo $countXuid; ?>" data-toggle="tooltip" data-placement="top" title="<?php echo $conXuid; ?> Ingresaron - <?php echo $conXuPorcentaje; ?>"><?php echo $conXuid; ?></div>
@@ -441,7 +441,7 @@ if (empty($online)) {
             <i class="fas fa-user fa-4x"></i>
             <h4 class="card-text float-right display-4"><span class="badge badge-pill badge-dark"><?php echo count($usuarios); ?></span></h4>
           </div>
-          <a href="../usuarios" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="<?php echo $conXuid; ?> Ingresaron - <?php echo $sinXuid; ?> Sin Ingresar">Ver Whitelist <span class="badge badge-light"><?php echo count($usuarios); ?></span></a>
+          <a href="../usuarios" class="btn btn-outline-dark" data-toggle="tooltip" data-placement="top" title="<?php echo $conXuid; ?> Ingresaron - <?php echo $sinXuid; ?> Sin Ingresar">Ver Allowlist <span class="badge badge-light"><?php echo count($usuarios); ?></span></a>
         </div>
 
         <div class="bg-warning col-sm-4 card text-white">

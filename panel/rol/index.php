@@ -6,7 +6,7 @@ if ($_SESSION['id_rol'] != 0 && $_SESSION['id_rol'] != 1 && $_SESSION['id_rol'] 
 
 function obtenerUsu()
 {
-    return json_decode(file_get_contents(__DIR__ . '../../../servername/whitelist.json'), true);
+    return json_decode(file_get_contents(__DIR__ . '../../../servername/allowlist.json'), true);
 }
 
 
@@ -23,12 +23,12 @@ function obtenerUsuPorName($nam)
 
 
 
-$url = "../../servername/whitelist.json";
+$url = "../../servername/allowlist.json";
 $dataU = json_decode(file_get_contents($url), true);
 asort($dataU);
 
 $active_tablero = "";
-$active_whitelist = "";
+$active_allowlist = "";
 $active_permisos = "";
 $active_admin = "active";
 $active_mundo = "";
@@ -127,7 +127,7 @@ print_r($dataU);
               <i class='fas fa-atlas'></i> Pais: <?php echo $rol['pais']; ?><br/>
               <i class='fas fa-city'></i> Ciudad: <?php echo $rol['ciudad']; ?><br/>
               <i class='fas fa-user-tag'></i> <?php echo $rol['nombre']; ?><br/>
-              <i class='fas fa-check-circle'></i> Agregado a Whitelist<br/>
+              <i class='fas fa-check-circle'></i> Agregado a Allowlist<br/>
               ">
               <?php echo $rol['usuario']; ?>
                   <i class="fas fa-check-circle fa-xs" style="color: #008000;"></i>
@@ -136,7 +136,7 @@ print_r($dataU);
               <i class='fas fa-atlas'></i> Pais: <?php echo $rol['pais']; ?><br/>
               <i class='fas fa-city'></i> Ciudad: <?php echo $rol['ciudad']; ?><br/>
               <i class='fas fa-user-tag'></i> <?php echo $rol['nombre']; ?><br/>
-              <i class='fas fa-times-circle'></i> No agregado a Whitelist<br/>
+              <i class='fas fa-times-circle'></i> No agregado a Allowlist<br/>
               ">
               <?php echo $rol['usuario']; ?>
                   <i class="fas fa-times-circle fa-xs" style="color: #FF0000;"></i>

@@ -6,7 +6,7 @@ if ($_SESSION['id_rol'] != 0 && $_SESSION['id_rol'] != 1 && $_SESSION['id_rol'] 
 }
 
 $active_tablero = "";
-$active_whitelist = "";
+$active_allowlist = "";
 $active_permisos = "";
 $active_admin = "";
 $active_mundo = "active";

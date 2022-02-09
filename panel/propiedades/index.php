@@ -6,7 +6,7 @@ if ($_SESSION['id_rol'] != 0 && $_SESSION['id_rol'] != 1 && $_SESSION['id_rol'] 
 }
 
 $active_tablero = "";
-$active_whitelist = "";
+$active_allowlist = "";
 $active_permisos = "";
 $active_admin = "";
 $active_mundo = "";
@@ -213,17 +213,17 @@ require '../tablero/info.php';
         <div class="card-header"><?php echo $lines[36]; ?></div>
         <div class="card-body">
           <h5 class="card-title">Permiso Jugadores: <?php echo $data[5]['icon']; ?></h5>
-          <p class="card-text">Si es verdadero, Los Jugadores deben aparecer en whitelist para ingresar al servidor.</p>
+          <p class="card-text">Si es verdadero, Los Jugadores deben aparecer en allowlist para ingresar al servidor.</p>
         </div>
         <div class="card-footer">
           <form action="index.php" method="POST" role="form" enctype="multipart/form-data" id="resetPost">
             <div class="form-row">
               <div class="custom-control custom-switch">
-                <input type="checkbox" class="custom-control-input" name="Whitelist" id="Whitelist" <?php echo $data[5]['btn']; ?>>
-                <label class="custom-control-label" for="Whitelist"><?php echo $data[5]['spain']; ?></label>
+                <input type="checkbox" class="custom-control-input" name="Allowlist" id="Allowlist" <?php echo $data[5]['btn']; ?>>
+                <label class="custom-control-label" for="Allowlist"><?php echo $data[5]['spain']; ?></label>
               </div>
               <div class="col">
-                <button name="accion" type="submit" value="btnWhitelist" class="btn btn-outline-light btn-sm" data-toggle="tooltip" data-placement="top" title="Guardar"><i class="fas fa-save"></i></button>
+                <button name="accion" type="submit" value="btnAllowlist" class="btn btn-outline-light btn-sm" data-toggle="tooltip" data-placement="top" title="Guardar"><i class="fas fa-save"></i></button>
               </div>
             </div>
           </form>

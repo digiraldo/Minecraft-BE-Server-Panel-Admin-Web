@@ -11,7 +11,7 @@ $permisoP = [
 ];
 
 $errores = [
-    'name' => "El jugador debe estar agragado en Whitelist",
+    'name' => "El jugador debe estar agregado en Allowlist",
     'permission' => "Permiso Miembro por defecto",
 ];
 
@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $spain = $_POST['permission'];
 
     if (!$nombre){
-        $errores['name'] = 'El jugador debe estar agragado en Whitelist'; //================================== 1:19:00 video
+        $errores['name'] = 'El jugador debe estar agregado en Allowlist'; //================================== 1:19:00 video
     }
        
     $permisoP = crearPermiso($_POST);       

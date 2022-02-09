@@ -29,7 +29,7 @@ $txtLevelName = (isset($_POST['LevelName'])) ? $_POST['LevelName'] : "";
 $txtUsarTruco = (isset($_POST['UsarTruco'])) ? $_POST['UsarTruco'] : "";
 $txtGamemode = (isset($_POST['Gamemode'])) ? $_POST['Gamemode'] : "";
 $txtDificultad = (isset($_POST['Dificultad'])) ? ($_POST['Dificultad']) : "";
-$txtWhitelist = (isset($_POST['Whitelist'])) ? $_POST['Whitelist'] : "";
+$txtAllowlist = (isset($_POST['Allowlist'])) ? $_POST['Allowlist'] : "";
 $txtGamerMax = (isset($_POST['GamerMax'])) ? $_POST['GamerMax'] : "";
 $txtSemilla = (isset($_POST['Semilla'])) ? $_POST['Semilla'] : "";
 $txtIpv4 = (isset($_POST['Ipv4'])) ? $_POST['Ipv4'] : "";
@@ -277,14 +277,14 @@ switch ($accion) {
         break;
 
         // Habilitar permiso a jugadores en el Servidor sel Servidor
-    case 'btnWhitelist':
+    case 'btnAllowlist':
         $line = $lines[36];
         $ltext = "white-list=";
         $true = $ltext . 'true' . "\n";
         $false = $ltext . 'false' . "\n";
 
 
-        if ($txtWhitelist == 'on') {
+        if ($txtAllowlist == 'on') {
             $newcontent = str_replace($line, $true, $content);
             file_put_contents($myFile, $newcontent);
         } else {
@@ -293,7 +293,7 @@ switch ($accion) {
         }
 
         foreach ($data as $key) {
-            if ($data[5]['id'] == '6' && $txtWhitelist == 'on') {
+            if ($data[5]['id'] == '6' && $txtAllowlist == 'on') {
                 $data[5]['data'] = 'true';
                 $data[5]['spain'] = 'Activado';
                 $data[5]['btn'] = 'checked';

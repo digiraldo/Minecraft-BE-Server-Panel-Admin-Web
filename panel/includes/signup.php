@@ -52,7 +52,7 @@ function introJson($registros)
 {
     file_put_contents(__DIR__ . '../../../config/usradmin.json', json_encode($registros, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
 }
-//$jsonString = file_get_contents(__DIR__ . '../../../servername/whitelist.json');
+//$jsonString = file_get_contents(__DIR__ . '../../../servername/allowlist.json');
 //$data = json_decode($jsonString, true);
 
 

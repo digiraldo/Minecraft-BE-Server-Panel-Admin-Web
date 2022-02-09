@@ -1,10 +1,10 @@
 <?php
-$jsonRo = file_get_contents(__DIR__ . '../../../servername/whitelist.json');
+$jsonRo = file_get_contents(__DIR__ . '../../../servername/allowlist.json');
 $usuariosReg = json_decode($jsonRo, true);
 
 function obtenerUsuarios()
 {
-    return json_decode(file_get_contents(__DIR__ . '../../../servername/whitelist.json'), true);
+    return json_decode(file_get_contents(__DIR__ . '../../../servername/allowlist.json'), true);
 }
 
 
@@ -55,7 +55,7 @@ function eliminarUsuario($nam)
 
 function ponerJson($usuarios)
 {
-    file_put_contents(__DIR__ . '../../../servername/whitelist.json', json_encode($usuarios, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
+    file_put_contents(__DIR__ . '../../../servername/allowlist.json', json_encode($usuarios, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
 }
 
 function validarUsuario($usuarioN, &$errors)
@@ -73,7 +73,7 @@ https://informaticapc.com/tutorial-php/validar-formulario.php
 https://manuales.guebs.com/php/function.array-search.html
 */
 $usuarios = obtenerUsuarios();
-$jsonRo = file_get_contents(__DIR__ . '../../../servername/whitelist.json');
+$jsonRo = file_get_contents(__DIR__ . '../../../servername/allowlist.json');
 $usuariosReg = json_decode($jsonRo, true);
 $nameusr = $_POST['name'];
 if (!$usuarioN['name']) {

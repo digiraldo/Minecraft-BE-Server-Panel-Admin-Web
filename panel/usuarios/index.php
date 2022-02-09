@@ -13,7 +13,7 @@ if ($_SESSION['id_rol'] != 0 && $_SESSION['id_rol'] != 1 && $_SESSION['id_rol'] 
 //print_r($totalUsuarios);
 
 $active_tablero = "";
-$active_whitelist = "active";
+$active_allowlist = "active";
 $active_permisos = "";
 $active_admin = "";
 $active_mundo = "";

@@ -211,18 +211,18 @@ cd config
     echo "========================================================================="
     Print_Style "Sincronizando y haciendo respaldo a los archivos de configuración..." "$RED"
 
-# Crear directorios config/whitelist/all_backub si no existen
+# Crear directorios config/allowlist/all_backub si no existen
 if [ ! -d "backub_config" ]; then
     sudo mkdir $DirName/backub_config/config
-    sudo mkdir $DirName/backub_config/whitelist
+    sudo mkdir $DirName/backub_config/allowlist
     sudo mkdir $DirName/backub_config/all_backub
 fi
 
 echo "Comprimiendo directorio de archivos config"
 sudo zip -r $DirName/backub_config/config/$(date +%Y.%m.%d_%H\:%M\:%S_Config_$ServerName).zip $DirName/minecraftbe/config
 
-echo "Sincronizando whitelist.json"
-sudo rsync -avz --include='*.json' --include='*.properties' --exclude='*' $DirName/minecraftbe/$ServerName/ $DirName/backub_config/whitelist
+echo "Sincronizando allowlist.json"
+sudo rsync -avz --include='*.json' --include='*.properties' --exclude='*' $DirName/minecraftbe/$ServerName/ $DirName/backub_config/allowlist
 
 echo "Comprimiendo todas las configuraciones"
 sudo zip -r $DirName/backub_config/all_backub/$(date +%Y.%m.%d_%H\:%M\:%S_Backup_$ServerName).zip $DirName/backub_config

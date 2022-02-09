@@ -5,7 +5,7 @@ header("location: ../../");
 }
 
 $active_tablero = "";
-$active_whitelist = "";
+$active_allowlist = "";
 $active_permisos = "";
 $active_admin = "";
 $active_mundo = "";
