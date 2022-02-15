@@ -207,7 +207,7 @@ if (empty($online)) {
 
           <div class="card-body">
           <h5 class="card-title">Control del Servidor: <?php echo $data[0]['spain']; ?></h5>
-          <p class="card-text">Aqui puede detener, iniciar y/o reiniciar el servidor, se recomienda reiniciar cada vez que realicen cambios en Allowlist, Permisos y/o Propiedades.</p></br>
+          <p class="card-text">Aquí puede detener, iniciar y/o reiniciar el servidor, se recomienda reiniciar cada vez que realicen cambios en Allowlist, Permisos y/o Propiedades.</p></br>
 
           <button value="btnIniciar" class="btn btn-success" type="submit" name="accion"><i class="fas fa-play"></i> Iniciar</button>
           <button value="btnReiniciar" class="btn btn-primary" type="submit" name="accion"><i class="fas fa-redo-alt"></i> Reiniciar</button>
@@ -262,7 +262,7 @@ if (empty($online)) {
         </div>
         <?php elseif ($_SESSION['id_rol'] == 4) : ?>
 
-          <div class="card-body">Una vez inscrito, soliciar acceso al servidor tomando contacto con los administradores en:</h5>
+          <div class="card-body">Una vez inscrito, solicitar acceso al servidor tomando contacto con los administradores en:</h5>
 
           <p class="card-text"></p>
           <?php if ($data[16]['btn'] == ""):  ?>
@@ -533,6 +533,14 @@ if (empty($online)) {
     </script>
 <?php } ?>
 
+<script>
+	new PlayerCounter({
+  element: element,
+  ip: '<?php $datas[12]['spain'] ?>',
+  format: '{online}/{max}' // default {online}
+  refreshRate: 20 * 1000 // default 60 = 1m
+});
+</script>
 
 
 </body>

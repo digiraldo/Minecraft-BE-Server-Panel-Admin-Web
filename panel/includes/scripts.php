@@ -47,7 +47,8 @@
 <script type="text/javascript" src="../includes/js/img_roles.js"></script>
 <script type="text/javascript" src="../includes/js/select_rol.js"></script>
 
-
+<!-- Jugadores Online Nuevo -->
+<link href="../includes/js/dist/mc-player-counter.min.js" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
  
  
 <!-- Fecha -->

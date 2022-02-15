@@ -5,7 +5,7 @@
 	use xPaw\MinecraftQueryException;
 
 	// Edit this ->
-	define( 'MQ_SERVER_ADDR', 'parce.duckdns.org' );
+	define( 'MQ_SERVER_ADDR', 'mc.mineports.com' );
 	define( 'MQ_SERVER_PORT', 19132 );
 	define( 'MQ_TIMEOUT', 1 );
 	// Edit this <-
@@ -56,7 +56,7 @@ $Informacion = $Query->GetInfo();
 	<meta charset="utf-8">
 	<title>Minecraft Query PHP Class</title>
 
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link href="../includes/js/dist/mc-player-counter.min.js" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<style type="text/css">
 		.jumbotron {
 			margin-top: 30px;
@@ -69,6 +69,11 @@ $Informacion = $Query->GetInfo();
 			color: #FFF;
 		}
 	</style>
+
+<!-- Nuevo -->
+<script src="https://cdn.jsdelivr.net/gh/leonardosnt/mc-player-counter/dist/mc-player-counter.min.js"></script>
+
+
 </head>
 
 <body>
@@ -147,5 +152,22 @@ $Informacion = $Query->GetInfo();
 		</div>
 <?php endif; ?>
 	</div>
+
+<!-- Nuevo -->
+Hay <span data-playercounter-ip="mc.mineports.com">0</span> Jugadores en línea en mi servidor. 
+<br>
+<p>Players on hypixel.net: <b><span data-playercounter-ip="mc.mineports.com">0</span></b></p>
+    <p>Players on play.cubecraft.net: <b><span data-playercounter-ip="mc.mineports.com" data-playercounter-format="{online}/{max}">0</span></b></p>
+    <p>Mineplex is currently <span data-playercounter-ip="mc.mineports.com" data-playercounter-status>...</span></p>
+
+<script>
+	new PlayerCounter({
+  element: element,
+  ip: 'mc.mineports.com',
+  format: '{online}/{max}' // default {online}
+  refreshRate: 20 * 1000 // default 60 = 1m
+});
+</script>
+
 </body>
 </html>

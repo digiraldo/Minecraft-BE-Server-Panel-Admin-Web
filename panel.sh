@@ -60,6 +60,7 @@ cd ~
   sudo rm -rf Minecraft-BE-Server-Panel-Admin-Web
   sudo rm -rf index.php
   sudo rm -rf shell.php
+  sudo rm -rf archivos.php
   sudo rm -rf location
   sudo rm -rf misitio.conf
   sudo rm -rf web.sh
@@ -188,6 +189,7 @@ Print_Style "Creando directorios y archivos del panel..." "$CYAN"
 sudo mv panel $DirName/minecraftbe/
 sudo mv index.php $DirName/minecraftbe/
 sudo mv shell.php $DirName/minecraftbe/
+sudo mv archivos.php $DirName/minecraftbe/
 #  sudo mv uninstall.sh $DirName/
 
 
