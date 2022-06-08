@@ -67,6 +67,7 @@ sudo apt-get install php-zip -y
 sudo apt-get install zip gzip tar -y
 sudo apt-get install curl -y
 sudo apt install jq -y
+sudo apt-get install git -y
   # sudo apt install -y software-properties-common
   # sudo add-apt-repository universe -y
   # sudo apt-get install ssh -y
