@@ -248,5 +248,5 @@ echo "========================================================================="
 Print_Style "Ejecutando SetupMinecraft.sh" "$MAGENTA"
 sleep 4s
 # curl $DirName/SetupMinecraft.sh | bash
-sudo /bin/bash SetupMinecraft.sh 
+/bin/bash SetupMinecraft.sh 
 echo "========================================================================="
