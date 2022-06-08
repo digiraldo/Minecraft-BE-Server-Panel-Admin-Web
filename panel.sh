@@ -609,3 +609,8 @@ echo "========================================================================="
 # Dormir por 8 segundos para que el servidor inicie
   #  sleep 8s
   #  screen -r $ServerName
+  
+echo "========================================================================="
+Print_Style "emit-server-telemetry=true" "$GREEN"
+#  emit-server-telemetry=true
+# Habilitar esta telemetria nos ayuda a mejorar el juego.
