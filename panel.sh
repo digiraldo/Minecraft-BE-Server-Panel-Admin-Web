@@ -614,3 +614,10 @@ echo "========================================================================="
 Print_Style "emit-server-telemetry=true" "$GREEN"
 #  emit-server-telemetry=true
 # Habilitar esta telemetria nos ayuda a mejorar el juego.
+
+
+
+# List of Minecraft Bedrock Commands
+# https://www.pocketgamer.com/minecraft-pocket-edition/minecraft-bedrock-commands/
+# https://beebom.com/minecraft-bedrock-commands/
+# https://gamedb.gg/games/minecraft/item-ids-item-spawning-guide/
