@@ -133,7 +133,10 @@ echo "========================================================================="
         echo "========================================================================="
         sleep 3s
         cd ~
-        curl https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/install.sh | bash
+        wget https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/install.sh
+        chmod +x install.sh
+        ./install.sh
+        #curl https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/install.sh | bash
 
         #wget -O install.sh https://raw.githubusercontent.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/master/install.sh
         #sudo chmod +x install.sh
