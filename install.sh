@@ -191,7 +191,7 @@ Print_Style "Traduciendo Etiqueta o apodo del Servidor" "$BLUE"
 sleep 2s
 sudo sed -i "s/Server Label/Etiqueta del Servidor/g" SetupMinecraft.sh
 
-Print_Style "Traduciendo Ingreso IPV4 e IPV&" "$BLUE"
+Print_Style "Traduciendo Ingreso IPV4 e IPV6" "$BLUE"
 sleep 2s
 # IPV4
 sudo sed -i "s/Enter server IPV4 port/Ingrese el Puerto IPV4 del Servidor/g" SetupMinecraft.sh
@@ -248,5 +248,5 @@ echo "========================================================================="
 Print_Style "Ejecutando SetupMinecraft.sh" "$MAGENTA"
 sleep 4s
 # curl $DirName/SetupMinecraft.sh | bash
-/bin/bash SetupMinecraft.sh 
+sudo /bin/bash SetupMinecraft.sh 
 echo "========================================================================="
