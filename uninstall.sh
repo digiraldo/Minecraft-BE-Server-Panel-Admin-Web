@@ -80,6 +80,9 @@ cd ~
 echo "========================================================================="
 Print_Style "Eliminando Servidor Minecraft" "$YELLOW"
 sudo rm -rf minecraftbe
+sudo rm -rf panel.sh
+sudo rm -rf install.sh
+sudo rm -rf SetupMinecraft.sh
 echo "========================================================================="
 Print_Style "Quitando libapache" "$MAGENTA"
 sleep 2s
