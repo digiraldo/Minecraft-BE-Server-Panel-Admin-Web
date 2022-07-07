@@ -609,13 +609,13 @@ echo "========================================================================="
       screen -Rd $ServerName -X stuff "gamerule doFireTick true$(printf '\r')"
     fi
     
-echo "========================================================================="
-    echo -n "¿Activar que bloques deben tener gotas en el Servidor Minecrft Bedrock? (y/n)"
-    read answer < /dev/tty
-    if [ "$answer" != "${answer#[Yy]}" ]; then
-      # Activar las coordenadas del servidor
-      screen -Rd $ServerName -X stuff "gamerule doTileDrops true$(printf '\r')"
-    fi
+#echo "========================================================================="
+#    echo -n "¿Activar que bloques deben tener gotas en el Servidor Minecrft Bedrock? (y/n)"
+#    read answer < /dev/tty
+#    if [ "$answer" != "${answer#[Yy]}" ]; then
+#      # Activar las coordenadas del servidor
+#      screen -Rd $ServerName -X stuff "gamerule doTileDrops true$(printf '\r')"
+#    fi
 
 
 # Configuración Completada
