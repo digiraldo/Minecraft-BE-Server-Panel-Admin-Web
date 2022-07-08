@@ -89,7 +89,7 @@ require '../tablero/info.php';
                   <form method="POST" action="" enctype="multipart/form-data">
                     <button value="btnCopia" class="btn btn-secondary" type="submit" name="accion"><i class="fas fa-folder-plus"></i> Realizar Respaldo <span class="badge badge-light"><?php echo $num; ?></span></button>
                     <?php
-                    # MUESTR TEXTO DE RESPALDOS ACTIVADOS O DESACTIVADOS
+                    # MUESTRA TEXTO DE RESPALDOS ACTIVADOS O DESACTIVADOS
                     # if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     #   echo $btnaccion;
                     # } else {

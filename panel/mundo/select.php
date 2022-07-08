@@ -66,7 +66,7 @@ if (isset($_POST['zip_file']))
       $tipo = 'zip'; 
       $cmdPermisoDir = "sudo chmod -R 775 dirname/minecraftbe";
       shell_exec($cmdPermisoDir);
-      shell_exec("sudo zip -r dirnameusr/minecraftbe/servername/backups/$(date +%Y.%m.%d_%H\:%M\:%S_Wo_servername).zip dirname/minecraftbe/servername/worlds");
+      shell_exec("zip -r dirnameusr/minecraftbe/servername/backups/$(date +%Y.%m.%d_%H\:%M\:%S_Wo_servername).zip dirname/minecraftbe/servername/worlds");
       $rut = "../../servername/backups/"."$nombre";
       $name = explode("../../servername/backups/", $nombre);
       $accepted_types = array('application/zip', 'application/x-zip-compressed', 'multipart/x-zip', 'application/x-compressed');

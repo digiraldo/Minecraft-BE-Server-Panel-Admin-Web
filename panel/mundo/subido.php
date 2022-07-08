@@ -77,7 +77,7 @@ if ($_FILES["zip_file"]["name"])
     $tipo = $_FILES["zip_file"]["type"];
     $cmdPermisoDir = "sudo chmod -R 775 dirname/minecraftbe";
     shell_exec($cmdPermisoDir);
-    shell_exec("sudo zip -r dirname/minecraftbe/servername/backups/$(date +%d.%m.%Y_%H\:%M\:%S_Wo_servername).zip dirname/minecraftbe/servername/worlds");
+    shell_exec("zip -r dirname/minecraftbe/servername/backups/$(date +%d.%m.%Y_%H\:%M\:%S_Wo_servername).zip dirname/minecraftbe/servername/worlds");
  
     //$carpeta = glob('../../servername/worlds'); //obtenemos todos los nombres de los ficheros
 

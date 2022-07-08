@@ -633,6 +633,19 @@ Print_Style "emit-server-telemetry=true" "$GREEN"
 # Habilitar esta telemetria nos ayuda a mejorar el juego.
 
 
+# sudo chmod -R 777 $DirName/minecraftbe
+# sudo chmod -R 777 /etc/nginx/nginx.conf
+    #    client_max_body_size = 3000M;
+# sudo chmod -R 777 /etc/php/7.4/fpm/php.ini
+    #    upload_max_filesize = 3000M
+    #    post_max_size = 4000M
+# sudo systemctl restart nginx
+# sudo systemctl restart php7.4-fpm
+
+
+# gamerule showcoordinates true
+# zip -r /home/user/minecraftbe/cursiva/backups/$(date +%Y.%m.%d_%H\:%M\:%S_cursiva).zip /home/user/minecraftbe/cursiva/worlds
+
 
 # List of Minecraft Bedrock Commands
 # https://www.pocketgamer.com/minecraft-pocket-edition/minecraft-bedrock-commands/
