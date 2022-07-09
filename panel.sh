@@ -644,7 +644,14 @@ Print_Style "emit-server-telemetry=true" "$GREEN"
 
 
 # gamerule showcoordinates true
+# sudo -u user screen -Rd cursiva -X stuff "gamerule showCoordinates true$(printf '\r')"
+# sudo -u user screen -Rd cursiva -X stuff "gamerule showCoordinates false$(printf '\r')"
+
+# sudo -u user screen -Rd cursiva -X stuff "allowlist reload$(printf '\r')"
+
 # zip -r /home/user/minecraftbe/cursiva/backups/$(date +%Y.%m.%d_%H\:%M\:%S_cursiva).zip /home/user/minecraftbe/cursiva/worlds
+
+# sudo chmod -R 777 /home/user/minecraftbe
 
 
 # List of Minecraft Bedrock Commands

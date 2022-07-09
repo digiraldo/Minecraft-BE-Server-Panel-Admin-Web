@@ -49,7 +49,7 @@ switch ($accion) {
         //    header("Location: " . $_SERVER['PHP_SELF']);
         //  }
         
-        $txtCopia = shell_exec("zip -r dirname/minecraftbe/servername/backups/$(date +%Y.%m.%d_%H\:%M\:%S_servername).zip dirname/minecraftbe/servername/worlds");
+        $txtCopia = shell_exec("cd dirname/minecraftbe/servername ; zip -r dirname/minecraftbe/servername/backups/$(date +%Y.%m.%d_%H\:%M\:%S_servername).zip worlds");
         $btnaccion = 'Respaldo o copia de seguridad manual realizado con exito';
         unset($_POST);
         unset($_REQUEST);

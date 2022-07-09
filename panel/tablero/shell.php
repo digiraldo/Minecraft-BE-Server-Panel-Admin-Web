@@ -21,25 +21,25 @@ switch ($accion) {
 
   // Agregar Nombre sel Servidor
   case 'btnDetener':
-   $txtDetener = shell_exec("sudo sh sto.sh");
+   $txtDetener = shell_exec("sh sto.sh");
    //$txtDetener = shell_exec("sudo systemctl stop servername");
    $btnaccion = 'Servidor Detenido';
   break;
 
   case 'btnIniciar':
-   $txtIniciar = shell_exec("sudo sh sta.sh");
+   $txtIniciar = shell_exec("sh sta.sh");
    //$txtIniciar = shell_exec("sudo systemctl start servername");
    $btnaccion = 'Servidor Iniciado';
   break;
 
   case 'btnReiniciar':
-   $txtReiniciar = shell_exec("sudo sh res.sh");
+   $txtReiniciar = shell_exec("sh res.sh");
    $btnaccion = 'Servidor Reiniciado';
   // $txtReiniciar = shell_exec("sudo systemctl restart servername");
   break;
 
   case 'btnCopia':
-    $txtCopia = shell_exec("sudo zip -r dirname/minecraftbe/servername/backups/$(date +%d.%m.%Y_%H\:%M\:%S_servername).zip dirname/minecraftbe/servername/worlds");
+    $txtCopia = shell_exec("cd dirname/minecraftbe/servername ; zip -r dirname/minecraftbe/servername/backups/$(date +%d.%m.%Y_%H\:%M\:%S_servername).zip worlds");
     $btnaccion = 'Servidor Reiniciado';
     
    // $txtReiniciar = shell_exec("sudo systemctl restart servername");
