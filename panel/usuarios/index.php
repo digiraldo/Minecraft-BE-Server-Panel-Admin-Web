@@ -101,6 +101,7 @@ require '../tablero/info.php';
               <!-- Botones en Acciones -->
               <td>
 
+                <a href="dar.php?name=<?php echo $usuario['name'] ?>" value="Seleccionar" data-toggle="tooltip" data-placement="top" title="Dar" type="submit" class="btn btn-success btn-sm" name="accion"><i class="fas fa-gift"></i></a>
                 <a href="ver.php?name=<?php echo $usuario['name'] ?>" value="Seleccionar" data-toggle="tooltip" data-placement="top" title="Ver" type="submit" class="btn btn-warning btn-sm" name="accion"><i class="fas fa-eye"></i></a>
                 <a href="editar.php?name=<?php echo $usuario['name'] ?>" value="Seleccionar" data-toggle="tooltip" data-placement="top" title="Editar" type="submit" class="btn btn-info btn-sm" name="accion"><i class="fas fa-pencil-alt"></i></a>
 
@@ -162,7 +163,8 @@ require '../tablero/info.php';
 
               <!-- Botones en Acciones -->
               <td>
-
+                
+              <a href="dar.php?name=<?php echo $usuario['name'] ?>" value="Seleccionar" data-toggle="tooltip" data-placement="top" title="Dar" type="submit" class="btn btn-success btn-sm" name="accion"><i class="fas fa-gift"></i></a>
                 <a href="ver.php?name=<?php echo $usuario['name'] ?>" value="Seleccionar" data-toggle="tooltip" data-placement="top" title="Ver" type="submit" class="btn btn-warning btn-sm" name="accion"><i class="fas fa-eye"></i></a>
                 <!-- 
                 <a href="editar.php?name=<?php echo $usuario['name'] ?>" value="Seleccionar" data-toggle="tooltip" data-placement="top" title="Editar" type="submit" class="btn btn-info btn-sm" name="accion"><i class="fas fa-pencil-alt"></i></a>

@@ -6,5 +6,5 @@ sudo chown -hR username:www-data dirname/minecraftbe
 sleep 2s
 sudo chmod -R 775 dirname/minecraftbe
 sleep 2s
-sudo systemctl restart servername
+sudo -n systemctl restart servername
 echo “Servidor Reiniciado”

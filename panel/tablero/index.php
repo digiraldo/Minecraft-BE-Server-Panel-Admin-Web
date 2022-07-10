@@ -175,7 +175,7 @@ if (empty($online)) {
         <?php if ($_SESSION['id_rol'] == 0 || $_SESSION['id_rol'] == 1) : ?>
         <div class="card-body">
           <h5 class="card-title">Control del Servidor: servername</h5>
-          <p class="card-text">Aqui puede detener, iniciar y/o reiniciar el servidor, se recomienda reiniciar cada vez que realicen cambios en Allowlist, Permisos y/o Propiedades.</p>
+          <p class="card-text">Aquí puede detener, iniciar y/o reiniciar el servidor, se recomienda reiniciar cada vez que realicen cambios en Allowlist, Permisos y/o Propiedades.</p>
 
           <button value="btnDetener" class="btn btn-danger" type="submit" name="accion"><i class="fas fa-stop"></i> Detener</button>
           <button value="btnIniciar" class="btn btn-success" type="submit" name="accion"><i class="fas fa-play"></i> Iniciar</button>

@@ -44,6 +44,7 @@
 <script type="text/javascript" src="../includes/js/tab-roles.js"></script>
 <script type="text/javascript" src="../includes/js/tab-respaldos.js"></script>
 <script type="text/javascript" src="../includes/js/tab-registros.js"></script>
+<script type="text/javascript" src="../includes/js/tab-dar.js"></script>
 <script type="text/javascript" src="../includes/js/img_roles.js"></script>
 <script type="text/javascript" src="../includes/js/select_rol.js"></script>
 

@@ -495,6 +495,7 @@ sudo rm -rf Minecraft-BE-Server-Panel-Admin-Web
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/includes/navbar.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/includes/signup.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/mundo/index.php
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/mundo/mundo.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/mundo/subido.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/mundo/select.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/mundo/eliminar.php

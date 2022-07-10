@@ -44,6 +44,7 @@ if ($_SESSION['id_rol'] != 0 && $_SESSION['id_rol'] != 1 && $_SESSION['id_rol'] 
     $linestxt = file($myFiletxt);
 
     require '../tablero/info.php';
+    require '../tablero/shell.php';
 
 ?>
 
@@ -108,10 +109,17 @@ while ($archivo = readdir($directorio)) //obtenemos un archivo y luego otro suce
 echo'<p>';
 echo'</div>';
 echo'<div class="card-footer text-white text-muted">';
-echo "Mundo cargado correctamente, reinicia el servidor</br>";
-echo '<a type="button" class="btn btn-primary" href="index.php" data-target="#modalAdmin">';
+echo "Mundo cargado correctamente, reiniciando el servidor</br>";
+echo '<div>';
+echo '<form action="" method="post" enctype="multipart/form-data">';
+echo '<a type="button" class="btn btn-success" href="index.php" data-target="#modalAdmin">';
 echo '<i class="fas fa-globe"></i> Volver';
 echo '</a>';
+echo ' ';
+echo '<button value="btnReiniciar" class="btn btn-primary" type="submit" name="accion"><i class="fas fa-redo-alt"></i> Reiniciar</button>';
+echo "<font color='blue'>$txtReiniciar</font>";
+echo '</form>';
+echo '</div>';
 echo'</div>';
 echo'</div>';
 echo'</div>';
@@ -132,22 +140,26 @@ echo'</div>';
     }
     $newJsonString = json_encode($data, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
     file_put_contents(__DIR__ . '../../../config/srvdatos.json', $newJsonString);
+
+    shell_exec("sudo -n systemctl restart servername"); // Reiniciando servidos reinicia ok
 } else {
     echo '<br><ul class="list-group">';
     echo'<li class="list-group-item">';
     echo "Ocurrió un error y la ruta como directorio no es valido";
     echo'</li></ul>';
 }
+
+
 ?>
-
-
-
 
 
 </p>
 
+
+
     <?php include '../includes/footer.php'?>
 <!-- php include '../includes/modal.php'?> -->
-    
+
+
   </body>
 </html>
