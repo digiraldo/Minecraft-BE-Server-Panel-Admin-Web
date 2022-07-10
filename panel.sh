@@ -491,6 +491,7 @@ sudo rm -rf Minecraft-BE-Server-Panel-Admin-Web
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/index.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/usuarios.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/reload.sh
+  sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/dar.sh
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/usuarios/_formulario.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/includes/navbar.php
   sudo sed -i "s:servername:$ServerName:g" $DirName/minecraftbe/panel/includes/signup.php
@@ -527,6 +528,7 @@ sudo rm -rf Minecraft-BE-Server-Panel-Admin-Web
   sudo sed -i "s:username:$UserName:g" $DirName/minecraftbe/panel/tablero/sta.sh
   sudo sed -i "s:username:$UserName:g" $DirName/minecraftbe/panel/tablero/res.sh
   sudo sed -i "s:username:$UserName:g" $DirName/minecraftbe/panel/usuarios/reload.sh
+  sudo sed -i "s:username:$UserName:g" $DirName/minecraftbe/panel/usuarios/dar.sh
   sudo sed -i "s:username:$UserName:g" $DirName/minecraftbe/panel/includes/index.php
   sudo sed -i "s:username:$UserName:g" $DirName/minecraftbe/panel/includes/signup.php
   sudo sed -i "s:username:$UserName:g" /etc/sudoers
