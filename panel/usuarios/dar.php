@@ -49,9 +49,8 @@ $usuarioN = obtenerUsuarioPorName($usuarioName);
 switch ($accion) {
     case 'btnDar':
         $entregar = "$give $txtSelUser $txtIdName $txtCantItem";
-        shell_exec('$screenIn$entregar $screenOut');
-
         $toti = "$screenIn$entregar $screenOut";
+        shell_exec($toti);
 
         //echo $toti;
 
