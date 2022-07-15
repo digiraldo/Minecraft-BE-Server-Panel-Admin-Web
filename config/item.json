@@ -10058,23 +10058,5 @@
         "id": "minecraft:medium_amethyst_bud",
         "idm": "",
         "data": "0"
-    },
-    "1237": {
-        "img": "..\/includes\/img\/items\/large_amethyst_bud.png",
-        "en": "Large Amethyst Bud",
-        "es": "Cúmulo de Amatista Grande",
-        "class": "Piedras preciosas, cristales y perlas",
-        "id": "minecraft:large_amethyst_bud",
-        "idm": "",
-        "data": "0"
-    },
-    "1238": {
-        "img": "..\/includes\/img\/items\/echo_shard.png",
-        "en": "Echo Shard",
-        "es": "Fragmento de Eco",
-        "class": "Piedras preciosas, cristales y perlas",
-        "id": "minecraft:echo_shard",
-        "idm": "",
-        "data": "0"
     }
 }

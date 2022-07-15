@@ -51,7 +51,7 @@ switch ($accion) {
         $entregar = "$give $txtSelUser $txtIdName $txtCantItem";
         shell_exec('$screenIn $entregar $screenOut');
 
-        $toti = "$screenIn $entregar $screenOut";
+        $toti = "$screenIn$entregar $screenOut";
 
         echo $toti;
 
@@ -61,11 +61,18 @@ switch ($accion) {
         break;
 }
 
-if ($usuarioN['xuid']) {
+if (!empty($usuarioN['xuid'])) {
+    $iconUsu = ' <i class="fas fa-check-circle" style="color: green;"></i>';
+} else {
+    $iconUsu = ' <i class="fas fa-times-circle" style="color: red;"></i>';
+}
+
+
+/* if ($usuarioN['xuid']) {
     $iconUsu = '<i class="fas fa-check-circle" style="color: green;"></i>';
 } else {
     $iconUsu = '<i class="fas fa-times-circle" style="color: red;"></i>';
-}
+} */
 
 
 ?>
@@ -86,7 +93,7 @@ if ($usuarioN['xuid']) {
   <div class="container">
 <div class="card">
     <div class="card-body">
-        <h5 class="card-title"><i class="fas fa-user-edit"></i> Usuario: <b><?php echo $usuarioN['name'] ?> </b></h5>
+        <h5 class="card-title"><i class="fas fa-user-edit"></i> Usuario: <b><?php echo $usuarioN['name'] ?><?php echo $iconUsu ?> </b></h5>
         <div class="section">
         <table class="table table-striped" id="tablaItems">
             <thead>
@@ -100,13 +107,13 @@ if ($usuarioN['xuid']) {
             <tbody>
             <?php foreach ($ItemsIn as $item) : ?>
                 <tr>
-                <form action="#" method="POST" role="form" enctype="multipart/form-data">
-                    <td scope="row"><img src="<?php echo $item['Img'] ?>" alt="<?php echo $item['Descripcion'] ?>"  width="50" height="50"></td>
-                    <td><?php echo $item['Descripcion'] ?></td>
+                <form action="" method="POST" role="form" enctype="multipart/form-data">
+                    <td scope="row"><img src="<?php echo $item['img'] ?>" alt="<?php echo $item['es'] ?>"  width="50" height="50"></td>
+                    <td><?php echo $item['es'] ?></td>
                     <td><input type="number" name="CantItem" id="CantItem"  min="1" max="64" class="form-control form-control-sm"placeholder="" style="width='1px'"></td>
                     <td>
                         <input type="hidden" name="name" value="<?php echo $usuarioN['name'] ?>">
-                        <input type="hidden" name="IdName" value="<?php echo $item['ID-Name'] ?>">
+                        <input type="hidden" name="IdName" value="<?php echo $item['id'] ?>">
                         <button name="accion" value="btnDar" type="submit" class="btn btn-success btn" data-bs-toggle="button" data-toggle="tooltip" data-placement="top" title="Entregar"><i class="fas fa-gift"></i></button>
                     </td>
                     </form>
