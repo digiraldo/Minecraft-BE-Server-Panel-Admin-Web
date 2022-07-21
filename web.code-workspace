@@ -3,5 +3,8 @@
         {
             "path": "."
         }
-    ]
+    ],
+    "settings": {
+        "liveServer.settings.multiRootWorkspaceName": "Minecraft-BE-Server-Panel-Admin-Web"
+    }
 }

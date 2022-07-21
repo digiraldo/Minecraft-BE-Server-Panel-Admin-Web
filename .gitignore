@@ -3,3 +3,5 @@ status/
 code/
 config/data.json
 config/item.json
+web.code-workspace
+fiveserver.config.js
