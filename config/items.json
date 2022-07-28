@@ -440,26 +440,6 @@
         "extension": "png"
     },
     {
-        "img": "wet_sponge.png",
-        "en": "Sponge",
-        "es": "Esponja",
-        "class": "Materiales",
-        "id": "minecraft:sponge",
-        "idm": "19",
-        "data": "0",
-        "extension": "png"
-    },
-    {
-        "img": "string.png",
-        "en": "String",
-        "es": "Hilo",
-        "class": "Materiales",
-        "id": "minecraft:string",
-        "idm": "287",
-        "data": "0",
-        "extension": "png"
-    },
-    {
         "img": "turtle_egg.png",
         "en": "Turtle Egg",
         "es": "Huevo de Tortuga",
