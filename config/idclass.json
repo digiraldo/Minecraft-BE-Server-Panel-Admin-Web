@@ -1,0 +1,82 @@
+[
+    {
+        "id": 1,
+        "clase": "Piedras preciosas, cristales y perlas",
+        "class": "Gemstones, Crystals and Pearls"
+    },
+    {
+        "id": 2,
+        "clase": "Materiales",
+        "class": "Materials"
+    },
+    {
+        "id": 3,
+        "clase": "Minerales",
+        "class": "Ores"
+    },
+    {
+        "id": 4,
+        "clase": "Bloques",
+        "class": "Blocks"
+    },
+    {
+        "id": 5,
+        "clase": "Alimentos que se recogen",
+        "class": "Foods that are Gathered"
+    },
+    {
+        "id": 6,
+        "clase": "Cuernos de cabra",
+        "class": "Goat Horns"
+    },
+    {
+        "id": 7,
+        "clase": "Troncos",
+        "class": "Logs"
+    },
+    {
+        "id": 8,
+        "clase": "Troncos Pelados",
+        "class": "Stripped Logs"
+    },
+    {
+        "id": 9,
+        "clase": "Madera Pelada",
+        "class": "Stripped Wood"
+    },
+    {
+        "id": 10,
+        "clase": "Flores",
+        "class": "Flowers"
+    },
+    {
+        "id": 11,
+        "clase": "Plantas-Semillas",
+        "class": "Plants-Seeds"
+    },
+    {
+        "id": 12,
+        "clase": "Plantas de Nether",
+        "class": "Nether Plants"
+    },
+    {
+        "id": 13,
+        "clase": "Coral",
+        "class": "Coral"
+    },
+    {
+        "id": 14,
+        "clase": "Bloques de setas",
+        "class": "Mushroom Blocks"
+    },
+    {
+        "id": 15,
+        "clase": "Plantones-Retoños",
+        "class": "Saplings"
+    },
+    {
+        "id": 16,
+        "clase": "Hojas",
+        "class": "Leaves"
+    }
+]
