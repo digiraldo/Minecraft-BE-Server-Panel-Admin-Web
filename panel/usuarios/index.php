@@ -63,7 +63,7 @@ require '../tablero/info.php';
     </p>
 
     <div class="section">
-      <table id="tablaUsuarios" class="table table-striped table-bordered" style="width:100%">
+      <table id="tablaUsuarios" class="table table-dark table-striped table-bordered display" style="width:100%">
         <thead>
           <tr>
             <th scope="col">Id XuId</th>

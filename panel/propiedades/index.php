@@ -37,6 +37,8 @@ require '../tablero/info.php';
 
 //echo $lines1[43];
 
+$items = json_decode(file_get_contents(__DIR__.'../../../config/items.json'), true);
+
 ?>
 
 <!doctype html>
@@ -71,17 +73,18 @@ require '../tablero/info.php';
   <div class="card-body">
 
     <div class="card-deck">
-      <div class="card text-center border-info mb-3">
+      <div class="card text-center text-white bg-dark border-info mb-3">
       <div class="card-header"><i><?php echo $data[12]['name']; ?> <?php echo $data[13]['spain']; ?>: </i> <b><?php echo $data[12]['spain']; ?></b> Puerto: <b><?php echo $data[8]['spain']; ?></b><br />
         <?php if ($_SESSION['id_rol'] == 0 || $_SESSION['id_rol'] == 1 || $_SESSION['id_rol'] == 2) : ?>
         <div class="card-body text-info">
           <h5 class="card-title">Propiedades del Servidor</h5>
-          <p class="card-text text-success">Aqui puede editar las configuraciones del servidor, recuerde reiniciar el servidor para que surta efecto.</p>
+          <p class="card-text text-success">Aquí puede editar las configuraciones del servidor, recuerde reiniciar el servidor para que surta efecto.</p>
         </div>
         <div class="card-footer text-muted">
-        <a href="reglas.php" type="submit" class="btn btn-outline-dark btn-sm" data-toggle="tooltip" data-placement="top" title="<i class='fas fa-tasks'></i> Editar Reglas o Normas">Editar: <?php echo $data[18]['name'] ?></a>
-        <a href="alertas.php" type="submit" class="btn btn-outline-dark btn-sm" data-toggle="tooltip" data-placement="top" title="<i class='fas fa-comment-alt'></i> Editar Alertas o Notificaciones">Editar: Alertas</a>
-        <a href="ver_propiedades.php" type="submit" class="btn btn-outline-dark btn-sm" data-toggle="tooltip" data-placement="top" title="<i class='fas fa-database'></i> server.properties">Ver Archivo: server.properties</a>
+        <a href="reglas.php" type="submit" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="<i class='fas fa-tasks'></i> Editar Reglas o Normas">Editar: <?php echo $data[18]['name'] ?></a>
+        <a href="alertas.php" type="submit" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="<i class='fas fa-comment-alt'></i> Editar Alertas o Notificaciones">Editar: Alertas</a>
+        <a href="ver_propiedades.php" type="submit" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="<i class='fas fa-database'></i> server.properties">Ver Archivo: server.properties</a>
+        <a href="../items/" type="submit" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="<i class='fas fa-gift'></i> Editar Items">Editar: Items <span class="badge bg-info"><?php echo count($items); ?></span></a>
         
         </div>
         <?php else : ?>

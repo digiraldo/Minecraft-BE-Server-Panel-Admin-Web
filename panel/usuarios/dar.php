@@ -42,7 +42,7 @@ $usuarioN = obtenerUsuarioPorName($usuarioName);
     //echo $entregar;
     //echo $txtSelUser;
 
-    ///give disaned minecraft:brick 5
+    ///give gorobeta minecraft:brick 5
 
     // sudo -u username screen -Rd servername -X stuff "$entregar$(printf '\r')"
 
@@ -84,17 +84,18 @@ if (!empty($usuarioN['xuid'])) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Información Usuario</title>
+    
 
   </head>
   <body>
 
 
   <div class="container">
-<div class="card">
+<div class="card text-white bg-dark">
     <div class="card-body">
         <h5 class="card-title"><i class="fas fa-user-edit"></i> Usuario: <b><?php echo $usuarioN['name'] ?><?php echo $iconUsu ?> </b></h5>
         <div class="section">
-        <table class="table table-striped" id="tablaItems">
+        <table class="table table-dark table-striped table-bordered display" id="tablaItems">
             <thead>
                 <tr>
                     <th scope="col">Img</th>
@@ -107,13 +108,24 @@ if (!empty($usuarioN['xuid'])) {
             <?php foreach ($ItemsIn as $item) : ?>
                 <tr>
                 <form action="" method="POST" role="form" enctype="multipart/form-data">
-                    <td scope="row"><img src="<?php echo $item['img'] ?>" alt="<?php echo $item['es'] ?>"  width="50" height="50"></td>
-                    <td><?php echo $item['es'] ?></td>
-                    <td><input type="number" name="CantItem" id="CantItem"  min="1" max="64" class="form-control form-control-sm"placeholder="" style="width='1px'"></td>
+                    <td scope="row">
+                        <a href="#" scope="row" data-bs-toggle="tooltip"  data-bs-html="true" title="<img class='rounded-lg' width='150px'  src='../includes/img/items/<?php echo $item['img']; ?>' />">
+                            <img class="rounded-circle" width="32px" height="32px" src="../includes/img/items/<?php echo $item['img']; ?>" alt="<?php echo $item['es'] ?>" />
+                        </a>
+                    </td>
+                    <td>
+                        <a href="#" data-bs-toggle="tooltip"  data-bs-html="true" title="
+                        <i class='fas fa-language'></i>  <?php echo $item['en']; ?> <br>
+                        <i class='fas fa-spell-check'></i>  <?php echo $item['class']; ?> <br>
+                        <i class='fas fa-list-alt'></i>  <?php echo $item['id']; ?>
+                        "><?php echo $item['es']; ?>
+                        </a>
+                    </td>
+                    <td><input type="number" name="CantItem" id="CantItem"  min="1" max="64" class="form-control form-control-sm" placeholder="" style="width='1px'"></td>
                     <td>
                         <input type="hidden" name="name" value="<?php echo $usuarioN['name'] ?>">
                         <input type="hidden" name="IdName" value="<?php echo $item['id'] ?>">
-                        <button name="accion" value="btnDar" type="submit" class="btn btn-success btn" data-bs-toggle="button" data-toggle="tooltip" data-placement="top" title="Entregar"><i class="fas fa-gift"></i></button>
+                        <button name="accion" value="btnDar" type="submit" class="btn btn-success btn-sm" data-bs-toggle="button" data-toggle="tooltip" data-placement="top" title="Entregar"><i class="fas fa-gift"></i></button>
                     </td>
                     </form>
                 </tr>

@@ -186,7 +186,7 @@ require '../tablero/info.php';
       </div>
       <div class="panel-body">
         <!-- <button type="button" class="btn btn-primary" id="botonLogs">Registros</button> -->
-        <table id="tablaRespaldos" class="table table-striped table-bordered" style="width:100%">
+        <table id="tablaRespaldos" class="table table-dark table-striped table-bordered display" style="width:100%">
           <thead>
             <tr>
               <th width="3%" scope="col">#</th>

@@ -92,9 +92,10 @@ print_r($dataU);
     </p>
     <?php else : ?>    
     <?php endif ?>
+    
+<!-- table table-striped table-bordered table-responsive -->
 
-
-    <table id="tablaRoles" class="table table-striped table-bordered table-responsive" style="width:100%">
+    <table id="tablaRoles" class="table table-dark table-striped table-bordered display" style="width:100%">
       <thead class="thead-inverse">
         <tr>
           <th width="3%">Imágen</th>

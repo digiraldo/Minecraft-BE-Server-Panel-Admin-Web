@@ -1,4 +1,4 @@
-# Minecraft Bedrock Edition Server con Panel de Administración Web v1.0
+# Minecraft Bedrock Edition Server con Panel de Administración Web v2.0
 
 ## El Panel de Administración esta en Desarrollo.
 
@@ -27,8 +27,12 @@ Antes de iniciar hay que aclarar que el Servidor dedicado de Minecraft Bedrock E
 ## Funciones habilitadas del Panel de Administración Web:
 * Gestión y/o permisos de Usuarios inscritos: `Administrador`, `Editor`, `Usuario` e `Inscrito`, .
 * Administración y/o `permisos de usuarios` agregar, editar y eliminar con el Gamertag.
-* Funcion de botones `Detener`, `Iniciar` y `Reiniciar` del Servidor en el Panel o Tablero de adminsitración.
+* Funcion de botones `Detener`, `Iniciar` y `Reiniciar` del Servidor en el Panel o Tablero de administración.
+* Dar a los jugadores Items en su  inventario desde `allowlist`.
+* Agregar Editar y Eliminar Items o inventarios para dar a los jugadores en `Propiedades`.
 * Administración de los Parámetros del Servidor en `Propiedades`.
+* Administración de las reglas del Juego en `Propiedades`.
+* Administración de alertas para dar información en `Propiedades`.
 * Gestión de archivos y en las copias de seguridad automáticas de respaldo del mundo en `Respaldos`.
 * Opción de activar o desactivar Respaldos Automáticos Diarios en `Respaldos`.
 * Gestión cargar o recuperar `mundos` en el servidor.

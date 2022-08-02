@@ -59,7 +59,7 @@ require '../tablero/info.php';
 
     <div class="section">
 
-      <table id="tablaPermisos" class="table table-striped table-bordered" style="width:100%">
+      <table id="tablaPermisos" class="table table-dark table-striped table-bordered display" style="width:100%">
         <thead>
           <tr>
             <th scope="col">Gamertag</th>

@@ -80,15 +80,15 @@ if (!$usuarioN['name']) {
 $esValido = false;
 $errors['name'] = 'Gamertag o usuario de Minecraft obligatorio';
 //print_r($usuarios)."<br>";
-//print_r(array_search('disaned', array_column($usuarios, 'name')));
-print_r(array_search('disaned', $usuarios));
-print_r(obtenerUsuarioPorName('disaned', $usuarios));
+//print_r(array_search('gorobeta', array_column($usuarios, 'name')));
+// print_r(array_search('gorobeta', $usuarios));
+// print_r(obtenerUsuarioPorName('gorobeta', $usuarios));
 //echo $usuarios."<br>";
 //var_dump(json_decode($jsonRo, true));
 //$key = array_search('100', array_column($userdb, 'uid'));
-// }elseif (array_search('disaned', $usuariosReg)) {
-// }elseif (obtenerUsuarioPorName('disaned', $usuariosReg)) {
-}elseif (obtenerUsuarioPorName('disaned', array_column($usuarios, 'name'))) {
+// }elseif (array_search('gorobeta', $usuariosReg)) {
+// }elseif (obtenerUsuarioPorName('gorobeta', $usuariosReg)) {
+}elseif (obtenerUsuarioPorName('gorobeta', array_column($usuarios, 'name'))) {
     $errors['name'] = 'Gamertag o usuario de Minecraft ya existe';
 }
 
@@ -146,7 +146,3 @@ if (empty($usuarios) && count($roles) == 1) {
 } else {
     $newcont = $countArrgamertag - $countArrname;
 }
-
-
-
-

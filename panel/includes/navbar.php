@@ -1,7 +1,7 @@
 <?php
 /*-------------------------
 Autor: Didier Giraldo
-Mail: disaned@gmail.com
+Mail: disaned1@gmail.com
 ---------------------------*/
 
 require '../usuarios/usuarios.php';
@@ -54,7 +54,7 @@ for ($i=2; $i<count($logs); $i++)
 ?>
 
      
-<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
 <div class="container-fluid">
 <a class="navbar-brand" href="../includes/index.php"><img src="https://www.minecraft.net/etc.clientlibs/minecraft/clientlibs/main/resources/img/menu/menu-buy.gif" alt="" width="30" height="24" class="d-inline-block align-top" data-toggle="tooltip" data-placement="bottom" title="<i class='fas fa-home'></i> Panel Minecraft Bedrock<br/><i class='fas fa-globe'></i> Servidor: <?php echo $srvdat[0]['spain']; ?>">
 Panel 

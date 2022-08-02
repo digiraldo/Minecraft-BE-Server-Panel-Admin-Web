@@ -310,7 +310,7 @@ $jsonSus = file_get_contents(__DIR__ . '/config/usradmin.json');
 $datSus = json_decode($jsonSus, true);
 
 /* 
-if (obtenerUsusPorGamer('disaned', array_column($datSus, 'gamertag'))) {
+if (obtenerUsusPorGamer('gorobeta', array_column($datSus, 'gamertag'))) {
     //echo 'Usuario:'.' '.$_POST['usuario'].' '.'Ya existe!';
     echo 'GamerTag Ya Existe!';
 } else {
