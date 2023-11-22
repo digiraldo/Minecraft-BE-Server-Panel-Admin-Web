@@ -265,7 +265,8 @@ echo "========================================================================="
 Print_Style "Instalando nginx y php..." "$MAGENTA"
 sleep 4s
 sudo apt install nginx -y
-sudo apt update && sudo apt install php-fpm -y
+# sudo apt update && sudo apt install php-fpm -y
+sudo apt update sudo apt -y install php8.1 php8.1-fpm
 
 echo "======================================================================================="
 Print_Style "Creando archivos del Servidor web..." "$CYAN"
