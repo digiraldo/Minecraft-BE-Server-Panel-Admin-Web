@@ -592,6 +592,7 @@ sleep 1s
 echo ""
 sleep 1s
 Print_Style "screen -r $ServerName" "$REVERSE"
+Print_Style Presiona Ctrl a + d, para cerrar "screen -r $ServerName" "GREEN"
 echo ""
-#sleep 8s
+sleep 8s
 #screen -r $ServerName
