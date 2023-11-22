@@ -356,7 +356,7 @@ echo "==========================================================================
 # Digitar la version php
 echo "========================================================================="
 echo "Configurar versión de php instalada:"
-Print_Style "Ejemplo Valores permitidos: "7.2" o "7.4" o "8.1.2" " "$CYAN"
+Print_Style "Ejemplo Valores permitidos: "7.2" o "7.4" o "8.1" " "$CYAN"
 read_with_prompt VePHP "Versión PHP" 7.4
 echo "========================================================================="
 
