@@ -63,7 +63,7 @@ if [ ! -n "`which sudo`" ]; then
   apt update && apt install sudo -y
 fi
 sudo apt update
-sudo apt-get install php-zip -y
+# sudo apt-get install php-zip -y
 sudo apt-get install zip gzip tar -y
 sudo apt-get install curl -y
 sudo apt install jq -y
