@@ -124,7 +124,11 @@ Print_Style "verificar, si no hay retorno" "$YELLOW"
 dpkg -l | grep apache y dpkg -l | grep apache2
 echo "========================================================================="
 
-
+Print_Style "Borrando directorios y archivos" "$MAGENTA"
+sleep 3s
+sudo rm -rf minecraftbe
+sudo rm -rf SetupMinecraft.sh
+sudo rm -rf uninstall.sh
 
 echo "========================================================================="
     echo -n "¿Instalar Servidor Minecrft Bedrock? (y/n)"
