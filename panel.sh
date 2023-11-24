@@ -262,11 +262,16 @@ else
 echo "========================================================================="
 Print_Style "¡El Servidor Web No existe! Instalando Servidor..." "$YELLOW"
 echo "========================================================================="
-Print_Style "Instalando nginx y php..." "$MAGENTA"
-sleep 4s
+
+Print_Style "========================================" "$REVERSE"
+Print_Style "Instalación del servidor web Nginx y PHP" "$BLINK"
+Print_Style "========================================" "$REVERSE"
+sleep 3s
+Print_Style "Instalando nginx..." "$MAGENTA"
 sudo apt install nginx -y
-# sudo apt update && sudo apt install php-fpm -y
-sudo apt update && sudo apt install php8.1 php8.1-fpm -y
+Print_Style "Instalando php..." "$MAGENTA"
+sudo apt update && sudo apt install php-fpm -y
+# sudo apt update && sudo apt install php8.1 php8.1-fpm -y
 
 echo "======================================================================================="
 Print_Style "Creando archivos del Servidor web..." "$CYAN"
@@ -362,6 +367,10 @@ read_with_prompt VePHP "Versión PHP" 7.4
 echo "========================================================================="
 
 # Ver la ip del equipo
+
+Print_Style "Dirección IP accesible o pública" "$MAGENTA"
+dirección IP accesible
+
 Print_Style "Dirección IP del Servidor..." "$RED"
 hostname -I
 sleep 1s
