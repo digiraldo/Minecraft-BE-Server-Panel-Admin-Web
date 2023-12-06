@@ -270,14 +270,14 @@ sleep 3s
 Print_Style "Instalando nginx..." "$MAGENTA"
 sudo apt install nginx -y
 Print_Style "Instalando php..." "$MAGENTA"
-# sudo apt update && sudo apt install php-fpm -y
+sudo apt update && sudo apt install php-fpm -y
 # sudo apt update && sudo apt install php8.1 php8.1-fpm -y
-# sudo apt update && sudo apt install php7.2 php7.2-fpm -y
 
+# Instalar otras versiones
 sudo apt-get update
-sudo apt -y install software-properties-common
-sudo add-apt-repository ppa:ondrej/php
-sudo apt update && sudo apt-get install php7.4 php7.4-fpm php7.4-cli -y
+# sudo apt -y install software-properties-common
+# sudo add-apt-repository ppa:ondrej/php
+# sudo apt update && sudo apt-get install php7.4 php7.4-fpm php7.4-cli -y
 
 echo "======================================================================================="
 Print_Style "Creando archivos del Servidor web..." "$CYAN"
