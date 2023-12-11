@@ -46,6 +46,6 @@ echo -e "\e[9;31m ROJO \e[9;33m  AMARILLO \e[9;32m VERDE \e[9;39m TACHADO \e[0m"
 
 echo -e "\e[37m ======================================================================= \e[0m"
 
-echo -e ‘Así se escribe \e[1;34mG\e[0m\e[1;31mo\e[0m\e[1;33mo\e[0m\e[1;34mg\e[0m\e[1;32ml\e[0m\e[1;31me\e[0m’
+echo -e "Así se escribe: \e[1;34mG\e[0m\e[1;31mo\e[0m\e[1;33mo\e[0m\e[1;34mg\e[0m\e[1;32ml\e[0m\e[1;31me\e[0m"
 
 echo -e "\e[37m ======================================================================= \e[0m"
