@@ -370,8 +370,8 @@ sleep 1s
 
 # Digitar la ip del equipo
 echo "========================================================================="
-echo -e "\e[35m Introduzca la IP - IPV4 del servidor:  \e[0m" #MORADO
-read_with_prompt IPV4 "Url o dirección IP del servidor $MYIPV4" $MYIPV4
+echo -e "\e[35m Introduzca la IP - IPV4 del servidor:  $MYIPV4 \e[0m" #MORADO
+read_with_prompt IPV4 "Url o dirección IP del servidor" $MYIPV4
 echo "========================================================================="
 
 # Digitar el puerto a utilizar
