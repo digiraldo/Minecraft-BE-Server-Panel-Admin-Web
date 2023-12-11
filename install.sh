@@ -180,7 +180,7 @@ echo "========================================================================="
 Print_Style "Traduciendo Configuracion del Servidor" "$YELLOW"
 echo "========================================================================="
 echo "========================================================================="
-Print_Style "Traduciendo Ingreso Ruta del Directorio" "$BLUE"
+Print_Style "Traduciendo Ingreso Ruta del Directorio" "$CYAN"
 sleep 2s
 sudo sed -i "s/Enter directory path to install Minecraft BE Server/Ingrese la ruta del directorio para instalar Minecraft BE Server/g" SetupMinecraft.sh
 sudo sed -i "s/default ~/predeterminado ~/g" SetupMinecraft.sh
@@ -192,7 +192,7 @@ sudo sed -i "s/Enter a short one word label for a new or existing server/Ingrese
 sudo sed -i "s/don't use minecraftbe/no uses minecraftbe/g" SetupMinecraft.sh
 sudo sed -i "s/It will be used in the folder name and service name/Se utilizará en el nombre de la carpeta y el nombre del servicio./g" SetupMinecraft.sh
 
-Print_Style "Traduciendo Etiqueta o apodo del Servidor" "$BLUE"
+Print_Style "Traduciendo Etiqueta o apodo del Servidor" "$CYAN"
 sleep 2s
 sudo sed -i "s/Server Label/Etiqueta del Servidor/g" SetupMinecraft.sh
 
@@ -207,7 +207,7 @@ sudo sed -i "s/Enter server IPV6 port/Ingrese el puerto IPV6 del Servidor/g" Set
 sudo sed -i "s/default 19133/por defecto 19133/g" SetupMinecraft.sh
 sudo sed -i "s/Server IPV6 Port/Puerto IPV6 del Servidor/g" SetupMinecraft.sh
 
-Print_Style "Traduciendo Inicio del Servidor" "$BLUE"
+Print_Style "Traduciendo Inicio del Servidor" "$CYAN"
 sleep 2s
 sudo sed -i "s/Start Minecraft server at startup automatically/Iniciar el servidor de Minecraft al inicio automáticamente/g" SetupMinecraft.sh
 
@@ -216,7 +216,7 @@ sleep 2s
 sudo sed -i "s/Automatically restart and backup server at 4am daily/Reiniciar y hacer copia del mundo a las 4am todos los dias/g" SetupMinecraft.sh
 sleep 2s
 
-Print_Style "Traduciendo Configuración Reinicio" "$BLUE"
+Print_Style "Traduciendo Configuración Reinicio" "$CYAN"
 sleep 2s
 sudo sed -i "s/Your time zone is currently set to/Su zona horaria está configurada actualmente en/g" SetupMinecraft.sh
 sudo sed -i "s/Current system time/Hora actual del sistema/g" SetupMinecraft.sh
