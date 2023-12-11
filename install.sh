@@ -68,6 +68,10 @@ sudo apt-get install zip gzip tar -y
 sudo apt-get install curl -y
 sudo apt install jq -y
 sudo apt-get install git -y
+
+sudo apt install ca-certificates apt-transport-https -y
+sudo apt install software-properties-common -y
+
   # sudo apt install -y software-properties-common
   # sudo add-apt-repository universe -y
   # sudo apt-get install ssh -y
@@ -182,7 +186,7 @@ sudo sed -i "s/Enter directory path to install Minecraft BE Server/Ingrese la ru
 sudo sed -i "s/default ~/predeterminado ~/g" SetupMinecraft.sh
 sudo sed -i "s/Directory Path/Ruta de Directorio/g" SetupMinecraft.sh
 
-Print_Style "Traduciendo Ingreso de nombre corto" "$CYAN"
+Print_Style "Traduciendo Ingreso de nombre corto" "$GREEN"
 sleep 2s
 sudo sed -i "s/Enter a short one word label for a new or existing server/Ingrese una etiqueta corta de una palabra para un servidor nuevo o existente/g" SetupMinecraft.sh
 sudo sed -i "s/don't use minecraftbe/no uses minecraftbe/g" SetupMinecraft.sh
@@ -192,7 +196,7 @@ Print_Style "Traduciendo Etiqueta o apodo del Servidor" "$BLUE"
 sleep 2s
 sudo sed -i "s/Server Label/Etiqueta del Servidor/g" SetupMinecraft.sh
 
-Print_Style "Traduciendo Ingreso IPV4 e IPV6" "$CYAN"
+Print_Style "Traduciendo Ingreso IPV4 e IPV6" "$GREEN"
 sleep 2s
 # IPV4
 sudo sed -i "s/Enter server IPV4 port/Ingrese el Puerto IPV4 del Servidor/g" SetupMinecraft.sh
@@ -207,7 +211,7 @@ Print_Style "Traduciendo Inicio del Servidor" "$BLUE"
 sleep 2s
 sudo sed -i "s/Start Minecraft server at startup automatically/Iniciar el servidor de Minecraft al inicio automáticamente/g" SetupMinecraft.sh
 
-Print_Style "Traduciendo Hacer copias de Seguridad" "$CYAN"
+Print_Style "Traduciendo Hacer copias de Seguridad" "$GREEN"
 sleep 2s
 sudo sed -i "s/Automatically restart and backup server at 4am daily/Reiniciar y hacer copia del mundo a las 4am todos los dias/g" SetupMinecraft.sh
 sleep 2s
