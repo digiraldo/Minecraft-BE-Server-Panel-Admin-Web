@@ -13,6 +13,7 @@ echo -e "\e[36m Texto en Color #36 CIAN \e[0m"
 echo -e "\e[37m Texto en Color #37 GRIS \e[0m"
 echo -e "\e[37m Texto en Color #38 BLANCO \e[0m"
 
+echo -e "\e[37m ================================================ \e[0m"
 
 echo -e "\e[1;32m Texto en Color + Negrilla \e[0m"
 echo -e "\e[3;32m Texto en Color + Cursiva \e[0m"
@@ -20,7 +21,7 @@ echo -e "\e[4;32m Texto en Color + Subrayado \e[0m"
 echo -e "\e[5;32m Texto en Color + Parpadeo \e[0m"
 echo -e "\e[7;32m Texto en Color + Color Inverso \e[0m"
 
-
+echo -e "\e[37m ================================================ \e[0m"
 
 echo -e "\e[1;37m Texto en Color + Color Fondo NEGRO \e[40m"
 echo -e "\e[1;37m Texto en Color + Color Fondo ROJO \e[41m"
@@ -31,3 +32,5 @@ echo -e "\e[1;37m Texto en Color + Color Fondo MORADO \e[45m"
 echo -e "\e[1;37m Texto en Color + Color Fondo CIAN \e[46m"
 echo -e "\e[1;30m Texto en Color + Color Fondo GRIS \e[47m"
 echo -e "\e[1;30m Texto en Color + Color Fondo BLANCO \e[48m"
+
+echo -e "\e[37m ================================================ \e[0m"
