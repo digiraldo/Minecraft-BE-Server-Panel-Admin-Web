@@ -26,52 +26,6 @@ echo "========================================================================="
 # Instrucciones en Español: https://gorobeta.blogspot.com
 # Repositorio de GitHub: https://github.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web
 
-# Colores del terminal
-BLACK=$(tput setaf 0)
-RED=$(tput setaf 1)
-GREEN=$(tput setaf 2)
-YELLOW=$(tput setaf 3)
-LIME_YELLOW=$(tput setaf 190)
-BLUE=$(tput setaf 4)
-MAGENTA=$(tput setaf 5)
-CYAN=$(tput setaf 6)
-WHITE=$(tput setaf 7)
-BRIGHT=$(tput bold)
-NORMAL=$(tput sgr0)
-BLINK=$(tput blink)
-REVERSE=$(tput smso)
-UNDERLINE=$(tput smul)
-
-# Imprime una línea con color usando códigos de terminal
-Print_Style() {
-  printf "%s\n" "${2}$1${NORMAL}"
-}
-
-# Función para leer la entrada del usuario con un mensaje
-function read_with_prompt {
-  variable_name="$1"
-  prompt="$2"
-  default="${3-}"
-  unset $variable_name
-  while [[ ! -n ${!variable_name} ]]; do
-    read -p "$prompt: " $variable_name < /dev/tty
-    if [ ! -n "`which xargs`" ]; then
-      declare -g $variable_name=$(echo "${!variable_name}" | xargs)
-    fi
-    declare -g $variable_name=$(echo "${!variable_name}" | head -n1 | awk '{print $1;}')
-    if [[ -z ${!variable_name} ]] && [[ -n "$default" ]] ; then
-      declare -g $variable_name=$default
-    fi
-    echo -n "$prompt : ${!variable_name} -- aceptar? (y/n)"
-    read answer < /dev/tty
-    if [ "$answer" == "${answer#[Yy]}" ]; then
-      unset $variable_name
-    else
-      echo "$prompt: ${!variable_name}"
-    fi
-  done
-}
-
 cd ~
 
   # Eliminar scripts existentes
@@ -90,10 +44,10 @@ cd ~
   sudo rm -rf misitio.conf
   sudo rm -rf web.sh
   
-  Print_Style "==========================SERVIDORES MONTADOS============================" "$CYAN"
+  echo -e "\e[36m ==========================SERVIDORES MONTADOS============================ \e[0m" #CIAN
   sleep 2s
   ls -l
-  Print_Style "=========================================================================" "$CYAN"
+  echo -e "\e[36m ========================================================================= \e[0m" #CIAN
   sleep 3s
 
 
@@ -152,7 +106,7 @@ cd ~
 #### y la reemplaza con el contenido del documento: start.txt
 #### en el archivo de texto: start.sh
 echo "========================================================================="
-Print_Style "Configurando start.sh para copias de seguridad en la nube" "$YELLOW"
+echo -e "\e[33m Configurando start.sh para copias de seguridad en la nube \e[0m" #AMARILLO
 sudo sed -i '/# Retrieve latest version of Minecraft Bedrock dedicated server/ {
 r start.txt
 d}' $DirName/minecraftbe/$ServerName/start.sh
@@ -161,21 +115,21 @@ sleep 2s
 
 # Cambio start.sh
 echo "========================================================================="
-Print_Style "Cambiando copia de seguridad a zip" "$YELLOW"
+echo -e "\e[33m Cambiando copia de seguridad a zip \e[0m" #AMARILLO
 sudo sed -i "s/tar -pzvcf/zip -r/g" $DirName/minecraftbe/$ServerName/start.sh
 sudo sed -i "s/.tar.gz/.zip/g" $DirName/minecraftbe/$ServerName/start.sh
 sleep 2s
 echo "========================================================================="
 
 echo "========================================================================="
-Print_Style "Cambiando respaldos de seguridad de 10 a 20" "$YELLOW"
+echo -e "\e[33m Cambiando respaldos de seguridad de 10 a 20 \e[0m" #AMARILLO
 sudo sed -i "s/-10/-20/g" $DirName/minecraftbe/$ServerName/start.sh
 sleep 2s
 echo "========================================================================="
 
 # Cambio stop.sh
 echo "========================================================================="
-Print_Style "Traduciendo mensajes al detener el servidor" "$YELLOW"
+echo -e "\e[33m Traduciendo mensajes al detener el servidor \e[0m" #AMARILLO
 sudo sed -i "s/Stopping server in/Deteniendo el Servidor en/g" $DirName/minecraftbe/$ServerName/stop.sh
 sudo sed -i "s/seconds/segundos/g" $DirName/minecraftbe/$ServerName/stop.sh
 sudo sed -i "s/Stopping server/Servidor detenido o cerrado/g" $DirName/minecraftbe/$ServerName/stop.sh
@@ -184,7 +138,7 @@ echo "========================================================================="
 
 # Cambio restart.sh
 echo "========================================================================="
-Print_Style "Traduciendo mensajes de reinicio en el servidor" "$YELLOW"
+echo -e "\e[33m Traduciendo mensajes de reinicio en el servidor \e[0m" #AMARILLO
 sudo sed -i "s/Server is restarting in/Reiniciando en/g" $DirName/minecraftbe/$ServerName/restart.sh
 sudo sed -i "s/seconds/segundos/g" $DirName/minecraftbe/$ServerName/restart.sh
 sudo sed -i "s/Closing server/Reiniciando servidor/g" $DirName/minecraftbe/$ServerName/restart.sh
@@ -200,7 +154,7 @@ cd $ServerName
   curl -H "Accept-Encoding: identity" -L -o web.sh https://github.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/raw/master/web.sh
   chmod +x web.sh
 
-Print_Style "Configurando el Panel de Administración..." "$GREEN"
+echo -e "\e[32m Configurando el Panel de Administración... \e[0m" #VERDE
 sleep 3s
 
 cd ~
@@ -210,7 +164,7 @@ sudo git clone https://github.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web.
 cd Minecraft-BE-Server-Panel-Admin-Web
 
 echo "======================================================================================="
-Print_Style "Creando directorios y archivos del panel..." "$CYAN"
+echo -e "\e[36m Creando directorios y archivos del panel... \e[0m" #CIAN
 sudo mv panel $DirName/minecraftbe/
 sudo mv index.php $DirName/minecraftbe/
 sudo mv shell.php $DirName/minecraftbe/
@@ -224,19 +178,19 @@ sudo mv archivos.php $DirName/minecraftbe/
 cd ~
 cd minecraftbe
 if [ ! -d "config" ]; then
-  Print_Style "Instalando Repositorios de Configuración..." "$YELLOW"
+  echo -e "\e[33m Instalando Repositorios de Configuración... \e[0m" #AMARILLO
   sudo mv Minecraft-BE-Server-Panel-Admin-Web/config $DirName/minecraftbe/
   sleep 1s  
 else
-Print_Style "Directorio Config" "$YELLOW"
+echo -e "\e[33m Directorio Config \e[0m" #AMARILLO
 
 cd config
-  Print_Style "=========================  DIRECTORIO CONFIG  ===========================" "$CYAN"
+  echo -e "\e[36m =========================  DIRECTORIO CONFIG  =========================== \e[0m" #CIAN
   ls -l
-  Print_Style "=========================================================================" "$CYAN"
+  echo -e "\e[36m ========================================================================= \e[0m" #CIAN
   sleep 3s
     echo "========================================================================="
-    Print_Style "Sincronizando y haciendo respaldo a los archivos de configuración..." "$RED"
+    echo -e "\e[31m Sincronizando y haciendo respaldo a los archivos de configuración... \e[0m" #ROJO
 
 # Crear directorios config/allowlist/all_backub si no existen
 if [ ! -d "backub_config" ]; then
@@ -285,15 +239,15 @@ echo "========================================================================="
 echo "========================================================================="
 else
 echo "========================================================================="
-Print_Style "¡El Servidor Web No existe! Instalando Servidor..." "$YELLOW"
+echo -e "\e[33m ¡El Servidor Web No existe! Instalando Servidor... \e[0m" #AMARILLO
 echo "========================================================================="
 
-Print_Style "========================================" "$REVERSE"
-Print_Style "Instalación del servidor web Nginx y PHP" "$BLINK"
-Print_Style "========================================" "$REVERSE"
+echo -e "\e[7;38m ======================================== \e[0m" #INVERSO
+echo -e "\e[5;38m Instalación del servidor web Nginx y PHP \e[0m" #PARPADEO
+echo -e "\e[7;38m ======================================== \e[0m" #INVERSO
 sleep 3s
 
-Print_Style "Instalando php..." "$MAGENTA"
+echo -e "\e[35m Instalando php... \e[0m" #MORADO
 sudo apt update && sudo apt install php php-fpm -y
 # sudo apt update && sudo apt install php8.1 php8.1-fpm -y
 
@@ -304,14 +258,14 @@ sudo apt-get update
 # sudo apt update && sudo apt-get install php7.4 php7.4-fpm php7.4-cli -y
 
 
-Print_Style "Instalando nginx..." "$MAGENTA"
+echo -e "\e[35m Instalando nginx... \e[0m" #MORADO
 # sudo apt install nginx -y
 
 ##### https://www.youtube.com/watch?v=XJINEDKagL0
 
 
 echo "======================================================================================="
-Print_Style "Creando archivos del Servidor web..." "$CYAN"
+echo -e "\e[36m Creando archivos del Servidor web... \e[0m" #CIAN
 cd ~
 cd minecraftbe
 cd Minecraft-BE-Server-Panel-Admin-Web
@@ -326,7 +280,7 @@ cd minecraftbe
 sudo chmod +x /etc/nginx/sites-available/default
 echo "======================================================================================="
 echo "======================================================================================="
-Print_Style "Agreando index.php a Ngnix..." "$GREEN"
+echo -e "\e[32m Agreando index.php a Ngnix... \e[0m" #VERDE
 sleep 1s
 echo "======================================================================================="
 #sudo sed -i "s/# Allow non-root users to specify the allow_other or allow_root mount options./ Allow non-root users to specify the allow_other or allow_root mount options./g" >
@@ -338,7 +292,7 @@ sleep 2s
 echo "======================================================================================"
 
 echo "========================================================================="
-Print_Style "Configurando location de PHP en Ngnix..." "$GREEN"
+echo -e "\e[32m Configurando location de PHP en Ngnix... \e[0m" #VERDE
 sleep 1s
 sudo sed -i '/# pass PHP scripts to FastCGI server/ {
 r location
@@ -347,7 +301,7 @@ echo "========================================================================="
 sleep 2s
 
 echo "========================================================================="
-Print_Style "Configurando Servidor para subir archivos grandes" "$YELLOW"
+echo -e "\e[33m Configurando Servidor para subir archivos grandes \e[0m" #AMARILLO
 sudo sed -i '/# server_tokens off;/ {
 r ngnixsize
 d}' /etc/nginx/nginx.conf
@@ -360,7 +314,7 @@ sudo rm -rf $DirName/minecraftbe/ngnixsize
 sudo rm -rf $DirName/minecraftbe/start
 
 echo "======================================================================================="
-Print_Style "Obteniendo Resultados..." "$MAGENTA"
+echo -e "\e[35m Obteniendo Resultados... \e[0m" #MORADO
 sleep 2s
 sudo sed -n "/# pass PHP scripts/p" /etc/nginx/sites-available/default
 sudo sed -n "/location ~ /p" /etc/nginx/sites-available/default
@@ -370,17 +324,17 @@ echo "==========================================================================
 sleep 2s
 
 echo "======================================================================================="
-Print_Style "cargando la configuración del servidor web..." "$YELLOW"
+echo -e "\e[33m cargando la configuración del servidor web... \e[0m" #AMARILLO
 sudo systemctl reload nginx
 sleep 1s
 echo "======================================================================================="
 
 echo "======================================================================================="
-Print_Style "Sincronizando Pagina Web con el Servidor de Minecraft..." "$GREEN"
+echo -e "\e[32m Sincronizando Pagina Web con el Servidor de Minecraft... \e[0m" #VERDE
 sleep 2s
 
 echo "======================================================================================="
-Print_Style "Creando archivo misitio.conf..." "$CYAN"
+echo -e "\e[36m Creando archivo misitio.conf... \e[0m" #CIAN
 sudo rm -rf /etc/nginx/sites-available/misitio.conf
 sudo rm -rf /etc/nginx/sites-enabled/misitio.conf
 #sudo rm -rf /etc/nginx/sites-available/default
@@ -391,7 +345,7 @@ sleep 1s
 sudo mv $DirName/minecraftbe/misitio.conf /etc/nginx/sites-available
 
 echo "======================================================================================="
-Print_Style "Mostrando la versión php instalada..." "$CYAN"
+echo -e "\e[36m Mostrando la versión php instalada... \e[0m" #CIAN
 sleep 1s
 sudo php -v
 echo "======================================================================================="
@@ -399,32 +353,34 @@ echo "==========================================================================
 # Digitar la version php
 echo "========================================================================="
 echo "Configurar versión de php instalada:"
-Print_Style "Ejemplo Valores permitidos: "7.2" o "7.4" o "8.1" " "$CYAN"
+echo -e "\e[36m Ejemplo Valores permitidos: "7.2" o "7.4" o "8.1" \e[0m" #CIAN
 read_with_prompt VePHP "Versión PHP" 7.4
 echo "========================================================================="
 
 # Ver la ip del equipo
 
-Print_Style "Dirección IP accesible o pública" "$MAGENTA"
+echo -e "\e[35m Dirección IP accesible o pública \e[0m" #MORADO
 dirección IP accesible
 
-Print_Style "Dirección IP del Servidor..." "$RED"
+echo -e "\e[31m Dirección IP del Servidor... \e[0m" #ROJO
 hostname -I
+MYIPV4=$(hostname -I)
+# echo "$MYIPV4"
 sleep 1s
 
 # Digitar la ip del equipo
 echo "========================================================================="
-Print_Style "Introduzca la IP - IPV4 del servidor: " "$MAGENTA"
-read_with_prompt IPV4 "Url o dirección IP del servidor"
+echo -e "\e[35m Introduzca la IP - IPV4 del servidor:  \e[0m" #MORADO
+read_with_prompt IPV4 "Url o dirección IP del servidor $MYIPV4" $MYIPV4
 echo "========================================================================="
 
 # Digitar el puerto a utilizar
 echo "========================================================================="
-Print_Style "Introduzca el puerto para el servidor web, Puerto predeterminado: 80" "$MAGENTA"
+echo -e "\e[35m Introduzca el puerto para el servidor web, Puerto predeterminado: 80 \e[0m" #MORADO
 read_with_prompt Port "Numero del Puerto" 80
 echo "========================================================================="
 
-Print_Style "Configurando la pagina web $IPV4:$Port/index.php..." "$YELLOW"
+echo -e "\e[33m Configurando la pagina web $IPV4:$Port/index.php... \e[0m" #AMARILLO
 sudo sed -i "s:MiIPV4:$IPV4:g" $DirName/minecraftbe/config/srvdatos.json
 sudo sed -i "s:MiIPV4:$IPV4:g" /etc/nginx/sites-available/misitio.conf
 sudo sed -i "s:PuertoIPV4:$PortIPV4:g" $DirName/minecraftbe/config/srvdatos.json
@@ -439,7 +395,7 @@ sleep 2s
 #sudo sh -c "echo '$IPV4' >> minecraftbe/server.ip"
 
 echo "========================================================================="
-Print_Style "Habilitando sitio añadido..." "$CYAN"
+echo -e "\e[36m Habilitando sitio añadido... \e[0m" #CIAN
 cd /
 cd etc
 cd nginx
@@ -449,7 +405,7 @@ echo "========================================================================="
 sleep 1s
 
 echo "========================================================================="
-Print_Style "Configurando Permisos..." "$YELLOW"
+echo -e "\e[33m Configurando Permisos... \e[0m" #AMARILLO
 cd ~
 #Permisos de usuario:grupo y acceso sh desde la web
 #Creando grupo Samba
@@ -482,13 +438,13 @@ sudo sed -n "/\%developers ALL=(www-data)NOPASSWD:\/usr\/bin\/crontab/p" /etc/su
 sleep 2s
 
 echo "========================================================================="
-Print_Style "Verificando Servidor Web... " "$MAGENTA"
+echo -e "\e[35m Verificando Servidor Web... \e[0m" #MORADO
 sudo nginx -t
 sleep 3s
 echo "========================================================================="
 
 echo "========================================================================="
-Print_Style "Reiniciando Servidor Web... " "$MAGENTA"
+echo -e "\e[35m Reiniciando Servidor Web...  \e[0m" #MORADO
 sleep 1s
 sudo systemctl restart nginx
 echo "========================================================================="
@@ -497,11 +453,11 @@ echo "."
 echo "."
 
 echo "========================================================================="
-Print_Style "PANEL DE ADMINISTRACIÓN WEB CREADO" "$GREEN"
+echo -e "\e[32m PANEL DE ADMINISTRACIÓN WEB CREADO \e[0m" #VERDE
 echo "========================================================================="
 echo "========================================================================="
-Print_Style "Ingrese desde el navegador web con:" "$CYAN"
-Print_Style "http://$IPV4:$Port/" "$RED"
+echo -e "\e[36m Ingrese desde el navegador web con: \e[0m" #CIAN
+echo -e "\e[31m http://$IPV4:$Port/ \e[0m" #ROJO
 echo "========================================================================="
 fi
 
@@ -624,7 +580,7 @@ cd minecraftbe
 cd $ServerName
 echo "========================================================================="
 echo "========================================================================="
-Print_Style  "================CONFIGURACIÓN PREDETERMINADA DEL SERVIDOR================" "$REVERSE"
+echo -e "\e[7;38m ================CONFIGURACIÓN PREDETERMINADA DEL SERVIDOR================ \e[0m" #INVERSO
 echo "========================================================================="
 sudo sed -n "/server-name=/p" server.properties | sed 's/server-name=/Nombre del Servidor: .... /'
 sudo sed -n "/level-name=/p" server.properties | sed 's/level-name=/Nombre del Nivel: ....... /'
@@ -683,7 +639,7 @@ echo "========================================================================="
   #  screen -r $ServerName
   
 echo "========================================================================="
-Print_Style "emit-server-telemetry=true" "$GREEN"
+echo -e "\e[32m emit-server-telemetry=true \e[0m" #VERDE
 #  emit-server-telemetry=true
 # Habilitar esta telemetria nos ayuda a mejorar el juego.
 

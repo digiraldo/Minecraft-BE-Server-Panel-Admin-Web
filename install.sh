@@ -5,51 +5,6 @@
 # Repositorio de GitHub: https://github.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web
 # Crear Usuario https://noviello.it/es/como-crear-un-usuario-de-sudo-en-linux-debian/
 
-# Colores del terminal
-BLACK=$(tput setaf 0)
-RED=$(tput setaf 1)
-GREEN=$(tput setaf 2)
-YELLOW=$(tput setaf 3)
-LIME_YELLOW=$(tput setaf 190)
-BLUE=$(tput setaf 4)
-MAGENTA=$(tput setaf 5)
-CYAN=$(tput setaf 6)
-WHITE=$(tput setaf 7)
-BRIGHT=$(tput bold)
-NORMAL=$(tput sgr0)
-BLINK=$(tput blink)
-REVERSE=$(tput smso)
-UNDERLINE=$(tput smul)
-
-# Imprime una línea con color usando códigos de terminal
-Print_Style() {
-  printf "%s\n" "${2}$1${NORMAL}"
-}
-
-# Función para leer la entrada del usuario con un mensaje
-function read_with_prompt {
-  variable_name="$1"
-  prompt="$2"
-  default="${3-}"
-  unset $variable_name
-  while [[ ! -n ${!variable_name} ]]; do
-    read -p "$prompt: " $variable_name < /dev/tty
-    if [ ! -n "`which xargs`" ]; then
-      declare -g $variable_name=$(echo "${!variable_name}" | xargs)
-    fi
-    declare -g $variable_name=$(echo "${!variable_name}" | head -n1 | awk '{print $1;}')
-    if [[ -z ${!variable_name} ]] && [[ -n "$default" ]] ; then
-      declare -g $variable_name=$default
-    fi
-    echo -n "$prompt : ${!variable_name} -- aceptar? (y/n)"
-    read answer < /dev/tty
-    if [ "$answer" == "${answer#[Yy]}" ]; then
-      unset $variable_name
-    else
-      echo "$prompt: ${!variable_name}"
-    fi
-  done
-}
 
   DirName=$(readlink -e ~)
   UserName=$(whoami)
@@ -58,7 +13,7 @@ function read_with_prompt {
 
 cd ~
 # Instale las dependencias necesarias para ejecutar el servidor de Minecraft en segundo plano
-Print_Style "Instalando screen, unzip, sudo, net-tools, wget y otras dependencias..." "$CYAN"
+echo -e "\e[36m Instalando screen, unzip, sudo, net-tools, wget y otras dependencias... \e[0m"
 if [ ! -n "`which sudo`" ]; then
   apt update && apt install sudo -y
 fi
@@ -84,9 +39,9 @@ else
 echo "El directorio ${BackConfig} existe"
 cd backub_config
 sleep 2s
-  Print_Style "===================SERVIDORES MONTADOS EN $BackConfig ====================" "$CYAN"
+  echo -e "\e[36m ===================SERVIDORES MONTADOS EN $BackConfig ==================== \e[0m"
   ls -l
-  Print_Style "=========================================================================" "$CYAN"
+  echo -e "\e[36m ========================================================================= \e[0m"
   sleep 6s
   echo "========================================================================="
     sleep 3s
@@ -99,9 +54,9 @@ else
 echo "El directorio ${Directorio} existe"
 cd minecraftbe
 sleep 2s
-  Print_Style "===================SERVIDORES MONTADOS EN $Directorio ====================" "$CYAN"
+  echo -e "\e[36m ===================SERVIDORES MONTADOS EN $Directorio ==================== \e[0m"
   ls -l
-  Print_Style "=========================================================================" "$CYAN"
+  echo -e "\e[36m ========================================================================= \e[0m"
   sleep 6s
 fi
 
@@ -112,14 +67,14 @@ cd ~
 # Repositorio de GitHub: https://github.com/TheRemote/MinecraftBedrockServer
 echo "========================================================================="
 if [ -e "SetupMinecraft.sh" ]; then
-Print_Style "¡El Instalador ya existe! Actualizandolo..." "$YELLOW"
+echo -e "\e[33m ¡El Instalador ya existe! Actualizandolo... \e[0m"
 sudo rm -rf SetupMinecraft.sh
 sleep 2s
 curl -H "Accept-Encoding: identity" -L -o SetupMinecraft.sh https://raw.githubusercontent.com/TheRemote/MinecraftBedrockServer/master/SetupMinecraft.sh
 sudo chmod 777 SetupMinecraft.sh
 sleep 2s
 echo "========================================================================="
-  
+
 
 else
 echo "Tomando SetupMinecraft.sh del repositorio..."
@@ -162,7 +117,7 @@ cd ~
 #### y la reemplaza con el contenido del documento: panel.sh
 #### en el archivo de texto: start.sh
 echo "========================================================================="
-Print_Style "Configurando SetupMinecraft.sh para integrar el Panel" "$YELLOW"
+echo -e "\e[33m Configurando SetupMinecraft.sh para integrar el Panel \e[0m"
 sudo sed -i '/sudo systemctl start "\$ServerName.service"/ {
 r panel.sh
 d}' SetupMinecraft.sh
@@ -177,26 +132,26 @@ sleep 2s
 
 # Cambio Preguntas a Español
 echo "========================================================================="
-Print_Style "Traduciendo Configuracion del Servidor" "$YELLOW"
+echo -e "\e[33m Traduciendo Configuracion del Servidor \e[0m" #AMARILLO
 echo "========================================================================="
 echo "========================================================================="
-Print_Style "Traduciendo Ingreso Ruta del Directorio" "$CYAN"
+echo -e "\e[36m Traduciendo Ingreso Ruta del Directorio \e[0m" #CIAN
 sleep 2s
 sudo sed -i "s/Enter directory path to install Minecraft BE Server/Ingrese la ruta del directorio para instalar Minecraft BE Server/g" SetupMinecraft.sh
 sudo sed -i "s/default ~/predeterminado ~/g" SetupMinecraft.sh
 sudo sed -i "s/Directory Path/Ruta de Directorio/g" SetupMinecraft.sh
 
-Print_Style "Traduciendo Ingreso de nombre corto" "$GREEN"
+echo -e "\e[32m Traduciendo Ingreso de nombre corto \e[0m" #VERDE
 sleep 2s
 sudo sed -i "s/Enter a short one word label for a new or existing server/Ingrese una etiqueta corta de una palabra para un servidor nuevo o existente/g" SetupMinecraft.sh
 sudo sed -i "s/don't use minecraftbe/no uses minecraftbe/g" SetupMinecraft.sh
 sudo sed -i "s/It will be used in the folder name and service name/Se utilizará en el nombre de la carpeta y el nombre del servicio./g" SetupMinecraft.sh
 
-Print_Style "Traduciendo Etiqueta o apodo del Servidor" "$CYAN"
+echo -e "\e[36m Traduciendo Etiqueta o apodo del Servidor \e[0m" #CIAN
 sleep 2s
 sudo sed -i "s/Server Label/Etiqueta del Servidor/g" SetupMinecraft.sh
 
-Print_Style "Traduciendo Ingreso IPV4 e IPV6" "$GREEN"
+echo -e "\e[32m Traduciendo Ingreso IPV4 e IPV6 \e[0m" #VERDE
 sleep 2s
 # IPV4
 sudo sed -i "s/Enter server IPV4 port/Ingrese el Puerto IPV4 del Servidor/g" SetupMinecraft.sh
@@ -207,16 +162,16 @@ sudo sed -i "s/Enter server IPV6 port/Ingrese el puerto IPV6 del Servidor/g" Set
 sudo sed -i "s/default 19133/por defecto 19133/g" SetupMinecraft.sh
 sudo sed -i "s/Server IPV6 Port/Puerto IPV6 del Servidor/g" SetupMinecraft.sh
 
-Print_Style "Traduciendo Inicio del Servidor" "$CYAN"
+echo -e "\e[36m Traduciendo Inicio del Servidor \e[0m" #CIAN
 sleep 2s
 sudo sed -i "s/Start Minecraft server at startup automatically/Iniciar el servidor de Minecraft al inicio automáticamente/g" SetupMinecraft.sh
 
-Print_Style "Traduciendo Hacer copias de Seguridad" "$GREEN"
+echo -e "\e[32m Traduciendo Hacer copias de Seguridad \e[0m" #VERDE
 sleep 2s
 sudo sed -i "s/Automatically restart and backup server at 4am daily/Reiniciar y hacer copia del mundo a las 4am todos los dias/g" SetupMinecraft.sh
 sleep 2s
 
-Print_Style "Traduciendo Configuración Reinicio" "$CYAN"
+echo -e "\e[36m Traduciendo Configuración Reinicio \e[0m" #CIAN
 sleep 2s
 sudo sed -i "s/Your time zone is currently set to/Su zona horaria está configurada actualmente en/g" SetupMinecraft.sh
 sudo sed -i "s/Current system time/Hora actual del sistema/g" SetupMinecraft.sh
@@ -234,7 +189,7 @@ echo "========================================================================="
 
 # Desactivando eliminacion de SetupMinecraft.sh para que no lo descargue de nuevo
 echo "========================================================================="
-Print_Style "Desactivando eliminacion de SetupMinecraft.sh" "$YELLOW"
+echo -e "\e[33m Desactivando eliminacion de SetupMinecraft.sh \e[0m" #AMARILLO
 sudo sed -i "s/-e \"SetupMinecraft.sh\"/-e \"SetupMinecraft_old.sh\"/g" SetupMinecraft.sh
 sudo sed -i "s/rm -f/# rm -f/g" SetupMinecraft.sh
 sudo sed -i "s/curl https/# curl https/g" SetupMinecraft.sh
@@ -250,8 +205,9 @@ echo "========================================================================="
 
 # Ejecutar SetupMinecraft.sh Modificado
 echo "========================================================================="
-Print_Style "Ejecutando SetupMinecraft.sh" "$MAGENTA"
+echo -e "\e[35m Ejecutando SetupMinecraft.sh \e[0m" #MORADO
 sleep 4s
 # curl $DirName/SetupMinecraft.sh | bash
 /bin/bash SetupMinecraft.sh 
 echo "========================================================================="
+
