@@ -479,6 +479,11 @@ Print_Style "Ingrese desde el navegador web con:" "$CYAN"
 Print_Style "http://$IPV4:$Port/" "$RED"
 echo "========================================================================="
 fi
+
+cd ~
+cd minecraftbe
+sudo cp version.php /var/www/html/
+
 #Elimina repositorio clonado
 cd ~
 cd minecraftbe
