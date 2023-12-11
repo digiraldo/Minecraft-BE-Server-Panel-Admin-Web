@@ -236,24 +236,24 @@ fi
 cd ~
 cd minecraftbe
 
-#  echo "========================================================================="
-#  if [ -e "/etc/nginx/sites-available/misitio.conf" ]; then
-#  Print_Style "¡El Servidor Web ya existe! Actualizando Panel Web..." "$YELLOW"
-#  echo "========================================================================="
-#  sleep 4s
+echo "========================================================================="
+if [ -e "/etc/nginx/sites-available/misitio.conf" ]; then
+Print_Style "¡El Servidor Web ya existe! Actualizando Panel Web..." "$YELLOW"
+echo "========================================================================="
+sleep 4s
 
-#  echo "================CONFIGURACIÓN DEL SERVIDOR WEB================"
-#  echo "========================================================================="
-#  sudo sed -n "/server_name/p" /etc/nginx/sites-available/misitio.conf | sed 's/server_name/Url o IP del Servidor Web: ..... /'
-#  sudo sed -n "/listen/p" /etc/nginx/sites-available/misitio.conf | sed 's/listen/Puerto del Servidor Web: ....... /'
-#  Print_Style "Verificando srvdatos.json" "$MAGENTA"
+echo "================CONFIGURACIÓN DEL SERVIDOR WEB================"
+echo "========================================================================="
+sudo sed -n "/server_name/p" /etc/nginx/sites-available/misitio.conf | sed 's/server_name/Url o IP del Servidor Web: ..... /'
+sudo sed -n "/listen/p" /etc/nginx/sites-available/misitio.conf | sed 's/listen/Puerto del Servidor Web: ....... /'
+Print_Style "Verificando srvdatos.json" "$MAGENTA"
 jq ".[8].spain" srvdatos.json
 jq ".[12].spain" srvdatos.json
 sleep 3s
 
 echo "========================================================================="
-# Print_Style "Verificando Servidor Web... " "$MAGENTA"
-# sudo nginx -t
+Print_Style "Verificando Servidor Web... " "$MAGENTA"
+sudo nginx -t
 sleep 3s
 echo "========================================================================="
 
@@ -267,7 +267,8 @@ Print_Style "========================================" "$REVERSE"
 Print_Style "Instalación del servidor web Nginx y PHP" "$BLINK"
 Print_Style "========================================" "$REVERSE"
 sleep 3s
-
+Print_Style "Instalando nginx..." "$MAGENTA"
+sudo apt install nginx -y
 Print_Style "Instalando php..." "$MAGENTA"
 sudo apt update && sudo apt install php php-fpm -y
 # sudo apt update && sudo apt install php8.1 php8.1-fpm -y
@@ -277,13 +278,6 @@ sudo apt-get update
 # sudo apt -y install software-properties-common
 # sudo add-apt-repository ppa:ondrej/php
 # sudo apt update && sudo apt-get install php7.4 php7.4-fpm php7.4-cli -y
-
-
-Print_Style "Instalando nginx..." "$MAGENTA"
-# sudo apt install nginx -y
-
-##### https://www.youtube.com/watch?v=XJINEDKagL0
-
 
 echo "======================================================================================="
 Print_Style "Creando archivos del Servidor web..." "$CYAN"
