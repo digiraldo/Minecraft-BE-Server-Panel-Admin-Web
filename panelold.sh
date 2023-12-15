@@ -344,6 +344,12 @@ echo "==========================================================================
 sleep 1s
 sudo mv $DirName/minecraftbe/misitio.conf /etc/nginx/sites-available
 
+cd ~
+cd minecraftbe
+sudo cp version.php /var/www/html/
+#sudo cp -r minecraftbe/ /var/www/goro/
+#sudo cp -r directorio/ ruta_de_destino/nombre_copia
+
 echo "======================================================================================="
 echo -e "\e[36m Mostrando la versión php instalada... \e[0m" #CIAN
 sleep 1s
@@ -400,7 +406,8 @@ cd /
 cd etc
 cd nginx
 cd sites-enabled
-sudo ln -s ../sites-available/misitio.conf misitio.conf
+# sudo ln -s ../sites-available/misitio.conf misitio.conf
+sudo ln -s /etc/nginx/sites-available/misitio.conf misitio.conf
 echo "========================================================================="
 sleep 1s
 
@@ -464,6 +471,8 @@ fi
 cd ~
 cd minecraftbe
 sudo cp version.php /var/www/html/
+#sudo cp -r minecraftbe/ /var/www/goro/
+#sudo cp -r directorio/ ruta_de_destino/nombre_copia
 
 #Elimina repositorio clonado
 cd ~

@@ -416,7 +416,8 @@ cd /
 cd etc
 cd nginx
 cd sites-enabled
-sudo ln -s ../sites-available/misitio.conf misitio.conf
+# sudo ln -s ../sites-available/misitio.conf misitio.conf
+sudo ln -s /etc/nginx/sites-available/misitio.conf misitio.conf
 echo "========================================================================="
 sleep 1s
 
