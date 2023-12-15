@@ -31,6 +31,10 @@ sudo apt install software-properties-common -y
   # sudo add-apt-repository universe -y
   # sudo apt-get install ssh -y
   # sudo apt install git -y
+
+# desinstalar apache
+sudo apt-get purge apache2 -y
+
 cd ~
 if [ ! -d "backub_config" ]; then
 echo "El directorio ${BackConfig} no existe"
