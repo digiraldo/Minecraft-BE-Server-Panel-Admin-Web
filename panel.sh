@@ -100,7 +100,7 @@ echo -e "\e[33m muestra si se permite el tráfico HTTP \e[0m" #AMARILLO
 sudo ufw enable
 sleep 1s
 sudo ufw status
-sleep 1s
+sleep 3s
 # Status: active
 # 
 # To                         Action      From
