@@ -114,6 +114,7 @@ cd ~
 echo "Tomando panel.conf del repositorio..."
 curl -H "Accept-Encoding: identity" -L -o panel.conf https://github.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/raw/master/panel.conf
 chmod +x panel.conf
+sudo sed -i "s:dirname:$DirName:g" panel.conf
 sudo mv panel.conf /etc/nginx/sites-available
 
 # Descarga version.php desde el repositorio
@@ -212,7 +213,7 @@ sudo sed -i "s:MiIPV4:$IPV4:g" /etc/nginx/sites-available/panel.conf
 sudo sed -i "s/80/$Port/g" /etc/nginx/sites-available/panel.conf
 sudo sed -i "s/versionphp/$VePHP/g" /etc/nginx/sites-available/panel.conf
 #sudo sed -i "s/versionphp/$VePHP/g" /etc/nginx/sites-available/default
-sudo sed -i "s/dirname/$DirName/g" /etc/nginx/sites-available/panel.conf
+#sudo sed -i "s/dirname/$DirName/g" /etc/nginx/sites-available/panel.conf
 #sudo sed -i "s/dirname/$DirName/g" /etc/nginx/sites-available/default
 #sudo sed -i "s:Dedicated Server:$ServerName:g" $DirName/minecraftbe/$ServerName/server.properties
 echo "========================================================================="
