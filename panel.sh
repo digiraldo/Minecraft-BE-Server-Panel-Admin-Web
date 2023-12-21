@@ -1,4 +1,11 @@
-  sudo systemctl start $ServerName.service
+#!/bin/bash
+# 
+# Instrucciones: https://github.com/LomotHo/minecraft-bedrock
+# Instrucciones en Español: https://gorobeta.blogspot.com
+# Repositorio de GitHub: https://github.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web
+# Crear Usuario https://noviello.it/es/como-crear-un-usuario-de-sudo-en-linux-debian/
+
+ # sudo systemctl start $ServerName.service
 
 cd ~
   DirName=$(readlink -e ~)
