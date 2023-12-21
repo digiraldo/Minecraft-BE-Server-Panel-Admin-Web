@@ -245,6 +245,8 @@ sudo sed -i "s/80/$Port/g" $DirName/minecraftbe/config/srvdatos.json
 sudo sed -i "s/80/$Port/g" /etc/nginx/sites-available/panel.conf
 sudo sed -i "s/versionphp/$VePHP/g" /etc/nginx/sites-available/panel.conf
 sudo sed -i "s/versionphp/$VePHP/g" /etc/nginx/sites-available/default
+sudo sed -i "s/dirname/$DirName/g" /etc/nginx/sites-available/panel.conf
+sudo sed -i "s/dirname/$DirName/g" /etc/nginx/sites-available/default
 sudo sed -i "s:Dedicated Server:$ServerName:g" $DirName/minecraftbe/$ServerName/server.properties
 echo "========================================================================="
 sleep 2s
