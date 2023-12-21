@@ -235,6 +235,8 @@ cd ~
 cd minecraftbe
 sudo cp version.php /var/www/html/
 
+cd ~
+  DirName=$(readlink -e ~)
 echo "======================================================================================="
 echo -e "\e[33m Configurando la pagina web $IPV4:$Port/index.php... \e[0m" #AMARILLO
 #sudo sed -i "s:MiIPV4:$IPV4:g" $DirName/minecraftbe/config/srvdatos.json
