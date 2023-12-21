@@ -46,26 +46,6 @@ cd ~
 sudo mkdir $DirName/minecraftbe
 
 
-echo -e "\e[32m Configurando el Panel de Administración... \e[0m" #VERDE
-sleep 3s
-
-cd ~
-cd minecraftbe
-
-sudo git clone https://github.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web.git
-cd Minecraft-BE-Server-Panel-Admin-Web
-
-echo "======================================================================================="
-echo -e "\e[36m Creando directorios y archivos del panel... \e[0m" #CIAN
-sudo mv panel $DirName/minecraftbe/
-sudo mv index.php $DirName/minecraftbe/
-sudo mv shell.php $DirName/minecraftbe/
-sudo mv version.php $DirName/minecraftbe/
-sudo mv archivos.php $DirName/minecraftbe/
-
-
-
-
 sudo apt update
 
 
@@ -111,35 +91,11 @@ sleep 3s
 # Nginx HTTP (v6)            ALLOW       Anywhere (v6)
 
 
-echo "======================================================================================="
-echo -e "\e[36m Creando archivos del Servidor web... \e[0m" #CIAN
-cd ~
-cd minecraftbe
-cd Minecraft-BE-Server-Panel-Admin-Web
-sudo mv location $DirName/minecraftbe/
-sudo mv ngnixsize $DirName/minecraftbe/
-sudo mv panel.conf $DirName/minecraftbe/
-
-
-
 # Instalar PHP
 echo "========================================================================="
 echo -e "\e[35m Instalando php... \e[0m" #MORADO
 sudo apt install php php-fpm -y
 
-# Creando archivos del Servidor web...
-echo "======================================================================================="
-echo -e "\e[36m Creando archivos del Servidor web... \e[0m" #CIAN
-cd ~
-# Cambiar Panel ----------------------------
-# sudo mkdir $DirName/minecraftbe
-#cd minecraftbe
-#cd Minecraft-BE-Server-Panel-Admin-Web
-#sudo mv location $DirName/minecraftbe/
-#sudo mv ngnixsize $DirName/minecraftbe/
-#sudo mv panel.conf $DirName/minecraftbe/
-
-# Asignando $USER, usuario actual del sistema
 sudo chown -R $USER:$USER $DirName/minecraftbe
 
 
@@ -152,7 +108,19 @@ echo -e "\e[36m Creando archivo panel.conf... \e[0m" #CIAN
 sleep 1s
 echo "======================================================================================="
 sleep 1s
-sudo mv $DirName/minecraftbe/panel.conf /etc/nginx/sites-available
+
+cd ~
+# Descarga panel.conf desde el repositorio
+echo "Tomando panel.conf del repositorio..."
+curl -H "Accept-Encoding: identity" -L -o panel.conf https://github.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/raw/master/panel.conf
+chmod +x panel.conf
+sudo mv panel.conf /etc/nginx/sites-available
+
+# Descarga version.php desde el repositorio
+echo "Tomando version.php del repositorio..."
+curl -H "Accept-Encoding: identity" -L -o version.php https://github.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/raw/master/version.php
+chmod +x version.php
+sudo cp version.php $DirName/minecraftbe
 
 
 cd ~
@@ -160,6 +128,8 @@ cd minecraftbe
 sudo cp version.php /var/www/html/
 #sudo cp -r minecraftbe/ /var/www/goro/
 #sudo cp -r directorio/ ruta_de_destino/nombre_copia
+
+cd ~
 
 echo "======================================================================================="
 echo -e "\e[36m Mostrando la versión php instalada... \e[0m" #CIAN
@@ -229,14 +199,9 @@ echo -e "\e[36m Creando archivo panel.conf... \e[0m" #CIAN
 sleep 1s
 echo "======================================================================================="
 sleep 1s
-sudo mv $DirName/minecraftbe/panel.conf /etc/nginx/sites-available
 
 cd ~
-cd minecraftbe
-sudo cp version.php /var/www/html/
 
-cd ~
-  DirName=$(readlink -e ~)
 echo "======================================================================================="
 echo -e "\e[33m Configurando la pagina web $IPV4:$Port/index.php... \e[0m" #AMARILLO
 #sudo sed -i "s:MiIPV4:$IPV4:g" $DirName/minecraftbe/config/srvdatos.json
@@ -246,9 +211,9 @@ sudo sed -i "s:MiIPV4:$IPV4:g" /etc/nginx/sites-available/panel.conf
 #sudo sed -i "s/80/$Port/g" $DirName/minecraftbe/config/srvdatos.json
 sudo sed -i "s/80/$Port/g" /etc/nginx/sites-available/panel.conf
 sudo sed -i "s/versionphp/$VePHP/g" /etc/nginx/sites-available/panel.conf
-sudo sed -i "s/versionphp/$VePHP/g" /etc/nginx/sites-available/default
+#sudo sed -i "s/versionphp/$VePHP/g" /etc/nginx/sites-available/default
 sudo sed -i "s/dirname/$DirName/g" /etc/nginx/sites-available/panel.conf
-sudo sed -i "s/dirname/$DirName/g" /etc/nginx/sites-available/default
+#sudo sed -i "s/dirname/$DirName/g" /etc/nginx/sites-available/default
 #sudo sed -i "s:Dedicated Server:$ServerName:g" $DirName/minecraftbe/$ServerName/server.properties
 echo "========================================================================="
 sleep 2s
@@ -274,8 +239,8 @@ echo "========================================================================="
 
 echo "========================================================================="
 echo -e "\e[35m Reiniciando Servidor Web...  \e[0m" #MORADO
-sleep 1s
 sudo systemctl restart nginx
+sleep 1s
 echo "========================================================================="
 
 echo "."
