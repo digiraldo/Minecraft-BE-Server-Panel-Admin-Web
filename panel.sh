@@ -72,7 +72,7 @@ sleep 2s
 # verificar el cambio muestra que ahora se permite el tráfico HTTP
 echo "========================================================================="
 echo -e "\e[33m muestra si se permite el tráfico HTTP \e[0m" #AMARILLO
-sudo ufw enable -y
+sudo ufw enable
 sleep 1s
 sudo ufw status
 sleep 1s
