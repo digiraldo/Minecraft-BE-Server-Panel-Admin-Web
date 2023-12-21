@@ -27,7 +27,7 @@ echo "========================================================================="
 # Repositorio de GitHub: https://github.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web
 
 cd ~
-
+isitio.conf
   # Eliminar scripts existentes
   sudo rm -rf cloud.sh back.sh panel.sh config.sh prop.sh
   sleep 2s

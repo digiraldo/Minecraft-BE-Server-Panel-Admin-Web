@@ -139,7 +139,7 @@ echo "==========================================================================
 echo "========================================================================="
 echo "Configurar versión de php instalada:"
 echo -e "\e[36m Ejemplo Valores permitidos: "7.2" o "7.4" o "8.1" \e[0m" #CIAN
-read_with_prompt VePHP "Versión PHP"
+read_with_prompt VePHP "Versión PHP" 8.1
 echo "========================================================================="
 
 # Ver la ip del equipo
@@ -152,6 +152,20 @@ hostname -I
 MYIPV4=$(hostname -I)
 # echo "$MYIPV4"
 sleep 1s
+
+# Digitar la ip del equipo
+echo "========================================================================="
+echo -e "\e[35m Introduzca la IP - IPV4 del servidor:  $MYIPV4 \e[0m" #MORADO
+read_with_prompt IPV4 "Url o dirección IP del servidor" $MYIPV4
+echo "========================================================================="
+
+# Digitar el puerto a utilizar
+echo "========================================================================="
+echo -e "\e[35m Introduzca el puerto para el servidor web, Puerto predeterminado: 80 \e[0m" #MORADO
+read_with_prompt Port "Numero del Puerto" 80
+echo "========================================================================="
+
+
 
 echo "========================================================================="
 echo -e "\e[33m Configurando Servidor para subir archivos grandes \e[0m" #AMARILLO
