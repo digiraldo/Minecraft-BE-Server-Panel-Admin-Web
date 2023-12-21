@@ -222,8 +222,8 @@ sleep 2s
 
 echo "======================================================================================="
 echo -e "\e[36m Creando archivo panel.conf... \e[0m" #CIAN
-sudo rm -rf /etc/nginx/sites-available/panel.conf
-sudo rm -rf /etc/nginx/sites-enabled/panel.conf
+#sudo rm -rf /etc/nginx/sites-available/panel.conf
+#sudo rm -rf /etc/nginx/sites-enabled/panel.conf
 #sudo rm -rf /etc/nginx/sites-available/default
 #sudo rm -rf /etc/nginx/sites-enabled/default
 sleep 1s
