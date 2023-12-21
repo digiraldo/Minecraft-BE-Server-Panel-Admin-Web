@@ -169,17 +169,6 @@ read_with_prompt Port "Numero del Puerto" 80
 echo "========================================================================="
 
 
-
-echo "========================================================================="
-echo -e "\e[33m Configurando Servidor para subir archivos grandes \e[0m" #AMARILLO
-sudo sed -i '/# server_tokens off;/ {
-r ngnixsize
-d}' /etc/nginx/nginx.conf
-sleep 2s
-echo "========================================================================="
-sleep 2s
-
-
 echo "======================================================================================="
 echo -e "\e[33m cargando la configuración del servidor web... \e[0m" #AMARILLO
 sudo systemctl reload nginx
@@ -187,35 +176,12 @@ sleep 1s
 echo "======================================================================================="
 
 
-echo "======================================================================================="
-echo -e "\e[32m Sincronizando Pagina Web con el Servidor de Minecraft... \e[0m" #VERDE
-sleep 2s
-
-echo "======================================================================================="
-echo -e "\e[36m Creando archivo panel.conf... \e[0m" #CIAN
-#sudo rm -rf /etc/nginx/sites-available/panel.conf
-#sudo rm -rf /etc/nginx/sites-enabled/panel.conf
-#sudo rm -rf /etc/nginx/sites-available/default
-#sudo rm -rf /etc/nginx/sites-enabled/default
-sleep 1s
-echo "======================================================================================="
-sleep 1s
-
 cd ~
-
 echo "======================================================================================="
 echo -e "\e[33m Configurando la pagina web $IPV4:$Port/index.php... \e[0m" #AMARILLO
-#sudo sed -i "s:MiIPV4:$IPV4:g" $DirName/minecraftbe/config/srvdatos.json
 sudo sed -i "s:MiIPV4:$IPV4:g" /etc/nginx/sites-available/panel.conf
-#sudo sed -i "s:PuertoIPV4:$PortIPV4:g" $DirName/minecraftbe/config/srvdatos.json
-#sudo sed -i "s:PuertoIPV6:$PortIPV6:g" $DirName/minecraftbe/config/srvdatos.json
-#sudo sed -i "s/80/$Port/g" $DirName/minecraftbe/config/srvdatos.json
 sudo sed -i "s/80/$Port/g" /etc/nginx/sites-available/panel.conf
 sudo sed -i "s/versionphp/$VePHP/g" /etc/nginx/sites-available/panel.conf
-#sudo sed -i "s/versionphp/$VePHP/g" /etc/nginx/sites-available/default
-#sudo sed -i "s/dirname/$DirName/g" /etc/nginx/sites-available/panel.conf
-#sudo sed -i "s/dirname/$DirName/g" /etc/nginx/sites-available/default
-#sudo sed -i "s:Dedicated Server:$ServerName:g" $DirName/minecraftbe/$ServerName/server.properties
 echo "========================================================================="
 sleep 2s
 
