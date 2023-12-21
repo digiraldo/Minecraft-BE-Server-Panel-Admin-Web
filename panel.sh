@@ -78,7 +78,7 @@ sudo apt install nginx -y
 echo "========================================================================="
 echo -e "\e[33m Perfiles UFW disponibles \e[0m" #AMARILLO
 sudo ufw app list
-sleep 2s
+sleep 1s
 #Available applications:
 #  Nginx Full
 #  Nginx HTTP
@@ -90,7 +90,7 @@ sleep 2s
 echo "========================================================================="
 echo -e "\e[32m Configurando el Panel de Administración... \e[0m" #VERDE
 sudo ufw allow 'Nginx HTTP'
-sleep 2s
+sleep 1s
 
 
 
