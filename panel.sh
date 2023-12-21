@@ -65,7 +65,7 @@ sleep 2s
 # verificar el cambio muestra que ahora se permite el tráfico HTTP
 echo "========================================================================="
 echo -e "\e[33m muestra si se permite el tráfico HTTP \e[0m" #AMARILLO
-sudo ufw enable
+sudo ufw enable -y
 sleep 1s
 sudo ufw status
 sleep 1s
@@ -123,7 +123,7 @@ sleep 1s
 sudo mv $DirName/minecraftbe/panel.conf /etc/nginx/sites-available
 
 
-cd~
+cd ~
 cd minecraftbe
 sudo cp version.php /var/www/html/
 #sudo cp -r minecraftbe/ /var/www/goro/
@@ -139,7 +139,7 @@ echo "==========================================================================
 echo "========================================================================="
 echo "Configurar versión de php instalada:"
 echo -e "\e[36m Ejemplo Valores permitidos: "7.2" o "7.4" o "8.1" \e[0m" #CIAN
-read_with_prompt VePHP "Versión PHP" 8.1
+read_with_prompt VePHP "Versión PHP"
 echo "========================================================================="
 
 # Ver la ip del equipo
