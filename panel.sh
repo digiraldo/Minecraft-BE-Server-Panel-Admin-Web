@@ -11,7 +11,7 @@ echo "========================================================================="
 
 # Creando directorio minecraftbe ---------------------------------------
 cd ~
-sudo mkdir /minecraftbe
+sudo mkdir $DirName/minecraftbe
 
 
 echo -e "\e[32m Configurando el Panel de Administración... \e[0m" #VERDE
@@ -100,7 +100,7 @@ echo "==========================================================================
 echo -e "\e[36m Creando archivos del Servidor web... \e[0m" #CIAN
 cd ~
 # Cambiar Panel ----------------------------
-sudo mkdir $DirName/minecraftbe
+# sudo mkdir $DirName/minecraftbe
 #cd minecraftbe
 #cd Minecraft-BE-Server-Panel-Admin-Web
 #sudo mv location $DirName/minecraftbe/
