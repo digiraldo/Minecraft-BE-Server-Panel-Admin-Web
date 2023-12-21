@@ -425,6 +425,7 @@ sudo addgroup www-data
 sudo usermod -aG sudo www-data
 sudo usermod $UserName -aG www-data
 sudo usermod www-data -aG sudo
+sudo usermod -a -G www-data root
 echo "========================================================================="
 echo "Se ha creado el usuario y el grupo www-data"
   # Print_Style "Por Favor digite la contraseña para el usuario www-data dos veces: " "$MAGENTA"
