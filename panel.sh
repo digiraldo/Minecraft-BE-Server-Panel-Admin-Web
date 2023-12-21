@@ -41,9 +41,10 @@ echo "========================================================================="
 echo "========================================================================="
 
 
-# Creando directorio minecraftbe ---------------------------------------
+# Creando directorio minecraftbe -----------------------------------------------
 cd ~
-sudo mkdir $DirName/minecraftbe
+#sudo mkdir $DirName/minecraftbe
+sudo mkdir /var/www/minecraftbe
 
 
 sudo apt update
@@ -96,7 +97,8 @@ echo "========================================================================="
 echo -e "\e[35m Instalando php... \e[0m" #MORADO
 sudo apt install php php-fpm -y
 
-sudo chown -R $USER:$USER $DirName/minecraftbe
+#sudo chown -R $USER:$USER $DirName/minecraftbe
+sudo chown -R $USER:$USER /var/www/minecraftbe
 
 
 echo "======================================================================================="
@@ -124,9 +126,9 @@ chmod +x version.php
 sudo cp version.php $DirName/minecraftbe
 
 
-cd ~
-cd minecraftbe
-sudo cp version.php /var/www/html/
+#cd ~
+#cd minecraftbe
+#sudo cp version.php /var/www/html/
 #sudo cp -r minecraftbe/ /var/www/goro/
 #sudo cp -r directorio/ ruta_de_destino/nombre_copia
 
