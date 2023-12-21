@@ -237,17 +237,17 @@ sudo cp version.php /var/www/html/
 
 echo "======================================================================================="
 echo -e "\e[33m Configurando la pagina web $IPV4:$Port/index.php... \e[0m" #AMARILLO
-sudo sed -i "s:MiIPV4:$IPV4:g" $DirName/minecraftbe/config/srvdatos.json
+#sudo sed -i "s:MiIPV4:$IPV4:g" $DirName/minecraftbe/config/srvdatos.json
 sudo sed -i "s:MiIPV4:$IPV4:g" /etc/nginx/sites-available/panel.conf
-sudo sed -i "s:PuertoIPV4:$PortIPV4:g" $DirName/minecraftbe/config/srvdatos.json
-sudo sed -i "s:PuertoIPV6:$PortIPV6:g" $DirName/minecraftbe/config/srvdatos.json
-sudo sed -i "s/80/$Port/g" $DirName/minecraftbe/config/srvdatos.json
+#sudo sed -i "s:PuertoIPV4:$PortIPV4:g" $DirName/minecraftbe/config/srvdatos.json
+#sudo sed -i "s:PuertoIPV6:$PortIPV6:g" $DirName/minecraftbe/config/srvdatos.json
+#sudo sed -i "s/80/$Port/g" $DirName/minecraftbe/config/srvdatos.json
 sudo sed -i "s/80/$Port/g" /etc/nginx/sites-available/panel.conf
 sudo sed -i "s/versionphp/$VePHP/g" /etc/nginx/sites-available/panel.conf
 sudo sed -i "s/versionphp/$VePHP/g" /etc/nginx/sites-available/default
 sudo sed -i "s/dirname/$DirName/g" /etc/nginx/sites-available/panel.conf
 sudo sed -i "s/dirname/$DirName/g" /etc/nginx/sites-available/default
-sudo sed -i "s:Dedicated Server:$ServerName:g" $DirName/minecraftbe/$ServerName/server.properties
+#sudo sed -i "s:Dedicated Server:$ServerName:g" $DirName/minecraftbe/$ServerName/server.properties
 echo "========================================================================="
 sleep 2s
 
