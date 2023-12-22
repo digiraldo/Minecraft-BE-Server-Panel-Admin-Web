@@ -428,6 +428,17 @@ cd ~
 sudo gpasswd -a www-data $UserName
 sudo chmod g+x /$DirName && chmod g+x /$DirName/minecraftbe
 
+sudo chown -hR $UserName:www-data minecraftbe
+sudo sed -i '/www-data ALL=(ALL) NOPASSWD: ALL/d' /etc/sudoers
+sudo sed -i '$a www-data ALL=(ALL) NOPASSWD: ALL' /etc/sudoers
+sudo sed -n "/www-data ALL=(ALL) NOPASSWD: ALL/p" /etc/sudoers
+sudo sed -i '/$UserName ALL=(ALL) NOPASSWD: ALL/d' /etc/sudoers
+sudo sed -i '$a $UserName ALL=(ALL) NOPASSWD: ALL' /etc/sudoers
+sudo sed -n "/$UserName ALL=(ALL) NOPASSWD: ALL/p" /etc/sudoers
+sudo sed -i '/\%developers ALL=(www-data)NOPASSWD:\/usr\/bin\/crontab/d' /etc/sudoers
+sudo sed -i '$a \%developers ALL=(www-data)NOPASSWD:\/usr\/bin\/crontab' /etc/sudoers
+sudo sed -n "/\%developers ALL=(www-data)NOPASSWD:\/usr\/bin\/crontab/p" /etc/sudoers
+
 sleep 2s
 
 echo "========================================================================="
@@ -586,6 +597,7 @@ sleep 3s
 
 #Reinicio del servidor
 sudo systemctl restart nginx
+sudo service php$VePHP-fpm restart
 
 #Permisos del servidor
 sudo chmod -R 775 $DirName/minecraftbe
