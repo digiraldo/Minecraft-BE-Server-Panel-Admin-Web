@@ -378,7 +378,7 @@ echo -e "\e[31m Dirección IP del Servidor... \e[0m" #ROJO
 hostname -I
 MYIPV4=$(hostname -I)
 # echo "$MYIPV4"
-sleep 1s
+
 
 # Digitar la ip del equipo
 echo "========================================================================="
