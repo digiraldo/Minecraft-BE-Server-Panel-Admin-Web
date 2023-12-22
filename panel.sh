@@ -184,6 +184,8 @@ sudo sed -i "s:MiIPV4:$IPV4:g" /etc/nginx/sites-available/minecraftbe
 sudo sed -i "s/80/$Port/g" /etc/nginx/sites-available/minecraftbe
 sudo sed -i "s/versionphp/$VePHP/g" /etc/nginx/sites-available/minecraftbe
 echo "========================================================================="
+sleep 1s
+sudo systemctl restart nginx
 sleep 2s
 
 echo "========================================================================="
