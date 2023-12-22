@@ -35,6 +35,7 @@ function read_with_prompt {
 cd ~
   DirName=$(readlink -e ~)
   UserName=$(whoami)
+  www=/var/www
 
 echo "========================================================================="
 echo "========================================================================="
@@ -116,19 +117,20 @@ cd ~
 echo "Tomando panel.conf del repositorio..."
 curl -H "Accept-Encoding: identity" -L -o panel.conf https://github.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/raw/master/panel.conf
 chmod +x panel.conf
-sudo sed -i "s:dirname:$DirName:g" panel.conf
+#sudo sed -i "s:dirname:$DirName:g" panel.conf
+sudo sed -i "s:dirname:$www:g" panel.conf
 sudo mv panel.conf /etc/nginx/sites-available
 
 # Descarga version.php desde el repositorio
 echo "Tomando version.php del repositorio..."
 curl -H "Accept-Encoding: identity" -L -o version.php https://github.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/raw/master/version.php
 chmod +x version.php
-sudo cp version.php $DirName/minecraftbe
+#sudo cp version.php $DirName/minecraftbe
 
 
-#cd ~
+cd ~
 #cd minecraftbe
-#sudo cp version.php /var/www/html/
+sudo cp version.php /var/www/minecraftbe
 #sudo cp -r minecraftbe/ /var/www/goro/
 #sudo cp -r directorio/ ruta_de_destino/nombre_copia
 
