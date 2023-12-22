@@ -257,6 +257,7 @@ echo "========================================================================="
 echo "========================================================================="
 echo -e "\e[35m Reiniciando Servidor Web...  \e[0m" #MORADO
 sudo systemctl restart nginx
+sudo service php$VePHP-fpm restart
 sleep 1s
 echo "========================================================================="
 
@@ -272,5 +273,6 @@ echo -e "\e[31m http://$IPV4:$Port/ \e[0m" #ROJO
 echo "========================================================================="
 
 #   tail -f /var/log/nginx/error.log
+# sudo service php8.1-fpm restart
 
 
