@@ -100,11 +100,11 @@ echo -e "\e[36m Creando archivo panel.conf... \e[0m" #CIAN
 
 # Creando directorio minecraftbe -----------------------------------------------
 cd ~
-#sudo mkdir $DirName/minecraftbe
-sudo mkdir /var/www/minecraftbe
+sudo mkdir $DirName/minecraftbe
+#sudo mkdir /var/www/minecraftbe
 
-#sudo chown -R $USER:$USER $DirName/minecraftbe
-sudo chown -R $USER:$USER /var/www/minecraftbe
+sudo chown -R $USER:$USER $DirName/minecraftbe
+#sudo chown -R $USER:$USER /var/www/minecraftbe
 
 sleep 1s
 echo "======================================================================================="
@@ -128,7 +128,7 @@ chmod +x version.php
 
 cd ~
 #cd minecraftbe
-sudo cp version.php /var/www/minecraftbe
+sudo cp version.php /var/www/html/
 #sudo cp -r minecraftbe/ /var/www/goro/
 #sudo cp -r directorio/ ruta_de_destino/nombre_copia
 
