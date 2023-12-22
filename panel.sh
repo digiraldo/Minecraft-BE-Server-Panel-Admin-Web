@@ -599,6 +599,8 @@ sleep 3s
 sudo systemctl restart nginx
 sudo service php$VePHP-fpm restart
 
+sleep 2s
+
 #Permisos del servidor
 sudo chmod -R 775 $DirName/minecraftbe
 sudo chown -hR $UserName:www-data minecraftbe
