@@ -611,13 +611,12 @@ sudo sed -n "/server-portv6=/p" server.properties | sed 's/server-portv6=/Puerto
 echo "========================================================================="
 sleep 3s
 
-#Reinicio del servidor
-sudo systemctl restart nginx
-
 #Permisos del servidor
 sudo chmod -R 775 $DirName/minecraftbe
 sudo chown -hR $UserName:www-data minecraftbe
 
+#Reinicio del servidor
+sudo systemctl restart nginx
 
 
 echo "========================================================================="

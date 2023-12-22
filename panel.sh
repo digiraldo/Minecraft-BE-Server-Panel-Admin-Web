@@ -200,6 +200,45 @@ sudo unlink /etc/nginx/sites-enabled/default
 
 
 echo "========================================================================="
+echo -e "\e[33m Configurando Permisos... \e[0m" #AMARILLO
+cd ~
+#Permisos de usuario:grupo y acceso sh desde la web
+#Creando grupo Samba
+sudo crontab -r -i
+sudo userdel -r www-data
+sleep 3s
+sudo useradd www-data
+sleep 3s
+sudo addgroup www-data
+sudo usermod -aG sudo www-data
+sudo usermod $UserName -aG www-data
+sudo usermod www-data -aG sudo
+sudo usermod -a -G www-data root
+echo "========================================================================="
+echo "Se ha creado el usuario y el grupo www-data"
+  # Print_Style "Por Favor digite la contraseña para el usuario www-data dos veces: " "$MAGENTA"
+  # sudo smbpasswd -a www-data
+echo "========================================================================="
+
+sudo chown -hR $UserName:www-data minecraftbe
+sudo sed -i '/www-data ALL=(ALL) NOPASSWD: ALL/d' /etc/sudoers
+sudo sed -i '$a www-data ALL=(ALL) NOPASSWD: ALL' /etc/sudoers
+sudo sed -n "/www-data ALL=(ALL) NOPASSWD: ALL/p" /etc/sudoers
+sudo sed -i '/$UserName ALL=(ALL) NOPASSWD: ALL/d' /etc/sudoers
+sudo sed -i '$a $UserName ALL=(ALL) NOPASSWD: ALL' /etc/sudoers
+sudo sed -n "/$UserName ALL=(ALL) NOPASSWD: ALL/p" /etc/sudoers
+sudo sed -i '/\%developers ALL=(www-data)NOPASSWD:\/usr\/bin\/crontab/d' /etc/sudoers
+sudo sed -i '$a \%developers ALL=(www-data)NOPASSWD:\/usr\/bin\/crontab' /etc/sudoers
+sudo sed -n "/\%developers ALL=(www-data)NOPASSWD:\/usr\/bin\/crontab/p" /etc/sudoers
+
+sleep 2s
+
+#Permisos del servidor
+sudo chmod -R 775 $DirName/minecraftbe
+sudo chown -hR $UserName:www-data minecraftbe
+
+
+echo "========================================================================="
 echo -e "\e[35m Verificando Servidor Web... \e[0m" #MORADO
 sudo nginx -t
 sleep 3s
