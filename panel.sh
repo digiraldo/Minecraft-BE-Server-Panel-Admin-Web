@@ -383,7 +383,6 @@ hostname -I
 sleep 1s
 MYIPV4=$(hostname -I)
 # echo "$MYIPV4"
-sleep 1s
 
 # Digitar la ip del equipo
 echo "========================================================================="
