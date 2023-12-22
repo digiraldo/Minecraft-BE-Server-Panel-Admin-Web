@@ -341,7 +341,7 @@ sleep 2s
 echo "======================================================================================="
 Print_Style "cargando la configuración del servidor web..." "$YELLOW"
 sudo systemctl restart nginx
-sudo service php$VePHP-fpm restart
+
 sleep 1s
 echo "======================================================================================="
 
