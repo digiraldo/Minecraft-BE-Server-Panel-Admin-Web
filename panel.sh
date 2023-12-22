@@ -111,12 +111,16 @@ echo "==========================================================================
 sleep 1s
 
 cd ~
+cd /etc/nginx/sites-available
+sudo cp default minecraftbe
+
+cd ~
 # Descarga panel.conf desde el repositorio
 echo "Tomando panel.conf del repositorio..."
 curl -H "Accept-Encoding: identity" -L -o panel.conf https://github.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/raw/master/panel.conf
 chmod +x panel.conf
-#sudo sed -i "s:dirname:$DirName:g" panel.conf
-sudo sed -i "s:dirname:$www:g" panel.conf
+sudo sed -i "s:dirname:$DirName:g" panel.conf
+#sudo sed -i "s:dirname:$www:g" panel.conf
 sudo mv panel.conf /etc/nginx/sites-available/minecraftbe
 
 # Descarga version.php desde el repositorio
@@ -260,3 +264,5 @@ echo "========================================================================="
 echo -e "\e[36m Ingrese desde el navegador web con: \e[0m" #CIAN
 echo -e "\e[31m http://$IPV4:$Port/ \e[0m" #ROJO
 echo "========================================================================="
+
+#   tail -f /var/log/nginx/error.log
