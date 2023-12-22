@@ -42,15 +42,6 @@ echo "========================================================================="
 echo "========================================================================="
 
 
-# Creando directorio minecraftbe -----------------------------------------------
-cd ~
-#sudo mkdir $DirName/minecraftbe
-sudo mkdir /var/www/minecraftbe
-
-#sudo chown -R $USER:$USER $DirName/minecraftbe
-sudo chown -R $USER:$USER /var/www/minecraftbe
-
-
 sudo apt update
 
 
@@ -106,10 +97,15 @@ sudo apt install php php-fpm -y
 
 echo "======================================================================================="
 echo -e "\e[36m Creando archivo panel.conf... \e[0m" #CIAN
-#sudo rm -rf /etc/nginx/sites-available/panel.conf
-#sudo rm -rf /etc/nginx/sites-enabled/panel.conf
-#sudo rm -rf /etc/nginx/sites-available/default
-#sudo rm -rf /etc/nginx/sites-enabled/default
+
+# Creando directorio minecraftbe -----------------------------------------------
+cd ~
+#sudo mkdir $DirName/minecraftbe
+sudo mkdir /var/www/minecraftbe
+
+#sudo chown -R $USER:$USER $DirName/minecraftbe
+sudo chown -R $USER:$USER /var/www/minecraftbe
+
 sleep 1s
 echo "======================================================================================="
 sleep 1s
@@ -121,7 +117,7 @@ curl -H "Accept-Encoding: identity" -L -o panel.conf https://github.com/digirald
 chmod +x panel.conf
 #sudo sed -i "s:dirname:$DirName:g" panel.conf
 sudo sed -i "s:dirname:$www:g" panel.conf
-sudo mv panel.conf /etc/nginx/sites-available
+sudo mv panel.conf /etc/nginx/sites-available/minecraftbe
 
 # Descarga version.php desde el repositorio
 echo "Tomando version.php del repositorio..."
@@ -184,17 +180,17 @@ echo "==========================================================================
 cd ~
 echo "======================================================================================="
 echo -e "\e[33m Configurando la pagina web $IPV4:$Port/index.php... \e[0m" #AMARILLO
-sudo sed -i "s:MiIPV4:$IPV4:g" /etc/nginx/sites-available/panel.conf
-sudo sed -i "s/80/$Port/g" /etc/nginx/sites-available/panel.conf
-sudo sed -i "s/versionphp/$VePHP/g" /etc/nginx/sites-available/panel.conf
+sudo sed -i "s:MiIPV4:$IPV4:g" /etc/nginx/sites-available/minecraftbe
+sudo sed -i "s/80/$Port/g" /etc/nginx/sites-available/minecraftbe
+sudo sed -i "s/versionphp/$VePHP/g" /etc/nginx/sites-available/minecraftbe
 echo "========================================================================="
 sleep 2s
 
 echo "========================================================================="
 echo -e "\e[36m Habilitando sitio añadido... \e[0m" #CIAN
 cd ~
-# sudo ln -s ../sites-available/panel.conf panel.conf
-#sudo ln -s /etc/nginx/sites-available/panel.conf panel.conf
+# sudo ln -s ../sites-available/minecraftbe minecraftbe
+#sudo ln -s /etc/nginx/sites-available/minecraftbe minecraftbe
 sudo ln -s /etc/nginx/sites-available/panel.conf /etc/nginx/sites-enabled/
 echo "========================================================================="
 sleep 1s
