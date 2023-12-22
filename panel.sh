@@ -191,7 +191,7 @@ echo -e "\e[36m Habilitando sitio añadido... \e[0m" #CIAN
 cd ~
 # sudo ln -s ../sites-available/minecraftbe minecraftbe
 #sudo ln -s /etc/nginx/sites-available/minecraftbe minecraftbe
-sudo ln -s /etc/nginx/sites-available/panel.conf /etc/nginx/sites-enabled/
+sudo ln -s /etc/nginx/sites-available/minecraftbe /etc/nginx/sites-enabled/
 echo "========================================================================="
 sleep 1s
 
