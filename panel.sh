@@ -123,7 +123,7 @@ sudo mv panel.conf /etc/nginx/sites-available/minecraftbe
 echo "Tomando version.php del repositorio..."
 curl -H "Accept-Encoding: identity" -L -o version.php https://github.com/digiraldo/Minecraft-BE-Server-Panel-Admin-Web/raw/master/version.php
 chmod +x version.php
-#sudo cp version.php $DirName/minecraftbe
+sudo cp version.php $DirName/minecraftbe
 
 
 cd ~
