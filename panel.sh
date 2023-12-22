@@ -672,3 +672,7 @@ Print_Style "emit-server-telemetry=true" "$GREEN"
 # https://www.pocketgamer.com/minecraft-pocket-edition/minecraft-bedrock-commands/
 # https://beebom.com/minecraft-bedrock-commands/
 # https://gamedb.gg/games/minecraft/item-ids-item-spawning-guide/
+
+
+# Materiales minecraftbe
+# https://www.digminecraft.com/materials/index.php

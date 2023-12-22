@@ -598,45 +598,5 @@
         "data": "0",
         "extension": "png",
         "img": "frog_spawn.png"
-    },
-    {
-        "en": "Sniffer Egg",
-        "es": "Huevo Rastreador",
-        "class": "Materiales",
-        "id": "minecraft:sniffer_egg",
-        "idm": "0",
-        "data": "",
-        "extension": "png",
-        "img": "sniffer_egg.png"
-    },
-    {
-        "en": "Suspicious Sand",
-        "es": "Arena Sospechosa",
-        "class": "Materiales",
-        "id": "minecraft:suspicious_sand",
-        "idm": "",
-        "data": "",
-        "extension": "png",
-        "img": "suspicious_sand.png"
-    },
-    {
-        "en": "Suspicious Gravel",
-        "es": "Grava Sospechosa",
-        "class": "Materiales",
-        "id": "minecraft:suspicious_gravel",
-        "idm": "",
-        "data": "",
-        "extension": "png",
-        "img": "suspicious_gravel.png"
-    },
-    {
-        "en": "Coal Ore",
-        "es": "Mineral de Carbón",
-        "class": "Minerales",
-        "id": "minecraft:coal_ore",
-        "idm": "",
-        "data": "",
-        "extension": "png",
-        "img": "coal_ore.png"
     }
 ]
