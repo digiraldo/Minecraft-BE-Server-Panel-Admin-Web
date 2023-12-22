@@ -47,6 +47,9 @@ cd ~
 #sudo mkdir $DirName/minecraftbe
 sudo mkdir /var/www/minecraftbe
 
+#sudo chown -R $USER:$USER $DirName/minecraftbe
+sudo chown -R $USER:$USER /var/www/minecraftbe
+
 
 sudo apt update
 
@@ -98,8 +101,7 @@ echo "========================================================================="
 echo -e "\e[35m Instalando php... \e[0m" #MORADO
 sudo apt install php php-fpm -y
 
-#sudo chown -R $USER:$USER $DirName/minecraftbe
-sudo chown -R $USER:$USER /var/www/minecraftbe
+
 
 
 echo "======================================================================================="
